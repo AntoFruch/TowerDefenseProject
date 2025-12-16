@@ -57,22 +57,23 @@ public class MapManager : MonoBehaviour
                 switch (pixelColor)
                 {
                     case var c when c == GRAY:
-                        Instantiate(Resources.Load("prefabs/Edge"), new Vector3(x, 0, y), Quaternion.identity);   
+                        Instantiate(Resources.Load("FBX format/tile"), new Vector3(x, 0, y), Quaternion.identity);
+                        Instantiate(Resources.Load("FBX format/wood-structure-part"), new Vector3(x, 0, y), Quaternion.identity);   
                         break;
                     case var c when c == YELLOW:
-                        Instantiate(Resources.Load("prefabs/Path"), new Vector3(x, 0, y), Quaternion.identity);   
+                        Instantiate(Resources.Load("FBX format/tile-dirt"), new Vector3(x, 0, y), Quaternion.identity);   
                         break;
                     case var c when c == RED:
-                        Instantiate(Resources.Load("prefabs/Target"), new Vector3(x, 0, y), Quaternion.identity);   
+                        Instantiate(Resources.Load("FBX format/tile-spawn-end-round"), new Vector3(x, 0, y), Quaternion.identity);   
                         break;
                     case var c when c == ORANGE:
-                        Instantiate(Resources.Load("prefabs/Intersection"), new Vector3(x, 0, y), Quaternion.identity);   
+                        Instantiate(Resources.Load("FBX format/tile-corner-square"), new Vector3(x, 0, y), Quaternion.identity);   
                         break;
                     case var c when c == GREEN:
-                        Instantiate(Resources.Load("prefabs/Entry"), new Vector3(x, 0, y), Quaternion.identity);   
+                        Instantiate(Resources.Load("FBX format/tile-spawn-end"), new Vector3(x, 0, y), Quaternion.identity);   
                         break;
                     default :
-                        Instantiate(Resources.Load("prefabs/Tile"), new Vector3(x, 0, y), Quaternion.identity);
+                        Instantiate(Resources.Load("FBX format/tile"), new Vector3(x, 0, y), Quaternion.identity);
                         break;
                 }
 
