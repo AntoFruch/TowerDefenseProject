@@ -1,13 +1,28 @@
 using UnityEngine;
+using System.IO;
 
 public class MapManager : MonoBehaviour
 {
-    [SerializeField]
-    private Texture2D image;
+    private Texture2D image; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        string path = Path.Combine(Application.dataPath, "../Maps/map_01.png");
+
+        if (File.Exists(path))
+        {
+            byte[] bytes = File.ReadAllBytes(path);
+
+            image = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+            image.LoadImage(bytes);
+        }
+        else
+        {
+            Debug.LogError("Map image not found: " + path);
+        }
+
         MapGenerator();
     }
 
