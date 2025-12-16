@@ -44,7 +44,7 @@ public class MapManager : MonoBehaviour
         Color GRAY   = new Color(229f/255f, 229f/255f, 229f/255f);
         Color YELLOW = new Color(255f/255f, 233f/255f, 127f/255f);
         Color RED = new Color(255f/255f, 0f, 0f);
-        Color ORANGE = new Color(255f/255f, 178f/255f, 128f/255f);
+        Color ORANGE = new Color(255f/255f, 178f/255f, 127f/255f);
         Color GREEN = new Color(0f, 255f/255f, 33f/255f);
 
         for (int y = 0; y < height; y++)
