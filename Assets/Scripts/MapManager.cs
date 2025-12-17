@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
+
 
 public class MapManager : MonoBehaviour
 {
-    private Texture2D image; 
-    private TileType[][] map;
+    Texture2D image;
+    TileType[][] map;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,12 +29,6 @@ public class MapManager : MonoBehaviour
 
         map = ImageToTileTypeArray(image);
         GenerateMap();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     TileType ColorToTileType(Color color)
@@ -59,6 +55,7 @@ public class MapManager : MonoBehaviour
                 return TileType.CONSTRUCTIBLE;
         }
     }
+
     TileType[][] ImageToTileTypeArray(Texture2D img)
     {
         int width  = img.width;
@@ -77,99 +74,147 @@ public class MapManager : MonoBehaviour
                 tileArray[y][x] = ColorToTileType(pixels[index]);
             }
         }
+        LogTileArray(tileArray);
         return tileArray;
     } 
-    
+    void LogTileArray(TileType[][] tileArray)
+{
+    string path = Path.Combine(Application.persistentDataPath, "map_log.txt");
+
+    using (StreamWriter writer = new StreamWriter(path, false))
+    {
+        for (int y = 0; y < tileArray.Length; y++)
+        {
+            for (int x = 0; x < tileArray[y].Length; x++)
+            {
+                writer.Write(tileArray[y][x].ToString().PadRight(15));
+            }
+            writer.WriteLine();
+        }
+    }
+
+    Debug.Log("Map log written to: " + path);
+}
+
+
     void GenerateMap()
     {
-        for (int y = 0; y < map.Length; y++)
+        for (int y=0; y<map.Length; y++)
         {
-            for (int x = 0; x < map[y].Length; x++)
+         for (int x=0; x<map.Length; x++)
             {
-
-                TileType tileType = map[y][x];
-                switch (tileType)
+                TileType type = map[y][x];
+                switch (type)
                 {
+                    case TileType.PATH or TileType.INTERSECTION or TileType.SPAWN or TileType.END:
+                        PathResolver(x,y);
+                        break;
                     case TileType.EDGE:
-                        Instantiate(Resources.Load("FBX format/tile-tree-quad"), new Vector3(x, 0, y), PathRotations(x, y));   
-                        break;
-                    case TileType.PATH:
-                        Instantiate(Resources.Load("FBX format/tile-straight"), new Vector3(x, 0, y), PathRotations(x, y));   
-                        break;
-                    case TileType.END:
-                        Instantiate(Resources.Load("FBX format/tile-spawn-end-round"), new Vector3(x, 0, y), PathRotations(x, y));   
-                        break;
-                    case TileType.INTERSECTION:
-                        Instantiate(Resources.Load("FBX format/tile-corner-square"), new Vector3(x, 0, y), PathRotations(x, y));   
-                        break;
-                    case TileType.SPAWN:
-                        Instantiate(Resources.Load("FBX format/tile-spawn-end"), new Vector3(x, 0, y), PathRotations(x, y));   
+                        Instantiate(Resources.Load("FBX format/tile-tree-quad"), new Vector3(x, 0, y), Quaternion.identity);   
                         break;
                     case TileType.CONSTRUCTIBLE:
-                        Instantiate(Resources.Load("FBX format/tile"), new Vector3(x, 0, y), PathRotations(x, y));
+                        Instantiate(Resources.Load("FBX format/tile"), new Vector3(x, 0, y), Quaternion.identity);
                         break;
                 }
-            }
-            }
+            }   
+        }
     }
-    
-    // Returns the tile types of the four adjacent tiles (UP, DOWN, LEFT, RIGHT)
-    Dictionary<UDLR, TileType> adjascentTiles(int x, int y)
+
+    // Quand la tuile est un chemin il faut savoir si c'est un chemin droit, en coin, une interection a 3 coté ou un carrefour
+    void PathResolver(int x, int y)
     {
-        return new Dictionary<UDLR, TileType>
+        bool[] adj = adjascentPath(x,y);  // {up, down, left, right}
+        Quaternion rotation = Quaternion.identity;
+        switch (adj.Sum(b => b ? 1 : 0))
         {
-            {UDLR.UP,    (y + 1 < map.Length)          ? map[y + 1][x] : TileType.VOID},
-            {UDLR.DOWN,  (y - 1 >= 0)                  ? map[y - 1][x] : TileType.VOID},
-            {UDLR.LEFT,  (x - 1 >= 0)                  ? map[y][x - 1] : TileType.VOID},
-            {UDLR.RIGHT, (x + 1 < map[0].Length) ? map[y][x + 1] : TileType.VOID}
+            case 4:
+                Instantiate(Resources.Load("FBX format/tile-crossing"), new Vector3(x, 0, y), rotation);
+                break;
+            case 3:
+                if (adj[0] && adj[2] && adj[3]) //  up left right -> vers le haut 
+                {
+                    rotation = Quaternion.Euler(0f,0f,0f);
+                } else if (adj[1] && adj[3] && adj[0]) // down right up -> vers la droite
+                {
+                    rotation = Quaternion.Euler(0f, 90f, 0f);
+                } else if (adj[2] && adj[0] && adj[1]) // left up down -> vers la gauche
+                {
+                    rotation = Quaternion.Euler(0f, 270f, 0f);
+                } else if (adj[3] && adj[1] && adj[2]) // right down left -> vers le bas
+                {
+                    rotation = Quaternion.Euler(0f, 180f, 0f);
+                }
+                Instantiate(Resources.Load("FBX format/tile-split"), new Vector3(x,0,y),rotation);
+                break;
+            case 2:
+            string corner = "FBX format/tile-corner-square";
+            string straight = "FBX format/tile-straight";
+            string straightOrCorner = straight;
+                if (adj[0] && adj[2] ) //  up left
+                {
+                    rotation = Quaternion.Euler(0f,0f,0f);
+                    straightOrCorner = corner;
+                } else if (adj[0] && adj[3]) // up right
+                {
+                    rotation = Quaternion.Euler(0f, 90f, 0f);
+                    straightOrCorner = corner;
+                } else if (adj[1] && adj[2]) // down left
+                {
+                    rotation = Quaternion.Euler(0f, 180f, 0f);
+                    straightOrCorner = corner;
+                } else if (adj[1] && adj[3]) // down right
+                {
+                    rotation = Quaternion.Euler(0f,270f, 0f);
+                    straightOrCorner = corner;
+                } else if (adj[0] && adj[1]) //up down
+                {
+                    rotation = Quaternion.Euler(0f,0f, 0f);
+                    straightOrCorner = straight;
+                } else if (adj[2] && adj[3]) //up down
+                {
+                    rotation = Quaternion.Euler(0f,90f, 0f);
+                    straightOrCorner = straight;
+                }
+
+
+                Instantiate(Resources.Load(straightOrCorner), new Vector3(x,0,y),rotation);
+                break;
+            case 1:
+                if (adj[0] || adj[1])
+                {
+                    rotation = Quaternion.Euler(0f, 0f, 0f);
+                } else if (adj[2] || adj[3])
+                {
+                    rotation = Quaternion.Euler(0f, 90f, 0f);
+                }
+                Instantiate(Resources.Load("FBX format/tile-straight"), new Vector3(x,0,y),rotation);
+                break;
+        }
+    }
+
+    bool[] adjascentPath(int x, int y)
+    {
+        bool up = y<image.height-1 ? 
+            map[y+1][x] == TileType.PATH || map[y+1][x] == TileType.INTERSECTION || map[y+1][x] == TileType.SPAWN || map[y+1][x] == TileType.END: false;
+
+        bool down = y>0 ? 
+            map[y-1][x] == TileType.PATH || map[y-1][x] == TileType.INTERSECTION || map[y-1][x] == TileType.SPAWN || map[y-1][x] == TileType.END: false;
+
+        bool right = x<image.width-1 ? 
+            map[y][x+1] == TileType.PATH || map[y][x+1] == TileType.INTERSECTION || map[y][x+1] == TileType.SPAWN || map[y][x+1] == TileType.END: false;
+
+        bool left = x>0 ? 
+            map[y][x-1] == TileType.PATH || map[y][x-1] == TileType.INTERSECTION || map[y][x-1] == TileType.SPAWN || map[y][x-1] == TileType.END: false;
+
+        return new bool[]
+        {
+            up, down, left, right
         };
     }
 
-    //Returns the rotation needed for a path tile at (x, y)
-    Quaternion PathRotations(int x, int y)
-    {
-        Dictionary<UDLR, TileType> adjascent = adjascentTiles(x, y);
-        bool up    = (adjascent[UDLR.UP]    == TileType.PATH || adjascent[UDLR.UP]    == TileType.INTERSECTION);
-        bool down  = (adjascent[UDLR.DOWN]  == TileType.PATH || adjascent[UDLR.DOWN]  == TileType.INTERSECTION);
-        bool left  = (adjascent[UDLR.LEFT]  == TileType.PATH || adjascent[UDLR.LEFT]  == TileType.INTERSECTION);
-        bool right = (adjascent[UDLR.RIGHT] == TileType.PATH || adjascent[UDLR.RIGHT] == TileType.INTERSECTION);
-        
-        switch(map[y][x]){
-
-            case TileType.INTERSECTION:
-                if (left && up) return Rotation.NORTH;
-                else if (up && right) return Rotation.EAST;
-                else if (right && down) return Rotation.SOUTH;
-                else if (down && left) return Rotation.WEST;
-                else return Rotation.NORTH;
-
-            case TileType.PATH:
-                if (left || right) return Rotation.EAST;
-                else if (up || down) return Rotation.NORTH;
-                else return Rotation.NORTH;
-
-            case TileType.SPAWN or TileType.END:
-                if (up) return Rotation.NORTH;
-                else if (right) return Rotation.EAST;
-                else if (down) return Rotation.SOUTH;
-                else if (left) return Rotation.WEST;
-                else return Rotation.NORTH;
-
-            default:
-                return Rotation.NORTH;
-
-        }
-        
-    } 
+    
 }
 
-class Rotation
-    {
-        public static Quaternion NORTH = Quaternion.Euler(0, 0, 0);
-        public static Quaternion EAST  = Quaternion.Euler(0, 90, 0);
-        public static Quaternion SOUTH = Quaternion.Euler(0, 180, 0);
-        public static Quaternion WEST  = Quaternion.Euler(0, 270, 0);
-    }
 enum TileType
 {
     EDGE, // GRAY
@@ -182,10 +227,3 @@ enum TileType
 
     VOID
 }
-enum UDLR
-    {
-        UP,
-        DOWN,
-        LEFT,
-        RIGHT
-    }
