@@ -18,6 +18,8 @@ public class ControleCamera : MonoBehaviour
     [SerializeField]
     private Transform cameraStatic;
 
+        
+
 
     void Start()
     {
@@ -38,8 +40,15 @@ public class ControleCamera : MonoBehaviour
 
         // Zoom
         float zoomInput = zoomAction.ReadValue<float>();
-        float zoomAmount = zoomInput * 1f; // Adjust zoom speed as needed
-        cameraStatic.position += cameraStatic.forward * zoomAmount;
+        float zoomAmount = zoomInput * 0.1f; // Adjust zoom speed as needed
+        cameraTransform.position += cameraTransform.forward * zoomAmount;
+
+        //RayCast
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+        Ray ray = cameraTransform.GetComponentInChildren<Camera>().ScreenPointToRay(mousePosition);
+        Debug.DrawRay(ray.origin, ray.direction * 1000, Color.red);
+    
         
+    
     }
 }
