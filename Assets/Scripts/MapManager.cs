@@ -28,7 +28,7 @@ public class MapManager : MonoBehaviour
         }
 
         map = ImageToTileTypeArray(image);
-        GenerateMap();
+         GenerateMap();
     }
 
     TileType ColorToTileType(Color color)
@@ -107,7 +107,7 @@ public class MapManager : MonoBehaviour
                 switch (type)
                 {
                     case TileType.PATH or TileType.INTERSECTION or TileType.SPAWN or TileType.END:
-                        PathResolver(x,y);
+                        PathResolver(x,y,type);
                         break;
                     case TileType.EDGE:
                         Instantiate(Resources.Load("FBX format/tile-tree-quad"), new Vector3(x, 0, y), Quaternion.identity);   
@@ -121,7 +121,7 @@ public class MapManager : MonoBehaviour
     }
 
     // Quand la tuile est un chemin il faut savoir si c'est un chemin droit, en coin, une interection a 3 coté ou un carrefour
-    void PathResolver(int x, int y)
+    void PathResolver(int x, int y, TileType type)
     {
         bool[] adj = adjascentPath(x,y);  // {up, down, left, right}
         Quaternion rotation = Quaternion.identity;
@@ -130,6 +130,7 @@ public class MapManager : MonoBehaviour
             case 4:
                 Instantiate(Resources.Load("FBX format/tile-crossing"), new Vector3(x, 0, y), rotation);
                 break;
+
             case 3:
                 if (adj[0] && adj[2] && adj[3]) //  up left right -> vers le haut 
                 {
@@ -146,6 +147,7 @@ public class MapManager : MonoBehaviour
                 }
                 Instantiate(Resources.Load("FBX format/tile-split"), new Vector3(x,0,y),rotation);
                 break;
+
             case 2:
             string corner = "FBX format/tile-corner-square";
             string straight = "FBX format/tile-straight";
@@ -160,11 +162,11 @@ public class MapManager : MonoBehaviour
                     straightOrCorner = corner;
                 } else if (adj[1] && adj[2]) // down left
                 {
-                    rotation = Quaternion.Euler(0f, 180f, 0f);
+                    rotation = Quaternion.Euler(0f, -90f, 0f);
                     straightOrCorner = corner;
                 } else if (adj[1] && adj[3]) // down right
                 {
-                    rotation = Quaternion.Euler(0f,270f, 0f);
+                    rotation = Quaternion.Euler(0f,-180f, 0f);
                     straightOrCorner = corner;
                 } else if (adj[0] && adj[1]) //up down
                 {
@@ -175,21 +177,49 @@ public class MapManager : MonoBehaviour
                     rotation = Quaternion.Euler(0f,90f, 0f);
                     straightOrCorner = straight;
                 }
+                if (type == TileType.SPAWN)
+                {
+                    Instantiate(Resources.Load("FBX format/tile-spawn-round"), new Vector3(x,0,y),rotation);
+                } else if (type == TileType.END)
+                {
+                    Instantiate(Resources.Load("FBX format/tile-spawn"), new Vector3(x,0,y),rotation);
+                } else
+                {
+                    Instantiate(Resources.Load(straightOrCorner), new Vector3(x,0,y),rotation);
 
-
-                Instantiate(Resources.Load(straightOrCorner), new Vector3(x,0,y),rotation);
+                }
+                
                 break;
+
             case 1:
-                if (adj[0] || adj[1])
+                if (adj[0])
                 {
                     rotation = Quaternion.Euler(0f, 0f, 0f);
-                } else if (adj[2] || adj[3])
+                } else if (adj[1])
+                {
+                    rotation = Quaternion.Euler(0f, 180f, 0f);
+                } else if (adj[2])
+                {
+                    rotation = Quaternion.Euler(0f, -90f, 0f);
+                } else if (adj[3])
                 {
                     rotation = Quaternion.Euler(0f, 90f, 0f);
                 }
-                Instantiate(Resources.Load("FBX format/tile-straight"), new Vector3(x,0,y),rotation);
+                
+                if (type == TileType.SPAWN)
+                {
+                    Instantiate(Resources.Load("FBX format/tile-spawn-end-round"), new Vector3(x,0,y),rotation);
+                } else if (type == TileType.END)
+                {
+                    Instantiate(Resources.Load("FBX format/tile-spawn-end"), new Vector3(x,0,y),rotation);
+                } else
+                {
+                    Instantiate(Resources.Load("FBX format/tile-straight"), new Vector3(x,0,y),rotation);
+
+                }
                 break;
         }
+
     }
 
     bool[] adjascentPath(int x, int y)

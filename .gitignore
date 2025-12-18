@@ -11,3 +11,6 @@ Assets/_Recovery/*
 #VSCode
 .vscode/*
 
+# Mac Files
+.DS_Store
+
