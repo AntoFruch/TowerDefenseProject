@@ -6,8 +6,11 @@ using System.Linq;
 
 public class MapManager : MonoBehaviour
 {
-    Texture2D image;
-    TileType[][] map;
+    [SerializeField]
+    private MapPrefabsConfig prefabConfig;
+
+    private Texture2D image;
+    private TileType[][] map;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,7 +31,7 @@ public class MapManager : MonoBehaviour
         }
 
         map = ImageToTileTypeArray(image);
-         GenerateMap();
+        GenerateMap();
     }
 
     TileType ColorToTileType(Color color)
@@ -74,27 +77,8 @@ public class MapManager : MonoBehaviour
                 tileArray[y][x] = ColorToTileType(pixels[index]);
             }
         }
-        LogTileArray(tileArray);
         return tileArray;
     } 
-    void LogTileArray(TileType[][] tileArray)
-{
-    string path = Path.Combine(Application.persistentDataPath, "map_log.txt");
-
-    using (StreamWriter writer = new StreamWriter(path, false))
-    {
-        for (int y = 0; y < tileArray.Length; y++)
-        {
-            for (int x = 0; x < tileArray[y].Length; x++)
-            {
-                writer.Write(tileArray[y][x].ToString().PadRight(15));
-            }
-            writer.WriteLine();
-        }
-    }
-
-    Debug.Log("Map log written to: " + path);
-}
 
 
     void GenerateMap()
@@ -110,10 +94,10 @@ public class MapManager : MonoBehaviour
                         PathResolver(x,y,type);
                         break;
                     case TileType.EDGE:
-                        Instantiate(Resources.Load("FBX format/tile-tree-quad"), new Vector3(x, 0, y), Quaternion.identity);   
+                        Instantiate(prefabConfig.edgeTile, new Vector3(x, 0, y), Quaternion.identity);   
                         break;
                     case TileType.CONSTRUCTIBLE:
-                        Instantiate(Resources.Load("FBX format/tile"), new Vector3(x, 0, y), Quaternion.identity);
+                        Instantiate(prefabConfig.constructibleTile, new Vector3(x, 0, y), Quaternion.identity);
                         break;
                 }
             }   
@@ -128,7 +112,7 @@ public class MapManager : MonoBehaviour
         switch (adj.Sum(b => b ? 1 : 0))
         {
             case 4:
-                Instantiate(Resources.Load("FBX format/tile-crossing"), new Vector3(x, 0, y), rotation);
+                Instantiate(prefabConfig.crossPath, new Vector3(x, 0, y), rotation);
                 break;
 
             case 3:
@@ -145,13 +129,13 @@ public class MapManager : MonoBehaviour
                 {
                     rotation = Quaternion.Euler(0f, 180f, 0f);
                 }
-                Instantiate(Resources.Load("FBX format/tile-split"), new Vector3(x,0,y),rotation);
+                Instantiate(prefabConfig.splitPath, new Vector3(x,0,y),rotation);
                 break;
 
             case 2:
-            string corner = "FBX format/tile-corner-square";
-            string straight = "FBX format/tile-straight";
-            string straightOrCorner = straight;
+                GameObject corner = prefabConfig.cornerPath;
+                GameObject straight = prefabConfig.straightPath;
+                GameObject straightOrCorner = straight;
                 if (adj[0] && adj[2] ) //  up left
                 {
                     rotation = Quaternion.Euler(0f,0f,0f);
@@ -179,14 +163,13 @@ public class MapManager : MonoBehaviour
                 }
                 if (type == TileType.SPAWN)
                 {
-                    Instantiate(Resources.Load("FBX format/tile-spawn-round"), new Vector3(x,0,y),rotation);
+                    Instantiate(prefabConfig.startTileStraight, new Vector3(x,0,y),rotation);
                 } else if (type == TileType.END)
                 {
-                    Instantiate(Resources.Load("FBX format/tile-spawn"), new Vector3(x,0,y),rotation);
+                    Instantiate(prefabConfig.endTileStraight, new Vector3(x,0,y),rotation);
                 } else
                 {
-                    Instantiate(Resources.Load(straightOrCorner), new Vector3(x,0,y),rotation);
-
+                    Instantiate(straightOrCorner, new Vector3(x,0,y),rotation);
                 }
                 
                 break;
@@ -208,20 +191,18 @@ public class MapManager : MonoBehaviour
                 
                 if (type == TileType.SPAWN)
                 {
-                    Instantiate(Resources.Load("FBX format/tile-spawn-end-round"), new Vector3(x,0,y),rotation);
+                    Instantiate(prefabConfig.startTileEnd, new Vector3(x,0,y),rotation);
                 } else if (type == TileType.END)
                 {
-                    Instantiate(Resources.Load("FBX format/tile-spawn-end"), new Vector3(x,0,y),rotation);
+                    Instantiate(prefabConfig.endTileEnd, new Vector3(x,0,y),rotation);
                 } else
                 {
-                    Instantiate(Resources.Load("FBX format/tile-straight"), new Vector3(x,0,y),rotation);
+                    Instantiate(prefabConfig.straightPath, new Vector3(x,0,y),rotation);
 
                 }
                 break;
         }
-
     }
-
     bool[] adjascentPath(int x, int y)
     {
         bool up = y<image.height-1 ? 
@@ -242,7 +223,6 @@ public class MapManager : MonoBehaviour
         };
     }
 
-    
 }
 
 enum TileType
