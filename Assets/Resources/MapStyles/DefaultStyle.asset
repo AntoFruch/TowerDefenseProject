@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3826806fb77274170ac6b8cf99b002af, type: 3}
-  m_Name: SpringStyle
+  m_Name: DefaultStyle
   m_EditorClassIdentifier: Assembly-CSharp::SpringMapPrefabsConfig
   cornerPath: {fileID: 919132149155446097, guid: c3788d8d231bdee43861dffaf86481e1, type: 3}
   straightPath: {fileID: 919132149155446097, guid: 104951ec42205ba42ac18b25a7acf6dd, type: 3}
