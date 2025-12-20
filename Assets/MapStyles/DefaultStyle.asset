@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3826806fb77274170ac6b8cf99b002af, type: 3}
+  m_Name: DefaultStyle
+  m_EditorClassIdentifier: Assembly-CSharp::SpringMapPrefabsConfig
+  cornerPath: {fileID: 919132149155446097, guid: c3788d8d231bdee43861dffaf86481e1, type: 3}
+  straightPath: {fileID: 919132149155446097, guid: 104951ec42205ba42ac18b25a7acf6dd, type: 3}
+  splitPath: {fileID: 919132149155446097, guid: 7ec177d2ac7f9ad4caf410a67e085870, type: 3}
+  crossPath: {fileID: 919132149155446097, guid: d587ec61c5a9f8c4f938bbab27618fa1, type: 3}
+  constructibleTile: {fileID: 919132149155446097, guid: e546d42efd7d3fe47b7532102c9fa13b, type: 3}
+  edgeTile: {fileID: 919132149155446097, guid: 542eec434a519724ca23825dbe0f3dce, type: 3}
+  startTileEnd: {fileID: 919132149155446097, guid: cec670817774e7c45967c5eed239f588, type: 3}
+  startTileStraight: {fileID: 919132149155446097, guid: b26c0c6d5b423ad40bda4fd08289cf50, type: 3}
+  endTileEnd: {fileID: 919132149155446097, guid: cbefa993cb2cd3245bfb165e9d359272, type: 3}
+  endTileStraight: {fileID: 919132149155446097, guid: 3555e48445a637c4c822f9bc2cc50247, type: 3}
