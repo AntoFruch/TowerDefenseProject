@@ -223,6 +223,5 @@ public class MapManager : MonoBehaviour
             up, down, left, right
         };
     }
-
 }
 
