@@ -1,4 +1,4 @@
-using UnityEngine;
+               using UnityEngine;
 using UnityEngine.InputSystem;
 
 
@@ -17,14 +17,16 @@ public class ControleCamera : MonoBehaviour
     private InputAction zoomAction;
     [SerializeField]
     private Transform cameraStatic;
-
-        
-
+    
+    //Selection
+    [SerializeField]
+    private GameObject selectiontile;
 
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");    
         zoomAction = InputSystem.actions.FindAction("Zoom");
+        selectiontile.transform.position= new Vector3(0,2,0); 
     }
     // Update is called once per frame
     void Update()
@@ -35,19 +37,35 @@ public class ControleCamera : MonoBehaviour
         float Movey = inputVector.y * 0.1f;
         float Movex = inputVector.x * 0.1f;
 
-        cameraTransform.position += new Vector3(Movex, 0, 0) ;
-        cameraTransform.position += new Vector3(0, 0, Movey);
+        cameraTransform.position += new Vector3(Movex, 0, Movex) ;
+        cameraTransform.position += new Vector3(-Movey, 0, Movey);
+        
 
         // Zoom
         float zoomInput = zoomAction.ReadValue<float>();
         float zoomAmount = zoomInput * 0.1f; // Adjust zoom speed as needed
-        cameraTransform.position += cameraTransform.forward * zoomAmount;
+        cameraStatic.position += cameraTransform.forward * zoomAmount;
+
+
 
         //RayCast
         Vector2 mousePosition = Mouse.current.position.ReadValue();
         Ray ray = cameraTransform.GetComponentInChildren<Camera>().ScreenPointToRay(mousePosition);
         Debug.DrawRay(ray.origin, ray.direction * 1000, Color.red);
-    
+
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            GameObject hitObject = hit.collider.gameObject;
+            
+            Vector3 CurrentlySelectedPosition=hitObject.transform.position;
+
+            selectiontile.transform.position = CurrentlySelectedPosition + new Vector3(0,0.25f,0);
+            
+
+            
+        }
+
         
     
     }
