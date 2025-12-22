@@ -16,7 +16,7 @@ public class MapManager : MonoBehaviour
     void Start()
     {
 
-        image = FileAPI.ReadImageAsTexture2D("../Maps/map_03.png");
+        image = FileAPI.ReadImageAsTexture2D("../Maps/map_01.png");
 
         map = ImageToTileTypeArray(image);
         RenderMap();

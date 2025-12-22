@@ -18,7 +18,11 @@ public class MapManager2 : MonoBehaviour
         image = FileAPI.ReadImageAsTexture2D("../Maps/map_03_fix.png");
 
         map = ImageToTileTypeArray(image);
-        RenderMap();
+        
+        
+        FileAPI.Log2DArray<TileType>(map, "log");
+        Debug.Log(PathVerifier.CreatePathGraph(map));
+        //RenderMap();
     }
     
 
