@@ -15,14 +15,24 @@ public class MapManager2 : MonoBehaviour
     void Start()
     {
 
-        image = FileAPI.ReadImageAsTexture2D("../Maps/map_03_fix.png");
+        image = FileAPI.ReadImageAsTexture2D("../Maps/map_04.png");
 
         map = ImageToTileTypeArray(image);
         
         
-        FileAPI.Log2DArray<TileType>(map, "log");
-        Debug.Log(PathVerifier.CreatePathGraph(map));
-        //RenderMap();
+        //FileAPI.Log2DArray<TileType>(map, "log");
+        
+        try {
+            Graph<VertexLabel> graph = PathVerifier.CreatePathGraph(map);
+            Debug.Log(graph);
+            PathVerifier.IsValidGraph(graph);
+            RenderMap();
+        }
+        catch(System.Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+        
     }
     
 

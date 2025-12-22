@@ -10,3 +10,8 @@ public enum TileType
 
     VOID
 }
+
+public enum VertexLabel
+    {
+        START, END, INTERSECTION
+    }

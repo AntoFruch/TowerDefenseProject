@@ -37,7 +37,7 @@ public class Graph<T>
 public class Vertex<T>
 {
     private Dictionary<Vertex<T>, int> neighbors;
-    private T label;
+    public T label {get; private set;}
     public Vector2Int position {get; private set;}  
 
     public Vertex(T label,Vector2Int pos)
@@ -60,12 +60,10 @@ public class Vertex<T>
         return neighbors;
     }
 
-    public T GetLabel(){ return label;}
-
     public override string ToString()
     {
         string neighborInfo = neighbors.Count > 0 
-            ? $" -> {neighbors.Count} neighbor(s): [{string.Join(", ", neighbors.Select(n => $"{n.Key.GetLabel()}(dist:{n.Value})"))}]"
+            ? $" -> {neighbors.Count} neighbor(s): [{string.Join(", ", neighbors.Select(n => $"{n.Key.label}(dist:{n.Value})"))}]"
             : " (no neighbors)";
         
         return $"[{label} at {position}]{neighborInfo}";
