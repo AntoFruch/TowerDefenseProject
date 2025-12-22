@@ -16,25 +16,14 @@ public class MapManager : MonoBehaviour
     void Start()
     {
 
-        string path = Path.Combine(Application.dataPath, "../Maps/map_03.png");
-
-        if (File.Exists(path))
-        {
-            byte[] bytes = File.ReadAllBytes(path);
-
-            image = new Texture2D(2, 2, TextureFormat.RGBA32, false);
-            image.LoadImage(bytes);
-        }
-        else
-        {
-            Debug.LogError("Map image not found: " + path);
-        }
+        image = FileAPI.ReadImageAsTexture2D("../Maps/map_01.png");
 
         map = ImageToTileTypeArray(image);
-        GenerateMap();
+        RenderMap();
     }
+    
 
-    TileType ColorToTileType(Color color)
+    private TileType ColorToTileType(Color color)
     {
         Color GRAY   = new Color(229f/255f, 229f/255f, 229f/255f);
         Color YELLOW = new Color(255f/255f, 233f/255f, 127f/255f);
@@ -59,7 +48,7 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    TileType[][] ImageToTileTypeArray(Texture2D img)
+    private TileType[][] ImageToTileTypeArray(Texture2D img)
     {
         int width  = img.width;
         int height = img.height;
@@ -80,8 +69,8 @@ public class MapManager : MonoBehaviour
         return tileArray;
     } 
 
-
-    void GenerateMap()
+    // Instancie les tuiles au bon endroit en fonction de la map
+    private void RenderMap()
     {
         for (int y=0; y<map.Length; y++)
         {
@@ -105,17 +94,18 @@ public class MapManager : MonoBehaviour
     }
 
     // Quand la tuile est un chemin il faut savoir si c'est un chemin droit, en coin, une interection a 3 coté ou un carrefour
-    void PathResolver(int x, int y, TileType type)
+    private void PathResolver(int x, int y, TileType type)
     {
         bool[] adj = adjascentPath(x,y);  // {up, down, left, right}
         Quaternion rotation = Quaternion.identity;
-        switch (adj.Sum(b => b ? 1 : 0))
-        {
-            case 4:
+        switch (adj.Sum(b => b ? 1 : 0)) // somme les booleens pour savoir combien de coté adjascents il y a
+        {  
+            case 4: // pas de question a se poser sur l'orientation, on met le carrefour
                 Instantiate(prefabConfig.crossPath, new Vector3(x, 0, y), rotation);
                 break;
 
-            case 3:
+            case 3: // il faut mettre une intersection 
+                // ROTATIONS
                 if (adj[0] && adj[2] && adj[3]) //  up left right -> vers le haut 
                 {
                     rotation = Quaternion.Euler(0f,0f,0f);
@@ -132,10 +122,12 @@ public class MapManager : MonoBehaviour
                 Instantiate(prefabConfig.splitPath, new Vector3(x,0,y),rotation);
                 break;
 
-            case 2:
+            case 2: // if faut mettre un tournant, ou un chemin droit
                 GameObject corner = prefabConfig.cornerPath;
                 GameObject straight = prefabConfig.straightPath;
                 GameObject straightOrCorner = straight;
+                // ROTATIONS
+                // // Tournants
                 if (adj[0] && adj[2] ) //  up left
                 {
                     rotation = Quaternion.Euler(0f,0f,0f);
@@ -152,7 +144,10 @@ public class MapManager : MonoBehaviour
                 {
                     rotation = Quaternion.Euler(0f,-180f, 0f);
                     straightOrCorner = corner;
-                } else if (adj[0] && adj[1]) //up down
+                } 
+                
+                // // Chemins Droits
+                else if (adj[0] && adj[1]) //up down
                 {
                     rotation = Quaternion.Euler(0f,0f, 0f);
                     straightOrCorner = straight;
@@ -161,6 +156,8 @@ public class MapManager : MonoBehaviour
                     rotation = Quaternion.Euler(0f,90f, 0f);
                     straightOrCorner = straight;
                 }
+
+                // TYPE DE TUILE
                 if (type == TileType.SPAWN)
                 {
                     Instantiate(prefabConfig.startTileStraight, new Vector3(x,0,y),rotation);
@@ -174,7 +171,8 @@ public class MapManager : MonoBehaviour
                 
                 break;
 
-            case 1:
+            case 1: // il faut mettre un chemin droit, un debut ou une fin
+                // ROTATIONS
                 if (adj[0])
                 {
                     rotation = Quaternion.Euler(0f, 0f, 0f);
@@ -189,6 +187,7 @@ public class MapManager : MonoBehaviour
                     rotation = Quaternion.Euler(0f, 90f, 0f);
                 }
                 
+                // TYPE DE TUILE
                 if (type == TileType.SPAWN)
                 {
                     Instantiate(prefabConfig.startTileEnd, new Vector3(x,0,y),rotation);
@@ -203,7 +202,9 @@ public class MapManager : MonoBehaviour
                 break;
         }
     }
-    bool[] adjascentPath(int x, int y)
+    
+    // retourne un array de boolen representant si les tuiles adjascent sont des chemins valables ou pas.
+    private bool[] adjascentPath(int x, int y)
     {
         bool up = y<image.height-1 ? 
             map[y+1][x] == TileType.PATH || map[y+1][x] == TileType.INTERSECTION || map[y+1][x] == TileType.SPAWN || map[y+1][x] == TileType.END: false;
@@ -222,18 +223,5 @@ public class MapManager : MonoBehaviour
             up, down, left, right
         };
     }
-
 }
 
-enum TileType
-{
-    EDGE, // GRAY
-    PATH, // YELLOW
-    SPAWN, // GREEN
-    END, // RED
-    INTERSECTION, // ORANGE
-
-    CONSTRUCTIBLE, // WHITE
-
-    VOID
-}

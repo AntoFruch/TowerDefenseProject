@@ -23,6 +23,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Move1",
+                    "type": "Value",
+                    "id": "6a57478b-1cac-4f9c-bacd-35ede53f6a10",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -113,6 +122,50 @@
                     "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f7deeec0-8c3b-49b7-b463-de0a72e62f24",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "ScaleVector2(y=0)",
+                    "groups": "",
+                    "action": "Move1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c77a175-4853-4121-98e5-06e5fdf836b3",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "ScaleVector2(x=0,y=-1)",
+                    "groups": "",
+                    "action": "Move1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba2b3bda-1013-4af4-b3df-976e0d238ce8",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "ScaleVector2(x=-1,y=0)",
+                    "groups": "",
+                    "action": "Move1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4e4909d6-0ac3-4304-b22a-2b9f954580b4",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "ScaleVector2(x=0)",
+                    "groups": "",
+                    "action": "Move1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
