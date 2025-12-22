@@ -11,12 +11,16 @@ public class ControleCamera : MonoBehaviour
     private Transform cameraTransform;
     [SerializeField]
     private InputAction moveAction;
+    [SerializeField]
+    private float moveSpeed = 5f;
 
     //Zoom
     [SerializeField]
     private InputAction zoomAction;
     [SerializeField]
     private Transform cameraStatic;
+    [SerializeField]
+    private float zoomSpeed = 4f;
     
     //Selection
     [SerializeField]
@@ -34,8 +38,8 @@ public class ControleCamera : MonoBehaviour
 
         //Move
         Vector2 inputVector = moveAction.ReadValue<Vector2>();
-        float Movey = inputVector.y * 0.1f;
-        float Movex = inputVector.x * 0.1f;
+        float Movey = inputVector.y * moveSpeed * Time.deltaTime;
+        float Movex = inputVector.x * moveSpeed * Time.deltaTime;
 
         cameraTransform.position += new Vector3(Movex, 0, Movex) ;
         cameraTransform.position += new Vector3(-Movey, 0, Movey);
@@ -43,7 +47,7 @@ public class ControleCamera : MonoBehaviour
 
         // Zoom
         float zoomInput = zoomAction.ReadValue<float>();
-        float zoomAmount = zoomInput * 0.1f; // Adjust zoom speed as needed
+        float zoomAmount = zoomInput * zoomSpeed * Time.deltaTime;
         cameraStatic.position += cameraTransform.forward * zoomAmount;
 
 
@@ -61,9 +65,7 @@ public class ControleCamera : MonoBehaviour
             Vector3 CurrentlySelectedPosition=hitObject.transform.position;
 
             selectiontile.transform.position = CurrentlySelectedPosition + new Vector3(0,0.25f,0);
-            
 
-            
         }
 
         
