@@ -26,15 +26,31 @@ public class ControleCamera : MonoBehaviour
     [SerializeField]
     private GameObject selectiontile;
 
+    //MouseMove 
+    [SerializeField]
+    private InputAction mousemoveAction;
+    private Vector3 dragOrigin;
+
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");    
         zoomAction = InputSystem.actions.FindAction("Zoom");
         selectiontile.transform.position= new Vector3(0,2,0); 
+        mousemoveAction = InputSystem.actions.FindAction("MouseMove");
     }
     // Update is called once per frame
     void Update()
-    {
+    {   
+        //MouseMove
+        if (mousemoveAction.WasPressedThisFrame())
+        {
+            dragOrigin = GetMouseWorldPosition();
+        }
+        if (mousemoveAction.IsPressed())
+        {
+            Vector3 difference = dragOrigin - GetMouseWorldPosition();
+            cameraTransform.position += difference;
+        }
 
         //Move
         Vector2 inputVector = moveAction.ReadValue<Vector2>();
@@ -71,4 +87,19 @@ public class ControleCamera : MonoBehaviour
         
     
     }
+    private Vector3 GetMouseWorldPosition()
+    {
+        Ray ray = cameraTransform.GetComponentInChildren<Camera>().ScreenPointToRay(Mouse.current.position.ReadValue());
+        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+        float rayDistance;
+
+        if (groundPlane.Raycast(ray, out rayDistance))
+        {
+            return ray.GetPoint(rayDistance);
+        }
+
+        return Vector3.zero;
+    }
+
+
 }
