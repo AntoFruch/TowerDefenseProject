@@ -6,7 +6,7 @@ But : Créer un jeu type Tower Defense
 **Chargement et rendu d’une carte :**
 * Chargement et visualisation d’une carte à partir du dossier Maps.
     * 6.1 et 6.4
-    * FAIT ( <code>MapManager.cs</code> gère ca tout seul)
+    * FAIT ( <code>MapManager.cs</code> gère ca tout seul )
     * possibilité de changer les prefabs correspondant au tuiles dans les Styles de map ( dossier Assets/Ressources/MapStyles )
 
 * Création du graphe des chemins.
