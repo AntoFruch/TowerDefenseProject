@@ -8,10 +8,15 @@ But : Créer un jeu type Tower Defense
     * 6.1 et 6.4
     * FAIT ( <code>MapManager.cs</code> gère ca tout seul)
     * possibilité de changer les prefabs correspondant au tuiles dans les Styles de map ( dossier Assets/Ressources/MapStyles )
+
 * Création du graphe des chemins.
-    * Ya une histoire de graphe pour guider les monstres ca a l'air chiant.
+    * FAIT
+    *  _A FAIRE PLUS TARD_ : modifier le poids des aretes avec le recouvrement ( pour l'instant c'est que distance de Manhattan )
+
 * Vérification de la jouabilité de la carte.
     * 6.2
+    * FAIT
+
 * Controlleur de caméra permettant de se déplacer sur la carte.
     * 6.4
     * FAIT (<code>ControleCamera.cs</code>)
@@ -28,7 +33,7 @@ But : Créer un jeu type Tower Defense
     * on clique sur un batiment et ca nous propose quoi faire ( ameliorer,  supprimer, modifer ? )
 * Spawn et déplacement des monstres.
     * 9.1.1
-    * Définir les prefabs de monstres à utiliser
+    * FAIT : Définir les prefabs de monstres à utiliser 
     * Bonus : Avoir des comportements différents en fonction des monstres (plus sur, plus court, aléatoire, ...)
 * Gestion des actions des tours et bâtiments.
     * Tours
@@ -52,6 +57,7 @@ But : Créer un jeu type Tower Defense
 * Gestion de l’energie (centrale et graphe de distribution).
     * 9.4 un peu
     * Graphe d'énérgie -> different du graphe des chemins
+
 * Menus pour pouvoir choisir une carte et lancer une partie.
     * 10.1, 10.2
     * Nouvelle scène
@@ -62,6 +68,7 @@ But : Créer un jeu type Tower Defense
     * cliquer sur le nom de la map -> charge la scene avec la bonne map 
         * jsp comment changer le drag and drop de MapManager avec du code ou meme si c'est comme ca que faut faire mais on demandera au prof / on se documentera
     *  _eventuellement preview de la map mais pas sûr_
+
 * Système de paramêtres sauvegardés dans les PlayerPrefs Unity.
     * Gestion des touches ?
     * taille du HUD ?
