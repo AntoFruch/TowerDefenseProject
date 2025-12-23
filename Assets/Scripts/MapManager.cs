@@ -3,23 +3,37 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 
-
 public class MapManager : MonoBehaviour
 {
     [SerializeField]
     private MapPrefabsConfig prefabConfig;
 
     private Texture2D image;
-    private TileType[][] map;
+    public static TileType[][] map;
+
+    public static Graph<VertexLabel> graph;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
-        image = FileAPI.ReadImageAsTexture2D("../Maps/map_01.png");
+        image = FileAPI.ReadImageAsTexture2D("../Maps/map_03_fix.png");
 
         map = ImageToTileTypeArray(image);
-        RenderMap();
+        
+        
+        //FileAPI.Log2DArray<TileType>(map, "log");
+        
+        try {
+            MapManager.graph = PathVerifier.CreatePathGraph(map);
+            Debug.Log(graph);
+            PathVerifier.IsValidGraph(graph);
+            RenderMap();
+        }
+        catch(System.Exception e)
+        {
+            Debug.Log(e.Message);
+        }
     }
     
 
@@ -74,13 +88,100 @@ public class MapManager : MonoBehaviour
     {
         for (int y=0; y<map.Length; y++)
         {
-         for (int x=0; x<map.Length; x++)
+         for (int x=0; x<map[0].Length; x++)
             {
                 TileType type = map[y][x];
+                bool[] adj = adjascentPath(x,y);
+                Quaternion rotation = Quaternion.identity;
                 switch (type)
                 {
-                    case TileType.PATH or TileType.INTERSECTION or TileType.SPAWN or TileType.END:
-                        PathResolver(x,y,type);
+                    case TileType.PATH:
+                        if (adj[0] && adj[1])
+                        {
+                            rotation = Quaternion.Euler(0f, 0f, 0f);
+                        } else if (adj[2] && adj[3])
+                        {
+                            rotation = Quaternion.Euler(0f, 90f, 0f);
+                        }
+
+                        Instantiate(prefabConfig.straightPath, new Vector3(x,0,y),rotation);
+                        break;
+                    case TileType.INTERSECTION:
+                        switch (adj.Sum(b => b ? 1 : 0))
+                        {
+                            case 4: // pas de question a se poser sur l'orientation, on met le carrefour
+                                Instantiate(prefabConfig.crossPath, new Vector3(x, 0, y), rotation);
+                                break;
+                            case 3: // il faut mettre une intersection 
+                                if (adj[0] && adj[2] && adj[3]) //  up left right -> vers le haut 
+                                {
+                                    rotation = Quaternion.Euler(0f,0f,0f);
+                                } else if (adj[1] && adj[3] && adj[0]) // down right up -> vers la droite
+                                {
+                                    rotation = Quaternion.Euler(0f, 90f, 0f);
+                                } else if (adj[2] && adj[0] && adj[1]) // left up down -> vers la gauche
+                                {
+                                    rotation = Quaternion.Euler(0f, 270f, 0f);
+                                } else if (adj[3] && adj[1] && adj[2]) // right down left -> vers le bas
+                                {
+                                    rotation = Quaternion.Euler(0f, 180f, 0f);
+                                }
+                                Instantiate(prefabConfig.splitPath, new Vector3(x,0,y),rotation);
+                                break;
+                            case 2: 
+                                if (adj[0] && adj[2] ) //  up left
+                                {
+                                    rotation = Quaternion.Euler(0f,0f,0f);
+                                } else if (adj[0] && adj[3]) // up right
+                                {
+                                    rotation = Quaternion.Euler(0f, 90f, 0f);
+                                } else if (adj[1] && adj[2]) // down left
+                                {
+                                    rotation = Quaternion.Euler(0f, -90f, 0f);
+                                } else if (adj[1] && adj[3]) // down right
+                                {
+                                    rotation = Quaternion.Euler(0f,-180f, 0f); 
+                                }
+                                Instantiate(prefabConfig.cornerPath, new Vector3(x,0,y),rotation); 
+                                break;
+                            }
+                            break;
+                    case TileType.SPAWN or TileType.END:
+                        bool end = true;
+                        if (adj[0])
+                        {
+                            rotation = Quaternion.Euler(0f, 0f, 0f);
+                            
+                        } else if (adj[1])
+                        {
+                            rotation = Quaternion.Euler(0f, 180f, 0f);
+                        } else if (adj[2])
+                        {
+                            rotation = Quaternion.Euler(0f, -90f, 0f);
+                        } else if (adj[3])
+                        {
+                            rotation = Quaternion.Euler(0f, 90f, 0f);
+                        }
+                        
+                        if (adj[0] && adj[1])
+                        {
+                            rotation = Quaternion.Euler(0f, 0f, 0f);
+                            end = false;
+                        } else if (adj[2] && adj[3])
+                        {
+                            rotation = Quaternion.Euler(0f, 90f, 0f);
+                            end = false;
+                        }
+                        
+                        // TYPE DE TUILE
+                        if (type == TileType.SPAWN)
+                        {
+                            Instantiate(end ? prefabConfig.startTileEnd : prefabConfig.startTileStraight, new Vector3(x,0,y),rotation);
+                        } else if (type == TileType.END)
+                        {
+                            Instantiate(end ? prefabConfig.endTileEnd : prefabConfig.endTileStraight, new Vector3(x,0,y),rotation);
+                        }
+
                         break;
                     case TileType.EDGE:
                         Instantiate(prefabConfig.edgeTile, new Vector3(x, 0, y), Quaternion.identity);   
@@ -93,117 +194,7 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    // Quand la tuile est un chemin il faut savoir si c'est un chemin droit, en coin, une interection a 3 coté ou un carrefour
-    private void PathResolver(int x, int y, TileType type)
-    {
-        bool[] adj = adjascentPath(x,y);  // {up, down, left, right}
-        Quaternion rotation = Quaternion.identity;
-        switch (adj.Sum(b => b ? 1 : 0)) // somme les booleens pour savoir combien de coté adjascents il y a
-        {  
-            case 4: // pas de question a se poser sur l'orientation, on met le carrefour
-                Instantiate(prefabConfig.crossPath, new Vector3(x, 0, y), rotation);
-                break;
-
-            case 3: // il faut mettre une intersection 
-                // ROTATIONS
-                if (adj[0] && adj[2] && adj[3]) //  up left right -> vers le haut 
-                {
-                    rotation = Quaternion.Euler(0f,0f,0f);
-                } else if (adj[1] && adj[3] && adj[0]) // down right up -> vers la droite
-                {
-                    rotation = Quaternion.Euler(0f, 90f, 0f);
-                } else if (adj[2] && adj[0] && adj[1]) // left up down -> vers la gauche
-                {
-                    rotation = Quaternion.Euler(0f, 270f, 0f);
-                } else if (adj[3] && adj[1] && adj[2]) // right down left -> vers le bas
-                {
-                    rotation = Quaternion.Euler(0f, 180f, 0f);
-                }
-                Instantiate(prefabConfig.splitPath, new Vector3(x,0,y),rotation);
-                break;
-
-            case 2: // if faut mettre un tournant, ou un chemin droit
-                GameObject corner = prefabConfig.cornerPath;
-                GameObject straight = prefabConfig.straightPath;
-                GameObject straightOrCorner = straight;
-                // ROTATIONS
-                // // Tournants
-                if (adj[0] && adj[2] ) //  up left
-                {
-                    rotation = Quaternion.Euler(0f,0f,0f);
-                    straightOrCorner = corner;
-                } else if (adj[0] && adj[3]) // up right
-                {
-                    rotation = Quaternion.Euler(0f, 90f, 0f);
-                    straightOrCorner = corner;
-                } else if (adj[1] && adj[2]) // down left
-                {
-                    rotation = Quaternion.Euler(0f, -90f, 0f);
-                    straightOrCorner = corner;
-                } else if (adj[1] && adj[3]) // down right
-                {
-                    rotation = Quaternion.Euler(0f,-180f, 0f);
-                    straightOrCorner = corner;
-                } 
-                
-                // // Chemins Droits
-                else if (adj[0] && adj[1]) //up down
-                {
-                    rotation = Quaternion.Euler(0f,0f, 0f);
-                    straightOrCorner = straight;
-                } else if (adj[2] && adj[3]) //up down
-                {
-                    rotation = Quaternion.Euler(0f,90f, 0f);
-                    straightOrCorner = straight;
-                }
-
-                // TYPE DE TUILE
-                if (type == TileType.SPAWN)
-                {
-                    Instantiate(prefabConfig.startTileStraight, new Vector3(x,0,y),rotation);
-                } else if (type == TileType.END)
-                {
-                    Instantiate(prefabConfig.endTileStraight, new Vector3(x,0,y),rotation);
-                } else
-                {
-                    Instantiate(straightOrCorner, new Vector3(x,0,y),rotation);
-                }
-                
-                break;
-
-            case 1: // il faut mettre un chemin droit, un debut ou une fin
-                // ROTATIONS
-                if (adj[0])
-                {
-                    rotation = Quaternion.Euler(0f, 0f, 0f);
-                } else if (adj[1])
-                {
-                    rotation = Quaternion.Euler(0f, 180f, 0f);
-                } else if (adj[2])
-                {
-                    rotation = Quaternion.Euler(0f, -90f, 0f);
-                } else if (adj[3])
-                {
-                    rotation = Quaternion.Euler(0f, 90f, 0f);
-                }
-                
-                // TYPE DE TUILE
-                if (type == TileType.SPAWN)
-                {
-                    Instantiate(prefabConfig.startTileEnd, new Vector3(x,0,y),rotation);
-                } else if (type == TileType.END)
-                {
-                    Instantiate(prefabConfig.endTileEnd, new Vector3(x,0,y),rotation);
-                } else
-                {
-                    Instantiate(prefabConfig.straightPath, new Vector3(x,0,y),rotation);
-
-                }
-                break;
-        }
-    }
-    
-    // retourne un array de boolen representant si les tuiles adjascent sont des chemins valables ou pas.
+    // retourne un array de boolen representant si les tuiles adjascentes sont des chemins valables ou pas.
     private bool[] adjascentPath(int x, int y)
     {
         bool up = y<image.height-1 ? 
@@ -224,4 +215,3 @@ public class MapManager : MonoBehaviour
         };
     }
 }
-
