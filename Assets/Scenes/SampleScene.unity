@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e587869ffadb944490aae078b576f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapManager2
-  prefabConfig: {fileID: 0}
+  prefabConfig: {fileID: 11400000, guid: 49a36f366fd8c45ef9412e1edcfd569e, type: 2}
 --- !u!4 &1905151052
 Transform:
   m_ObjectHideFlags: 0

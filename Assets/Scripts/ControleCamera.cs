@@ -76,11 +76,27 @@ public class ControleCamera : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            GameObject hitObject = hit.collider.gameObject;
             
-            Vector3 CurrentlySelectedPosition=hitObject.transform.position;
+            GameObject hitObject = hit.collider.gameObject;
+            float y = hitObject.transform.position.y;
+            float x = hitObject.transform.position.x;
+            int X = Mathf.RoundToInt(x);
+            int Y = Mathf.RoundToInt(y);
 
-            selectiontile.transform.position = CurrentlySelectedPosition + new Vector3(0,0.25f,0);
+
+            if (MapManager.map[Y][X] == TileType.CONSTRUCTIBLE)
+            {
+                Vector3 CurrentlySelectedPosition=hitObject.transform.position;
+
+                selectiontile.transform.position = CurrentlySelectedPosition + new Vector3(0,0.25f,0);    
+            }
+
+            else 
+            {
+                selectiontile.transform.position= new Vector3(0,100,0); 
+            }
+
+            
 
         }
 
