@@ -1,0 +1,7 @@
+:root {
+}
+
+.menu-button {
+    opacity: 1;
+    align-items: auto;
+}
