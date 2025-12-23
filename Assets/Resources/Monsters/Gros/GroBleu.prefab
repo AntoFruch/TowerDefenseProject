@@ -919,7 +919,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.32945, y: 0.504, z: -11.586275}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8924660914811994992}
@@ -975,7 +975,7 @@ CharacterController:
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.01
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.98, z: 0}
 --- !u!114 &7847941225582205324
@@ -991,8 +991,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
   moveSpeed: 3
-  rotationSpeed: 90
-  pauseDuration: 2
 --- !u!114 &1422598875481831079
 MonoBehaviour:
   m_ObjectHideFlags: 0
