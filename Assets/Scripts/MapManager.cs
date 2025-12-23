@@ -34,10 +34,14 @@ public class MapManager : MonoBehaviour
         {  
             Debug.Log(e.Message);
         }
+        Instantiate(Resources.Load("Monsters/Gros/GroBleu"), new Vector3(15f,0.217999905f,13f),Quaternion.identity);
+        Instantiate(Resources.Load("Monsters/Gros/GroJaune"), new Vector3(15f,0.217999905f,17f),Quaternion.identity);
+        Instantiate(Resources.Load("Monsters/Blob/Blob"), new Vector3(13f,0.217999905f,15f),Quaternion.identity);
+        Instantiate(Resources.Load("Monsters/Shell/Shell"), new Vector3(17f,0.217999905f,15f),Quaternion.identity);
     }
     
 
-    private TileType ColorToTileType(Color color)
+    public static TileType ColorToTileType(Color color)
     {
         Color GRAY   = new Color(229f/255f, 229f/255f, 229f/255f);
         Color YELLOW = new Color(255f/255f, 233f/255f, 127f/255f);
@@ -62,7 +66,7 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    private TileType[][] ImageToTileTypeArray(Texture2D img)
+    public static TileType[][] ImageToTileTypeArray(Texture2D img)
     {
         int width  = img.width;
         int height = img.height;

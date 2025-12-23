@@ -136,4 +136,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dee49e22539d4cd6bd97e9b62cf4200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
-  moveSpeed: 3
+  moveSpeed: 1.5
+  rotationSpeed: 7

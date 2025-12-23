@@ -14,6 +14,6 @@ public class AnimationsHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Speed", GetComponent<CharacterMovement>().GetMoveSpeed() );
+        animator.SetFloat("Speed", GetComponent<CharacterMovement>().speed);
     }
 }
