@@ -25,13 +25,13 @@ public class MapManager : MonoBehaviour
         //FileAPI.Log2DArray<TileType>(map, "log");
         
         try {
-            MapManager.graph = PathVerifier.CreatePathGraph(map);
+            graph = PathVerifier.CreatePathGraph(map);
             Debug.Log(graph);
             PathVerifier.IsValidGraph(graph);
             RenderMap();
         }
         catch(System.Exception e)
-        {
+        {  
             Debug.Log(e.Message);
         }
     }
