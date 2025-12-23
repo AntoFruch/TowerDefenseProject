@@ -26,7 +26,7 @@ public class MEnu : MonoBehaviour
 
     private void PlayButtonOnClicked()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MapSelector");
     }
 
     private void OptionButtonOnClicked()
@@ -34,15 +34,5 @@ public class MEnu : MonoBehaviour
         Debug.Log("Option button clicked!");
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
