@@ -83,12 +83,6 @@ public class ControleCamera : MonoBehaviour
             int X = Mathf.RoundToInt(x);
             int Y = Mathf.RoundToInt(z);
             
-
-
-
-            
-            
-            
             //if (hitObject.name == "tile_with_collider(Clone)")
             if (Game.Instance.map[Y][X] == TileType.CONSTRUCTIBLE)
             {
