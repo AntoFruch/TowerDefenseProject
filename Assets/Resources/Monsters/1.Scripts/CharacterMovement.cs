@@ -18,7 +18,6 @@ public class CharacterMovement : MonoBehaviour
 
     // Animator parameter
     public float speed {get;private set;}
-
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -82,4 +81,5 @@ public class CharacterMovement : MonoBehaviour
             return false;
         } return true;
     }
+
 }

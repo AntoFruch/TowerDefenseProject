@@ -8,6 +8,9 @@ public class Game : MonoBehaviour
 {
     public static Game Instance;
     
+    //Dev
+    [SerializeField] bool spawnMobOnStart;
+
     // Map
     private MapGenerator mapGenerator;
     public TileType[][] map;
@@ -43,13 +46,16 @@ public class Game : MonoBehaviour
         mapGenerator.GenerateMap();
 
         // DEBUG : Instanciation d'ennemis sur les cases de départ
-        List<Vertex<VertexLabel>> startTiles 
+        if (spawnMobOnStart)
+        {
+            List<Vertex<VertexLabel>> startTiles 
                 = graph.GetVertices()
                         .Where(v => v.label == VertexLabel.START )
                         .ToList();
-        foreach (Vertex<VertexLabel> v in startTiles)
-        {
-            Instantiate(Resources.Load("Monsters/Gros/GroBleu"), new Vector3(v.position.x, 2.5f, v.position.y), Quaternion.identity);
+            foreach (Vertex<VertexLabel> v in startTiles)
+            {
+                Instantiate(Resources.Load("Monsters/Gros/GroBleu"), new Vector3(v.position.x, 2.5f, v.position.y), Quaternion.identity);
+            }
         }
     }
 
