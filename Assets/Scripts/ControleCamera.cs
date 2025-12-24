@@ -90,7 +90,7 @@ public class ControleCamera : MonoBehaviour
             
             
             //if (hitObject.name == "tile_with_collider(Clone)")
-            if (MapManager.map[Y][X] == TileType.CONSTRUCTIBLE)
+            if (Game.Instance.map[Y][X] == TileType.CONSTRUCTIBLE)
             {
                 Vector3 CurrentlySelectedPosition=hitObject.transform.position;
 

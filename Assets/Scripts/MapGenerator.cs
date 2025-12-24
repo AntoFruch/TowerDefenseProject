@@ -1,95 +1,17 @@
 using UnityEngine;
-using System.IO;
-using System.Collections.Generic;
 using System.Linq;
 
-public class MapManager : MonoBehaviour
+public class MapGenerator : MonoBehaviour
 {
-    [SerializeField]
+    public static TileType[][] map;
     private MapPrefabsConfig prefabConfig;
 
-    private Texture2D image;
-    public static TileType[][] map;
-
-    public static Graph<VertexLabel> graph;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-        image = FileAPI.ReadImageAsTexture2D("../Maps/map_03_fix.png");
-
-        map = ImageToTileTypeArray(image);
-        
-        
-        //FileAPI.Log2DArray<TileType>(map, "log");
-        
-        try {
-            graph = PathVerifier.CreatePathGraph(map);
-            Debug.Log(graph);
-            PathVerifier.IsValidGraph(graph);
-            RenderMap();
-        }
-        catch(System.Exception e)
-        {  
-            Debug.Log(e.Message);
-        }
-        Instantiate(Resources.Load("Monsters/Gros/GroBleu"), new Vector3(15f,0.217999905f,13f),Quaternion.identity);
-        Instantiate(Resources.Load("Monsters/Gros/GroJaune"), new Vector3(15f,0.217999905f,17f),Quaternion.identity);
-        Instantiate(Resources.Load("Monsters/Blob/Blob"), new Vector3(13f,0.217999905f,15f),Quaternion.identity);
-        Instantiate(Resources.Load("Monsters/Shell/Shell"), new Vector3(17f,0.217999905f,15f),Quaternion.identity);
-    }
-    
-
-    public static TileType ColorToTileType(Color color)
-    {
-        Color GRAY   = new Color(229f/255f, 229f/255f, 229f/255f);
-        Color YELLOW = new Color(255f/255f, 233f/255f, 127f/255f);
-        Color RED = new Color(255f/255f, 0f, 0f);
-        Color ORANGE = new Color(255f/255f, 178f/255f, 127f/255f);
-        Color GREEN = new Color(0f, 255f/255f, 33f/255f);
-
-        switch (color)
-        {
-            case var c when c == GRAY:
-                return TileType.EDGE;
-            case var c when c == YELLOW:
-                return TileType.PATH;
-            case var c when c == RED:
-                return TileType.END;
-            case var c when c == ORANGE:
-                return TileType.INTERSECTION;
-            case var c when c == GREEN:
-                return TileType.SPAWN;
-            default:
-                return TileType.CONSTRUCTIBLE;
-        }
-    }
-
-    public static TileType[][] ImageToTileTypeArray(Texture2D img)
-    {
-        int width  = img.width;
-        int height = img.height;
-
-        TileType[][] tileArray = new TileType[height][];
-
-        Color[] pixels = img.GetPixels();
-
-        for (int y = 0; y < height; y++)
-        {
-            tileArray[y] = new TileType[width];
-            for (int x = 0; x < width; x++)
-            {
-                int index = y * width + x;
-                tileArray[y][x] = ColorToTileType(pixels[index]);
-            }
-        }
-        return tileArray;
-    } 
-
     // Instancie les tuiles au bon endroit en fonction de la map
-    private void RenderMap()
+    public void GenerateMap()
     {
+        prefabConfig = Game.Instance.prefabConfig;
+        map = Game.Instance.map;
+
         for (int y=0; y<map.Length; y++)
         {
          for (int x=0; x<map[0].Length; x++)
@@ -201,13 +123,13 @@ public class MapManager : MonoBehaviour
     // retourne un array de boolen representant si les tuiles adjascentes sont des chemins valables ou pas.
     private bool[] adjascentPath(int x, int y)
     {
-        bool up = y<image.height-1 ? 
+        bool up = y<map.Length-1 ? 
             map[y+1][x] == TileType.PATH || map[y+1][x] == TileType.INTERSECTION || map[y+1][x] == TileType.SPAWN || map[y+1][x] == TileType.END: false;
 
         bool down = y>0 ? 
             map[y-1][x] == TileType.PATH || map[y-1][x] == TileType.INTERSECTION || map[y-1][x] == TileType.SPAWN || map[y-1][x] == TileType.END: false;
 
-        bool right = x<image.width-1 ? 
+        bool right = x<map[0].Length-1 ? 
             map[y][x+1] == TileType.PATH || map[y][x+1] == TileType.INTERSECTION || map[y][x+1] == TileType.SPAWN || map[y][x+1] == TileType.END: false;
 
         bool left = x>0 ? 

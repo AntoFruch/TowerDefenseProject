@@ -23,7 +23,7 @@ public class CharacterMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
 
-        graph = MapManager.graph;
+        graph = Game.Instance.graph;
 
         Vector2Int groundPos = new Vector2Int((int)transform.position.x,(int)transform.position.z);
 
