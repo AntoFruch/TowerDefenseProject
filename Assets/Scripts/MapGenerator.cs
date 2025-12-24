@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
 
 public class MapGenerator : MonoBehaviour
 {
@@ -117,6 +118,59 @@ public class MapGenerator : MonoBehaviour
                         break;
                 }
             }   
+        }
+        GenerateBorders();
+    }
+
+    public int borderSize = 30; // combien de tuiles autour de la map
+    public GameObject[] borderPrefabs; // arbres, rochers, etc.
+
+    public void GenerateBorders()
+    {
+        int mapWidth = map[0].Length;
+        int mapHeight = map.Length;
+
+        // On boucle sur toute la zone étendue
+        for (int y = -borderSize; y < mapHeight + borderSize; y++)
+        {
+            for (int x = -borderSize; x < mapWidth + borderSize; x++)
+            {
+                // On skip les tuiles déjà utilisées dans la map
+                if (x >= 0 && x < mapWidth && y >= 0 && y < mapHeight)
+                    continue;
+
+                // Position pour instancier
+                Vector3 pos = new Vector3(x, 0, y);
+
+                if (Random.value < 0.3f)
+                {
+                    float random = Random.value;
+                    if (random < 1/3f)
+                    {
+                        Instantiate(prefabConfig.singleTree, pos, Quaternion.identity);
+                    } else if (random < 2/3f)
+                    {
+                        Instantiate(prefabConfig.duoTrees, pos, Quaternion.identity);
+                    } else 
+                    {
+                        Instantiate(prefabConfig.quadTrees, pos, Quaternion.identity);
+                    }
+                } else
+                {
+                    float random = Random.value;
+                    if (random < 0.7f)
+                    {
+                        Instantiate(prefabConfig.constructibleTile, pos, Quaternion.identity);
+                    } else if (random < 0.85f)
+                    {
+                        Instantiate(prefabConfig.hill, pos, Quaternion.identity);
+                    } else
+                    {
+                        Instantiate(prefabConfig.crystals, pos, Quaternion.identity);
+
+                    }
+                }
+            }
         }
     }
 

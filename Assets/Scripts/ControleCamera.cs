@@ -99,7 +99,7 @@ public class ControleCamera : MonoBehaviour
 
             else 
             {
-                selectiontile.transform.position= new Vector3(0,100,0); 
+                selectiontile.transform.position= new Vector3(0,-5,0); 
             }
 
             

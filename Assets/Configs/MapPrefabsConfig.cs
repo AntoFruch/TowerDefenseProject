@@ -14,6 +14,8 @@ public class MapPrefabsConfig : ScriptableObject
 
     [Header("Buildable Tiles")]
     public GameObject constructibleTile;
+
+    [Header("Non-Buildable Tiles")]
     public GameObject edgeTile;
 
     [Header("Start Tiles")]
@@ -23,4 +25,12 @@ public class MapPrefabsConfig : ScriptableObject
     [Header("End Tiles")]
     public GameObject endTileEnd;
     public GameObject endTileStraight;
+
+    [Header("Decorative Tiles")]
+    public GameObject singleTree;
+    public GameObject duoTrees;
+    public GameObject quadTrees;
+    public GameObject hill;
+    public GameObject crystals;
+
 }

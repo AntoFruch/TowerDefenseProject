@@ -22,3 +22,8 @@ MonoBehaviour:
   startTileStraight: {fileID: 8786082450917905225, guid: 7d6e8189275fb5b4cbc100da98c0bc8a, type: 3}
   endTileEnd: {fileID: 6438894285219169076, guid: 13ccb4c4822f5d04c9bf1444b650cf68, type: 3}
   endTileStraight: {fileID: 7481486876341665272, guid: d6b0a22ed5a362a44b9c916b7ef1803e, type: 3}
+  singleTree: {fileID: 919132149155446097, guid: b76b69c31c062624b95b2d7c4e59b3be, type: 3}
+  duoTrees: {fileID: 919132149155446097, guid: 8cf254e1cf25a694382ea8139efa443f, type: 3}
+  quadTrees: {fileID: 919132149155446097, guid: 4843ff4501d9da542bce2c0461649b13, type: 3}
+  hill: {fileID: 919132149155446097, guid: 6d2d5da823dc41749a23d21dabe11607, type: 3}
+  crystals: {fileID: 919132149155446097, guid: f792964ac3ecfbd468528c2a29d8d3bb, type: 3}

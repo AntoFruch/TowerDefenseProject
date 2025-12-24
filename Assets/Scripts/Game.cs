@@ -38,7 +38,7 @@ public class Game : MonoBehaviour
         // DEV : En attendant que la validation se fasse côté Menu
         if (map == null)
         {
-            map = FileAPI.ImageToTileTypeArray(FileAPI.ReadImageAsTexture2D("../Maps/map_03_fix.png"));
+            map = FileAPI.ImageToTileTypeArray(FileAPI.ReadImageAsTexture2D("../Maps/map_01.png"));
             graph = PathVerifier.CreatePathGraph(map);
             PathVerifier.IsValidGraph(graph);
         }
