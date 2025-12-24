@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // class Game is the game manager, it initiates the game and provides the logic for everything.
 public class Game : MonoBehaviour
@@ -24,7 +26,6 @@ public class Game : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
             Destroy(gameObject);
@@ -35,12 +36,15 @@ public class Game : MonoBehaviour
     {
         mapGenerator = GetComponent<MapGenerator>();
 
-        // DEV : En attendant que la validation se fasse côté Menu
-        if (map == null)
+        map = FileAPI.ImageToTileTypeArray(FileAPI.ReadImageAsTexture2D("../Maps/map_03_fix.png"));
+        try 
         {
-            map = FileAPI.ImageToTileTypeArray(FileAPI.ReadImageAsTexture2D("../Maps/map_01.png"));
             graph = PathVerifier.CreatePathGraph(map);
             PathVerifier.IsValidGraph(graph);
+        } catch (System.Exception e)
+        {
+            // logique pour envoyer le message d'erreur pour que ca affiche un popup coté menu
+            SceneManager.LoadScene("MapSelector");
         }
 
         mapGenerator.GenerateMap();

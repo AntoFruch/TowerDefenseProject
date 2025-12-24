@@ -1,12 +1,16 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
+using JetBrains.Annotations;
 public class MapSelector : MonoBehaviour
 {
     private UIDocument uiDocument;
     private Button map1;
     private Button map2;
     private Button map3;
+
+    public static TileType[][] selectedMap;
 
     private void Awake()
     {
@@ -22,6 +26,7 @@ public class MapSelector : MonoBehaviour
 
     private void Map3OnClicked()
     {
+        selectedMap = FileAPI.ImageToTileTypeArray(FileAPI.ReadImageAsTexture2D("../Maps/map_03_fix.png"));
         SceneManager.LoadScene("SampleScene");
     }
 }
