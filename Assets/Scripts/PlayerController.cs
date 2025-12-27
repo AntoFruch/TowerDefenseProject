@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     
 
     // States
-    bool openHUD;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,7 +27,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         toggleBuildsHUD();
-        if (openHUD)
+        if (!Game.Instance.HUD.Wheel.active)
         {
             cameraController.MoveCam(moveCamAction, dragAction);
             cameraController.Zoom(zoomAction);
@@ -40,14 +39,11 @@ public class PlayerController : MonoBehaviour
     {
         if (selectAction.WasPerformedThisFrame())
         {
-            openHUD = !openHUD;
-            if (!openHUD){
-
-                Game.Instance.HUD.ShowWheelAtPosition(Mouse.current.position.ReadValue());
-            } else
+            if (!Game.Instance.HUD.Wheel.active)
             {
-                Game.Instance.HUD.HideWheel();
+                Game.Instance.HUD.Wheel.ShowWheelAtPosition(Mouse.current.position.ReadValue());    
             }
+            
         }
     }
 }

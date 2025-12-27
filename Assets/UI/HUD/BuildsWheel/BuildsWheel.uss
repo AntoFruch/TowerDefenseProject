@@ -69,10 +69,14 @@
     width: 60px;
     height: 60px;
     border-radius: 30px;
-    background-color: rgb(50, 50, 50);
+    background-color: rgba(255, 0, 0, 0.4);
     border-width: 4px;
     border-color: rgb(200, 200, 200);
     position: absolute;
     left: 170px;
-    top: 170px;
+    top: 145px;
+    border-left-width: 2px;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
 }

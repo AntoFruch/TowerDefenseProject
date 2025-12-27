@@ -1,0 +1,73 @@
+:root {
+}
+
+.hide {
+    display: none;
+}
+
+.wheel-container {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+.wheel-button {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    background-color: rgb(70, 130, 180);
+    border-width: 3px;
+    border-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    -unity-font-style: bold;
+    transition-duration: 0.2s;
+}
+
+.wheel-button:hover {
+    background-color: rgb(100, 160, 210);
+    scale: 1.1;
+}
+
+.wheel-button:active {
+    background-color: rgb(50, 100, 150);
+}
+
+.btn-1 {
+    left: 155px;
+    top: 73px;
+}
+
+.btn-2 {
+    left: 242px;
+    top: 160px;
+}
+
+.btn-3 {
+    left: 155px;
+    top: 240px;
+}
+
+.btn-4 {
+    left: 70px;
+    top: 159px;
+}
+
+.wheel-center {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: rgba(255, 0, 0, 0.42);
+    border-width: 4px;
+    border-color: rgb(200, 200, 200);
+    position: absolute;
+    left: 166px;
+    top: 170px;
+}

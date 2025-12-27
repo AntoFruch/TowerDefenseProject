@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,14 +13,17 @@ public class Game : MonoBehaviour
 
     // Map
     private MapGenerator mapGenerator;
-    public TileType[][] map;
-    public Graph<VertexLabel> graph;
+    public TileType[][] map {get;private set;}
+    public Graph<VertexLabel> graph {get;private set;}
 
     // Style 
     [SerializeField] public MapPrefabsConfig prefabConfig;
 
     //HUD
-    [SerializeField] public BuildWheelController HUD;
+    [SerializeField] public HUDManager HUD;
+
+    // Selector position
+    [SerializeField] public Transform selector; 
     
     void Awake()
     {
