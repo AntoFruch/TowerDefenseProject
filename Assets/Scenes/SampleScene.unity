@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 204622058}
   - component: {fileID: 204622059}
   m_Layer: 0
-  m_Name: static
+  m_Name: Cam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,37 +262,124 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControleCamera
   cameraTransform: {fileID: 1979802279}
-  moveAction:
-    m_Name: Move
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 87bd2de0-a9cb-4218-b09d-1431fd280965
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   moveSpeed: 5
-  zoomAction:
-    m_Name: Zoom
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 59cb0011-880d-4224-9efe-83778d53b8df
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   cameraStatic: {fileID: 45789589}
   zoomSpeed: 4
   selectiontile: {fileID: 109922508}
-  mousemoveAction:
-    m_Name: Mousemove
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 9abf20ff-4aa4-48d4-97f1-d882e17163e7
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
+--- !u!1 &352998437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 352998439}
+  - component: {fileID: 352998438}
+  m_Layer: 0
+  m_Name: PlayerController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &352998438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352998437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2acedd4a4ec6d8b46b02575211edb2c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  cameraController: {fileID: 204622059}
+--- !u!4 &352998439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352998437}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &579541575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 579541578}
+  - component: {fileID: 579541577}
+  - component: {fileID: 579541576}
+  m_Layer: 5
+  m_Name: HUD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &579541576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579541575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e79e9e18b86364190f0ddbdc31e770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildWheelController
+  uIDocument: {fileID: 579541577}
+--- !u!114 &579541577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579541575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 7b6f6fa215df1f647a48e312023d6c10, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 8f94b29d30a991e4089b40e47098623e, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &579541578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579541575}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1572980855
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,12 +615,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4816421359346738776, guid: acc4b0fd6e473374aaec40bda55aa106, type: 3}
+      propertyPath: HUD
+      value: 
+      objectReference: {fileID: 579541576}
+    - target: {fileID: 4816421359346738776, guid: acc4b0fd6e473374aaec40bda55aa106, type: 3}
       propertyPath: prefabConfig
       value: 
       objectReference: {fileID: 11400000, guid: 49a36f366fd8c45ef9412e1edcfd569e, type: 2}
     - target: {fileID: 4816421359346738776, guid: acc4b0fd6e473374aaec40bda55aa106, type: 3}
       propertyPath: spawnMobOnStart
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8484200028758111570, guid: acc4b0fd6e473374aaec40bda55aa106, type: 3}
       propertyPath: m_Name
@@ -552,3 +643,5 @@ SceneRoots:
   - {fileID: 1572980857}
   - {fileID: 1574660013}
   - {fileID: 867815751604744717}
+  - {fileID: 579541578}
+  - {fileID: 352998439}

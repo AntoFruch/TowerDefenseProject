@@ -1,4 +1,4 @@
-               using UnityEngine;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 
@@ -10,13 +10,9 @@ public class ControleCamera : MonoBehaviour
     [SerializeField]
     private Transform cameraTransform;
     [SerializeField]
-    private InputAction moveAction;
-    [SerializeField]
     private float moveSpeed = 5f;
 
     //Zoom
-    [SerializeField]
-    private InputAction zoomAction;
     [SerializeField]
     private Transform cameraStatic;
     [SerializeField]
@@ -27,48 +23,62 @@ public class ControleCamera : MonoBehaviour
     private GameObject selectiontile;
 
     //MouseMove 
-    [SerializeField]
-    private InputAction mousemoveAction;
     private Vector3 dragOrigin;
 
     void Start()
     {
-        moveAction = InputSystem.actions.FindAction("Move");    
-        zoomAction = InputSystem.actions.FindAction("Zoom");
         selectiontile.transform.position= new Vector3(0,2,0); 
-        mousemoveAction = InputSystem.actions.FindAction("MouseMove");
     }
     // Update is called once per frame
     void Update()
     {   
-        //MouseMove
-        if (mousemoveAction.WasPressedThisFrame())
+    
+    }
+    private Vector3 GetMouseWorldPosition()
+    {
+        Ray ray = cameraTransform.GetComponentInChildren<Camera>().ScreenPointToRay(Mouse.current.position.ReadValue());
+        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+        float rayDistance;
+
+        if (groundPlane.Raycast(ray, out rayDistance))
         {
-            dragOrigin = GetMouseWorldPosition();
-        }
-        if (mousemoveAction.IsPressed())
-        {
-            Vector3 difference = dragOrigin - GetMouseWorldPosition();
-            cameraTransform.position += difference;
+            return ray.GetPoint(rayDistance);
         }
 
-        //Move
-        Vector2 inputVector = moveAction.ReadValue<Vector2>();
+        return Vector3.zero;
+    }
+
+    public void MoveCam(InputAction move, InputAction drag)
+    {
+        // Move with ZQSD
+        Vector2 inputVector = move.ReadValue<Vector2>();
         float Movey = inputVector.y * moveSpeed * Time.deltaTime;
         float Movex = inputVector.x * moveSpeed * Time.deltaTime;
 
         cameraTransform.position += new Vector3(Movex, 0, Movex) ;
         cameraTransform.position += new Vector3(-Movey, 0, Movey);
-        
 
-        // Zoom
-        float zoomInput = zoomAction.ReadValue<float>();
+        // Move with mouse drag
+        if (drag.WasPressedThisFrame())
+        {
+            dragOrigin = GetMouseWorldPosition();
+        }
+        if (drag.IsPressed())
+        {
+            Vector3 difference = dragOrigin - GetMouseWorldPosition();
+            cameraTransform.position += difference;
+        }
+    }
+
+    public void Zoom(InputAction action)
+    {
+        float zoomInput = action.ReadValue<float>();
         float zoomAmount = zoomInput * zoomSpeed * Time.deltaTime;
         cameraStatic.position += cameraTransform.forward * zoomAmount;
+    }
 
-
-
-        //RayCast
+    public void MoveSelector()
+    {
         Vector2 mousePosition = Mouse.current.position.ReadValue();
         Ray ray = cameraTransform.GetComponentInChildren<Camera>().ScreenPointToRay(mousePosition);
         Debug.DrawRay(ray.origin, ray.direction * 1000, Color.red);
@@ -95,27 +105,7 @@ public class ControleCamera : MonoBehaviour
             {
                 selectiontile.transform.position= new Vector3(0,-5,0); 
             }
-
-            
-
         }
-
-        
-    
     }
-    private Vector3 GetMouseWorldPosition()
-    {
-        Ray ray = cameraTransform.GetComponentInChildren<Camera>().ScreenPointToRay(Mouse.current.position.ReadValue());
-        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-        float rayDistance;
-
-        if (groundPlane.Raycast(ray, out rayDistance))
-        {
-            return ray.GetPoint(rayDistance);
-        }
-
-        return Vector3.zero;
-    }
-
 
 }

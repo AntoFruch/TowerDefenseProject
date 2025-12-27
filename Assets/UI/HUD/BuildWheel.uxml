@@ -1,0 +1,12 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/HUD/BuildsWheel.uss?fileID=7433441132597879392&amp;guid=78eb94a888a18a54281177bf428b8a0f&amp;type=3#BuildsWheel" />
+    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3#Common" />
+    <ui:VisualElement name="wheel-container" class="wheel" style="height: 352px; width: 401px;">
+        <ui:VisualElement name="wheel-center" class="wheel-center" style="top: 145px; left: 173px;" />
+        <ui:Button name="btn-4" text="4" class="wheel-button btn-4" style="top: 202px; left: 118px;" />
+        <ui:Button name="btn-2" text="2" class="wheel-button btn-2" style="top: 114px; left: 237px;" />
+        <ui:Button name="btn-5" text="5" class="wheel-button btn-5" style="top: 111px; left: 81px;" />
+        <ui:Button name="btn-1" text="1" class="wheel-button btn-1" style="top: 54px; left: 160px;" />
+        <ui:Button name="btn-3" text="3" class="wheel-button btn-3" style="top: 203px; left: 212px;" />
+    </ui:VisualElement>
+</ui:UXML>

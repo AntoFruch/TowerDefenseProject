@@ -20,6 +20,9 @@ public class Game : MonoBehaviour
 
     // Style 
     [SerializeField] public MapPrefabsConfig prefabConfig;
+
+    //HUD
+    [SerializeField] public BuildWheelController HUD;
     
     void Awake()
     {
