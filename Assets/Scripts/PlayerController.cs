@@ -37,12 +37,10 @@ public class PlayerController : MonoBehaviour
 
     void toggleBuildsHUD()
     {
-        if (selectAction.WasPerformedThisFrame())
+        if (selectAction.WasPerformedThisFrame() && !Game.Instance.HUD.Wheel.active && Game.Instance.selector.position.y > 0)
         {
-            if (!Game.Instance.HUD.Wheel.active)
-            {
-                Game.Instance.HUD.Wheel.ShowWheelAtPosition(Mouse.current.position.ReadValue());    
-            }
+            Game.Instance.HUD.Wheel.ShowWheelAtPosition(Mouse.current.position.ReadValue());    
+            
             
         }
     }

@@ -33,4 +33,14 @@ public class MapPrefabsConfig : ScriptableObject
     public GameObject hill;
     public GameObject crystals;
 
+    [Header("Buildings")]
+    public GameObject redTower;
+    public GameObject yellowTower;
+    public GameObject blueTower;
+    public GameObject greenTower;
+    public GameObject powerPlant;
+    public GameObject radar;
+    public GameObject factory;
+    public GameObject storage;
+    
 }

@@ -60,10 +60,15 @@ public class Game : MonoBehaviour
                 = graph.GetVertices()
                         .Where(v => v.label == VertexLabel.START )
                         .ToList();
+            /*
             foreach (Vertex<VertexLabel> v in startTiles)
             {
-                Instantiate(Resources.Load("Monsters/Gros/GroBleu"), new Vector3(v.position.x, 2.5f, v.position.y), Quaternion.identity);
-            }
+                Instantiate(Resources.Load("Monsters/test"), new Vector3(v.position.x, 2f, v.position.y), Quaternion.identity);
+            } 
+            */
+            Instantiate(Resources.Load("Monsters/blob/blob"), new Vector3(startTiles[2].position.x, 2f, startTiles[2].position.y), Quaternion.identity);
+            Instantiate(Resources.Load("Monsters/Gros/GroBleu"), new Vector3(startTiles[0].position.x, 2f, startTiles[0].position.y), Quaternion.identity);
+
         }
     }
 

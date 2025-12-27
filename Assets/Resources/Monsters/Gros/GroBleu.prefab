@@ -901,10 +901,9 @@ GameObject:
   - component: {fileID: 2491667679224187831}
   - component: {fileID: 5967568101256683257}
   - component: {fileID: 7847941225582205324}
-  - component: {fileID: 1422598875481831079}
   m_Layer: 0
   m_Name: GroBleu
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -990,20 +989,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dee49e22539d4cd6bd97e9b62cf4200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
+  life: 10
   moveSpeed: 0.3
   rotationSpeed: 7
---- !u!114 &1422598875481831079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3338653160064792526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5970de649127a4094af18f1c1bc5de10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimationsHandler
 --- !u!1 &3514644872266141466
 GameObject:
   m_ObjectHideFlags: 0
