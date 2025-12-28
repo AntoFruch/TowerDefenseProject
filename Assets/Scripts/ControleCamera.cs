@@ -1,5 +1,6 @@
-               using UnityEngine;
+using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 
 public class ControleCamera : MonoBehaviour
@@ -31,16 +32,28 @@ public class ControleCamera : MonoBehaviour
     private InputAction mousemoveAction;
     private Vector3 dragOrigin;
 
-    void Start()
+    void Awake()
+
+{
+
     {
-        moveAction = InputSystem.actions.FindAction("Move");    
+    
+        moveAction = InputSystem.actions.FindAction("Move");
+        
         zoomAction = InputSystem.actions.FindAction("Zoom");
-        selectiontile.transform.position= new Vector3(0,2,0); 
         mousemoveAction = InputSystem.actions.FindAction("MouseMove");
     }
-    // Update is called once per frame
+    selectiontile.transform.position = new Vector3(0, 2, 0); 
+}
     void Update()
+
     {   
+        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
+    {
+        Debug.Log("Le clavier est bien détecté par Unity !");
+    }
+
+
         //MouseMove
         if (mousemoveAction.WasPressedThisFrame())
         {
@@ -54,6 +67,7 @@ public class ControleCamera : MonoBehaviour
 
         //Move
         Vector2 inputVector = moveAction.ReadValue<Vector2>();
+        
         float Movey = inputVector.y * moveSpeed * Time.deltaTime;
         float Movex = inputVector.x * moveSpeed * Time.deltaTime;
 
