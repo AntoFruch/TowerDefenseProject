@@ -14,6 +14,8 @@ public class MapPrefabsConfig : ScriptableObject
 
     [Header("Buildable Tiles")]
     public GameObject constructibleTile;
+
+    [Header("Non-Buildable Tiles")]
     public GameObject edgeTile;
 
     [Header("Start Tiles")]
@@ -23,4 +25,33 @@ public class MapPrefabsConfig : ScriptableObject
     [Header("End Tiles")]
     public GameObject endTileEnd;
     public GameObject endTileStraight;
+
+    [Header("Decorative Tiles")]
+    public GameObject singleTree;
+    public GameObject duoTrees;
+    public GameObject quadTrees;
+    public GameObject hill;
+    public GameObject crystals;
+
+    [Header("Buildings")]
+    public GameObject redTower;
+    public GameObject redTowerProjectile;
+    public GameObject yellowTower;
+    public GameObject yellowTowerProjectile;
+    public GameObject blueTower;
+    public GameObject blueTowerProjectile;
+    public GameObject greenTower;
+    public GameObject greenTowerProjectile;
+    public GameObject powerPlant;
+    public GameObject radar;
+    public GameObject factory;
+    public GameObject storage;
+
+    [Header("particles")]
+    public GameObject canonExplosion;
+    public GameObject gunShot;
+    public GameObject hit;
+    public GameObject death;
+    
+    
 }

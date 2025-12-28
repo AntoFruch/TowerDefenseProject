@@ -12,13 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3826806fb77274170ac6b8cf99b002af, type: 3}
   m_Name: WinterStyle
   m_EditorClassIdentifier: Assembly-CSharp::MapPrefabsConfig
-  cornerPath: {fileID: 919132149155446097, guid: b784a76ed0760af49bc43839c882a75d, type: 3}
-  straightPath: {fileID: 919132149155446097, guid: 994c4c947d26d4044a7a51172d670a66, type: 3}
-  splitPath: {fileID: 919132149155446097, guid: 56f44bfedf0ae2040a3431e5331d4e17, type: 3}
-  crossPath: {fileID: 919132149155446097, guid: f0453f3e4b127f7448717146d585ee80, type: 3}
+  cornerPath: {fileID: 3269984330525743818, guid: 5d5202c8ef5816344b3d10e69e420686, type: 3}
+  straightPath: {fileID: 1150928109582252800, guid: 997bcfb51300b6847933a734ba7f768e, type: 3}
+  splitPath: {fileID: 6692534775555421610, guid: 7c76e446afe81b441a7c00fde93baf78, type: 3}
+  crossPath: {fileID: 6072538647716789021, guid: d4d248a07014a0f4ca534d64cc3988fd, type: 3}
   constructibleTile: {fileID: 3744545218007128675, guid: 1d44cb116ff4a664ab4d6d39192cb7f5, type: 3}
-  edgeTile: {fileID: 919132149155446097, guid: 4843ff4501d9da542bce2c0461649b13, type: 3}
-  startTileEnd: {fileID: 919132149155446097, guid: 81e546e2f103cdb458fbe029ffd9e2ad, type: 3}
-  startTileStraight: {fileID: 919132149155446097, guid: ece85bacb50f1a6418e5f003be559f89, type: 3}
-  endTileEnd: {fileID: 919132149155446097, guid: 53706829f81064949b5f94b984db95fb, type: 3}
-  endTileStraight: {fileID: 919132149155446097, guid: d458c5271bc83624a982e9e338580743, type: 3}
+  edgeTile: {fileID: 8250789730277296991, guid: 14aa73887f85d3945a1c9beb67e30e1e, type: 3}
+  startTileEnd: {fileID: 7373591152905397998, guid: cced3d369608ca44288b17161afa42e3, type: 3}
+  startTileStraight: {fileID: 8786082450917905225, guid: 7d6e8189275fb5b4cbc100da98c0bc8a, type: 3}
+  endTileEnd: {fileID: 6438894285219169076, guid: 13ccb4c4822f5d04c9bf1444b650cf68, type: 3}
+  endTileStraight: {fileID: 7481486876341665272, guid: d6b0a22ed5a362a44b9c916b7ef1803e, type: 3}
+  singleTree: {fileID: 919132149155446097, guid: b76b69c31c062624b95b2d7c4e59b3be, type: 3}
+  duoTrees: {fileID: 919132149155446097, guid: 8cf254e1cf25a694382ea8139efa443f, type: 3}
+  quadTrees: {fileID: 919132149155446097, guid: 4843ff4501d9da542bce2c0461649b13, type: 3}
+  hill: {fileID: 919132149155446097, guid: 6d2d5da823dc41749a23d21dabe11607, type: 3}
+  crystals: {fileID: 919132149155446097, guid: f792964ac3ecfbd468528c2a29d8d3bb, type: 3}

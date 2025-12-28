@@ -1,9 +1,12 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/MenuStyles.uss?fileID=7433441132597879392&amp;guid=1707fbafac48a4944a0d65571a2337f3&amp;type=3#MenuStyles" />
-    <ui:VisualElement style="flex-grow: 1; width: 199px; opacity: 0.5; background-color: rgb(0, 0, 0);">
-        <ui:Label text="Tower Defense de &#10;Antonin et Julien " />
-        <ui:Button text="Jouer" name="Jouer" style="bottom: auto; top: auto; right: auto; left: auto; padding-left: 111px;" />
-        <ui:Button text="Option" name="Option" style="bottom: auto; top: auto; right: auto; left: auto; padding-left: 111px;" />
-        <ui:Button text="Exit" name="Exit" style="bottom: auto; top: auto; right: auto; left: auto; padding-left: 111px;" />
+    <Style src="project://database/Assets/UI/Menu%20Scene/MenuStyles.uss?fileID=7433441132597879392&amp;guid=1707fbafac48a4944a0d65571a2337f3&amp;type=3#MenuStyles" />
+    <ui:VisualElement name="MenuContainer" style="flex-grow: 1; width: 264px; opacity: 0.5; background-color: rgb(0, 0, 0); align-self: flex-start; align-content: flex-start; position: absolute; height: 426px;">
+        <ui:Label text="Tower Defense de &#10;Antonin et Julien " name="Label" style="height: 51px; width: 190px;" />
+        <ui:Button text="Jouerr" name="Jouer" style="bottom: auto; top: auto; right: auto; left: auto; padding-left: 12px;" />
+        <ui:Button text="Option" name="Option" style="bottom: auto; top: auto; right: auto; left: auto; padding-left: 12px;" />
+        <ui:Button text="Exit" name="Exit" style="bottom: auto; top: auto; right: auto; left: auto; padding-left: 12px;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="MapContainer" enabled="true" style="flex-grow: 1; right: 0; align-self: flex-end; -unity-text-align: upper-left; position: absolute; height: 421px; width: 202px; display: none;">
+        <ui:Button text="Retour" name="Retour" />
     </ui:VisualElement>
 </ui:UXML>

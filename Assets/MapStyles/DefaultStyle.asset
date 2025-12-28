@@ -17,8 +17,29 @@ MonoBehaviour:
   splitPath: {fileID: 8256033677109111092, guid: 1c4f9c27412c0f64d85cd13bfda43e54, type: 3}
   crossPath: {fileID: 2750451363732766255, guid: 8e5d819aec6d7904ba4df7ea775a7781, type: 3}
   constructibleTile: {fileID: 6550144314616180233, guid: a49d25fd603ab5b4da04f11d552ea156, type: 3}
-  edgeTile: {fileID: 919132149155446097, guid: 542eec434a519724ca23825dbe0f3dce, type: 3}
+  edgeTile: {fileID: 8170956617878075753, guid: a830d57aadf6e944fa09d5ce6ab32357, type: 3}
   startTileEnd: {fileID: 8066411300638220526, guid: abcb3a67572a7f1478d7181d8e20202d, type: 3}
   startTileStraight: {fileID: 6665616312790048497, guid: 40c75e1af10c6c745b2b525aadd025ec, type: 3}
   endTileEnd: {fileID: 5084913802182217608, guid: 3440b0b0b2920fe4085a719a3b7f1bdb, type: 3}
   endTileStraight: {fileID: 8694229570986746560, guid: 5f534589fbe1cd14ebf67164cf5b9ac8, type: 3}
+  singleTree: {fileID: 919132149155446097, guid: 130976132610b8e4ea0860434baa37fb, type: 3}
+  duoTrees: {fileID: 919132149155446097, guid: e4090edb9fd24284c8c3f38be6160043, type: 3}
+  quadTrees: {fileID: 919132149155446097, guid: 542eec434a519724ca23825dbe0f3dce, type: 3}
+  hill: {fileID: 919132149155446097, guid: f5092c938f28bed4785bf28ca5cf9a1d, type: 3}
+  crystals: {fileID: 919132149155446097, guid: 529fcd5f332de044eb07375ed9201896, type: 3}
+  redTower: {fileID: 3341165453028418424, guid: 0d9ddf6f920deb14bb58fa05d6248d66, type: 3}
+  redTowerProjectile: {fileID: 5829524428574398694, guid: ca732cbfa8fb31e499b5896086e49491, type: 3}
+  yellowTower: {fileID: 0}
+  yellowTowerProjectile: {fileID: 0}
+  blueTower: {fileID: 0}
+  blueTowerProjectile: {fileID: 0}
+  greenTower: {fileID: 108005844779589367, guid: 0dee08ea7def72d4d926dda452f57f0c, type: 3}
+  greenTowerProjectile: {fileID: 225389524456199242, guid: cfb8cf351731e2d46ad006eac3bc8e21, type: 3}
+  powerPlant: {fileID: 0}
+  radar: {fileID: 0}
+  factory: {fileID: 0}
+  storage: {fileID: 0}
+  canonExplosion: {fileID: 7332922945738889854, guid: 878186f208f39084f85e71d59763abad, type: 3}
+  gunShot: {fileID: 1827452178144366477, guid: f2357b5aec52b6f4b8bd78a0fce6766c, type: 3}
+  hit: {fileID: 3412918713072702983, guid: 8d3842fde51c7bd4295d91e30f55acd2, type: 3}
+  death: {fileID: 4134388492970768584, guid: 7f128793bb065014290ce02edd32b376, type: 3}

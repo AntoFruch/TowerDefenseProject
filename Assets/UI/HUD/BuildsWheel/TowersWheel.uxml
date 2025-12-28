@@ -1,0 +1,11 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3#Common" />
+    <Style src="project://database/Assets/UI/HUD/BuildsWheel/TowersWheel.uss?fileID=7433441132597879392&amp;guid=6b42719a6f7e4bb4db56ca622101b5e0&amp;type=3#TowersWheel" />
+    <ui:VisualElement name="wheel-container" class="wheel" style="height: 352px; width: 401px;">
+        <ui:Button name="blue" text="4" class="wheel-button btn-4" />
+        <ui:Button name="yellow" text="2" class="wheel-button btn-2" />
+        <ui:Button name="red" text="1" class="wheel-button btn-1" />
+        <ui:Button name="green" text="3" class="wheel-button btn-3" />
+        <ui:Button text="X" name="quit" class="wheel-center" style="font-size: 40px; -unity-font-style: bold; color: rgba(255, 255, 255, 0.7);" />
+    </ui:VisualElement>
+</ui:UXML>
