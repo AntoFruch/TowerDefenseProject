@@ -9,7 +9,8 @@ public class MonsterController : MonoBehaviour
     private Animator animator;
 
     // Life
-    [SerializeField] public int life {get;private set;} = 10;
+    [SerializeField] private int life = 10;
+    public int Life => life;    
     
     // Constants
     [SerializeField] private float moveSpeed = 0.3f;
@@ -93,8 +94,9 @@ public class MonsterController : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
+        Debug.Log(gameObject.name + " : " + life + " " + dmg);
         life -= dmg;
-        if (life >= 0)
+        if (life > 0)
         {
             GetComponent<Animator>().SetTrigger("TakeDMG");    
         } else
@@ -113,6 +115,7 @@ public class MonsterController : MonoBehaviour
     // called by an animator event
     void DestroySelf()
     {
+        Instantiate(Game.Instance.prefabConfig.death, transform.position, Quaternion.Euler(-90,0,0));
         Destroy(gameObject);
     }
 }

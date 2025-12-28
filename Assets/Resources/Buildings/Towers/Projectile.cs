@@ -1,9 +1,15 @@
 using UnityEditor;
 using UnityEngine;
 
-public class CanonBall : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float lifeTime = 3f;
+    [SerializeField] private float lifeTime = 1f;
+    private Tower tower;
+
+    public void Init(Tower tower)
+    {
+        this.tower = tower;
+    }
     private float clock;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,7 +31,8 @@ public class CanonBall : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<MonsterController>().TakeDamage(4);
+            Instantiate(Game.Instance.prefabConfig.hit, collision.gameObject.transform.position, Quaternion.identity);
+            collision.gameObject.GetComponent<MonsterController>().TakeDamage((int)tower.Damage);
             Destroy(gameObject);
         }
     }

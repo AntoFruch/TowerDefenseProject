@@ -214,4 +214,6 @@ MonoBehaviour:
   lerpStep: 0.3
   shootForce: 4
   rangeArea: {fileID: 3740837626878438584}
+  rotatingPart: {fileID: 2672293649217272258}
+  towerType: 0
   projectileSpawn: {fileID: 7568487723153228071}
