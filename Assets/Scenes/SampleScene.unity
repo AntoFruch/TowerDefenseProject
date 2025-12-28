@@ -313,10 +313,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControleCamera
   cameraTransform: {fileID: 1979802279}
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 59094376-c7ac-4c96-87c0-772862060d68
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   moveSpeed: 5
+  zoomAction:
+    m_Name: Zoom
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7f6af13b-9f4c-4a80-935a-14d0899df15c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   cameraStatic: {fileID: 45789589}
   zoomSpeed: 4
   selectiontile: {fileID: 109922508}
+  mousemoveAction:
+    m_Name: Mousemove
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e374584c-4b6d-4f17-b695-8d53a291ada7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  inputAsset: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
 --- !u!1 &352998437
 GameObject:
   m_ObjectHideFlags: 0

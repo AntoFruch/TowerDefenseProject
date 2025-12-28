@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using UnityEngine.EventSystems;
 
 
 public class ControleCamera : MonoBehaviour
@@ -31,20 +32,35 @@ public class ControleCamera : MonoBehaviour
     [SerializeField]
     private InputAction mousemoveAction;
     private Vector3 dragOrigin;
+    [SerializeField]
+    private InputActionAsset inputActions;
 
+    //J'essaie de réparer l'InputAction 
+   
     void Awake()
-
 {
+    var gameplay = inputActions.FindActionMap("Player", true);
 
-    {
-    
-        moveAction = InputSystem.actions.FindAction("Move");
-        
-        zoomAction = InputSystem.actions.FindAction("Zoom");
-        mousemoveAction = InputSystem.actions.FindAction("MouseMove");
-    }
-    selectiontile.transform.position = new Vector3(0, 2, 0); 
+    moveAction = gameplay.FindAction("Move", true);
+    zoomAction = gameplay.FindAction("Zoom", true);
+    mousemoveAction = gameplay.FindAction("MouseMove", true);
+
 }
+
+
+    void OnEnable()
+    {
+        moveAction.Enable();
+        zoomAction.Enable();
+        mousemoveAction.Enable();
+    }
+
+    void OnDisable()
+    {
+        moveAction.Disable();
+        zoomAction.Disable();
+        mousemoveAction.Disable();
+    }
     void Update()
 
     {   
@@ -104,7 +120,7 @@ public class ControleCamera : MonoBehaviour
             
             
             //if (hitObject.name == "tile_with_collider(Clone)")
-            if (MapManager.map[Y][X] == TileType.CONSTRUCTIBLE)
+            if (MapGenerator.map[Y][X] == TileType.CONSTRUCTIBLE)
             {
                 Vector3 CurrentlySelectedPosition=hitObject.transform.position;
 

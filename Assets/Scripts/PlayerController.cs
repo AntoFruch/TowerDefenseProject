@@ -29,9 +29,9 @@ public class PlayerController : MonoBehaviour
         toggleBuildsHUD();
         if (!Game.Instance.HUD.Wheel.active)
         {
-            cameraController.MoveCam(moveCamAction, dragAction);
-            cameraController.Zoom(zoomAction);
-            cameraController.MoveSelector();
+            //cameraController.MoveCam(moveCamAction, dragAction);
+            //cameraController.Zoom(zoomAction);
+            //cameraController.MoveSelector();
         }
     }
 
