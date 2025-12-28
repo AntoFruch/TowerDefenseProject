@@ -127,22 +127,22 @@ public class BuildWheelController : MonoBehaviour
     }
     void onRadarButtonClick(ClickEvent evt)
     {
-        Instantiate(Game.Instance.prefabConfig.radar, Game.Instance.selector.position, Quaternion.identity);
+        Instantiate(Game.Instance.buildingsPrefabs.radar, Game.Instance.selector.position, Quaternion.identity);
         HideWheel();
     } 
     void onPowerPlantButtonClick(ClickEvent evt)
     {
-        Instantiate(Game.Instance.prefabConfig.powerPlant, Game.Instance.selector.position, Quaternion.identity);
+        Instantiate(Game.Instance.buildingsPrefabs.powerPlant, Game.Instance.selector.position, Quaternion.identity);
         HideWheel();
     } 
     void onStorageButtonClick(ClickEvent evt)
     {
-        Instantiate(Game.Instance.prefabConfig.storage, Game.Instance.selector.position, Quaternion.identity);
+        Instantiate(Game.Instance.buildingsPrefabs.storage, Game.Instance.selector.position, Quaternion.identity);
         HideWheel();
     } 
     void onFactoryButtonClick(ClickEvent evt)
     {
-        Instantiate(Game.Instance.prefabConfig.factory, Game.Instance.selector.position, Quaternion.identity);
+        Instantiate(Game.Instance.buildingsPrefabs.factory, Game.Instance.selector.position, Quaternion.identity);
         HideWheel();
     } 
 
@@ -160,22 +160,22 @@ public class BuildWheelController : MonoBehaviour
     void onRedButtonClick(ClickEvent evt)
     {
         // Instantiate red tower
-        Instantiate(Game.Instance.prefabConfig.redTower, Game.Instance.selector.position, Quaternion.identity);
+        Instantiate(Game.Instance.buildingsPrefabs.redTower, Game.Instance.selector.position, Quaternion.identity);
         HideWheel();
     }
     void onBlueButtonClick(ClickEvent evt)
     {
-        Instantiate(Game.Instance.prefabConfig.blueTower, Game.Instance.selector.position, Quaternion.identity);
+        Instantiate(Game.Instance.buildingsPrefabs.blueTower, Game.Instance.selector.position, Quaternion.identity);
         HideWheel();
     } 
     void onYellowButtonClick(ClickEvent evt)
     {
-        Instantiate(Game.Instance.prefabConfig.yellowTower, Game.Instance.selector.position, Quaternion.identity);
+        Instantiate(Game.Instance.buildingsPrefabs.yellowTower, Game.Instance.selector.position, Quaternion.identity);
         HideWheel();
     } 
     void onGreenButtonClick(ClickEvent evt)
     {
-        Instantiate(Game.Instance.prefabConfig.greenTower, Game.Instance.selector.position, Quaternion.identity);
+        Instantiate(Game.Instance.buildingsPrefabs.greenTower, Game.Instance.selector.position, Quaternion.identity);
         HideWheel();
     } 
 }

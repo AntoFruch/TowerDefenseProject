@@ -63,10 +63,9 @@ But : Créer un jeu type Tower Defense
     * Nouvelle scène
     * UI Document + UXML
     * recupérer les maps disponibles dans le dossier Maps 
-        * regarder dans MapManager.cs pour voir comment recuperer un fichier depuis un repertoire externe au projet
+        * regarder dans FileAPI.cs pour voir comment recuperer un fichier depuis un repertoire externe au projet
     * afficher les noms des map disponibles 
     * cliquer sur le nom de la map -> charge la scene avec la bonne map 
-        * jsp comment changer le drag and drop de MapManager avec du code ou meme si c'est comme ca que faut faire mais on demandera au prof / on se documentera
     *  _eventuellement preview de la map mais pas sûr_
 
 * Système de paramêtres sauvegardés dans les PlayerPrefs Unity.

@@ -5,12 +5,12 @@ using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
 public class MapGenerator : MonoBehaviour
 {
     public static TileType[][] map;
-    private MapPrefabsConfig prefabConfig;
+    private MapPrefabs mapPrefabs;
 
     // Instancie les tuiles au bon endroit en fonction de la map
     public void GenerateMap()
     {
-        prefabConfig = Game.Instance.prefabConfig;
+        mapPrefabs = Game.Instance.mapPrefabs;
         map = Game.Instance.map;
 
         for (int y=0; y<map.Length; y++)
@@ -31,13 +31,13 @@ public class MapGenerator : MonoBehaviour
                             rotation = Quaternion.Euler(0f, 90f, 0f);
                         }
 
-                        Instantiate(prefabConfig.straightPath, new Vector3(x,0,y),rotation);
+                        Instantiate(mapPrefabs.straightPath, new Vector3(x,0,y),rotation);
                         break;
                     case TileType.INTERSECTION:
                         switch (adj.Sum(b => b ? 1 : 0))
                         {
                             case 4: // pas de question a se poser sur l'orientation, on met le carrefour
-                                Instantiate(prefabConfig.crossPath, new Vector3(x, 0, y), rotation);
+                                Instantiate(mapPrefabs.crossPath, new Vector3(x, 0, y), rotation);
                                 break;
                             case 3: // il faut mettre une intersection 
                                 if (adj[0] && adj[2] && adj[3]) //  up left right -> vers le haut 
@@ -53,7 +53,7 @@ public class MapGenerator : MonoBehaviour
                                 {
                                     rotation = Quaternion.Euler(0f, 180f, 0f);
                                 }
-                                Instantiate(prefabConfig.splitPath, new Vector3(x,0,y),rotation);
+                                Instantiate(mapPrefabs.splitPath, new Vector3(x,0,y),rotation);
                                 break;
                             case 2: 
                                 if (adj[0] && adj[2] ) //  up left
@@ -69,7 +69,7 @@ public class MapGenerator : MonoBehaviour
                                 {
                                     rotation = Quaternion.Euler(0f,-180f, 0f); 
                                 }
-                                Instantiate(prefabConfig.cornerPath, new Vector3(x,0,y),rotation); 
+                                Instantiate(mapPrefabs.cornerPath, new Vector3(x,0,y),rotation); 
                                 break;
                             }
                             break;
@@ -103,18 +103,18 @@ public class MapGenerator : MonoBehaviour
                         // TYPE DE TUILE
                         if (type == TileType.SPAWN)
                         {
-                            Instantiate(end ? prefabConfig.startTileEnd : prefabConfig.startTileStraight, new Vector3(x,0,y),rotation);
+                            Instantiate(end ? mapPrefabs.startTileEnd : mapPrefabs.startTileStraight, new Vector3(x,0,y),rotation);
                         } else if (type == TileType.END)
                         {
-                            Instantiate(end ? prefabConfig.endTileEnd : prefabConfig.endTileStraight, new Vector3(x,0,y),rotation);
+                            Instantiate(end ? mapPrefabs.endTileEnd : mapPrefabs.endTileStraight, new Vector3(x,0,y),rotation);
                         }
 
                         break;
                     case TileType.EDGE:
-                        Instantiate(prefabConfig.edgeTile, new Vector3(x, 0, y), Quaternion.identity);   
+                        Instantiate(mapPrefabs.edgeTile, new Vector3(x, 0, y), Quaternion.identity);   
                         break;
                     case TileType.CONSTRUCTIBLE:
-                        Instantiate(prefabConfig.constructibleTile, new Vector3(x, 0, y), Quaternion.identity);
+                        Instantiate(mapPrefabs.constructibleTile, new Vector3(x, 0, y), Quaternion.identity);
                         break;
                 }
             }   
@@ -147,26 +147,26 @@ public class MapGenerator : MonoBehaviour
                     float random = Random.value;
                     if (random < 1/3f)
                     {
-                        Instantiate(prefabConfig.singleTree, pos, Quaternion.identity);
+                        Instantiate(mapPrefabs.singleTree, pos, Quaternion.identity);
                     } else if (random < 2/3f)
                     {
-                        Instantiate(prefabConfig.duoTrees, pos, Quaternion.identity);
+                        Instantiate(mapPrefabs.duoTrees, pos, Quaternion.identity);
                     } else 
                     {
-                        Instantiate(prefabConfig.quadTrees, pos, Quaternion.identity);
+                        Instantiate(mapPrefabs.quadTrees, pos, Quaternion.identity);
                     }
                 } else
                 {
                     float random = Random.value;
                     if (random < 0.7f)
                     {
-                        Instantiate(prefabConfig.constructibleTile, pos, Quaternion.identity);
+                        Instantiate(mapPrefabs.constructibleTile, pos, Quaternion.identity);
                     } else if (random < 0.85f)
                     {
-                        Instantiate(prefabConfig.hill, pos, Quaternion.identity);
+                        Instantiate(mapPrefabs.hill, pos, Quaternion.identity);
                     } else
                     {
-                        Instantiate(prefabConfig.crystals, pos, Quaternion.identity);
+                        Instantiate(mapPrefabs.crystals, pos, Quaternion.identity);
 
                     }
                 }

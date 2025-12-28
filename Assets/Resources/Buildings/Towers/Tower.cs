@@ -76,20 +76,20 @@ public class Tower : MonoBehaviour
                 switch (towerType)
                 {
                     case TowerType.RED:
-                        projectile = Instantiate(Game.Instance.prefabConfig.redTowerProjectile, projectileSpawn.position, Quaternion.identity);
-                        Instantiate(Game.Instance.prefabConfig.canonExplosion,projectileSpawn.position, Quaternion.identity);                        
+                        projectile = Instantiate(Game.Instance.buildingsPrefabs.redTowerProjectile, projectileSpawn.position, Quaternion.identity);
+                        Instantiate(Game.Instance.particlesPrefabs.canonExplosion,projectileSpawn.position, Quaternion.identity);                        
                         break;
                     case TowerType.YELLOW:
-                        projectile = Instantiate(Game.Instance.prefabConfig.yellowTowerProjectile, projectileSpawn.position, Quaternion.identity);
+                        projectile = Instantiate(Game.Instance.buildingsPrefabs.yellowTowerProjectile, projectileSpawn.position, Quaternion.identity);
                         //TODO
                         break;
                     case TowerType.GREEN:
-                        projectile = Instantiate(Game.Instance.prefabConfig.greenTowerProjectile, projectileSpawn.position, Quaternion.LookRotation(lookDirection));
+                        projectile = Instantiate(Game.Instance.buildingsPrefabs.greenTowerProjectile, projectileSpawn.position, Quaternion.LookRotation(lookDirection));
                         projectileSpawn.localPosition = new Vector3(-projectileSpawn.localPosition.x, projectileSpawn.localPosition.y, projectileSpawn.localPosition.z);
-                        Instantiate(Game.Instance.prefabConfig.gunShot, projectileSpawn.position, Quaternion.identity);
+                        Instantiate(Game.Instance.particlesPrefabs.gunShot, projectileSpawn.position, Quaternion.identity);
                         break;
                     case TowerType.BLUE:
-                        projectile = Instantiate(Game.Instance.prefabConfig.blueTowerProjectile, projectileSpawn.position, Quaternion.identity);
+                        projectile = Instantiate(Game.Instance.buildingsPrefabs.blueTowerProjectile, projectileSpawn.position, Quaternion.identity);
                         // TODO
                         break;
                     default:

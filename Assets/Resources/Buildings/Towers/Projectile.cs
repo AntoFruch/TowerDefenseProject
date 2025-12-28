@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Instantiate(Game.Instance.prefabConfig.hit, collision.gameObject.transform.position, Quaternion.identity);
+            Instantiate(Game.Instance.particlesPrefabs.hit, collision.gameObject.transform.position, Quaternion.identity);
             collision.gameObject.GetComponent<MonsterController>().TakeDamage((int)tower.Damage);
             Destroy(gameObject);
         }

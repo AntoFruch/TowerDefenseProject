@@ -17,7 +17,10 @@ public class Game : MonoBehaviour
     public Graph<VertexLabel> graph {get;private set;}
 
     // Style 
-    [SerializeField] public MapPrefabsConfig prefabConfig;
+    [SerializeField] public MapPrefabs mapPrefabs;
+    [SerializeField] public BuildingsPrefabs buildingsPrefabs;
+    [SerializeField] public MonstersPrefabs monstersPrefabs;
+    [SerializeField] public ParticlesPrefabs particlesPrefabs;
 
     //HUD
     [SerializeField] public HUDManager HUD;

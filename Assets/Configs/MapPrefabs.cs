@@ -1,10 +1,10 @@
 using UnityEngine;
 
 [CreateAssetMenu(
-    fileName = "MapPrefabsConfig",
-    menuName = "Config/Map Prefabs"
+    fileName = "MapPrefabs",
+    menuName = "PrefabsConfig/Map"
 )]
-public class MapPrefabsConfig : ScriptableObject
+public class MapPrefabs : ScriptableObject
 {
     [Header("Path Tiles")]
     public GameObject cornerPath;
@@ -32,26 +32,6 @@ public class MapPrefabsConfig : ScriptableObject
     public GameObject quadTrees;
     public GameObject hill;
     public GameObject crystals;
-
-    [Header("Buildings")]
-    public GameObject redTower;
-    public GameObject redTowerProjectile;
-    public GameObject yellowTower;
-    public GameObject yellowTowerProjectile;
-    public GameObject blueTower;
-    public GameObject blueTowerProjectile;
-    public GameObject greenTower;
-    public GameObject greenTowerProjectile;
-    public GameObject powerPlant;
-    public GameObject radar;
-    public GameObject factory;
-    public GameObject storage;
-
-    [Header("particles")]
-    public GameObject canonExplosion;
-    public GameObject gunShot;
-    public GameObject hit;
-    public GameObject death;
     
     
 }

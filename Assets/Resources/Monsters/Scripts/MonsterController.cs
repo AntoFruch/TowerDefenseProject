@@ -115,7 +115,7 @@ public class MonsterController : MonoBehaviour
     // called by an animator event
     void DestroySelf()
     {
-        Instantiate(Game.Instance.prefabConfig.death, transform.position, Quaternion.Euler(-90,0,0));
+        Instantiate(Game.Instance.particlesPrefabs.death, transform.position, Quaternion.Euler(-90,0,0));
         Destroy(gameObject);
     }
 }
