@@ -59,19 +59,19 @@ public class BuildWheelController : MonoBehaviour
         // queries and callbacks for towersWheel
         this.towersWheel = towersWheelUIDoc.rootVisualElement.Q("wheel-container");
 
-        this.redButton = towersWheelUIDoc.rootVisualElement.Q<Button>("red");
+        this.redButton = towersWheelUIDoc.rootVisualElement.Q<Button>("red-btn");
         redButton.RegisterCallback<ClickEvent>(onRedButtonClick);
 
-        this.greenButton = towersWheelUIDoc.rootVisualElement.Q<Button>("green");
+        this.greenButton = towersWheelUIDoc.rootVisualElement.Q<Button>("green-btn");
         greenButton.RegisterCallback<ClickEvent>(onGreenButtonClick);
 
-        this.yellowButton = towersWheelUIDoc.rootVisualElement.Q<Button>("yellow");
+        this.yellowButton = towersWheelUIDoc.rootVisualElement.Q<Button>("yellow-btn");
         yellowButton.RegisterCallback<ClickEvent>(onYellowButtonClick);
 
-        this.blueButton = towersWheelUIDoc.rootVisualElement.Q<Button>("blue");
+        this.blueButton = towersWheelUIDoc.rootVisualElement.Q<Button>("blue-btn");
         blueButton.RegisterCallback<ClickEvent>(onBlueButtonClick);
 
-        this.towersQuitButton = towersWheelUIDoc.rootVisualElement.Q<Button>("quit");
+        this.towersQuitButton = towersWheelUIDoc.rootVisualElement.Q<Button>("quit-btn");
         towersQuitButton.RegisterCallback<PointerUpEvent>(onQuitClick);
 
         // Hide everything
@@ -97,8 +97,8 @@ public class BuildWheelController : MonoBehaviour
         this.towersWheelUIDoc.rootVisualElement.RemoveFromClassList("hide");
         this.towersWheel.style.position = Position.Absolute;
 
-        this.towersWheel.style.left = wheelPos.x - 200;
-        this.towersWheel.style.bottom = wheelPos.y - 200; // A MODIFER ABSOLUMENT ( TRICHE )
+        this.towersWheel.style.left = wheelPos.x - 130;
+        this.towersWheel.style.bottom = wheelPos.y - 130; // A MODIFER ABSOLUMENT ( TRICHE )
     }
     
     // Hide Methods

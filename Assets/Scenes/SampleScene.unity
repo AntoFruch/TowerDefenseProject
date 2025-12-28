@@ -614,7 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
   m_PanelSettings: {fileID: 11400000, guid: f8cdab0f2e7074c4cbd9f1f352632721, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: fb171ce2dab706a4691b30d11bbda1df, type: 3}
+  sourceAsset: {fileID: 9197481963319205126, guid: 7ee4701b32fa2af4eb3f5acbb9126123, type: 3}
   m_SortingOrder: 0
   m_Position: 0
   m_WorldSpaceSizeMode: 1
@@ -780,7 +780,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 05293b01974c44f439bf8e3eb6919824, type: 2}
     - target: {fileID: 4816421359346738776, guid: acc4b0fd6e473374aaec40bda55aa106, type: 3}
       propertyPath: spawnMobOnStart
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4816421359346738776, guid: acc4b0fd6e473374aaec40bda55aa106, type: 3}
       propertyPath: buildingsPrefabs
