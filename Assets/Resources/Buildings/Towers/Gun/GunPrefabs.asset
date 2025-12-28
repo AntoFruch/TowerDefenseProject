@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d967e010d4d5748b99d2811c16b28e, type: 3}
+  m_Name: GunPrefabs
+  m_EditorClassIdentifier: Assembly-CSharp::GunPrefabs
+  projectile: {fileID: 225389524456199242, guid: cfb8cf351731e2d46ad006eac3bc8e21, type: 3}
+  gunShotParticles: {fileID: 1827452178144366477, guid: f2357b5aec52b6f4b8bd78a0fce6766c, type: 3}

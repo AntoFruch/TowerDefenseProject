@@ -20,7 +20,6 @@ public class Game : MonoBehaviour
     [SerializeField] public MapPrefabs mapPrefabs;
     [SerializeField] public BuildingsPrefabs buildingsPrefabs;
     [SerializeField] public MonstersPrefabs monstersPrefabs;
-    [SerializeField] public ParticlesPrefabs particlesPrefabs;
 
     [Header("HUD Element")]
     [SerializeField] public HUDManager HUD;

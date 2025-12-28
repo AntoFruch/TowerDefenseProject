@@ -964,8 +964,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dee49e22539d4cd6bd97e9b62cf4200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
+  life: 10
   moveSpeed: 0.3
   rotationSpeed: 7
+  prefabs: {fileID: 11400000, guid: a93d568a1db085f4c8b024a3cd78aded, type: 2}
 --- !u!143 &1055568203887392988
 CharacterController:
   m_ObjectHideFlags: 0

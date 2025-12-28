@@ -22,6 +22,9 @@ public class MonsterController : MonoBehaviour
     private List<Vertex<VertexLabel>> path;
     private int index = 0;
 
+    [SerializeField] private MonstersFXPrefabs prefabs;
+    public MonstersFXPrefabs Prefabs => prefabs;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -115,7 +118,7 @@ public class MonsterController : MonoBehaviour
     // called by an animator event
     void DestroySelf()
     {
-        Instantiate(Game.Instance.particlesPrefabs.death, transform.position, Quaternion.Euler(-90,0,0));
+        Instantiate(prefabs.death, transform.position, Quaternion.Euler(-90,0,0));
         Destroy(gameObject);
     }
 }

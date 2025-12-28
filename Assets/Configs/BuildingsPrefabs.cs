@@ -1,17 +1,15 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BuildingsPrefabs", menuName = "PrefabsConfig/Buildings")]
+[CreateAssetMenu(fileName = "BuildingsPrefabs", menuName = "PrefabsConfig/Towers & Buildings")]
 public class BuildingsPrefabs : ScriptableObject
 {
-    [Header("Buildings")]
+    [Header("Towers")]
     public GameObject redTower;
-    public GameObject redTowerProjectile;
     public GameObject yellowTower;
-    public GameObject yellowTowerProjectile;
     public GameObject blueTower;
-    public GameObject blueTowerProjectile;
     public GameObject greenTower;
-    public GameObject greenTowerProjectile;
+    
+    [Header("Buildings")]
     public GameObject powerPlant;
     public GameObject radar;
     public GameObject factory;

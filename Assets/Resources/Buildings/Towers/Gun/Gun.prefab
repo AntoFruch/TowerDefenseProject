@@ -184,14 +184,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2439bbb1963f11043b179614f5d2e669, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3927712396014189096}
+      addedObject: {fileID: 9023798373628671170}
   m_SourcePrefab: {fileID: 100100000, guid: 2439bbb1963f11043b179614f5d2e669, type: 3}
 --- !u!1 &108005844779589367 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2439bbb1963f11043b179614f5d2e669, type: 3}
   m_PrefabInstance: {fileID: 990474639120393126}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3927712396014189096
+--- !u!114 &9023798373628671170
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,18 +200,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 108005844779589367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d848a32974c0ca48a7744f57588f8b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6add5b313ff653d4db31ae84a7f25a86, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Tower
-  range: 2
+  m_EditorClassIdentifier: Assembly-CSharp::Gun
+  range: 3
   fireRate: 6
   damage: 1
-  lerpStep: 0.5
-  shootForce: 4
+  lerpStep: 10
   rangeArea: {fileID: 3258779102467876638}
   rotatingPart: {fileID: 1711949832239234569}
-  towerType: 3
   projectileSpawn: {fileID: 6464964510402906965}
+  shootForce: 10
+  prefabs: {fileID: 11400000, guid: c86e3146941b4ff45b1ab07464c59164, type: 2}
 --- !u!4 &735324869909054541 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2439bbb1963f11043b179614f5d2e669, type: 3}

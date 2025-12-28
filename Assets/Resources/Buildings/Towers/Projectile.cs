@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -31,8 +32,10 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Instantiate(Game.Instance.particlesPrefabs.hit, collision.gameObject.transform.position, Quaternion.identity);
-            collision.gameObject.GetComponent<MonsterController>().TakeDamage((int)tower.Damage);
+            MonsterController controller = collision.gameObject.GetComponent<MonsterController>();
+
+            Instantiate(controller.Prefabs.hit, collision.gameObject.transform.position, Quaternion.identity);
+            controller.TakeDamage((int)tower.Damage);
             Destroy(gameObject);
         }
     }
