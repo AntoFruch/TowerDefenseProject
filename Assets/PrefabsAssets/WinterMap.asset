@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3826806fb77274170ac6b8cf99b002af, type: 3}
-  m_Name: WinterStyle
+  m_Name: WinterMap
   m_EditorClassIdentifier: Assembly-CSharp::MapPrefabsConfig
   cornerPath: {fileID: 3269984330525743818, guid: 5d5202c8ef5816344b3d10e69e420686, type: 3}
   straightPath: {fileID: 1150928109582252800, guid: 997bcfb51300b6847933a734ba7f768e, type: 3}

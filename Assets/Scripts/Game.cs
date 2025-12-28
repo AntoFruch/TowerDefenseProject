@@ -16,16 +16,16 @@ public class Game : MonoBehaviour
     public TileType[][] map {get;private set;}
     public Graph<VertexLabel> graph {get;private set;}
 
-    // Style 
+    [Header("Prefabs Assets")]
     [SerializeField] public MapPrefabs mapPrefabs;
     [SerializeField] public BuildingsPrefabs buildingsPrefabs;
     [SerializeField] public MonstersPrefabs monstersPrefabs;
     [SerializeField] public ParticlesPrefabs particlesPrefabs;
 
-    //HUD
+    [Header("HUD Element")]
     [SerializeField] public HUDManager HUD;
 
-    // Selector position
+    [Header("Selector")]
     [SerializeField] public Transform selector; 
     
     void Awake()
