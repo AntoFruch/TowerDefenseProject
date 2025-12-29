@@ -97,7 +97,6 @@ public class MonsterController : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
-        Debug.Log(gameObject.name + " : " + life + " " + dmg);
         life -= dmg;
         if (life > 0)
         {
