@@ -53,7 +53,7 @@ public class BuildWheelController : MonoBehaviour
         this.factoryButton = buildWheelUIDoc.rootVisualElement.Q<Button>("factory");
         factoryButton.RegisterCallback<ClickEvent>(onFactoryButtonClick);
 
-        this.buildsQuitButton = buildWheelUIDoc.rootVisualElement.Q<Button>("quit");
+        this.buildsQuitButton = buildWheelUIDoc.rootVisualElement.Q<Button>("quit-btn");
         buildsQuitButton.RegisterCallback<PointerUpEvent>(onQuitClick);
         
         // queries and callbacks for towersWheel
@@ -88,8 +88,8 @@ public class BuildWheelController : MonoBehaviour
         this.buildWheelUIDoc.rootVisualElement.RemoveFromClassList("hide");
         this.buildWheel.style.position = Position.Absolute;
 
-        this.buildWheel.style.left = pos.x - 200;
-        this.buildWheel.style.bottom = pos.y - 200; // A MODIFER ABSOLUMENT ( TRICHE )
+        this.buildWheel.style.left = pos.x - 130;
+        this.buildWheel.style.bottom = pos.y - 130; // A MODIFER ABSOLUMENT ( TRICHE )
     }
 
     public void ShowTowersWheel()

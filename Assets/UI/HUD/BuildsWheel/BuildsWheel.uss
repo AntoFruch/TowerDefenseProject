@@ -5,78 +5,88 @@
     display: none;
 }
 
-.wheel-container {
-    width: 400px;
-    height: 400px;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    border-top-width: 0;
-    border-right-width: 0;
-    border-bottom-width: 0;
-    border-left-width: 0;
+.btn-power-plant-bg {
+    background-color: rgb(40, 170, 255);
+    border-left-color: rgb(43, 135, 195);
+    border-right-color: rgb(43, 135, 195);
+    border-top-color: rgb(43, 135, 195);
+    border-bottom-color: rgb(43, 135, 195);
 }
 
-.wheel-button {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    border-radius: 40px;
-    background-color: rgb(70, 130, 180);
-    border-width: 3px;
-    border-color: rgb(255, 255, 255);
-    color: rgb(255, 255, 255);
-    font-size: 24px;
-    -unity-font-style: bold;
-    transition-duration: 0.2s;
+.btn-factory-bg {
+    background-color: rgb(40, 170, 255);
+    border-left-color: rgb(43, 135, 195);
+    border-right-color: rgb(43, 135, 195);
+    border-top-color: rgb(43, 135, 195);
+    border-bottom-color: rgb(43, 135, 195);
 }
 
-.wheel-button:hover {
-    background-color: rgb(100, 160, 210);
-    scale: 1.1;
+.btn-storage-bg {
+    background-color: rgb(40, 170, 255);
+    border-left-color: rgb(43, 135, 195);
+    border-right-color: rgb(43, 135, 195);
+    border-top-color: rgb(43, 135, 195);
+    border-bottom-color: rgb(43, 135, 195);
 }
 
-.wheel-button:active {
-    background-color: rgb(50, 100, 150);
+.btn-radar-bg {
+    background-color: rgb(40, 170, 255);
+    border-left-color: rgb(43, 135, 195);
+    border-right-color: rgb(43, 135, 195);
+    border-top-color: rgb(43, 135, 195);
+    border-bottom-color: rgb(43, 135, 195);
 }
 
-.btn-1 {
-    left: 160px;
+.btn-towers-bg {
+    background-color: rgb(40, 170, 255);
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    background-image: url("project://database/Assets/UI/HUD/BuildsWheel/Sprites/MulticolorCircle.png?fileID=2800000&guid=7fcf24a172c0f2949bd7d251faabe8d1&type=3#MulticolorCircle");
+}
+
+.btn-towers-container {
+    left: 90px;
     top: 0;
 }
 
-.btn-2 {
-    left: 280px;
-    top: 90px;
+.btn-power-plant-container {
+    left: 176px;
+    top: 62px;
 }
 
-.btn-3 {
-    left: 240px;
-    top: 240px;
+.btn-factory-container {
+    left: 143px;
+    top: 168px;
 }
 
-.btn-4 {
-    left: 80px;
-    top: 240px;
+.btn-storage-container {
+    left: 37px;
+    top: 168px;
 }
 
-.btn-5 {
-    left: 40px;
-    top: 90px;
+.btn-radar-container {
+    left: 4px;
+    top: 62px;
 }
 
-.wheel-center {
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-    background-color: rgba(255, 0, 0, 0.4);
-    border-width: 4px;
-    border-color: rgb(200, 200, 200);
-    position: absolute;
-    left: 170px;
-    top: 145px;
-    border-left-width: 2px;
-    border-top-width: 2px;
-    border-right-width: 2px;
-    border-bottom-width: 2px;
+.btn-towers-image {
+    background-image: url("project://database/Assets/UI/HUD/BuildsWheel/Sprites/Gun.png?fileID=2800000&guid=f893db75bb483a04e81f071a0f2b6279&type=3#Gun");
+}
+
+.btn-power-plant-image {
+    background-image: none;
+}
+
+.btn-factory-image {
+    background-image: none;
+}
+
+.btn-storage-image {
+    background-image: none;
+}
+
+.btn-radar-image {
+    background-image: none;
 }
