@@ -1,10 +1,6 @@
 :root {
 }
 
-.hide {
-    display: none;
-}
-
 .btn-red-container {
     top: 0;
     left: 90px;

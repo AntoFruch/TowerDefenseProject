@@ -1,10 +1,6 @@
 :root {
 }
 
-.hide {
-    display: none;
-}
-
 .btn-power-plant-bg {
     background-color: rgb(40, 170, 255);
     border-left-color: rgb(43, 135, 195);
