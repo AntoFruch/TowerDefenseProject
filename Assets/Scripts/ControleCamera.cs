@@ -93,18 +93,18 @@ public class ControleCamera : MonoBehaviour
             int X = Mathf.RoundToInt(x);
             int Y = Mathf.RoundToInt(z);
             
-            //if (hitObject.name == "tile_with_collider(Clone)")
             if (Game.Instance.map[Y][X] == TileType.CONSTRUCTIBLE)
             {
-                Vector3 CurrentlySelectedPosition=hitObject.transform.position;
-
-                selectiontile.transform.position = CurrentlySelectedPosition + new Vector3(0,0.25f,0);    
+                selectiontile.GetComponent<Renderer>().enabled = true;
             }
-
             else 
             {
-                selectiontile.transform.position= new Vector3(0,-5,0); 
+                selectiontile.GetComponent<Renderer>().enabled = false;
             }
+            Vector3 CurrentlySelectedPosition=hitObject.transform.position;
+            selectiontile.transform.position = CurrentlySelectedPosition + new Vector3(0,0.25f,0);
+            
+             
         }
     }
 

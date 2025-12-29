@@ -1,6 +1,26 @@
 :root {
 }
 
+.circle {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    top: 39px;
+    left: 39px;
+    border-top-width: 8px;
+    border-right-width: 8px;
+    border-bottom-width: 8px;
+    border-left-width: 8px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-left-color: rgb(91, 91, 91);
+    border-right-color: rgb(91, 91, 91);
+    border-top-color: rgb(91, 91, 91);
+    border-bottom-color: rgb(91, 91, 91);
+}
+
 .wheel-container {
     width: 260px;
     height: 260px;
@@ -19,6 +39,9 @@
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     position: absolute;
+    top: 90px;
+    left: 90px;
+    transform-origin: center center;
 }
 
 .btn-container:hover {

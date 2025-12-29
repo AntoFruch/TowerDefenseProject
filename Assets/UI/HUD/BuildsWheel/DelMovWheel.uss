@@ -1,0 +1,40 @@
+:root {
+}
+
+.btn-move-bg {
+    background-color: rgb(1, 183, 0);
+    border-left-color: rgb(19, 135, 18);
+    border-right-color: rgb(19, 135, 18);
+    border-top-color: rgb(19, 135, 18);
+    border-bottom-color: rgb(19, 135, 18);
+}
+
+.btn-move {
+}
+
+.btn-move-image {
+    background-image: url("project://database/Assets/UI/HUD/BuildsWheel/Sprites/icons8-move-100.png?fileID=2800000&guid=905212b66434fed4794528cc020a17da&type=3#icons8-move-100");
+}
+
+.btn-move-container {
+    translate: 53px -73px;
+}
+
+.btn-delete-bg {
+    background-color: rgb(217, 174, 34);
+    border-left-color: rgb(183, 119, 0);
+    border-right-color: rgb(183, 119, 0);
+    border-top-color: rgb(183, 119, 0);
+    border-bottom-color: rgb(183, 119, 0);
+}
+
+.btn-delete {
+}
+
+.btn-delete-image {
+    background-image: url("project://database/Assets/UI/HUD/BuildsWheel/Sprites/icons8-recycle-64.png?fileID=2800000&guid=e6d112a2d20808942b583cc2b700c129&type=3#icons8-recycle-64");
+}
+
+.btn-delete-container {
+    translate: -53px -73px;
+}

@@ -7,3 +7,21 @@
 
 .labels {
 }
+
+.btn-move-bg {
+    background-color: rgb(1, 183, 0);
+    border-left-color: rgb(19, 135, 18);
+    border-right-color: rgb(19, 135, 18);
+    border-top-color: rgb(19, 135, 18);
+    border-bottom-color: rgb(19, 135, 18);
+}
+
+.btn-move {
+}
+
+.btn-move-image {
+}
+
+.btn-move-container {
+    translate: 53px -73px;
+}

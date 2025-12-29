@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     
 
     // States
+    bool hUDWheelActive = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,22 +28,29 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        toggleBuildsHUD();
-        if (!Game.Instance.HUD.Wheel.active)
+        UpdateStates();
+        
+        if (BuildingPlacementManager.Instance.moving && selectAction.WasPerformedThisFrame())
         {
+            BuildingPlacementManager.Instance.Place();
+        }else if (!hUDWheelActive)
+        {
+            toggleBuildsHUD();
             cameraController.MoveCam(moveCamAction, dragAction);
             cameraController.Zoom(zoomAction);
             cameraController.MoveSelector();
-        }
+        } 
     }
 
     void toggleBuildsHUD()
     {
-        if (selectAction.WasPerformedThisFrame() && !Game.Instance.HUD.Wheel.active && Game.Instance.selector.position.y > 0)
+        if (selectAction.WasPerformedThisFrame() && Game.Instance.selector.position.y > 0)
         {
-            Game.Instance.HUD.Wheel.ShowWheelAtPosition(Mouse.current.position.ReadValue());    
-            
-            
+            Game.Instance.HUD.ShowWheelMenu(Mouse.current.position.ReadValue());
         }
+    }
+    void UpdateStates()
+    {
+        hUDWheelActive = Game.Instance.HUD.Wheel.active || Game.Instance.HUD.DelMov.active;
     }
 }

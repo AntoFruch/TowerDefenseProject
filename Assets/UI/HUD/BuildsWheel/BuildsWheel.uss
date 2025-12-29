@@ -43,28 +43,23 @@
 }
 
 .btn-towers-container {
-    left: 90px;
-    top: 0;
+    translate: 0px -90px;
 }
 
 .btn-power-plant-container {
-    left: 176px;
-    top: 62px;
+    translate: 86px -28px;
 }
 
 .btn-factory-container {
-    left: 143px;
-    top: 168px;
+    translate: 53px 78px;
 }
 
 .btn-storage-container {
-    left: 37px;
-    top: 168px;
+    translate: -53px 78px;
 }
 
 .btn-radar-container {
-    left: 4px;
-    top: 62px;
+    translate: -86px -28px;
 }
 
 .btn-towers-image {

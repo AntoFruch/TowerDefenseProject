@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public abstract class Tower : MonoBehaviour
+public abstract class Tower : Building
 {
     [Header("Tower Attributes")]
     [SerializeField] protected float range = 3f;

@@ -2,23 +2,19 @@
 }
 
 .btn-red-container {
-    top: 0;
-    left: 90px;
+    translate: 0 -90px;
 }
 
 .btn-green-container {
-    bottom: 0;
-    right: 90px;
+    translate: 0 90px;
 }
 
 .btn-yellow-container {
-    right: 0;
-    top: 90px;
+    translate: 90px 0;
 }
 
 .btn-blue-container {
-    left: 0;
-    bottom: 90px;
+    translate: -90px 0;
 }
 
 .btn-red-bg {

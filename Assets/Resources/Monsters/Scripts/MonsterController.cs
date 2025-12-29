@@ -120,4 +120,8 @@ public class MonsterController : MonoBehaviour
         Instantiate(prefabs.death, transform.position, Quaternion.Euler(-90,0,0));
         Destroy(gameObject);
     }
+    void OnDestroy()
+    {
+        //Game.Instance.monstersPrefabs.Remove(this);
+    }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Properties;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,6 +28,10 @@ public class Game : MonoBehaviour
     [Header("Selector")]
     [SerializeField] public Transform selector; 
     
+    // Buildings positions
+    public List<Building> buildings {get; private set;}
+
+
     void Awake()
     {
         if (Instance == null)
@@ -54,6 +59,7 @@ public class Game : MonoBehaviour
         }
 
         mapGenerator.GenerateMap();
+        buildings = new List<Building>();
 
         // DEBUG : Instanciation d'ennemis sur les cases de départ
         if (spawnMobOnStart)
@@ -65,15 +71,23 @@ public class Game : MonoBehaviour
             foreach (Vertex<VertexLabel> v in startTiles)
             {
                 Instantiate(Resources.Load("Monsters/Prefabs/GroBleu"), new Vector3(v.position.x, 2f, v.position.y), Quaternion.identity);
-            } 
-            
-
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        LogBuildings();  
+    }
+
+    void LogBuildings()
+    {
+        string str ="buildings : ";
+        foreach (Building build in buildings)
+        {
+            str += build.ToString() + " "; 
+        }
+        Debug.Log(str);
     }
 }
