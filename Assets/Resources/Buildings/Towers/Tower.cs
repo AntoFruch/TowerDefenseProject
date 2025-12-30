@@ -6,7 +6,7 @@ public abstract class Tower : Building
 {
     [Header("Tower Attributes")]
     [SerializeField] protected float range = 3f;
-    protected float realRange;
+    public float realRange {get;protected set;}
     [SerializeField] protected float fireRate = 1f;
     [SerializeField] protected float damage = 10f;
     public float Damage => damage;
