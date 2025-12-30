@@ -47,15 +47,14 @@ public class Game : MonoBehaviour
     {
         mapGenerator = GetComponent<MapGenerator>();
 
-        map = FileAPI.ImageToTileTypeArray(FileAPI.ReadImageAsTexture2D("../Maps/map_03_fix.png"));
-        try 
+        map = GameConfig.map;
+        graph = GameConfig.graph;
+
+        // mode debug
+        if (map == null)
         {
+            map = FileAPI.ImageToTileTypeArray(FileAPI.ReadImageAsTexture2D("../Maps/map_03_fix.png"));
             graph = PathVerifier.CreatePathGraph(map);
-            PathVerifier.IsValidGraph(graph);
-        } catch (System.Exception e)
-        {
-            // logique pour envoyer le message d'erreur pour que ca affiche un popup coté menu
-            SceneManager.LoadScene("MapSelector");
         }
 
         mapGenerator.GenerateMap();

@@ -1,0 +1,111 @@
+:root {
+}
+
+.menu-container {
+    width: 100%;
+    height: 100%;
+}
+
+.content-container {
+    padding-bottom: 27px;
+    height: 90%;
+}
+
+.title {
+    background-image: url("project://database/Assets/UI/Menu/CHOOSE-THE-MAP-30-12-2025.png?fileID=2800000&guid=eddff02043978744cb52f3108d475860&type=3#CHOOSE-THE-MAP-30-12-2025");
+    width: 100%;
+    height: 20%;
+}
+
+.btn-map {
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    height: 60px;
+    background-color: rgb(229, 211, 57);
+    border-left-color: rgb(255, 194, 0);
+    border-right-color: rgb(255, 194, 0);
+    border-top-color: rgb(255, 194, 0);
+    border-bottom-color: rgb(255, 194, 0);
+}
+
+.btn-map:hover {
+    scale: 1.05 1.05 1.05;
+    transition-duration: 0.1s;
+}
+
+.btn-map-selected {
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    height: 60px;
+    background-color: rgb(57, 126, 229);
+    border-left-color: rgb(0, 255, 252);
+    border-right-color: rgb(0, 255, 252);
+    border-top-color: rgb(0, 255, 252);
+    border-bottom-color: rgb(0, 255, 252);
+}
+
+.btn-map-label {
+    font-size: 25px;
+}
+
+.start-btn {
+    width: 40%;
+    height: 60%;
+    position: absolute;
+    top: 14px;
+    bottom: 0;
+    right: 0;
+}
+
+.start-btn-ready {
+    background-color: rgb(255, 94, 0);
+    border-left-color: rgb(255, 49, 0);
+    border-right-color: rgb(255, 49, 0);
+    border-top-color: rgb(255, 49, 0);
+    border-bottom-color: rgb(255, 49, 0);
+}
+
+.start-label {
+}
+
+.start-label-notready {
+    color: rgb(101, 101, 101);
+}
+
+.bottom-container {
+    padding-top: -8px;
+    height: 62px;
+}
+
+.right-container {
+    margin-left: 126px;
+    margin-right: 133px;
+}
+
+.scrollview {
+    margin-left: 133px;
+    margin-right: 15px;
+}
+
+.map-name {
+    position: absolute;
+    font-size: 30px;
+    top: 20px;
+}
+
+.split-bar {
+    height: 308px;
+    width: 3px;
+    background-color: rgb(103, 103, 103);
+}
+
+.preview {
+    width: 326px;
+    background-color: rgb(101, 101, 101);
+    background-image: none;
+    background-size: contain;
+}

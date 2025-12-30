@@ -1,0 +1,23 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3#Common" />
+    <Style src="project://database/Assets/UI/Menu/Menu.uss?fileID=7433441132597879392&amp;guid=541944e951acdd749904531c15319ed6&amp;type=3#Menu" />
+    <Style src="project://database/Assets/UI/Menu/MapSelection.uss?fileID=7433441132597879392&amp;guid=df07c8ebad557274494cded5a9e40643&amp;type=3#MapSelection" />
+    <ui:VisualElement name="menu-container" class="menu-container">
+        <ui:VisualElement name="title" class="title" style="flex-grow: 1; height: 30%;" />
+        <ui:VisualElement name="content-container" class="content-container" style="flex-direction: row; padding-bottom: 0;">
+            <ui:ScrollView name="buttons-scrollview" class="scrollview" style="width: 25%;" />
+            <ui:VisualElement name="splitter" class="split-bar" />
+            <ui:VisualElement name="right_container" class="right-container">
+                <ui:VisualElement name="preview" class="preview" style="flex-grow: 1; height: 64%;">
+                    <ui:Label text="preview" />
+                </ui:VisualElement>
+                <ui:VisualElement name="bottom-container" class="bottom-container" style="flex-grow: 1;">
+                    <ui:Label text="map name" name="map-name" class="map-name labels" />
+                    <ui:Button name="start-btn" class="btn start-btn">
+                        <ui:Label name="start-label" text="START !" class="labels start-label start-label-notready" style="font-size: 30px;" />
+                    </ui:Button>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

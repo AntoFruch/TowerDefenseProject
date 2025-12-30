@@ -1,0 +1,47 @@
+:root {
+}
+
+.main-container {
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    background-image: url("project://database/Assets/UI/Menu/TOWER-DEFENSE-29-12-2025.png?fileID=2800000&guid=1ee6325b93c6fa64b84fb14f2a37088c&type=3#TOWER-DEFENSE-29-12-2025");
+}
+
+.menu-container {
+    width: 400px;
+}
+
+.btn {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    height: 75px;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.btn:hover {
+    scale: 1.1 1.1 1.1;
+    transition-duration: 0.2s;
+}
+
+.labels {
+    font-size: 45px;
+}
+
+.credentials {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
