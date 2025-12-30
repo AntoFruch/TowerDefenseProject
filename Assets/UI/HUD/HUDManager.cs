@@ -25,12 +25,10 @@ public class HUDManager : MonoBehaviour
 
     public void ShowWheelMenu(Vector2 pos)
     {
-        Vector2Int selectorPos = UEExtension.Vector3toVector2Int(Game.Instance.selector.position);
-        try
+        if (BuildingPlacementManager.IsPlaceTaken(UEExtension.Vector3toVector2Int(Game.Instance.selector.position)))
         {
-            Building build = Game.Instance.buildings.First(b => UEExtension.Vector3toVector2Int(b.transform.position)==selectorPos);
-            delMov.Show(pos, build);
-        } catch (InvalidOperationException e)
+            delMov.Show(pos);
+        } else
         {
             wheel.ShowWheelAtPosition(pos);
         }

@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -32,10 +34,18 @@ public class DelMovController : MonoBehaviour
         Hide();
     }
 
-    public void Show(Vector2 pos, Building build)
+    public void Show(Vector2 pos)
     {
         ignoreNextClick = true;
-        selectedBuild = build;
+        try {
+            selectedBuild = Game.Instance.buildings.First(
+                b => UEExtension.Vector3toVector2Int(b.transform.position) == UEExtension.Vector3toVector2Int(Game.Instance.selector.position));
+        } catch (InvalidOperationException e)
+        {
+            Debug.LogError("No Build at "+pos);
+            Debug.LogError(e);
+        }
+
         active=true;
 
         delMovUIDoc.rootVisualElement.RemoveFromClassList("hide");

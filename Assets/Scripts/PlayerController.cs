@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -35,18 +34,21 @@ public class PlayerController : MonoBehaviour
             BuildingPlacementManager.Instance.Place();
         }else if (!hUDWheelActive)
         {
-            toggleBuildsHUD();
+            ToggleBuildsHUD();
             cameraController.MoveCam(moveCamAction, dragAction);
             cameraController.Zoom(zoomAction);
             cameraController.MoveSelector();
         } 
     }
 
-    void toggleBuildsHUD()
+    void ToggleBuildsHUD()
     {
-        if (selectAction.WasPerformedThisFrame() && Game.Instance.selector.position.y > 0)
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+        
+        // selector enabled and click => position is correct and menu can be opened
+        if (selectAction.WasPerformedThisFrame() && Game.Instance.selector.GetComponent<Renderer>().enabled)
         {
-            Game.Instance.HUD.ShowWheelMenu(Mouse.current.position.ReadValue());
+            Game.Instance.HUD.ShowWheelMenu(mousePos);
         }
     }
     void UpdateStates()

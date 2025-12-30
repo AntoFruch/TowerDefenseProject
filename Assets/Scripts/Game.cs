@@ -53,7 +53,7 @@ public class Game : MonoBehaviour
         // mode debug
         if (map == null)
         {
-            map = FileAPI.ImageToTileTypeArray(FileAPI.ReadImageAsTexture2D("../Maps/map_03_fix.png"));
+            map = FileAPI.ImageToTileTypeArray(FileAPI.ReadImageAsTexture2D("../Maps/map_03.png"));
             graph = PathVerifier.CreatePathGraph(map);
         }
 

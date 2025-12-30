@@ -1,7 +1,5 @@
 using System;
-using System.ComponentModel;
 using System.Linq;
-using NUnit.Framework;
 using UnityEngine;
 public class BuildingPlacementManager : MonoBehaviour
 {
@@ -29,49 +27,49 @@ public class BuildingPlacementManager : MonoBehaviour
             {
                 
                 selectedBuild.transform.position = Game.Instance.selector.position + hover;
-                if (IsValidPosition())
+                if (CanPlace(UEExtension.Vector3toVector2Int(selectedBuild.transform.position)))
                 {
                     // mettre un indicateur vert
                 } else {
                     // mettre un indicateur rouge
                 }
             }
-            Debug.Log(IsValidPosition()+" "+ UEExtension.Vector3toVector2Int(selectedBuild.transform.position) );}
+        }
     }
     public void StartMoving(Building build)
     {
         selectedBuild = build;
         moving = true;
+        Game.Instance.buildings.Remove(selectedBuild);
     }
     public void Place()
     {
-        if (IsValidPosition()){
+        if (CanPlace(UEExtension.Vector3toVector2Int(selectedBuild.transform.position))){
             moving=false;
             selectedBuild.transform.position = Game.Instance.selector.position;
-            Game.Instance.buildings.Remove(selectedBuild);
             Game.Instance.buildings.Add(selectedBuild);
         }      
     }
-    
-    public bool IsValidPosition()
+
+    public static bool CanPlace(Vector2Int pos)
     {
-        Vector2Int selectedBuildPos = UEExtension.Vector3toVector2Int(selectedBuild.transform.position);
-        if (Game.Instance.map[selectedBuildPos.y][selectedBuildPos.x] != TileType.CONSTRUCTIBLE)
-        {
-            return false;
-        }
-        
+        return !IsPlaceTaken(pos) && Game.Instance.map[pos.y][pos.x] == TileType.CONSTRUCTIBLE;
+    }
+
+    public static bool IsPlaceTaken(Vector2Int pos)
+    {  
         try
         {
-            Building build = Game.Instance.buildings.First(
-                b => UEExtension.Vector3toVector2Int(b.transform.position) == selectedBuildPos // meme position qu'un batiment existant
-                && b != selectedBuild);   // different de lui même
+            Debug.Log(pos);
+            Debug.Log(Game.Instance.selector.position);
+            Game.Instance.buildings.First(
+                b => UEExtension.Vector3toVector2Int(b.transform.position) == pos);
             
-            return false;
+            return true;
 
         } catch(InvalidOperationException e)
         {
-            return true;
-        }
+            return false;
+        } 
     }
 }
