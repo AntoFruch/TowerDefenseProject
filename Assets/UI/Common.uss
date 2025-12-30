@@ -20,5 +20,5 @@
 .btn-map {
 }
 
-.error-label {
+.back-btn-label:hover {
 }

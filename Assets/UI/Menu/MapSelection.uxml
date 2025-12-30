@@ -25,4 +25,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
+    <ui:Button name="back-btn" class="back-btn btn">
+        <ui:Label text="&lt;- Back" class="back-btn-label labels" />
+    </ui:Button>
 </ui:UXML>

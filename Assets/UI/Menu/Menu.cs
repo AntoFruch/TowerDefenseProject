@@ -28,6 +28,7 @@ public class Menu : MonoBehaviour
     private Button startButton;
     private Label startLabel;
     private Label errorLabel;
+    private Button backButton;
 
     //other
     private Dictionary<Button,string> mapBtnToFileName;
@@ -66,6 +67,9 @@ public class Menu : MonoBehaviour
         
         errorLabel = mapSelectionUIDoc.rootVisualElement.Q<Label>("error-label");
         errorLabel.text = "";
+
+        backButton = mapSelectionUIDoc.rootVisualElement.Q<Button>("back-btn");
+        backButton.RegisterCallback<ClickEvent>(OnBackButtonClick);
         
         GenerateMapButtons();
         ShowMainMenu();
@@ -175,5 +179,10 @@ public class Menu : MonoBehaviour
             errorLabel.text = "Error : " + e.Message;
             startButton.SetEnabled(false);
         }
+    }
+    void OnBackButtonClick(ClickEvent evt)
+    {
+        HideMapSelection();
+        ShowMainMenu();
     }
 }
