@@ -4,18 +4,23 @@
     <Style src="project://database/Assets/UI/Menu/MapSelection.uss?fileID=7433441132597879392&amp;guid=df07c8ebad557274494cded5a9e40643&amp;type=3#MapSelection" />
     <ui:VisualElement name="menu-container" class="menu-container">
         <ui:VisualElement name="title" class="title" style="flex-grow: 1; height: 30%;" />
-        <ui:VisualElement name="content-container" class="content-container" style="flex-direction: row; padding-bottom: 0;">
-            <ui:ScrollView name="buttons-scrollview" class="scrollview" style="width: 25%;" />
-            <ui:VisualElement name="splitter" class="split-bar" />
-            <ui:VisualElement name="right_container" class="right-container">
-                <ui:VisualElement name="preview" class="preview" style="flex-grow: 1; height: 64%;">
-                    <ui:Label text="preview" />
+        <ui:VisualElement name="content-container" class="content-container" style="flex-grow: 1;">
+            <ui:VisualElement name="content-container-center" class="content-container-center" style="flex-direction: row; padding-bottom: 0;">
+                <ui:VisualElement name="left-container" class="left-container" style="flex-grow: 1;">
+                    <ui:ScrollView name="buttons-scrollview" class="scrollview" />
+                    <ui:VisualElement name="splitter" class="split-bar" />
                 </ui:VisualElement>
-                <ui:VisualElement name="bottom-container" class="bottom-container" style="flex-grow: 1;">
-                    <ui:Label text="map name" name="map-name" class="map-name labels" />
-                    <ui:Button name="start-btn" class="btn start-btn">
-                        <ui:Label name="start-label" text="START !" class="labels start-label start-label-notready" style="font-size: 30px;" />
-                    </ui:Button>
+                <ui:VisualElement name="right_container" class="right-container">
+                    <ui:VisualElement name="preview-container" class="preview-container" style="flex-grow: 1;">
+                        <ui:VisualElement name="preview" class="preview" style="flex-grow: 1; height: 64%;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="bottom-container" class="bottom-container" style="flex-grow: 1;">
+                        <ui:Label text="map name" name="map-name" class="map-name labels" />
+                        <ui:Button name="start-btn" class="btn start-btn">
+                            <ui:Label name="start-label" text="START !" class="labels start-label start-label-notready" style="font-size: 30px;" />
+                        </ui:Button>
+                        <ui:Label text="Error : jqhsdjklhGSDQFLKUGDFILUGLIUDGFLJHQDSLJHFBQLSDJHFBLUHQLSDHFBFVLJHVQSDLJHBVKLJHVQSDF" name="error-label" class="error-label" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

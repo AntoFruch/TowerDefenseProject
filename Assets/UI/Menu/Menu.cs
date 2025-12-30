@@ -2,9 +2,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 using System.IO;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 
 public class Menu : MonoBehaviour
 {   
@@ -28,6 +27,7 @@ public class Menu : MonoBehaviour
     private VisualElement preview;
     private Button startButton;
     private Label startLabel;
+    private Label errorLabel;
 
     //other
     private Dictionary<Button,string> mapBtnToFileName;
@@ -37,6 +37,7 @@ public class Menu : MonoBehaviour
     {   
 
         mapBtnToFileName = new Dictionary<Button, string>();
+
         // Main Menu
         
         mainMenuContainer = mainMenuUIDoc.rootVisualElement.Q<VisualElement>("menu-container");
@@ -50,14 +51,21 @@ public class Menu : MonoBehaviour
         //Map Selection Menu
         
         mapSelectionContainer = mapSelectionUIDoc.rootVisualElement.Q<VisualElement>("menu-container");
+        
         mapButtonsContainer = mapSelectionUIDoc.rootVisualElement.Q<ScrollView>("buttons-scrollview");
+        
         mapNameLabel = mapSelectionUIDoc.rootVisualElement.Q<Label>("map-name");
+        mapNameLabel.text = "";
+
         preview = mapSelectionUIDoc.rootVisualElement.Q<VisualElement>("preview");
+        
         startButton = mapSelectionUIDoc.rootVisualElement.Q<Button>("start-btn");
         startButton.RegisterCallback<ClickEvent>(OnStartButtonClick);
-        startLabel = mapSelectionUIDoc.rootVisualElement.Q<Label>("start-label");
         startButton.SetEnabled(false);
-
+        startLabel = mapSelectionUIDoc.rootVisualElement.Q<Label>("start-label");
+        
+        errorLabel = mapSelectionUIDoc.rootVisualElement.Q<Label>("error-label");
+        errorLabel.text = "";
         
         GenerateMapButtons();
         ShowMainMenu();
@@ -161,16 +169,11 @@ public class Menu : MonoBehaviour
         {
             GameConfig.LoadMap(filePath);
             startButton.SetEnabled(true);
-            startButton.AddToClassList("start-btn-ready");
-            startLabel.RemoveFromClassList("start-label-notready");
+            errorLabel.text = "";
         }catch(System.Exception e)
         {
-            Debug.Log("Illegal map layout");
+            errorLabel.text = "Error : " + e.Message;
             startButton.SetEnabled(false);
-            startButton.RemoveFromClassList("start-btn-ready");
-            startLabel.AddToClassList("start-label-notready");
         }
-
-        
     }
 }

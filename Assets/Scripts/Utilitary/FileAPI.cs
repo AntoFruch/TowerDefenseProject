@@ -30,6 +30,7 @@ public static class FileAPI
             }
             
             image.SetPixels(flippedPixels);
+            image.filterMode = FilterMode.Point;
             image.Apply();
 
             return image;
