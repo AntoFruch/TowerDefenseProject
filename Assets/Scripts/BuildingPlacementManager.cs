@@ -44,17 +44,20 @@ public class BuildingPlacementManager : MonoBehaviour
     }
     public void Place()
     {
+        Debug.Log(Game.Instance.selector.position);
         if (CanPlace(UEExtension.Vector3toVector2Int(selectedBuild.transform.position))){
             moving=false;
             selectedBuild.transform.position = Game.Instance.selector.position;
             Game.Instance.buildings.Add(selectedBuild);
-        }
-        selectedBuild.Unhighlight();
-        selectedBuild = null;
+            selectedBuild.Unhighlight();
+            selectedBuild = null;
+        } 
     }
 
     public static bool CanPlace(Vector2Int pos)
     {
+        Debug.Log(pos);
+        Debug.Log(!IsPlaceTaken(pos) && Game.Instance.map[pos.y][pos.x] == TileType.CONSTRUCTIBLE);
         return !IsPlaceTaken(pos) && Game.Instance.map[pos.y][pos.x] == TileType.CONSTRUCTIBLE;
     }
 
