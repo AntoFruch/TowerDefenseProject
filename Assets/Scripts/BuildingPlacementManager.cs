@@ -65,14 +65,12 @@ public class BuildingPlacementManager : MonoBehaviour
     {  
         try
         {
-            Debug.Log(pos);
-            Debug.Log(Game.Instance.selector.position);
             Game.Instance.buildings.First(
                 b => UEExtension.Vector3toVector2Int(b.transform.position) == pos);
             
             return true;
 
-        } catch(InvalidOperationException e)
+        } catch(InvalidOperationException)
         {
             return false;
         } 

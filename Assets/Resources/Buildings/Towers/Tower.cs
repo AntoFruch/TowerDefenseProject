@@ -4,35 +4,32 @@ using UnityEngine;
 
 public abstract class Tower : Building
 {
-    [Header("Tower Attributes")]
-    [SerializeField] protected float range = 3f;
-    public float realRange {get;protected set;}
+    
     [SerializeField] protected float fireRate = 1f;
     [SerializeField] protected float damage = 10f;
     public float Damage => damage;
 
     [Header("Fonctional Assignements")]
     [SerializeField] protected float lerpStep = 10f;
-    [SerializeField] private Transform rangeArea;
     [SerializeField] protected Transform rotatingPart;
 
     [SerializeField] protected Transform projectileSpawn; // Empty GameObject that is the spawn point for the projectiles
+    
     protected Vector3 lookDirection;
-
-    protected GameObject target=null;
+    protected GameObject target = null;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
         base.Start();
         realRange = (2 * range + 1)/2;
-        rangeArea.localScale = new Vector3(2*realRange,0.01f,2*realRange);
     }
 
     float clock;
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         UpdateTarget();
         RotateTowardTarget();
         
