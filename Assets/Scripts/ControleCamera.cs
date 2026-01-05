@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -93,16 +94,22 @@ public class ControleCamera : MonoBehaviour
             int X = Mathf.RoundToInt(x);
             int Y = Mathf.RoundToInt(z);
             
-            if (Game.Instance.map[Y][X] == TileType.CONSTRUCTIBLE)
+            try {
+                if (Game.Instance.map[Y][X] == TileType.CONSTRUCTIBLE)
+                {
+                    selectiontile.GetComponent<Renderer>().enabled = true;
+                }
+                else 
+                {
+                    selectiontile.GetComponent<Renderer>().enabled = false;
+                }
+                Vector3 CurrentlySelectedPosition=hitObject.transform.position;
+                selectiontile.transform.position = CurrentlySelectedPosition + new Vector3(0,0.25f,0);
+            } catch (IndexOutOfRangeException)
             {
-                selectiontile.GetComponent<Renderer>().enabled = true;
-            }
-            else 
-            {
+                // error handling for when the mouse is out of the map bounds which is not a problem but throws an exception anyway.
                 selectiontile.GetComponent<Renderer>().enabled = false;
             }
-            Vector3 CurrentlySelectedPosition=hitObject.transform.position;
-            selectiontile.transform.position = CurrentlySelectedPosition + new Vector3(0,0.25f,0);
             
              
         }
