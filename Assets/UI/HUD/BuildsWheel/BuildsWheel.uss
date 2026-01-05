@@ -1,6 +1,19 @@
 :root {
 }
 
+.labels {
+    -unity-font-style: bold;
+    -unity-text-align: upper-center;
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(255, 255, 255);
+    -unity-font-definition: url("project://database/Assets/UI/Supersonic%20Rocketship.ttf?fileID=12800000&guid=42639f43f6fe7b6438f0eff715a5b7f4&type=3#Supersonic Rocketship");
+    color: rgb(123, 58, 0);
+    text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.44);
+    letter-spacing: -6px;
+    -unity-paragraph-spacing: -16px;
+    font-size: 24px;
+}
+
 .btn-power-plant-bg {
     background-color: rgb(40, 170, 255);
     border-left-color: rgb(43, 135, 195);
@@ -43,7 +56,7 @@
 }
 
 .btn-towers-container {
-    translate: 0px -90px;
+    translate: 0 -90px;
 }
 
 .btn-power-plant-container {
