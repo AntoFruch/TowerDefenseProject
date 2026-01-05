@@ -133,19 +133,16 @@ public class BuildWheelController : MonoBehaviour
     void onPowerPlantButtonClick(ClickEvent evt)
     {
         GameObject build = Instantiate(Game.Instance.buildingsPrefabs.powerPlant, Game.Instance.selector.position, Quaternion.identity);
-        Game.Instance.buildings.Add(build.GetComponent<Building>());
         HideWheel();
     } 
     void onStorageButtonClick(ClickEvent evt)
     {
         GameObject build = Instantiate(Game.Instance.buildingsPrefabs.storage, Game.Instance.selector.position, Quaternion.identity);
-        Game.Instance.buildings.Add(build.GetComponent<Building>());
         HideWheel();
     } 
     void onFactoryButtonClick(ClickEvent evt)
     {
         GameObject build = Instantiate(Game.Instance.buildingsPrefabs.factory, Game.Instance.selector.position, Quaternion.identity);
-        Game.Instance.buildings.Add(build.GetComponent<Building>());
         HideWheel();
     } 
 
@@ -164,25 +161,21 @@ public class BuildWheelController : MonoBehaviour
     {
         // Instantiate red tower
         GameObject build = Instantiate(Game.Instance.buildingsPrefabs.redTower, Game.Instance.selector.position, Quaternion.identity);
-        Game.Instance.buildings.Add(build.GetComponent<Building>());
         HideWheel();
     }
     void onBlueButtonClick(ClickEvent evt)
     {
         GameObject build = Instantiate(Game.Instance.buildingsPrefabs.blueTower, Game.Instance.selector.position, Quaternion.identity);
-        Game.Instance.buildings.Add(build.GetComponent<Building>());
         HideWheel();
     } 
     void onYellowButtonClick(ClickEvent evt)
     {
         GameObject build = Instantiate(Game.Instance.buildingsPrefabs.yellowTower, Game.Instance.selector.position, Quaternion.identity);
-        Game.Instance.buildings.Add(build.GetComponent<Building>());
         HideWheel();
     } 
     void onGreenButtonClick(ClickEvent evt)
     {
         GameObject build = Instantiate(Game.Instance.buildingsPrefabs.greenTower, Game.Instance.selector.position, Quaternion.identity);
-        Game.Instance.buildings.Add(build.GetComponent<Building>());
         HideWheel();
     } 
 }

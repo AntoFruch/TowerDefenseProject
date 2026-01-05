@@ -22,10 +22,11 @@ public abstract class Tower : Building
     protected GameObject target=null;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
         realRange = (2 * range + 1)/2;
-        rangeArea.localScale = new Vector3(2*realRange,0.01f,2*realRange); 
+        rangeArea.localScale = new Vector3(2*realRange,0.01f,2*realRange);
     }
 
     float clock;

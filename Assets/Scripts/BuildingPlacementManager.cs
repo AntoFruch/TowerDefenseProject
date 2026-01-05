@@ -29,9 +29,9 @@ public class BuildingPlacementManager : MonoBehaviour
                 selectedBuild.transform.position = Game.Instance.selector.position + hover;
                 if (CanPlace(UEExtension.Vector3toVector2Int(selectedBuild.transform.position)))
                 {
-                    // mettre un indicateur vert
+                    selectedBuild.GreenHighlight();
                 } else {
-                    // mettre un indicateur rouge
+                    selectedBuild.RedHighlight();
                 }
             }
         }
@@ -48,7 +48,9 @@ public class BuildingPlacementManager : MonoBehaviour
             moving=false;
             selectedBuild.transform.position = Game.Instance.selector.position;
             Game.Instance.buildings.Add(selectedBuild);
-        }      
+        }
+        selectedBuild.Unhighlight();
+        selectedBuild = null;
     }
 
     public static bool CanPlace(Vector2Int pos)
