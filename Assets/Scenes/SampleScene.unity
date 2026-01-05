@@ -726,7 +726,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 05293b01974c44f439bf8e3eb6919824, type: 2}
     - target: {fileID: 4816421359346738776, guid: acc4b0fd6e473374aaec40bda55aa106, type: 3}
       propertyPath: spawnMobOnStart
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4816421359346738776, guid: acc4b0fd6e473374aaec40bda55aa106, type: 3}
       propertyPath: buildingsPrefabs

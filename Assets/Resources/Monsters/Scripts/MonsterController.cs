@@ -2,11 +2,12 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEngine.InputSystem.Controls;
 
 public class MonsterController : MonoBehaviour
 {
     private CharacterController controller;
-    private Animator animator;
+    public Animator animator{ get; private set; }
 
     // Life
     [SerializeField] private int life = 10;
@@ -39,12 +40,6 @@ public class MonsterController : MonoBehaviour
                                     .ToList()[0];
 
         path = Strategies.ShortestPath(graph, spawnVertex);
-        Debug.Log(this.name);
-        Debug.Log(spawnVertex);
-        foreach (Vertex<VertexLabel> v in path)
-        {
-            Debug.Log(v);
-        }
     }
     void Update()
     {
@@ -114,6 +109,14 @@ public class MonsterController : MonoBehaviour
         GetComponent<Animator>().SetTrigger("Death");
     }
 
+    void Attack()
+    {
+        Instantiate(
+            Game.Instance.mapPrefabs.endHitParticles,
+            transform.position,
+            Quaternion.identity
+        );
+    }
     // called by an animator event
     void DestroySelf()
     {

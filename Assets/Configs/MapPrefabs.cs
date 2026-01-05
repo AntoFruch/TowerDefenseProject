@@ -25,6 +25,7 @@ public class MapPrefabs : ScriptableObject
     [Header("End Tiles")]
     public GameObject endTileEnd;
     public GameObject endTileStraight;
+    public GameObject endHitParticles;
 
     [Header("Decorative Tiles")]
     public GameObject singleTree;

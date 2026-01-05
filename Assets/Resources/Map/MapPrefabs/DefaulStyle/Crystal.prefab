@@ -1,5 +1,73 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8995544959475354068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8518101085916781863}
+  - component: {fileID: 8719631974455363207}
+  - component: {fileID: 181653650343418004}
+  m_Layer: 0
+  m_Name: trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8518101085916781863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8995544959475354068}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.611, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8350741436084058234}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &8719631974455363207
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8995544959475354068}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.45
+  m_Height: 1.3168473
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.058843136, z: 0}
+--- !u!114 &181653650343418004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8995544959475354068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d02f358f7f3e6744bc1403692761fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EndTrigger
 --- !u!1001 &7821871583670227269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68,20 +136,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: detail-crystal
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4bc2802e1c6876a4b853b3798cd5ca00, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4bc2802e1c6876a4b853b3798cd5ca00, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1683906582673280754}
+      addedObject: {fileID: 8941689533355386964}
   m_SourcePrefab: {fileID: 100100000, guid: 4bc2802e1c6876a4b853b3798cd5ca00, type: 3}
 --- !u!1 &6939403890990246932 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4bc2802e1c6876a4b853b3798cd5ca00, type: 3}
   m_PrefabInstance: {fileID: 7821871583670227269}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &1683906582673280754
+--- !u!64 &8941689533355386964
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,12 +232,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crystal
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3555e48445a637c4c822f9bc2cc50247, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3555e48445a637c4c822f9bc2cc50247, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7711965478094091950}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3555e48445a637c4c822f9bc2cc50247, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8518101085916781863}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3555e48445a637c4c822f9bc2cc50247, type: 3}
       insertIndex: -1
