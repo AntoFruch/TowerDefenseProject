@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8845053910570033471
+--- !u!1 &2848045533347385845
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,62 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7568487723153228071}
+  - component: {fileID: 2106814210890695209}
+  - component: {fileID: 6059469821018467566}
+  m_Layer: 0
+  m_Name: Canon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2106814210890695209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848045533347385845}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.04114, y: 0, z: -0.02411}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 478912336557226885}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6059469821018467566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848045533347385845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e788ca5f4fe9e4346bca95108a62f91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Canon
+  range: 3
+  fireRate: 1
+  damage: 10
+  lerpStep: 10
+  rotatingPart: {fileID: 478912336557226885}
+  projectileSpawn: {fileID: 6561377112956753619}
+  idleRotationChangeTime: 2
+  idleTurnSpeed: 1
+  shootForce: 4
+  prefabs: {fileID: 11400000, guid: f0fbb34e904f9b94a946fb764194bcd4, type: 2}
+--- !u!1 &9001429240929061061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6561377112956753619}
   m_Layer: 0
   m_Name: projectileSpawn
   m_TagString: Untagged
@@ -16,28 +71,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7568487723153228071
+--- !u!4 &6561377112956753619
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8845053910570033471}
+  m_GameObject: {fileID: 9001429240929061061}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.37, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2672293649217272258}
+  m_Father: {fileID: 478912336557226885}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2494815622238428713
+--- !u!1001 &85508224416406638
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 2106814210890695209}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 26c3569413fdee64392da6466189085e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -88,39 +143,11 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 26c3569413fdee64392da6466189085e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7568487723153228071}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 26c3569413fdee64392da6466189085e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2014699618890879761}
+      addedObject: {fileID: 6561377112956753619}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26c3569413fdee64392da6466189085e, type: 3}
---- !u!4 &2672293649217272258 stripped
+--- !u!4 &478912336557226885 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 26c3569413fdee64392da6466189085e, type: 3}
-  m_PrefabInstance: {fileID: 2494815622238428713}
+  m_PrefabInstance: {fileID: 85508224416406638}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3341165453028418424 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 26c3569413fdee64392da6466189085e, type: 3}
-  m_PrefabInstance: {fileID: 2494815622238428713}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2014699618890879761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3341165453028418424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e788ca5f4fe9e4346bca95108a62f91f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Canon
-  range: 3
-  fireRate: 1
-  damage: 10
-  lerpStep: 20
-  rotatingPart: {fileID: 2672293649217272258}
-  projectileSpawn: {fileID: 7568487723153228071}
-  shootForce: 4
-  prefabs: {fileID: 11400000, guid: f0fbb34e904f9b94a946fb764194bcd4, type: 2}
