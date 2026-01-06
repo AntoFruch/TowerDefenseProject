@@ -16,5 +16,4 @@
             </ui:Button>
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:Label text="Made by Julien and Antonin" name="credentials" class="credentials" />
 </ui:UXML>

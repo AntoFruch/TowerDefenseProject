@@ -39,9 +39,3 @@
 .labels {
     font-size: 45px;
 }
-
-.credentials {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-}
