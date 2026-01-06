@@ -11,7 +11,7 @@
     -unity-text-outline-width: 1px;
     -unity-text-outline-color: rgb(255, 255, 255);
     -unity-font-definition: url("project://database/Assets/UI/Supersonic%20Rocketship.ttf?fileID=12800000&guid=42639f43f6fe7b6438f0eff715a5b7f4&type=3#Supersonic Rocketship");
-    color: rgb(123, 58, 0);
+    color: rgb(65, 31, 0);
     text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.44);
     letter-spacing: -6px;
     -unity-paragraph-spacing: -16px;
