@@ -41,6 +41,7 @@ public class Building : MonoBehaviour {
         {
             rangeCylinder.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Ranges/TowerRange");
         } 
+
         
         // add other building types here
         

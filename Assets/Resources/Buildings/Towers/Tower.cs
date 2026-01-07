@@ -4,10 +4,14 @@ using UnityEngine;
 
 public abstract class Tower : Building
 {
-    
+    [Header("Stats de Base")]
     [SerializeField] protected float fireRate = 1f;
     [SerializeField] protected float damage = 10f;
-    public float Damage => damage;
+
+    public float CurrentDamage { get; private set; }
+    public float CurrentFireRate { get; private set; }
+    public float CurrentRange { get; private set; }
+    public float Damage => CurrentDamage;
 
     [Header("Fonctional Assignements")]
     [SerializeField] protected float lerpStep = 10f;
@@ -24,30 +28,81 @@ public abstract class Tower : Building
     private float idleTimer;
     private Quaternion idleTargetRotation;
 
+    private float statsUpdateTimer = 0f;    //Used to optimize bonus' calculus
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
         base.Start();
-        realRange = (2 * range + 1)/2;
+        CurrentDamage = damage;
+        CurrentFireRate = fireRate;
+        CurrentRange = range;   //From the Class Building
+        CalculateStats();
     }
 
     float clock;
     // Update is called once per frame
     protected override void Update()
     {
+        statsUpdateTimer += Time.deltaTime;
+        if(statsUpdateTimer > 0.25f)
+        {
+            CalculateStats();
+            statsUpdateTimer = 0f;
+        }
+
         base.Update();
         UpdateTarget();
         RotateTowardTarget();
         
         // Shooting routine
         clock += Time.deltaTime;
-        if (clock > 1 / fireRate && target != null)
+        if (clock > 1 / CurrentFireRate && target != null)
         {
             Shoot();
             clock=0;
         }
     }
-    
+
+    //Calculation of each installation type's boost
+    void CalculateStats()
+    {
+        float damageMult = 1f;
+        float fireMult = 1f;
+        float rangeMult = 1f;
+
+        foreach(Building building in Game.Instance.buildings)
+        {
+            if(building is Installation installation)
+            {
+                float dist = Mathf.Abs(transform.position.x - installation.transform.position.x) + Mathf.Abs(transform.position.z - installation.transform.position.z);
+
+                if(dist <= installation.realRange)
+                {
+                    switch (installation.type)
+                    {
+                        case InstallationType.Radar:
+                            rangeMult += installation.bonusPercentage;
+                            break;
+
+                        case InstallationType.Factory:
+                            damageMult += installation.bonusPercentage;
+                            break;
+
+                        case InstallationType.AmmosStock:
+                            fireMult += installation.bonusPercentage;
+                            break;
+                    }
+                }
+            }
+        }
+
+        CurrentDamage = damage * damageMult;
+        CurrentFireRate = fireRate * fireMult;
+        CurrentRange = range * rangeMult;
+
+        realRange = (2 * CurrentRange + 1) / 2;
+    }
     void UpdateIdleRotation()
     {
         idleTimer -= Time.deltaTime;
