@@ -77,7 +77,18 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //LogBuildings();  
+        EnergyGraphUpdate();
+        //LogBuildings();
+    }
+
+    int lastBuildingCount;
+    void EnergyGraphUpdate()
+    {
+        if (buildings.Count != lastBuildingCount)
+        {
+            EnergyManager.Instance.UpdateEnergyGraph();
+            lastBuildingCount = buildings.Count;
+        }
     }
 
     void LogBuildings()
