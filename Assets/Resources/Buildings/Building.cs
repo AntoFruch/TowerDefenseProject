@@ -40,7 +40,10 @@ public class Building : MonoBehaviour {
         if (this is Tower)
         {
             rangeCylinder.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Ranges/TowerRange");
-        } 
+        } else if (this is PowerPlant)
+        {
+            rangeCylinder.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Ranges/EnergyRange");
+        }
         
         // add other building types here
         

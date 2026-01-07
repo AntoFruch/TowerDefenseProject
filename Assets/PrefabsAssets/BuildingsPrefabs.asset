@@ -16,7 +16,7 @@ MonoBehaviour:
   yellowTower: {fileID: 0}
   blueTower: {fileID: 0}
   greenTower: {fileID: 108005844779589367, guid: 0dee08ea7def72d4d926dda452f57f0c, type: 3}
-  powerPlant: {fileID: 0}
+  powerPlant: {fileID: 5674222868607207803, guid: 31fc88b111541004aa962681e5da742b, type: 3}
   radar: {fileID: 0}
   factory: {fileID: 0}
   storage: {fileID: 0}
