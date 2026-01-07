@@ -2,6 +2,10 @@
 
 But : Créer un jeu type Tower Defense
 
+## Problemes / Bugs
+
+* position des menu roues : marche très bien en UHD mais mal dans les autres formats
+
 ## Tâches
 **Chargement et rendu d’une carte :**
 * Chargement et visualisation d’une carte à partir du dossier Maps.
