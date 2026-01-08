@@ -63,6 +63,8 @@ public abstract class Tower : Building
             clock=0;
         }
 
+        Debug.Log(CurrentFireRate);
+
       
 
     }
@@ -92,7 +94,7 @@ public abstract class Tower : Building
                             damageMult += installation.bonusPercentage;
                             break;
 
-                        case InstallationType.AmmosStock:
+                        case InstallationType.Storage:
                             fireMult += installation.bonusPercentage;
                             break;
                     }

@@ -4,7 +4,7 @@ public enum InstallationType
 {
     Radar,      //Gives a 25% boost in range
     Factory,    //Gives a 25% boost in damage
-    AmmosStock  //Gives a 25% boost in firerate
+    Storage  //Gives a 25% boost in firerate
 }
 public class Installation : Building
 {
