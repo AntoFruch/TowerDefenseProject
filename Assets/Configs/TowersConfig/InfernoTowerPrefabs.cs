@@ -5,5 +5,5 @@ using UnityEngine;
 public class InfernoTowerPrefabs : ScriptableObject
 {
     public GameObject projectile;
-    public GameObject gunShotParticles; // A CHANGERRRR
+    public GameObject gunShotParticles; // A CHANGERRRRRR
 }
