@@ -42,7 +42,10 @@ public class Building : MonoBehaviour {
             rangeCylinder.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Ranges/TowerRange");
         } 
 
-        
+        if(this is Installation)
+        {
+            rangeCylinder.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Ranges/BoostRange");
+        }
         // add other building types here
         
     }

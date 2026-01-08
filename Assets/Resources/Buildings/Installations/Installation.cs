@@ -15,11 +15,6 @@ public class Installation : Building
     protected override void Start()
     {
         base.Start();
-        UpdateRangeColor();
     }
 
-    void UpdateRangeColor()
-    {
-
-    }
 }

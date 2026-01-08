@@ -62,6 +62,9 @@ public abstract class Tower : Building
             Shoot();
             clock=0;
         }
+
+      
+
     }
 
     //Calculation of each installation type's boost
