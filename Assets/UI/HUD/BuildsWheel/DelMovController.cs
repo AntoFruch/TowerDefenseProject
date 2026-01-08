@@ -51,8 +51,12 @@ public class DelMovController : MonoBehaviour
         delMovUIDoc.rootVisualElement.RemoveFromClassList("hide");
         container.style.position = Position.Absolute;
 
-        container.style.left = pos.x - 130;
-        container.style.bottom = pos.y- 130;
+        container.style.left = pos.x;
+        container.style.bottom = pos.y;
+        this.container.style.translate = new Translate(
+            new Length(-50, LengthUnit.Percent),
+            new Length(50, LengthUnit.Percent)
+        );
 
     }
     public void Hide()

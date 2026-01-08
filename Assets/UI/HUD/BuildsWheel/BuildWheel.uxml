@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3#Common" />
-    <Style src="project://database/Assets/UI/HUD/BuildsWheel/Wheel.uss?fileID=7433441132597879392&amp;guid=f996e92eaa221cd4db3eab0b546062b0&amp;type=3#Wheel" />
+    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3" />
+    <Style src="project://database/Assets/UI/HUD/BuildsWheel/Wheel.uss?fileID=7433441132597879392&amp;guid=f996e92eaa221cd4db3eab0b546062b0&amp;type=3" />
     <Style src="project://database/Assets/UI/HUD/BuildsWheel/BuildsWheel.uss?fileID=7433441132597879392&amp;guid=78eb94a888a18a54281177bf428b8a0f&amp;type=3#BuildsWheel" />
     <ui:VisualElement name="wheel-container" class="wheel-container" style="flex-grow: 1;">
         <ui:VisualElement name="circle" class="circle" />
