@@ -2,20 +2,21 @@
 }
 
 .btn-red-container {
-    translate: 0 -90px;
+    translate: 0% -103.8%;
 }
 
 .btn-green-container {
-    translate: 0 90px;
+    translate: 0% 103.8%;
 }
 
 .btn-yellow-container {
-    translate: 90px 0;
+    translate: 103.8% 0%;
 }
 
 .btn-blue-container {
-    translate: -90px 0;
+    translate: -103.8% 0%;
 }
+
 
 .btn-red-bg {
     background-color: rgb(231, 42, 42);

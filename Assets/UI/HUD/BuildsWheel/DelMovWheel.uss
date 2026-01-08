@@ -17,7 +17,7 @@
 }
 
 .btn-move-container {
-    translate: 53px -73px;
+    translate: 61.2% -84.5%;
 }
 
 .btn-delete-bg {
@@ -36,5 +36,6 @@
 }
 
 .btn-delete-container {
-    translate: -53px -73px;
+    translate: -61.2% -84.5%;
 }
+
