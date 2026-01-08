@@ -88,8 +88,12 @@ public class BuildWheelController : MonoBehaviour
         this.buildWheelUIDoc.rootVisualElement.RemoveFromClassList("hide");
         this.buildWheel.style.position = Position.Absolute;
 
-        this.buildWheel.style.left = pos.x - 130;
-        this.buildWheel.style.bottom = pos.y - 130; // A MODIFER ABSOLUMENT ( TRICHE )
+        this.buildWheel.style.left = pos.x ;
+        this.buildWheel.style.bottom = pos.y;
+        this.buildWheel.style.translate = new Translate(
+            new Length(-50, LengthUnit.Percent),
+            new Length(50, LengthUnit.Percent)
+        );
     }
 
     public void ShowTowersWheel()
@@ -97,8 +101,12 @@ public class BuildWheelController : MonoBehaviour
         this.towersWheelUIDoc.rootVisualElement.RemoveFromClassList("hide");
         this.towersWheel.style.position = Position.Absolute;
 
-        this.towersWheel.style.left = wheelPos.x - 130;
-        this.towersWheel.style.bottom = wheelPos.y - 130; // A MODIFER ABSOLUMENT ( TRICHE )
+        this.towersWheel.style.left = wheelPos.x;
+        this.towersWheel.style.bottom = wheelPos.y;
+        this.towersWheel.style.translate = new Translate(
+            new Length(-50, LengthUnit.Percent),
+            new Length(50, LengthUnit.Percent)
+        );
     }
     
     // Hide Methods
