@@ -1,12 +1,10 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public abstract class Tower : Building
 {
     
-    [SerializeField] protected float fireRate = 1f;
-    [SerializeField] protected float damage = 10f;
+    [SerializeField] protected float fireRate ;
+    [SerializeField] protected float damage ;
     public float Damage => damage;
 
     [Header("Fonctional Assignements")]

@@ -48,23 +48,10 @@ public class EnergyManager : MonoBehaviour
     }
 
     // recursive function to connect buildings in the graph based on their energy range
-    void ConnectBuildings(List<Vertex<Building>> unvisited, Vertex<Building> current)
+    void ConnectBuildings(List<Vertex<Building>> unvisited, Vertex<Building> first)
     {
-        unvisited.Remove(current);
-        foreach (Vertex<Building> vertex in unvisited)
-        {
-            if (IsInRange(current, vertex))
-            {
-                current.AddNeighbor(vertex);
-            }
-        }
-        foreach (Vertex<Building> neighbor in current.GetNeighbors().Keys)
-        {
-            if (unvisited.Contains(neighbor))
-            {
-                ConnectBuildings(unvisited, neighbor);
-            }
-        }
+        unvisited = new List<Vertex<Building>>(energyGraph.GetVertices());
+        // parcours de graphe en 
     }
 
     // Check if building2 is in range of building1

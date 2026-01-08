@@ -466,6 +466,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6e609603c0b3e42bc905347ada5125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingPlacementManager
+--- !u!114 &1397456886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397456878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87492a710ee652949b64f201a635c827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnergyManager
 --- !u!1 &1572980855
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,6 +759,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8484200028758111570, guid: acc4b0fd6e473374aaec40bda55aa106, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1397456882}
+    - targetCorrespondingSourceObject: {fileID: 8484200028758111570, guid: acc4b0fd6e473374aaec40bda55aa106, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1397456886}
   m_SourcePrefab: {fileID: 100100000, guid: acc4b0fd6e473374aaec40bda55aa106, type: 3}
 --- !u!1001 &5435644174054758895
 PrefabInstance:
