@@ -103,14 +103,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7825232377033698343}
+      addedObject: {fileID: -5383722584109562495}
   m_SourcePrefab: {fileID: 100100000, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
 --- !u!1 &7434830623586030487 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
   m_PrefabInstance: {fileID: 7776796120952843974}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7825232377033698343
+--- !u!114 &-5383722584109562495
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,8 +130,10 @@ MonoBehaviour:
   projectileSpawn: {fileID: 6462606216006220376}
   idleRotationChangeTime: 2
   idleTurnSpeed: 1
-  shootForce: 1
-  prefabs: {fileID: 11400000, guid: 14860c4e6b4b05048bc6c3693f002cfd, type: 2}
+  shootForce: 0.2
+  prefabs: {fileID: 0}
+  beamPrefab: {fileID: 23569899117785782, guid: 46406fb5789f97a4b9eb92b8f4143c98, type: 3}
+  firePoint: {fileID: 6462606216006220376}
 --- !u!4 &7810934602716596525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
