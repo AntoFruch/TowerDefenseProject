@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8512581aefe8ab4da45c32a28dd8470, type: 3}
   m_Name: InfernoTowerPrefabs
   m_EditorClassIdentifier: Assembly-CSharp::InfernoTowerPrefabs
-  projectile: {fileID: 0}
-  gunShotParticles: {fileID: 0}
+  particules: {fileID: 1206498299807332555, guid: d587bbbed9c5c694dadd1da8647542b5, type: 3}
+  InfernoTowerBeam: {fileID: 8612807409806256928, guid: 6fb09a8d4cba6984bbbb5b488aa2af6a, type: 3}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuildingsPrefabs
   m_EditorClassIdentifier: Assembly-CSharp::BuildingsPrefabs
   redTower: {fileID: 2848045533347385845, guid: 3d13c39e08e65034fbd70e9c0a4d63fd, type: 3}
-  yellowTower: {fileID: 0}
+  yellowTower: {fileID: 7434830623586030487, guid: 1eed2b3a33edc724c88b7046508a0134, type: 3}
   blueTower: {fileID: 0}
   greenTower: {fileID: 108005844779589367, guid: 0dee08ea7def72d4d926dda452f57f0c, type: 3}
   powerPlant: {fileID: 0}
