@@ -19,4 +19,4 @@ MonoBehaviour:
   powerPlant: {fileID: 0}
   radar: {fileID: 7285315262737894251, guid: 0a7baddce2c7a134fa8b733c3d079641, type: 3}
   factory: {fileID: 7030155069538803409, guid: 39b3dac674ebaa9499463f2437b7f678, type: 3}
-  storage: {fileID: 6559939140615100307, guid: 07879d100cc6cc045bddd72d4b7f4fc2, type: 3}
+  storage: {fileID: 1200468825682360664, guid: a9a6ab8f6eff94c4d97e83efd42ebee1, type: 3}

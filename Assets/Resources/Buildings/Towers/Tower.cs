@@ -64,8 +64,6 @@ public abstract class Tower : Building
             clock=0;
         }
 
-        Debug.Log(CurrentFireRate);
-
       
 
     }
