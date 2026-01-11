@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7840587172525861349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6462606216006220376}
+  m_Layer: 0
+  m_Name: ProjectileSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6462606216006220376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7840587172525861349}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.08, y: 0.97, z: 0.121}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7810934602716596525}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7776796120952843974
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -84972692873783827, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+      propertyPath: m_Name
+      value: infernotower
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: -8868264671208640969, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+    - {fileID: 3628639933004552078, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+    - {fileID: -5339918150691153082, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+    - {fileID: 8365440809506399061, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+    - {fileID: -3624984178854727899, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+    - {fileID: -4090291581566107283, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+    - {fileID: 3296940109019652472, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6462606216006220376}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5383722584109562495}
+  m_SourcePrefab: {fileID: 100100000, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+--- !u!1 &7434830623586030487 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+  m_PrefabInstance: {fileID: 7776796120952843974}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-5383722584109562495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7434830623586030487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe5d123eabe0f64fa58f51d8c84c494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InfernoTower
+  range: 3
+  fireRate: 1
+  damage: 10
+  lerpStep: 10
+  rotatingPart: {fileID: 6462606216006220376}
+  projectileSpawn: {fileID: 6462606216006220376}
+  idleRotationChangeTime: 2
+  idleTurnSpeed: 1
+  shootForce: 0.2
+  prefabs: {fileID: 0}
+  beamPrefab: {fileID: 23569899117785782, guid: 46406fb5789f97a4b9eb92b8f4143c98, type: 3}
+  firePoint: {fileID: 6462606216006220376}
+--- !u!4 &7810934602716596525 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 24ea89ce540359543ab1dcfc8443b136, type: 3}
+  m_PrefabInstance: {fileID: 7776796120952843974}
+  m_PrefabAsset: {fileID: 0}

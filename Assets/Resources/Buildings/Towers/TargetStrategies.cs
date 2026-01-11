@@ -18,4 +18,14 @@ public static class TargetStrategies
         }
         return target;
     }
+
+    public static List<GameObject> Multi(Transform rotatingPart,List<GameObject> targets, float realRange)
+    {
+        List<GameObject> inRangeEnemies = GameObject.FindGameObjectsWithTag("Enemy")
+                                                    .Where(e => (e.transform.position - rotatingPart.position).magnitude < realRange && e.GetComponent<MonsterController>().Life > 0)
+                                                    .ToList();
+        
+        targets = inRangeEnemies;
+        return targets;
+    }
 }

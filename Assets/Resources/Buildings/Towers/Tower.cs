@@ -21,6 +21,7 @@ public abstract class Tower : Building
     
     protected Vector3 lookDirection;
     protected GameObject target = null;
+    protected List<GameObject> targets = null;
 
     [SerializeField] float idleRotationChangeTime = 2f;
     [SerializeField] float idleTurnSpeed = 1f;
@@ -57,7 +58,7 @@ public abstract class Tower : Building
         
         // Shooting routine
         clock += Time.deltaTime;
-        if (clock > 1 / CurrentFireRate && target != null)
+        if (clock > 1 / CurrentFireRate && (target != null || targets != null))
         {
             Shoot();
             clock=0;
@@ -141,6 +142,7 @@ public abstract class Tower : Building
         }
         
     }
+    
     protected abstract void UpdateTarget();
     protected abstract void Shoot();
 }

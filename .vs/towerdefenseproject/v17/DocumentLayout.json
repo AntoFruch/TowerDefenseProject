@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\buildings\\towers\\tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\resources\\buildings\\building.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|c:\\users\\alexa\\towerdefenseproject\\assets\\resources\\buildings\\building.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\buildings\\building.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -34,11 +34,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Tower.cs",
+              "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\Towers\\Tower.cs",
+              "RelativeDocumentMoniker": "Assets\\Resources\\Buildings\\Towers\\Tower.cs",
+              "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\Towers\\Tower.cs",
+              "RelativeToolTip": "Assets\\Resources\\Buildings\\Towers\\Tower.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAkwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-11T09:14:21.8Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -51,19 +64,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-07T17:40:43.961Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Tower.cs",
-              "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\Towers\\Tower.cs",
-              "RelativeDocumentMoniker": "Assets\\Resources\\Buildings\\Towers\\Tower.cs",
-              "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\Towers\\Tower.cs",
-              "RelativeToolTip": "Assets\\Resources\\Buildings\\Towers\\Tower.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAowEMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T17:03:17.776Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -87,7 +87,8 @@
               "RelativeToolTip": "Assets\\Resources\\Buildings\\Building.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAAYwBkAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T11:10:08.015Z"
+              "WhenOpened": "2026-01-07T11:10:08.015Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2610c9b1cf5efa4a93838e6279caadb, type: 3}
+  m_Name: XBowPrefabs
+  m_EditorClassIdentifier: Assembly-CSharp::XBowPrefabs
+  projectile: {fileID: 5548548679680379583, guid: f6527b514b10c5043a1723cf57975cf7, type: 3}
+  xbowShotParticles: {fileID: 2708598583397607911, guid: b447175206398c94cb255617ff2fce98, type: 3}
