@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class EnergyManager : MonoBehaviour
@@ -38,22 +39,56 @@ public class EnergyManager : MonoBehaviour
             }
         }
         List<Vertex<Building>> powerplants = energyGraph.GetVertices().Where(v => v.label is PowerPlant).ToList();
-        foreach (Vertex<Building> pp in powerplants)
-        {
-            List<Vertex<Building>> unvisited = energyGraph.GetVertices().Where(v => v != pp).ToList();
-            ConnectBuildings(unvisited, pp);
-        }
+        ConnectBuildingsOptimized(powerplants);
 
         Debug.Log(energyGraph.ToString());
     }
 
-    // recursive function to connect buildings in the graph based on their energy range
-    void ConnectBuildings(List<Vertex<Building>> unvisited, Vertex<Building> first)
+    // Makes the graph as a spanning tree
+    void ConnectBuildingsOptimized(List<Vertex<Building>> powerplants)
     {
-        unvisited = new List<Vertex<Building>>(energyGraph.GetVertices());
-        // parcours de graphe en 
+        List<Vertex<Building>> visited = new List<Vertex<Building>>();
+        Queue<Vertex<Building>> queue = new Queue<Vertex<Building>>();
+        Dictionary<Vertex<Building>, int> distances = new Dictionary<Vertex<Building>, int>();
+        
+        foreach (Vertex<Building> powerplant in powerplants)
+        {
+            queue.Enqueue(powerplant);
+            visited.Add(powerplant);
+            distances[powerplant] = 0;
+        }
+        
+        while (queue.Count > 0)
+        {
+            Vertex<Building> current = queue.Dequeue();
+            int currentDistance = distances[current];
+            
+            // Trouver tous les voisins potentiels dans le rayon
+            List<Vertex<Building>> potentialNeighbors = energyGraph.GetVertices()
+                .Where(v => !visited.Contains(v) && IsInRange(current, v))
+                .ToList();
+            
+            foreach (Vertex<Building> neighbor in potentialNeighbors)
+            {
+                // Vérifier si on a déjà un chemin vers ce sommet
+                if (!distances.ContainsKey(neighbor))
+                {
+                    // Première fois qu'on atteint ce sommet -> créer l'arête
+                    current.AddNeighbor(neighbor, 1);
+                    distances[neighbor] = currentDistance + 1;
+                    visited.Add(neighbor);
+                    queue.Enqueue(neighbor);
+                }
+                else if (distances[neighbor] == currentDistance + 1)
+                {
+                    // Même distance - on peut ajouter cette arête alternative
+                    current.AddNeighbor(neighbor, 1);
+                }
+                // Si distances[neighbor] < currentDistance + 1, on ne fait rien
+                // car un chemin plus court existe déjà
+            }
+        }
     }
-
     // Check if building2 is in range of building1
     bool IsInRange(Vertex<Building> v1, Vertex<Building> v2)
     {
