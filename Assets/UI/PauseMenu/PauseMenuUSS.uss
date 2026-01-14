@@ -1,0 +1,10 @@
+:root {
+}
+
+.hide {
+    display: none;
+    opacity: 0;
+}
+
+.button {
+}
