@@ -78,7 +78,7 @@ public class Game : MonoBehaviour
     void Update()
     {
         EnergyGraphUpdate();
-        //LogBuildings();
+        LogBuildings();
     }
 
     int lastBuildingCount;
@@ -96,7 +96,9 @@ public class Game : MonoBehaviour
         string str ="buildings : ";
         foreach (Building build in buildings)
         {
-            str += build.ToString() + " "; 
+            str += build.ToString();
+            if (build is Tower t){ str += t.GetPower();}
+            str += " " ;
         }
         Debug.Log(str);
     }

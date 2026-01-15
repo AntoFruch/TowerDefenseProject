@@ -22,6 +22,11 @@ public abstract class Tower : Building
     private float idleTimer;
     private Quaternion idleTargetRotation;
 
+    [Header("Energy")]
+    [SerializeField] private int powerConsumption;
+    public int PowerConsumption => powerConsumption;
+    private int power;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
@@ -34,15 +39,19 @@ public abstract class Tower : Building
     protected override void Update()
     {
         base.Update();
-        UpdateTarget();
-        RotateTowardTarget();
-        
-        // Shooting routine
-        clock += Time.deltaTime;
-        if (clock > 1 / fireRate && target != null)
+
+        if (IsPowered())
         {
-            Shoot();
-            clock=0;
+            UpdateTarget();
+            RotateTowardTarget();
+            
+            // Shooting routine
+            clock += Time.deltaTime;
+            if (clock > 1 / fireRate && target != null)
+            {
+                Shoot();
+                clock=0;
+            }
         }
     }
     
@@ -81,4 +90,18 @@ public abstract class Tower : Building
     }
     protected abstract void UpdateTarget();
     protected abstract void Shoot();
+
+    public void SetPower(int power)
+    {
+        this.power = power;
+    }
+
+    protected bool IsPowered()
+    {
+        return power >= powerConsumption;
+    }
+    public int GetPower()
+    {
+        return power;
+    }
 }
