@@ -20,3 +20,6 @@ MonoBehaviour:
   radar: {fileID: 0}
   factory: {fileID: 0}
   storage: {fileID: 0}
+  towerRange: {fileID: 7099138207465433581, guid: 85e778597967e451abc35967b82fafcb, type: 3}
+  energyRange: {fileID: 4100998965059949462, guid: 2927e65dd19a7455a84a74f10d89a24d, type: 3}
+  boostRange: {fileID: 1677218215528041053, guid: e4f2f27bfe3bf4c01a63a564c0301ad5, type: 3}

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Properties;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -75,20 +76,24 @@ public class Game : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        EnergyGraphUpdate();
-        LogBuildings();
-    }
-
     int lastBuildingCount;
-    void EnergyGraphUpdate()
+    void Update()
     {
         if (buildings.Count != lastBuildingCount)
         {
-            EnergyManager.Instance.UpdateEnergyGraph();
+            OnNewBuildingUpdate();
             lastBuildingCount = buildings.Count;
         }
+        
+        LogBuildings();
+    }
+
+    
+    
+    void OnNewBuildingUpdate()
+    {
+        EnergyManager.Instance.UpdateEnergyGraph();    
+        RangesManager.Instance.DrawRanges();
     }
 
     void LogBuildings()

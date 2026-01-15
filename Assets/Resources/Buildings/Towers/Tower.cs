@@ -31,7 +31,6 @@ public abstract class Tower : Building
     protected override void Start()
     {
         base.Start();
-        realRange = (2 * range + 1)/2;
     }
 
     float clock;
