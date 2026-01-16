@@ -6,7 +6,8 @@ using UnityEngine.UIElements;
 
 public class PauseMenu : MonoBehaviour
 {
-    private static bool isPaused = false;
+    public static PauseMenu Instance;
+    public static bool isPaused = false;
     InputAction PauseT;
     [SerializeField]    private PlayerInput playerInput;
     
@@ -16,6 +17,8 @@ public class PauseMenu : MonoBehaviour
 
     private Button quitButton;
 
+
+    
     void Start()
     {
         PauseT = InputSystem.actions.FindAction("PauseMenu");                //Recherche l'ActionMap "Pause"
@@ -31,12 +34,14 @@ public class PauseMenu : MonoBehaviour
 
         resumeButton.RegisterCallback<ClickEvent>(OnResumeButtonClick);      // Callback resume
         quitButton.RegisterCallback<ClickEvent>(OnQuitButtonClick);          // Callback quit
+        
     }
 
 
     private void OnQuitButtonClick(ClickEvent evt)                           // Méthode exécutée quand je clique sur Quit
     {
         Debug.Log("Quit button cliqué");
+        Resume();
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -73,6 +78,7 @@ public class PauseMenu : MonoBehaviour
         playerInput.actions.FindActionMap("Player").Enable();
         playerInput.actions.FindActionMap("Wheel").Enable();
         root.AddToClassList("hide");
+        Game.Instance.selector.GetComponent<Renderer>().enabled = true;        
         
     }
     private void Pause()
@@ -84,6 +90,9 @@ public class PauseMenu : MonoBehaviour
         root.RemoveFromClassList("hide");
         playerInput.actions.FindActionMap("Player").Disable();
         playerInput.actions.FindActionMap("Wheel").Disable();
+        playerInput.actions.FindActionMap("UI").Enable();
+        Game.Instance.selector.GetComponent<Renderer>().enabled = false;
+
         
     }
 }

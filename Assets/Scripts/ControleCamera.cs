@@ -85,6 +85,8 @@ public class ControleCamera : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * 1000, Color.red);
 
         RaycastHit hit;
+        
+        
         if (Physics.Raycast(ray, out hit))
         {
             
@@ -93,8 +95,10 @@ public class ControleCamera : MonoBehaviour
             float x = hitObject.transform.position.x;
             int X = Mathf.RoundToInt(x);
             int Y = Mathf.RoundToInt(z);
-            
-            try {
+
+            if (PauseMenu.isPaused == false)
+            {
+                try {
                 if (Game.Instance.map[Y][X] == TileType.CONSTRUCTIBLE)
                 {
                     selectiontile.GetComponent<Renderer>().enabled = true;
@@ -105,14 +109,18 @@ public class ControleCamera : MonoBehaviour
                 }
                 Vector3 CurrentlySelectedPosition=hitObject.transform.position;
                 selectiontile.transform.position = CurrentlySelectedPosition + new Vector3(0,0.25f,0);
-            } catch (IndexOutOfRangeException)
-            {
+                } catch (IndexOutOfRangeException)
+                {
                 // error handling for when the mouse is out of the map bounds which is not a problem but throws an exception anyway.
                 selectiontile.GetComponent<Renderer>().enabled = false;
+                }
+            }
+            else {
+                selectiontile.GetComponent<Renderer>().enabled = false;
+            }
+
             }
             
-             
         }
     }
 
-}
