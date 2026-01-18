@@ -95,6 +95,11 @@ public class Building : MonoBehaviour {
             MoneyManager.Instance.AddMoney(resaleAmount);
         }
 
+        if (Game.Instance.buildings.Contains(this))
+        {
+            Game.Instance.buildings.Remove(this);
+        }
+
         Destroy(gameObject);
 
     }
