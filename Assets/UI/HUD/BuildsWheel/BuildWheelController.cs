@@ -135,23 +135,68 @@ public class BuildWheelController : MonoBehaviour
     }
     void onRadarButtonClick(ClickEvent evt)
     {
-        Instantiate(Game.Instance.buildingsPrefabs.radar, Game.Instance.selector.position, Quaternion.identity);
-        HideWheel();
+        GameObject radarPrefab = Game.Instance.buildingsPrefabs.radar;
+        Building buildingInfo = radarPrefab.GetComponent<Building>();
+
+        //Check if the player have enough money to build the building
+        if (MoneyManager.Instance.SpendMoney(buildingInfo.cost))
+        {
+            Instantiate(radarPrefab, Game.Instance.selector.position, Quaternion.identity);
+            HideWheel();
+        }
+        else
+        {
+            Debug.Log("Can't build : not enough money");
+        }
+
     } 
     void onPowerPlantButtonClick(ClickEvent evt)
     {
-        GameObject build = Instantiate(Game.Instance.buildingsPrefabs.powerPlant, Game.Instance.selector.position, Quaternion.identity);
-        HideWheel();
+        GameObject powerPlantPrefab = Game.Instance.buildingsPrefabs.powerPlant;
+        Building buildingInfo = powerPlantPrefab.GetComponent<Building>();
+
+        //Check if the player have enough money to build the building
+        if (MoneyManager.Instance.SpendMoney(buildingInfo.cost))
+        {
+            Instantiate(powerPlantPrefab, Game.Instance.selector.position, Quaternion.identity);
+            HideWheel();
+        }
+        else
+        {
+            Debug.Log("Can't build : not enough money");
+        }
     } 
     void onStorageButtonClick(ClickEvent evt)
     {
-        GameObject build = Instantiate(Game.Instance.buildingsPrefabs.storage, Game.Instance.selector.position, Quaternion.identity);
-        HideWheel();
+        GameObject storagePrefab = Game.Instance.buildingsPrefabs.storage;
+        Building buildingInfo = storagePrefab.GetComponent<Building>();
+
+        //Check if the player have enough money to build the building
+        if (MoneyManager.Instance.SpendMoney(buildingInfo.cost))
+        {
+            Instantiate(storagePrefab, Game.Instance.selector.position, Quaternion.identity);
+            HideWheel();
+        }
+        else
+        {
+            Debug.Log("Can't build : not enough money");
+        }
     } 
     void onFactoryButtonClick(ClickEvent evt)
     {
-        GameObject build = Instantiate(Game.Instance.buildingsPrefabs.factory, Game.Instance.selector.position, Quaternion.identity);
-        HideWheel();
+        GameObject factoryPrefab = Game.Instance.buildingsPrefabs.factory;
+        Building buildingInfo = factoryPrefab.GetComponent<Building>();
+
+        //Check if the player have enough money to build the building
+        if (MoneyManager.Instance.SpendMoney(buildingInfo.cost))
+        {
+            Instantiate(factoryPrefab, Game.Instance.selector.position, Quaternion.identity);
+            HideWheel();
+        }
+        else
+        {
+            Debug.Log("Can't build : not enough money");
+        }
     } 
 
     void onQuitClick(PointerUpEvent evt)
@@ -168,22 +213,66 @@ public class BuildWheelController : MonoBehaviour
     void onRedButtonClick(ClickEvent evt)
     {
         // Instantiate red tower
-        GameObject build = Instantiate(Game.Instance.buildingsPrefabs.redTower, Game.Instance.selector.position, Quaternion.identity);
-        HideWheel();
+        GameObject redPrefab = Game.Instance.buildingsPrefabs.redTower;
+        Building buildingInfo = redPrefab.GetComponent<Building>();
+
+        //Check if the player have enough money to build the building
+        if (MoneyManager.Instance.SpendMoney(buildingInfo.cost))
+        {
+            Instantiate(redPrefab, Game.Instance.selector.position, Quaternion.identity);
+            HideWheel();
+        }
+        else
+        {
+            Debug.Log("Can't build : not enough money");
+        }
     }
     void onBlueButtonClick(ClickEvent evt)
     {
-        GameObject build = Instantiate(Game.Instance.buildingsPrefabs.blueTower, Game.Instance.selector.position, Quaternion.identity);
-        HideWheel();
+        GameObject bluePrefab = Game.Instance.buildingsPrefabs.blueTower;
+        Building buildingInfo = bluePrefab.GetComponent<Building>();
+
+        //Check if the player have enough money to build the building
+        if (MoneyManager.Instance.SpendMoney(buildingInfo.cost))
+        {
+            Instantiate(bluePrefab, Game.Instance.selector.position, Quaternion.identity);
+            HideWheel();
+        }
+        else
+        {
+            Debug.Log("Can't build : not enough money");
+        }
     } 
     void onYellowButtonClick(ClickEvent evt)
     {
-        GameObject build = Instantiate(Game.Instance.buildingsPrefabs.yellowTower, Game.Instance.selector.position, Quaternion.identity);
-        HideWheel();
+        GameObject yellowPrefab = Game.Instance.buildingsPrefabs.yellowTower;
+        Building buildingInfo = yellowPrefab.GetComponent<Building>();
+
+        //Check if the player have enough money to build the building
+        if (MoneyManager.Instance.SpendMoney(buildingInfo.cost))
+        {
+            Instantiate(yellowPrefab, Game.Instance.selector.position, Quaternion.identity);
+            HideWheel();
+        }
+        else
+        {
+            Debug.Log("Can't build : not enough money");
+        }
     } 
     void onGreenButtonClick(ClickEvent evt)
     {
-        GameObject build = Instantiate(Game.Instance.buildingsPrefabs.greenTower, Game.Instance.selector.position, Quaternion.identity);
-        HideWheel();
+        GameObject greenPrefab = Game.Instance.buildingsPrefabs.greenTower;
+        Building buildingInfo = greenPrefab.GetComponent<Building>();
+
+        //Check if the player have enough money to build the building
+        if (MoneyManager.Instance.SpendMoney(buildingInfo.cost))
+        {
+            Instantiate(greenPrefab, Game.Instance.selector.position, Quaternion.identity);
+            HideWheel();
+        }
+        else
+        {
+            Debug.Log("Can't build : not enough money");
+        }
     } 
 }
