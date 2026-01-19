@@ -1,14 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class RangesManager : MonoBehaviour
 {   
     public static RangesManager Instance { get; private set; }
+    public RangesMode mode{get;private set;}
 
-    public static int TowerEnergyRange = 3;
-    public static int PowerPlantEnergyRange = 4;
+    public static int towerEnergyRange = 3;
+    public static int powerPlantEnergyRange = 4;
 
     public Dictionary<Building, List<GameObject>> ranges;
     
@@ -27,11 +29,26 @@ public class RangesManager : MonoBehaviour
     void Start()
     {
         ranges = new Dictionary<Building, List<GameObject>>();
+        mode = RangesMode.None;
+    }
+    void SetMode(RangesMode mode)
+    {
+        this.mode = mode;
     }
     public void DrawRanges()
     {
-        // eventuellement mettre un toggle pour passer de vue energie a vue tours
-        DrawTowerRanges();
+        switch (mode)
+        {
+            case RangesMode.Energy:
+                DrawEnergyRanges();
+                break;
+            case RangesMode.Towers:
+                DrawTowerRanges();
+                break;
+            case RangesMode.Boost:
+                DrawBoostRanges();
+                break;
+        }
     }
 
     void DrawTowerRanges()
@@ -58,6 +75,36 @@ public class RangesManager : MonoBehaviour
         }
     }
 
+    void DrawEnergyRanges()
+    {
+        ClearRanges();
+        foreach(Building build in Game.Instance.buildings.Where(b=>b is Tower || b is PowerPlant))
+        {
+            int range = build is Tower ? towerEnergyRange : powerPlantEnergyRange;
+            List<GameObject> list = new List<GameObject>();
+            for(int x = -range; x<=range; x++)
+            {
+                for(int y = -range; y<=range; y++)
+                {
+                    
+                    if (Math.Abs(x)+Math.Abs(y) <= range){
+                        list.Add(
+                            Instantiate(Game.Instance.buildingsPrefabs.energyRange,
+                                        build.transform.position + new Vector3(x,0, y), 
+                                        Quaternion.identity)
+                                        );
+                    }
+                }   
+            }
+            ranges.Add(build, list);
+        }
+    }
+
+    void DrawBoostRanges()
+    {
+        
+    }
+
     void ClearRanges()
     {
         foreach(var key in ranges.Keys)
@@ -69,4 +116,9 @@ public class RangesManager : MonoBehaviour
         }
         ranges.Clear();
     }
+}
+
+public enum RangesMode
+{
+    Towers, Energy, Boost, None
 }

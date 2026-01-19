@@ -19,4 +19,5 @@ public class BuildingsPrefabs : ScriptableObject
     public GameObject towerRange;
     public GameObject energyRange;
     public GameObject boostRange;
+    public GameObject energylinks;
 }

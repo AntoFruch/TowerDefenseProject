@@ -76,7 +76,7 @@ public class Game : MonoBehaviour
     }
 
     // Update is called once per frame
-    int lastBuildingCount;
+    int lastBuildingCount = 0;
     void Update()
     {
         if (buildings.Count != lastBuildingCount)
@@ -84,8 +84,6 @@ public class Game : MonoBehaviour
             OnNewBuildingUpdate();
             lastBuildingCount = buildings.Count;
         }
-        
-        LogBuildings();
     }
 
     
@@ -94,6 +92,7 @@ public class Game : MonoBehaviour
     {
         EnergyManager.Instance.UpdateEnergyGraph();    
         RangesManager.Instance.DrawRanges();
+        LogBuildings();
     }
 
     void LogBuildings()

@@ -1,5 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class EnergyManager : MonoBehaviour
@@ -7,6 +10,7 @@ public class EnergyManager : MonoBehaviour
     public static EnergyManager Instance { get; private set; }
 
     private Graph<Building> energyGraph;
+    private List<EnergyLink> links;
 
 
     void Awake()
@@ -23,6 +27,7 @@ public class EnergyManager : MonoBehaviour
     void Start()
     {
         energyGraph = new Graph<Building>();
+        links = new();
     }
 
     public void UpdateEnergyGraph()
@@ -40,6 +45,7 @@ public class EnergyManager : MonoBehaviour
         List<Vertex<Building>> powerplants = energyGraph.GetVertices().Where(v => v.label is PowerPlant).ToList();
         ConnectBuildings(powerplants);
         SetEnergyToBuilding(powerplants);
+        CreateVisualLinks();
     }
 
     // Makes the graph as a spanning tree
@@ -97,11 +103,11 @@ public class EnergyManager : MonoBehaviour
         int distance = Mathf.Abs(pos1.x - pos2.x) + Mathf.Abs(pos1.y - pos2.y);
         if (v1.label is PowerPlant)
         {
-            return distance <= RangesManager.PowerPlantEnergyRange;
+            return distance <= RangesManager.powerPlantEnergyRange;
         }
         else if (v1.label is Tower)
         {
-            return distance <= RangesManager.TowerEnergyRange;
+            return distance <= RangesManager.towerEnergyRange;
         } else
         {
             throw new System.Exception("Building type must be PowerPlant or Tower");
@@ -130,16 +136,50 @@ public class EnergyManager : MonoBehaviour
                 
                 if (towers.Count>0){
                     int toGive = pp.PowerOutput / towers.Count();
+                    int remainder = pp.PowerOutput % towers.Count();
+
 
                     foreach(Vertex<Building> v in towers)
                     {
                         Tower tower = v.label as Tower;
-                        tower.SetPower(toGive);
+                        tower.SetPower(remainder <= 0 ? toGive : toGive + 1);
+                        remainder--;
                     }
-                    Tower first = towers.First().label as Tower;
-                    first.SetPower(toGive + pp.PowerOutput%towers.Count());
                 }
             }
         }
+    }
+
+    void CreateVisualLinks()
+    {
+        ClearLinks();
+        List<Vertex<Building>> powerplants = energyGraph.GetVertices().Where(v=>v.label is PowerPlant).ToList();
+
+        foreach(Vertex<Building> pp in powerplants)
+        {
+            Queue<Vertex<Building>> queue = new Queue<Vertex<Building>>();
+            queue.Enqueue(pp);
+            while (queue.Count > 0)
+            {
+                Vertex<Building> cur = queue.Dequeue();
+                foreach(Vertex<Building> v in cur.GetNeighbors().Keys)
+                {
+                    EnergyLink link = Instantiate(Game.Instance.buildingsPrefabs.energylinks).GetComponent<EnergyLink>();
+                    link.SetNodeA(cur.label.transform);
+                    link.SetNodeB(v.label.transform);
+                    links.Add(link);
+                    queue.Enqueue(v);
+                }
+            }
+        }
+    }
+
+    void ClearLinks()
+    {
+        foreach (EnergyLink link in links)
+        {
+            Destroy(link.gameObject);
+        }
+        links.Clear();
     }
 }
