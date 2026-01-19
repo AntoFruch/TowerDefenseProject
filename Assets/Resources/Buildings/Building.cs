@@ -4,8 +4,8 @@ using UnityEngine;
 public class Building : MonoBehaviour {
 
     [Header("Tower Attributes")]
-    [SerializeField] protected float range = 3f;
-    public float realRange {get;protected set;}
+    [SerializeField] protected int range = 3;
+    public int Range => range;
     Dictionary<Renderer,Material> originalMaterials ;
     
     protected virtual void Start()
@@ -18,9 +18,6 @@ public class Building : MonoBehaviour {
         {
             originalMaterials[renderer] = renderer.material;
         }
-
-        realRange = (2 * range + 1)/2;
-        CreateRange();
     }
     protected virtual void Update()
     {
@@ -28,22 +25,11 @@ public class Building : MonoBehaviour {
     void OnDestroy()
     {
         Game.Instance?.buildings.Remove(this);
-    }
-    
-    void CreateRange()
-    {
-        GameObject rangeCylinder = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-        rangeCylinder.transform.SetParent(transform);
-        rangeCylinder.transform.position = transform.position;
-        rangeCylinder.transform.localScale = new Vector3(2*realRange,0.01f,2*realRange);
-        Destroy(rangeCylinder.GetComponent<Collider>());
-        if (this is Tower)
+        foreach (GameObject go in RangesManager.Instance.ranges[this])
         {
-            rangeCylinder.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Ranges/TowerRange");
-        } 
-        
-        // add other building types here
-        
+            Destroy(go);
+        }
+        RangesManager.Instance.ranges.Remove(this);
     }
     public void RedHighlight()
     {

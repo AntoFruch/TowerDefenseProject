@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Properties;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -75,9 +76,23 @@ public class Game : MonoBehaviour
     }
 
     // Update is called once per frame
+    int lastBuildingCount = 0;
     void Update()
     {
-        //LogBuildings();  
+        if (buildings.Count != lastBuildingCount)
+        {
+            OnNewBuildingUpdate();
+            lastBuildingCount = buildings.Count;
+        }
+    }
+
+    
+    
+    void OnNewBuildingUpdate()
+    {
+        EnergyManager.Instance.UpdateEnergyGraph();    
+        RangesManager.Instance.DrawRanges();
+        LogBuildings();
     }
 
     void LogBuildings()
@@ -85,7 +100,9 @@ public class Game : MonoBehaviour
         string str ="buildings : ";
         foreach (Building build in buildings)
         {
-            str += build.ToString() + " "; 
+            str += build.ToString();
+            if (build is Tower t){ str += t.GetPower();}
+            str += " " ;
         }
         Debug.Log(str);
     }
