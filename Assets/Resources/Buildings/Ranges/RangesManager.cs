@@ -45,7 +45,7 @@ public class RangesManager : MonoBehaviour
                 for(int y = -tower.Range; y<=tower.Range; y++)
                 {
                     
-                    if (Math.Abs(x)+Math.Abs(y) < tower.Range){
+                    if (Math.Abs(x)+Math.Abs(y) <= tower.Range){
                         list.Add(
                             Instantiate(Game.Instance.buildingsPrefabs.towerRange,
                                         tower.transform.position + new Vector3(x,0, y), 
