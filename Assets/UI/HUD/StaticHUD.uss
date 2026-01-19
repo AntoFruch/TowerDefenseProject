@@ -1,20 +1,15 @@
 :root {
-    
-}
-
-.main-container {
-    width: 100%;
-    height: 100%;
 }
 
 .range-mode-container {
-    width: 6%;
-    right: 0;
-    position: absolute;
+    width: 5%;
     margin-top: 2%;
     margin-right: 2%;
     margin-bottom: 2%;
     margin-left: 2%;
+    align-items: center;
+    right: 0;
+    position: absolute;
 }
 
 .range-btn {

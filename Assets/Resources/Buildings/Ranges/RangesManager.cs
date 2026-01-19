@@ -33,7 +33,12 @@ public class RangesManager : MonoBehaviour
     }
     public void SetMode(RangeMode mode)
     {
-        this.mode = mode;
+        if (mode != this.mode)
+        {
+            this.mode = mode;
+            DrawRanges(); 
+        }
+        
     }
     public void DrawRanges()
     {

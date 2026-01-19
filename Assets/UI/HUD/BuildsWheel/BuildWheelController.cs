@@ -36,10 +36,6 @@ public class BuildWheelController : MonoBehaviour
 
     void OnEnable()
     {
-
-        buildWheelUIDoc.sortingOrder = 10;
-        towersWheelUIDoc.sortingOrder = 10;
-
         // queries and callbacks for buildsWheel
         this.buildWheel = buildWheelUIDoc.rootVisualElement.Q("wheel-container");
 
