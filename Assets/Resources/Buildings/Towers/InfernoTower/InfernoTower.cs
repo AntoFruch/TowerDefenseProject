@@ -20,7 +20,7 @@ public class InfernoTower : Tower
 
     protected override void UpdateTarget()
     {
-        targets = TargetStrategies.Multi(rotatingPart, targets, realRange);
+        targets = TargetStrategies.Multi(rotatingPart, targets, range);
     }
 
 
