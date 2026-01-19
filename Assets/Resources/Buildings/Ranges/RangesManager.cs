@@ -7,7 +7,7 @@ using UnityEngine;
 public class RangesManager : MonoBehaviour
 {   
     public static RangesManager Instance { get; private set; }
-    public RangesMode mode{get;private set;}
+    public RangeMode mode{get;private set;}
 
     public static int towerEnergyRange = 3;
     public static int powerPlantEnergyRange = 4;
@@ -29,9 +29,9 @@ public class RangesManager : MonoBehaviour
     void Start()
     {
         ranges = new Dictionary<Building, List<GameObject>>();
-        mode = RangesMode.None;
+        mode = RangeMode.None;
     }
-    void SetMode(RangesMode mode)
+    public void SetMode(RangeMode mode)
     {
         this.mode = mode;
     }
@@ -39,13 +39,13 @@ public class RangesManager : MonoBehaviour
     {
         switch (mode)
         {
-            case RangesMode.Energy:
+            case RangeMode.Energy:
                 DrawEnergyRanges();
                 break;
-            case RangesMode.Towers:
+            case RangeMode.Towers:
                 DrawTowerRanges();
                 break;
-            case RangesMode.Boost:
+            case RangeMode.Boost:
                 DrawBoostRanges();
                 break;
         }
@@ -118,7 +118,7 @@ public class RangesManager : MonoBehaviour
     }
 }
 
-public enum RangesMode
+public enum RangeMode
 {
     Towers, Energy, Boost, None
 }

@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class HUDManager : MonoBehaviour
@@ -10,6 +7,9 @@ public class HUDManager : MonoBehaviour
     public BuildWheelController Wheel => wheel;
     [SerializeField] private DelMovController delMov;
     public DelMovController DelMov => delMov;
+
+    [SerializeField] private StaticHUDController staticHUD;
+    public StaticHUDController StaticHUD => staticHUD;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

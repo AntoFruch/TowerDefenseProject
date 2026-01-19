@@ -124,5 +124,6 @@ MonoBehaviour:
   projectileSpawn: {fileID: 4851505030853275605}
   idleRotationChangeTime: 2
   idleTurnSpeed: 1
+  powerConsumption: 3
   shootForce: 10
   prefabs: {fileID: 11400000, guid: 25a895104b3a31b4099763aa567e59f0, type: 2}
