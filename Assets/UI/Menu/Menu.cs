@@ -30,6 +30,13 @@ public class Menu : MonoBehaviour
     private Label errorLabel;
     private Button backButton;
 
+
+    // Settings Menu
+
+    [SerializeField] private UIDocument settingsUIDoc;
+
+    private Button backSettingsButton;
+
     //other
     private Dictionary<Button,string> mapBtnToFileName;
     
@@ -48,6 +55,7 @@ public class Menu : MonoBehaviour
 
         playButton.RegisterCallback<ClickEvent>(OnPlayButtonClick);
         exitButton.RegisterCallback<ClickEvent>(OnExitButtonClick);
+        settingsButton.RegisterCallback<ClickEvent>(OnSettingsButtonClick);
 
         //Map Selection Menu
         
@@ -69,14 +77,23 @@ public class Menu : MonoBehaviour
         errorLabel.text = "";
 
         backButton = mapSelectionUIDoc.rootVisualElement.Q<Button>("back-btn");
-        backButton.RegisterCallback<ClickEvent>(OnBackButtonClick);
-        
+        backButton.RegisterCallback<ClickEvent>(OnBackMapSelectionButtonClick);
+
+        //Settings Menu
+        backSettingsButton = settingsUIDoc.rootVisualElement.Q<Button>("back-Settings");
+        backSettingsButton.RegisterCallback<ClickEvent>(OnBackSettingsOnCLick);
         GenerateMapButtons();
         ShowMainMenu();
         HideMapSelection();
+        HideSettingsMenu();
     }
 
     // Methods
+
+    private void ShowSettingsMenu()
+    {
+        settingsUIDoc.rootVisualElement.RemoveFromClassList("hide");
+    }
     private void ShowMainMenu()
     {
         mainMenuUIDoc.rootVisualElement.RemoveFromClassList("hide");
@@ -93,6 +110,10 @@ public class Menu : MonoBehaviour
     private void HideMapSelection()
     {
         mapSelectionUIDoc.rootVisualElement.AddToClassList("hide");
+    }
+    private void HideSettingsMenu()
+    {
+        settingsUIDoc.rootVisualElement.AddToClassList("hide");
     }
     private void GenerateMapButtons()
     {
@@ -142,7 +163,21 @@ public class Menu : MonoBehaviour
     {
         Application.Quit();
     }
-    
+
+    private void OnSettingsButtonClick(ClickEvent evt)
+    {
+        ShowSettingsMenu();
+        HideMainMenu();        
+    }
+
+    // Settings Menu
+
+    private void OnBackSettingsOnCLick(ClickEvent evt)
+    {
+        ShowMainMenu();
+        HideSettingsMenu();
+    } 
+
     // Map Selection Menu
     private void OnStartButtonClick(ClickEvent evt)
     {
@@ -180,7 +215,7 @@ public class Menu : MonoBehaviour
             startButton.SetEnabled(false);
         }
     }
-    void OnBackButtonClick(ClickEvent evt)
+    void OnBackMapSelectionButtonClick(ClickEvent evt)
     {
         HideMapSelection();
         ShowMainMenu();

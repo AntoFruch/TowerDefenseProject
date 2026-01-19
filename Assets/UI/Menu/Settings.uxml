@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Menu/SettingsUSS.uss?fileID=7433441132597879392&amp;guid=d8a4ec791145ac74f874715c6fcd4822&amp;type=3#SettingsUSS" />
+    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3#Common" />
+    <Style src="project://database/Assets/UI/Menu/MainMenu.uss?fileID=7433441132597879392&amp;guid=1707fbafac48a4944a0d65571a2337f3&amp;type=3#MainMenu" />
+    <Style src="project://database/Assets/UI/Menu/MapSelection.uss?fileID=7433441132597879392&amp;guid=df07c8ebad557274494cded5a9e40643&amp;type=3#MapSelection" />
+    <ui:VisualElement name="SettingsParameters" style="flex-grow: 1;" />
+    <ui:VisualElement name="Back" style="flex-grow: 1;">
+        <ui:Button text="&lt;- Button" name="back-Settings" class="back-btn-label labels back-btn" style="-unity-text-align: upper-center; white-space: nowrap;" />
+    </ui:VisualElement>
+</ui:UXML>
