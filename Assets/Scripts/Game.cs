@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 // class Game is the game manager, it initiates the game and provides the logic for everything.
@@ -68,6 +69,11 @@ public class Game : MonoBehaviour
         
         monsters = new();
         WaveManager.Instance.Init();
+    }
+
+    public void SetState(GameState state)
+    {
+        this.state = state; 
     }
 
     // Update is called once per frame

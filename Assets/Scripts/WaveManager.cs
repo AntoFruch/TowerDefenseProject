@@ -95,7 +95,11 @@ public class WaveManager : MonoBehaviour
 
     void Update()
     {
-        if (Game.Instance.monsters.Count==0) finished = true;
+        if (Game.Instance.monsters.Count == 0 && !finished)
+        {
+            Game.Instance.SetState(GameState.Preparation); // pas necesairement changer comme ca, je dirai qu'il faut plusieurs vagues de suite pour constituer une vague entiere
+            finished = true;
+        }
     }
 
     // Generation of the next wave 
