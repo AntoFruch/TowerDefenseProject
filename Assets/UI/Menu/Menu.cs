@@ -35,6 +35,8 @@ public class Menu : MonoBehaviour
 
     [SerializeField] private UIDocument settingsUIDoc;
 
+    [SerializeField] private UIDocument settingsParametersUIDoc;
+
     private Button backSettingsButton;
 
     //other
@@ -80,8 +82,16 @@ public class Menu : MonoBehaviour
         backButton.RegisterCallback<ClickEvent>(OnBackMapSelectionButtonClick);
 
         //Settings Menu
+
+            //Brightness 
         backSettingsButton = settingsUIDoc.rootVisualElement.Q<Button>("back-Settings");
         backSettingsButton.RegisterCallback<ClickEvent>(OnBackSettingsOnCLick);
+        var brightSlider = settingsUIDoc.rootVisualElement.Q<Slider>("BrightnessSlider");
+        brightSlider.lowValue=0f;
+        brightSlider.highValue=0.8f;
+        brightSlider.value=PlayerPrefs.GetFloat("Brightness",0f);       
+        brightSlider.RegisterValueChangedCallback(evt=> {SettingsManager.Instance.SetBrightness(evt.newValue);});
+        
         GenerateMapButtons();
         ShowMainMenu();
         HideMapSelection();
