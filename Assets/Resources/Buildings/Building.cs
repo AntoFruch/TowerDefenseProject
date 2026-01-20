@@ -67,7 +67,7 @@ public class Building : MonoBehaviour {
         }
     }
 
-    protected bool active;
+    protected bool active = true;
     public void SetActive(bool b)
     {
         active = b;
