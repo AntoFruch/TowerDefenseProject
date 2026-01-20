@@ -1,38 +1,10 @@
 using System.Collections.Generic;
-using System.Linq;
-using Unity.Properties;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 // class Game is the game manager, it initiates the game and provides the logic for everything.
 public class Game : MonoBehaviour
 {
     public static Game Instance;
-    
-    //Dev
-    [SerializeField] bool spawnMobOnStart;
-
-    // Map
-    private MapGenerator mapGenerator;
-    public TileType[][] map {get;private set;}
-    public Graph<VertexLabel> graph {get;private set;}
-
-    [Header("Prefabs Assets")]
-    [SerializeField] public MapPrefabs mapPrefabs;
-    [SerializeField] public BuildingsPrefabs buildingsPrefabs;
-    [SerializeField] public MonstersPrefabs monstersPrefabs;
-
-    [Header("HUD Element")]
-    [SerializeField] public HUDManager HUD;
-
-    [Header("Selector")]
-    [SerializeField] public Transform selector; 
-    
-    // Buildings positions
-    public List<Building> buildings {get; private set;}
-
-
     void Awake()
     {
         if (Instance == null)
@@ -43,6 +15,35 @@ public class Game : MonoBehaviour
             Destroy(gameObject);
     }
     
+    //Dev
+    [SerializeField] bool spawnMobOnStart;
+
+    // Map
+    private MapGenerator mapGenerator;
+    public TileType[][] map {get;private set;}
+    public Graph<VertexLabel> graph {get;private set;}
+
+    // Prefabs
+    [Header("Prefabs Assets")]
+    [SerializeField] public MapPrefabs mapPrefabs;
+    [SerializeField] public BuildingsPrefabs buildingsPrefabs;
+    [SerializeField] public MonstersPrefabs monstersPrefabs;
+
+    // HUD
+    [Header("HUD Element")]
+    [SerializeField] public HUDManager HUD;
+
+    // Selector
+    [Header("Selector")]
+    [SerializeField] public Transform selector; 
+    
+    // Buildings positions
+    public List<Building> buildings {get; private set;}
+
+    // Game State
+    public GameState state = GameState.Preparation;
+
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,7 +52,7 @@ public class Game : MonoBehaviour
         map = GameConfig.map;
         graph = GameConfig.graph;
 
-        // mode debug
+        // mode dev
         if (map == null)
         {
             map = FileAPI.ImageToTileTypeArray(FileAPI.ReadImageAsTexture2D("../Maps/map_03.png"));
@@ -64,14 +65,8 @@ public class Game : MonoBehaviour
         // DEBUG : Instanciation d'ennemis sur les cases de départ
         if (spawnMobOnStart)
         {
-            List<Vertex<VertexLabel>> startTiles 
-                = graph.GetVertices()
-                        .Where(v => v.label == VertexLabel.START )
-                        .ToList();
-            foreach (Vertex<VertexLabel> v in startTiles)
-            {
-                Instantiate(Resources.Load("Monsters/Prefabs/GroBleu"), new Vector3(v.position.x, 2f, v.position.y), Quaternion.identity);
-            }
+            WaveManager.Instance.Init();
+            WaveManager.Instance.StartNextWave();
         }
     }
 
@@ -86,8 +81,6 @@ public class Game : MonoBehaviour
         }
     }
 
-    
-    
     void OnNewBuildingUpdate()
     {
         EnergyManager.Instance.UpdateEnergyGraph();    
@@ -106,4 +99,9 @@ public class Game : MonoBehaviour
         }
         Debug.Log(str);
     }
+}
+
+public enum GameState
+{
+    Preparation, Defense
 }
