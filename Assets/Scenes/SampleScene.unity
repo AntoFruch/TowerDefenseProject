@@ -581,13 +581,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5747740e05168de43a3c984c036bc332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game
-  spawnMobOnStart: 1
+  spawnWaves: 1
   mapPrefabs: {fileID: 11400000, guid: 49a36f366fd8c45ef9412e1edcfd569e, type: 2}
   buildingsPrefabs: {fileID: 11400000, guid: ea494261140aa4845b914ca033bd7a6c, type: 2}
   monstersPrefabs: {fileID: 11400000, guid: 05293b01974c44f439bf8e3eb6919824, type: 2}
   HUD: {fileID: 26603230}
   selector: {fileID: 109922511}
-  state: 0
+  state: 1
 --- !u!4 &1361876192
 Transform:
   m_ObjectHideFlags: 0

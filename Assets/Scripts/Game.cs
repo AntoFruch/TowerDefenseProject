@@ -16,7 +16,7 @@ public class Game : MonoBehaviour
     }
     
     //Dev
-    [SerializeField] bool spawnMobOnStart;
+    [SerializeField] bool spawnWaves;
 
     // Map
     private MapGenerator mapGenerator;
@@ -37,11 +37,15 @@ public class Game : MonoBehaviour
     [Header("Selector")]
     [SerializeField] public Transform selector; 
     
-    // Buildings positions
+    // Buildings list
     public List<Building> buildings {get; private set;}
 
+    // Alive Monster List
+    public List<MonsterController> monsters {get;private set;} 
+
+
     // Game State
-    public GameState state = GameState.Preparation;
+    [SerializeField] public GameState state;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -60,14 +64,10 @@ public class Game : MonoBehaviour
         }
 
         mapGenerator.GenerateMap();
-        buildings = new List<Building>();
-
-        // DEBUG : Instanciation d'ennemis sur les cases de départ
-        if (spawnMobOnStart)
-        {
-            WaveManager.Instance.Init();
-            WaveManager.Instance.StartNextWave();
-        }
+        buildings = new();
+        
+        monsters = new();
+        WaveManager.Instance.Init();
     }
 
     // Update is called once per frame
@@ -78,6 +78,11 @@ public class Game : MonoBehaviour
         {
             OnNewBuildingUpdate();
             lastBuildingCount = buildings.Count;
+        }
+        // DEBUG : Instanciation d'ennemis sur les cases de départ
+        if (spawnWaves && state == GameState.Defense)
+        {
+            WaveManager.Instance.StartNextWave();
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class WaveManager : MonoBehaviour
 {
@@ -23,53 +24,14 @@ public class WaveManager : MonoBehaviour
     [Header("Monster Spawn Rate")]
     [SerializeField] float spawnRate;
 
+    public bool finished {get; private set;}
+
     public void Init()
     {
         spawns = new();
         GetSpawns();
+        finished = true;
     }
-
-    void LoadNextWave()
-    {
-        // algorithme qui doit rendre le jeu de plus en plus difficile au fur et a mesure que la partie avance
-        currentWave = new List<MonsterType> {MonsterType.GroBleu, MonsterType.GroJaune, MonsterType.Shell, MonsterType.GroJaune};
-    }
-
-    public void StartNextWave()
-    {
-        LoadNextWave();
-        StartCoroutine(SpawnWave(currentWave));
-    }
-    private IEnumerator SpawnWave(List<MonsterType> wave)
-    {   
-        int i = 0;
-        while (i < wave.Count)
-        {
-            foreach (Vector2Int spawnPos in spawns)
-            {
-                switch (wave[i])
-                {
-                    case MonsterType.GroBleu:
-                        Instantiate(Game.Instance.monstersPrefabs.groBleu,new Vector3(spawnPos.x, 0.2f, spawnPos.y), Quaternion.identity);
-                        break;
-                    case MonsterType.GroJaune:
-                        Instantiate(Game.Instance.monstersPrefabs.groJaune,new Vector3(spawnPos.x, 0.2f, spawnPos.y), Quaternion.identity);
-                        break;
-                    case MonsterType.Shell:
-                        Instantiate(Game.Instance.monstersPrefabs.shell,new Vector3(spawnPos.x, 0.2f, spawnPos.y), Quaternion.identity);
-                        break;
-                    case MonsterType.Blob:
-                        Instantiate(Game.Instance.monstersPrefabs.blob,new Vector3(spawnPos.x, 0.2f, spawnPos.y), Quaternion.identity);
-                        break;
-                    
-                }
-            }
-            i++;
-            yield return new WaitForSeconds(1/spawnRate);
-        }
-        
-    } 
-
     void GetSpawns()
     {
         for (int y=0; y<Game.Instance.map.Length; y++)
@@ -82,6 +44,65 @@ public class WaveManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    // Main method : loads and spawns the next wave 
+    public void StartNextWave()
+    {
+        if (finished)
+        {
+            finished=false;
+            LoadNextWave();
+            StartCoroutine(SpawnWave(currentWave));
+        }
+        
+    }
+    
+    // SpawningRoutine for a wave
+    private IEnumerator SpawnWave(List<MonsterType> wave)
+    {   
+        int i = 0;
+        while (i < wave.Count)
+        {
+            foreach (Vector2Int spawnPos in spawns)
+            {
+                GameObject monster;
+                switch (wave[i])
+                {
+                    case MonsterType.GroBleu:
+                        monster = Instantiate(Game.Instance.monstersPrefabs.groBleu,new Vector3(spawnPos.x, 0.2f, spawnPos.y), Quaternion.identity);
+                        break;
+                    case MonsterType.GroJaune:
+                        monster = Instantiate(Game.Instance.monstersPrefabs.groJaune,new Vector3(spawnPos.x, 0.2f, spawnPos.y), Quaternion.identity);
+                        break;
+                    case MonsterType.Shell:
+                        monster = Instantiate(Game.Instance.monstersPrefabs.shell,new Vector3(spawnPos.x, 0.2f, spawnPos.y), Quaternion.identity);
+                        break;
+                    case MonsterType.Blob:
+                        monster = Instantiate(Game.Instance.monstersPrefabs.blob,new Vector3(spawnPos.x, 0.2f, spawnPos.y), Quaternion.identity);
+                        break;
+                    default:
+                        monster = null;
+                        break;
+                    
+                }
+                Game.Instance.monsters.Add(monster.GetComponent<MonsterController>());
+            }
+            i++;
+            yield return new WaitForSeconds(1/spawnRate);
+        }
+    }
+
+    void Update()
+    {
+        if (Game.Instance.monsters.Count==0) finished = true;
+    }
+
+    // Generation of the next wave 
+    void LoadNextWave()
+    {
+        // algorithme qui doit rendre le jeu de plus en plus difficile au fur et a mesure que la partie avance
+        currentWave = new List<MonsterType> {MonsterType.GroBleu, MonsterType.GroJaune, MonsterType.Shell, MonsterType.GroJaune};
     }
 }
 

@@ -125,6 +125,6 @@ public class MonsterController : MonoBehaviour
     }
     void OnDestroy()
     {
-        //Game.Instance.monstersPrefabs.Remove(this);
+        Game.Instance.monsters.Remove(this);
     }
 }
