@@ -20,6 +20,9 @@ public class WaveManager : MonoBehaviour
     List<Vector2Int> spawns; 
     List<MonsterType> currentWave;
 
+    [Header("Monster Spawn Rate")]
+    [SerializeField] float spawnRate;
+
     public void Init()
     {
         spawns = new();
@@ -62,7 +65,7 @@ public class WaveManager : MonoBehaviour
                 }
             }
             i++;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1/spawnRate);
         }
         
     } 
