@@ -41,7 +41,7 @@ public abstract class Tower : Building
     {
         base.Update();
 
-        if (IsPowered())
+        if (IsPowered() && active)
         {
             UpdateTarget();
             RotateTowardTarget();

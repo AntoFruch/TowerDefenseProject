@@ -117,10 +117,12 @@ public class EnergyManager : MonoBehaviour
     void SetEnergyToBuilding(List<Vertex<Building>> powerplants)
     {
         Debug.Log(energyGraph);
+        List<Tower> reachedTowers = new();
         foreach (Vertex<Building> powerPlant in powerplants)
         {
             if (powerPlant.label is PowerPlant pp)
             {
+                // we get all the towers linked to the powerplant's tree
                 List<Vertex<Building>> towers = new List<Vertex<Building>>();
                 Queue<Vertex<Building>> queue = new Queue<Vertex<Building>>();
                 queue.Enqueue(powerPlant);
@@ -133,19 +135,27 @@ public class EnergyManager : MonoBehaviour
                         towers.Add(v);
                     }
                 }
-                
+
+                // and we update the power
                 if (towers.Count>0){
                     int toGive = pp.PowerOutput / towers.Count();
                     int remainder = pp.PowerOutput % towers.Count();
-
-
                     foreach(Vertex<Building> v in towers)
                     {
                         Tower tower = v.label as Tower;
                         tower.SetPower(remainder <= 0 ? toGive : toGive + 1);
+                        reachedTowers.Add(tower);
                         remainder--;
                     }
                 }
+            }
+        }
+        // handling towers that are not connected (default is no power, but if they are disconnected they would keep their previous power without that)
+        foreach(Tower tower in Game.Instance.buildings.Where(b=>b is Tower))
+        {
+            if (!reachedTowers.Contains(tower))
+            {
+                tower.SetPower(0);
             }
         }
     }
