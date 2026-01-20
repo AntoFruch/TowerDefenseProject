@@ -130,6 +130,7 @@ MonoBehaviour:
   projectileSpawn: {fileID: 6462606216006220376}
   idleRotationChangeTime: 2
   idleTurnSpeed: 1
+  powerConsumption: 3
   shootForce: 0.2
   prefabs: {fileID: 0}
   beamPrefab: {fileID: 23569899117785782, guid: 46406fb5789f97a4b9eb92b8f4143c98, type: 3}
