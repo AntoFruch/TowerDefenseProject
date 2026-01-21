@@ -12,7 +12,7 @@ public class RangesManager : MonoBehaviour
     public static int towerEnergyRange = 3;
     public static int powerPlantEnergyRange = 4;
 
-    GameObject towerRangeParent;
+    public GameObject towerRangeParent{get;private set;}
     GameObject energyRangeParent;
     GameObject boostRangeParent;
     
@@ -30,8 +30,6 @@ public class RangesManager : MonoBehaviour
 
     void Start()
     {
-        mode = RangesMode.None;
-
         towerRangeParent = new("TowerRangesParents");
         energyRangeParent = new("EnergyRangesParents");
         boostRangeParent = new("BoostRangesParents");

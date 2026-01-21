@@ -113,7 +113,6 @@ public class EnergyManager : MonoBehaviour
 
     void SetEnergyToBuilding(List<Vertex<Building>> powerplants)
     {
-        Debug.Log(energyGraph);
         List<Tower> reachedTowers = new();
         foreach (Vertex<Building> powerPlant in powerplants)
         {

@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570a9da56bdd2204eabe5db95eedf66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RangesManager
+  mode: 0
 --- !u!1 &352998437
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +588,7 @@ MonoBehaviour:
   monstersPrefabs: {fileID: 11400000, guid: 05293b01974c44f439bf8e3eb6919824, type: 2}
   HUD: {fileID: 26603230}
   selector: {fileID: 109922511}
-  state: 1
+  state: 0
 --- !u!4 &1361876192
 Transform:
   m_ObjectHideFlags: 0

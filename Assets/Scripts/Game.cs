@@ -94,7 +94,7 @@ public class Game : MonoBehaviour
     void OnNewBuildingUpdate()
     {
         EnergyManager.Instance.UpdateEnergyGraph();
-        LogBuildings();
+        //LogBuildings();
     }
 
     void LogBuildings()
