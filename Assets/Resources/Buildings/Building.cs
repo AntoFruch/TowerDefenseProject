@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
 
 public class Building : MonoBehaviour {
@@ -26,11 +25,6 @@ public class Building : MonoBehaviour {
     void OnDestroy()
     {
         Game.Instance?.buildings.Remove(this);
-        foreach (GameObject go in RangesManager.Instance.ranges[this])
-        {
-            Destroy(go);
-        }
-        RangesManager.Instance.ranges.Remove(this);
     }
     public void RedHighlight()
     {

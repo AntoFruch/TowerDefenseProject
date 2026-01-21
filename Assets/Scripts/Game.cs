@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 // class Game is the game manager, it initiates the game and provides the logic for everything.
@@ -94,8 +93,7 @@ public class Game : MonoBehaviour
 
     void OnNewBuildingUpdate()
     {
-        EnergyManager.Instance.UpdateEnergyGraph();    
-        RangesManager.Instance.DrawRanges();
+        EnergyManager.Instance.UpdateEnergyGraph();
         LogBuildings();
     }
 

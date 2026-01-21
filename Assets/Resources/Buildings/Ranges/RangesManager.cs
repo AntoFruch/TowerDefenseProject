@@ -1,18 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class RangesManager : MonoBehaviour
 {   
     public static RangesManager Instance { get; private set; }
-    public RangesMode mode{get;private set;}
+    [SerializeField] private RangesMode mode;
+
 
     public static int towerEnergyRange = 3;
     public static int powerPlantEnergyRange = 4;
 
-    public Dictionary<Building, List<GameObject>> ranges;
+    GameObject towerRangeParent;
+    GameObject energyRangeParent;
+    GameObject boostRangeParent;
     
     void Awake()
     {
@@ -28,56 +30,70 @@ public class RangesManager : MonoBehaviour
 
     void Start()
     {
-        ranges = new Dictionary<Building, List<GameObject>>();
         mode = RangesMode.None;
+
+        towerRangeParent = new("TowerRangesParents");
+        energyRangeParent = new("EnergyRangesParents");
+        boostRangeParent = new("BoostRangesParents");
+    }
+
+    int lastBuildingCount = 0;
+    void Update()
+    {
+        if (Game.Instance.buildings.Count != lastBuildingCount)
+        {
+            ShowRanges();
+            lastBuildingCount = Game.Instance.buildings.Count;
+        }
     }
     void SetMode(RangesMode mode)
     {
         this.mode = mode;
+        ShowRanges();
     }
-    public void DrawRanges()
+    public void ShowRanges()
     {
         switch (mode)
         {
             case RangesMode.Energy:
-                DrawEnergyRanges();
+                LoadEnergyRanges();
+                energyRangeParent.SetActive(true);
                 break;
             case RangesMode.Towers:
-                DrawTowerRanges();
+                LoadTowerRanges();
+                towerRangeParent.SetActive(true);
                 break;
             case RangesMode.Boost:
-                DrawBoostRanges();
+                LoadBoostRanges();
+                boostRangeParent.SetActive(true);
                 break;
         }
     }
 
-    void DrawTowerRanges()
+    void LoadTowerRanges()
     {
-        ClearRanges();
+        ClearRanges(towerRangeParent);
         foreach(Tower tower in Game.Instance.buildings.Where(b=>b is Tower))
         {
-            List<GameObject> list = new List<GameObject>();
             for(int x = -tower.Range; x<=tower.Range; x++)
             {
                 for(int y = -tower.Range; y<=tower.Range; y++)
                 {
-                    
                     if (Math.Abs(x)+Math.Abs(y) <= tower.Range){
-                        list.Add(
-                            Instantiate(Game.Instance.buildingsPrefabs.towerRange,
-                                        tower.transform.position + new Vector3(x,0, y), 
-                                        Quaternion.identity)
-                                        );
+                        GameObject child =  Instantiate(Game.Instance.buildingsPrefabs.towerRange,
+                                                        tower.transform.position + new Vector3(x,0, y), 
+                                                        Quaternion.identity);
+                        child.transform.parent = towerRangeParent.transform;
                     }
                 }   
             }
-            ranges.Add(tower, list);
         }
+        towerRangeParent.SetActive(false);
     }
 
-    void DrawEnergyRanges()
+    void LoadEnergyRanges()
     {
-        ClearRanges();
+        ClearRanges(energyRangeParent);
         foreach(Building build in Game.Instance.buildings.Where(b=>b is Tower || b is PowerPlant))
         {
             int range = build is Tower ? towerEnergyRange : powerPlantEnergyRange;
@@ -88,33 +104,28 @@ public class RangesManager : MonoBehaviour
                 {
                     
                     if (Math.Abs(x)+Math.Abs(y) <= range){
-                        list.Add(
-                            Instantiate(Game.Instance.buildingsPrefabs.energyRange,
-                                        build.transform.position + new Vector3(x,0, y), 
-                                        Quaternion.identity)
-                                        );
+                        GameObject child =  Instantiate(Game.Instance.buildingsPrefabs.energyRange,
+                                                        build.transform.position + new Vector3(x,0, y), 
+                                                        Quaternion.identity);
+                        child.transform.parent = energyRangeParent.transform;
                     }
                 }   
             }
-            ranges.Add(build, list);
         }
+        energyRangeParent.SetActive(false);
     }
 
-    void DrawBoostRanges()
+    void LoadBoostRanges()
     {
         
     }
 
-    void ClearRanges()
+    void ClearRanges(GameObject parent)
     {
-        foreach(var key in ranges.Keys)
+        foreach (Transform child in parent.transform)
         {
-            foreach(var go in ranges[key])
-            {
-                Destroy(go);
-            }
+            Destroy(child.gameObject);
         }
-        ranges.Clear();
     }
 }
 
