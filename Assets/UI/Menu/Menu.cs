@@ -45,6 +45,12 @@ public class Menu : MonoBehaviour
 
     void OnEnable()
     {   
+        //Débute la music d'ambiance du main menu.
+        AudioManager.Instance.PlaymenuAmbientSound();
+        
+
+
+
 
         mapBtnToFileName = new Dictionary<Button, string>();
 
@@ -166,16 +172,19 @@ public class Menu : MonoBehaviour
     // Main Menu
     private void OnPlayButtonClick(ClickEvent evt)
     {
+        AudioManager.Instance.PlayClick();
         ShowMapSelection();
         HideMainMenu();
     }
     private void OnExitButtonClick(ClickEvent evt)
     {
+        AudioManager.Instance.PlayClick();
         Application.Quit();
     }
 
     private void OnSettingsButtonClick(ClickEvent evt)
     {
+        AudioManager.Instance.PlayClick();
         ShowSettingsMenu();
         HideMainMenu();        
     }
@@ -184,6 +193,7 @@ public class Menu : MonoBehaviour
 
     private void OnBackSettingsOnCLick(ClickEvent evt)
     {
+        AudioManager.Instance.PlayClick();
         ShowMainMenu();
         HideSettingsMenu();
     } 
@@ -191,10 +201,12 @@ public class Menu : MonoBehaviour
     // Map Selection Menu
     private void OnStartButtonClick(ClickEvent evt)
     {
+        AudioManager.Instance.PlayClick();
         SceneManager.LoadScene("SampleScene");
     }
     void OnMapButtonClick(ClickEvent evt)
     {
+        AudioManager.Instance.PlayClick();
         Button btn = evt.currentTarget as Button;
         string fileName = mapBtnToFileName[btn];
         string filePath = Path.Combine(Path.Combine(Application.dataPath, "../Maps"), mapBtnToFileName[btn]);
@@ -227,6 +239,7 @@ public class Menu : MonoBehaviour
     }
     void OnBackMapSelectionButtonClick(ClickEvent evt)
     {
+        AudioManager.Instance.PlayClick();
         HideMapSelection();
         ShowMainMenu();
     }

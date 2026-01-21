@@ -40,7 +40,7 @@ public class PauseMenu : MonoBehaviour
 
     private void OnQuitButtonClick(ClickEvent evt)                           // Méthode exécutée quand je clique sur Quit
     {
-        Debug.Log("Quit button cliqué");
+        AudioManager.Instance.PlayClick();
         Resume();
         SceneManager.LoadScene("MainMenu");
     }
@@ -48,7 +48,7 @@ public class PauseMenu : MonoBehaviour
 
     private void OnResumeButtonClick(ClickEvent evt)                         // Méthode exécutée quand je clique sur Resume
     {
-        Debug.Log("Resume button cliqué");
+        AudioManager.Instance.PlayClick();
         Resume();
     }
     
