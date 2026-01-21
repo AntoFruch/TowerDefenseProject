@@ -51,10 +51,16 @@ public static class Strategies
                 .OrderBy(v => distances[v])
                 .First();
 
+        // Then get all the end vertex at the same distance ( can happen )
+        List<Vertex<VertexLabel>> nearestEndVertices = graph.GetVertices()
+                                                    .Where(v => v.label == VertexLabel.END)
+                                                    .Where(v => distances[v] == distances[endVertex])
+                                                    .ToList();
+
         // And recreate the path thanks to the "previous" Dictionary
         List<Vertex<VertexLabel>> path = new List<Vertex<VertexLabel>>();
 
-        Vertex<VertexLabel> cur = endVertex;
+        Vertex<VertexLabel> cur = nearestEndVertices[Random.Range(0, nearestEndVertices.Count)];
         while (cur != start)
         {
             path.Add(cur);
@@ -77,14 +83,14 @@ public static class Strategies
         // unvisited vertices
         List<Vertex<VertexLabel>> unvisited = new List<Vertex<VertexLabel>>(graph.GetVertices());
         // distances from start to key vertex
-        Dictionary<Vertex<VertexLabel>, int> distances = new Dictionary<Vertex<VertexLabel>, int>();
+        Dictionary<Vertex<VertexLabel>, float> distances = new Dictionary<Vertex<VertexLabel>, float>();
         // previous vertex trace
         Dictionary<Vertex<VertexLabel>, Vertex<VertexLabel>> previous = new Dictionary<Vertex<VertexLabel>, Vertex<VertexLabel>>();
 
         // all distances at +inf, start is 0 away from itself. 
         foreach (Vertex<VertexLabel> v in graph.GetVertices())
         {
-            distances[v] = int.MaxValue;
+            distances[v] = float.MaxValue;
         }
         distances[start] = 0; 
         
@@ -97,7 +103,7 @@ public static class Strategies
             {
                 if (unvisited.Contains(vertex))
                 {
-                    int newDist = distances[minDistanceVertex] + minDistanceVertex.GetNeighbors()[vertex]*Overlap(minDistanceVertex, vertex);
+                    float newDist = distances[minDistanceVertex] + minDistanceVertex.GetNeighbors()[vertex]*Overlap(minDistanceVertex, vertex);
                     if (distances[vertex] > newDist)
                     {
                         distances[vertex] = newDist;
@@ -113,11 +119,17 @@ public static class Strategies
                 .Where(v => v.label == VertexLabel.END)
                 .OrderBy(v => distances[v])
                 .First();
+        
+        // Then get all the end vertex at the same distance ( can happen )
+        List<Vertex<VertexLabel>> nearestEndVertices = graph.GetVertices()
+                                                    .Where(v => v.label == VertexLabel.END)
+                                                    .Where(v => distances[v] == distances[endVertex])
+                                                    .ToList();
 
         // And recreate the path thanks to the "previous" Dictionary
         List<Vertex<VertexLabel>> path = new List<Vertex<VertexLabel>>();
 
-        Vertex<VertexLabel> cur = endVertex;
+        Vertex<VertexLabel> cur = nearestEndVertices[Random.Range(0, nearestEndVertices.Count)];
         while (cur != start)
         {
             path.Add(cur);
@@ -129,7 +141,7 @@ public static class Strategies
         return path;
     }
 
-    private static int Overlap(Vertex<VertexLabel> v1, Vertex<VertexLabel> v2)
+    private static float Overlap(Vertex<VertexLabel> v1, Vertex<VertexLabel> v2)
     {
         if (!v1.GetNeighbors().Keys.Contains(v2))
         {
@@ -137,7 +149,7 @@ public static class Strategies
         }
 
         // counter of the number of tiles that overlap the path ( float in order to return a float then, with an int we would have done a integers division which is not what we want)
-        int count = 0;
+        float count = 0;
         Vector2Int path = v1.position - v2.position;
         foreach(Transform child in RangesManager.Instance.towerRangeParent.transform)
         {
@@ -154,6 +166,6 @@ public static class Strategies
             }
         }
 
-        return count;
+        return 1 + count/path.magnitude;
     }
 }
