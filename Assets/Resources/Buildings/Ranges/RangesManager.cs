@@ -6,7 +6,7 @@ using UnityEngine;
 public class RangesManager : MonoBehaviour
 {   
     public static RangesManager Instance { get; private set; }
-    [SerializeField] private RangesMode mode;
+    [SerializeField] private RangeMode mode;
 
 
     public static int towerEnergyRange = 3;
@@ -44,25 +44,25 @@ public class RangesManager : MonoBehaviour
             lastBuildingCount = Game.Instance.buildings.Count;
         }
     }
-    void SetMode(RangesMode mode)
+    public void SetMode(RangeMode mode)
     {
         this.mode = mode;
         ShowRanges();
     }
     public void ShowRanges()
     {
+        LoadEnergyRanges();
+        LoadTowerRanges();
+        LoadBoostRanges();
         switch (mode)
         {
-            case RangesMode.Energy:
-                LoadEnergyRanges();
+            case RangeMode.Energy:
                 energyRangeParent.SetActive(true);
                 break;
-            case RangesMode.Towers:
-                LoadTowerRanges();
+            case RangeMode.Towers:
                 towerRangeParent.SetActive(true);
                 break;
-            case RangesMode.Boost:
-                LoadBoostRanges();
+            case RangeMode.Boost:
                 boostRangeParent.SetActive(true);
                 break;
         }
@@ -127,7 +127,7 @@ public class RangesManager : MonoBehaviour
     }
 }
 
-public enum RangesMode
+public enum RangeMode
 {
     Towers, Energy, Boost, None
 }

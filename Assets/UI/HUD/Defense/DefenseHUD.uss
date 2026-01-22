@@ -1,0 +1,42 @@
+:root {
+}
+
+.main-container {
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    font-size: 59px;
+    top: 34px;
+}
+
+.progressbar {
+    width: 1052px;
+    height: 55px;
+    background-image: url("project://database/Assets/UI/HUD/Defense/progressbar-bg.png?fileID=2800000&guid=8924f3f496619c941b388088e00f3cd8&type=3#progressbar-bg");
+    position: absolute;
+    bottom: 28px;
+}
+
+.progressbar-mask {
+    width: 75%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+
+.progressbar-fill {
+    width: 100%;
+    height: 100%;
+    background-image: url("project://database/Assets/UI/HUD/Defense/progressbar-fill.png?fileID=2800000&guid=c7d5edacd3f1f784fb1af63135165704&type=3#progressbar-fill");
+    position: absolute;
+    overflow: hidden;
+}
+
+.progressbar-frame {
+    background-image: url("project://database/Assets/UI/HUD/Defense/progressbar-frame.png?fileID=2800000&guid=a116d93ee6394f340b27f104eaec11c2&type=3#progressbar-frame");
+    width: 100%;
+    height: 100%;
+}

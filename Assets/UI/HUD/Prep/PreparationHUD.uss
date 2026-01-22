@@ -1,0 +1,32 @@
+:root {
+}
+
+.main-container {
+    width: 100%;
+    height: 100%;
+}
+
+.start-btn-img {
+    width: 300px;
+    height: 113px;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    transition-duration: 0.2s;
+}
+
+.start-btn-img:hover {
+    rotate: -8deg;
+    scale: 1.2 1.2 1.2;
+    transition-duration: 0.2s;
+}
+
+.start-btn {
+    width: 99%;
+    height: 99%;
+}
+
+.title {
+    font-size: 59px;
+    top: 34px;
+}
