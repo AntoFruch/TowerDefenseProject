@@ -88,15 +88,27 @@ public class Menu : MonoBehaviour
         backButton.RegisterCallback<ClickEvent>(OnBackMapSelectionButtonClick);
 
         //Settings Menu
-
-            //Brightness 
+            //Back Settings
         backSettingsButton = settingsUIDoc.rootVisualElement.Q<Button>("back-Settings");
         backSettingsButton.RegisterCallback<ClickEvent>(OnBackSettingsOnCLick);
+            //Brightness 
+       
         var brightSlider = settingsUIDoc.rootVisualElement.Q<Slider>("BrightnessSlider");
         brightSlider.lowValue=0f;
         brightSlider.highValue=0.8f;
         brightSlider.value=PlayerPrefs.GetFloat("Brightness",0f);       
         brightSlider.RegisterValueChangedCallback(evt=> {SettingsManager.Instance.SetBrightness(evt.newValue);});
+
+            //Sound
+
+        var soundSlider = settingsUIDoc.rootVisualElement.Q<Slider>("SoundSlider");
+        soundSlider.lowValue=0f;
+        soundSlider.highValue=100f; 
+        
+
+            //Music 
+
+            //Master
         
         GenerateMapButtons();
         ShowMainMenu();
