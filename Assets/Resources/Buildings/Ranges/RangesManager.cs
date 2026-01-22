@@ -44,7 +44,7 @@ public class RangesManager : MonoBehaviour
             lastBuildingCount = Game.Instance.buildings.Count;
         }
     }
-    void SetMode(RangeMode mode)
+    public void SetMode(RangeMode mode)
     {
         this.mode = mode;
         ShowRanges();
