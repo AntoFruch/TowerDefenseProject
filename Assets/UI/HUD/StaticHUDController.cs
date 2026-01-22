@@ -71,8 +71,5 @@ public class StaticHUDController : MonoBehaviour
     {
         RangesManager.Instance.SetMode(RangeMode.Boost);
         AudioManager.Instance.PlayClick();
-    }
-
-    
-    
+    } 
 }

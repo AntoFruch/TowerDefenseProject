@@ -120,6 +120,17 @@ public class WaveManager : MonoBehaviour
             else
                 currentWave.Add(MonsterType.Blob);
         }
+        string str = "";
+        foreach(MonsterType m in currentWave)
+        {
+            str += m+" ";
+        }
+        Debug.Log(str);
+    }
+
+    public int GetCurrentWaveLength()
+    {
+        return currentWave.Count * spawns.Count;
     }
 }
 

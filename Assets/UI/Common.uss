@@ -24,4 +24,9 @@
 }
 
 .title {
+    font-size: 59px;
+    top: 34px;
+}
+
+.main-container {
 }
