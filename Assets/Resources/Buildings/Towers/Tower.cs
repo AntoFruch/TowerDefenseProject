@@ -30,6 +30,10 @@ public abstract class Tower : Building
 
     private float statsUpdateTimer = 0f;    //Used to optimize bonus' calculus
 
+    [SerializeField] private int powerConsumption;
+    public int PowerConsumption => powerConsumption;
+    private int power;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
@@ -80,7 +84,7 @@ public abstract class Tower : Building
             {
                 float dist = Mathf.Abs(transform.position.x - installation.transform.position.x) + Mathf.Abs(transform.position.z - installation.transform.position.z);
 
-                if(dist <= installation.realRange)
+                if(dist <= (installation.Range * 2 + 1) / 2)
                 {
                     switch (installation.type)
                     {
@@ -104,7 +108,6 @@ public abstract class Tower : Building
         CurrentFireRate = fireRate * fireMult;
         CurrentRange = range * rangeMult;
 
-        realRange = (2 * CurrentRange + 1) / 2;
     }
     void UpdateIdleRotation()
     {
