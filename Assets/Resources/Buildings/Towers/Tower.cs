@@ -3,10 +3,14 @@ using System.Collections.Generic;
 
 public abstract class Tower : Building
 {
-    
-    [SerializeField] protected float fireRate ;
-    [SerializeField] protected float damage ;
-    public float Damage => damage;
+    [Header("Stats de Base")]
+    [SerializeField] protected float fireRate = 1f;
+    [SerializeField] protected float damage = 10f;
+
+    public float CurrentDamage { get; private set; }
+    public float CurrentFireRate { get; private set; }
+    public float CurrentRange { get; private set; }
+    public float Damage => CurrentDamage;
 
     [Header("Fonctional Assignements")]
     [SerializeField] protected float lerpStep = 10f;
@@ -24,38 +28,84 @@ public abstract class Tower : Building
     private float idleTimer;
     private Quaternion idleTargetRotation;
 
-    [Header("Energy")]
-    [SerializeField] private int powerConsumption;
-    public int PowerConsumption => powerConsumption;
-    private int power;
+    private float statsUpdateTimer = 0f;    //Used to optimize bonus' calculus
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
         base.Start();
+        CurrentDamage = damage;
+        CurrentFireRate = fireRate;
+        CurrentRange = range;   //From the Class Building
+        CalculateStats();
     }
 
     float clock;
     // Update is called once per frame
     protected override void Update()
     {
-        base.Update();
-
-        if (IsPowered() && active)
+        statsUpdateTimer += Time.deltaTime;
+        if(statsUpdateTimer > 0.25f)
         {
-            UpdateTarget();
-            RotateTowardTarget();
-            
-            // Shooting routine
-            clock += Time.deltaTime;
-            if (clock > 1 / fireRate && (target != null || targets !=null))
+            CalculateStats();
+            statsUpdateTimer = 0f;
+        }
+
+        base.Update();
+        UpdateTarget();
+        RotateTowardTarget();
+        
+        // Shooting routine
+        clock += Time.deltaTime;
+        if (clock > 1 / CurrentFireRate && (target != null || targets != null))
+        {
+            Shoot();
+            clock=0;
+        }
+
+      
+
+    }
+
+    //Calculation of each installation type's boost
+    void CalculateStats()
+    {
+        float damageMult = 1f;
+        float fireMult = 1f;
+        float rangeMult = 1f;
+
+        foreach(Building building in Game.Instance.buildings)
+        {
+            if(building is Installation installation)
             {
-                Shoot();
-                clock=0;
+                float dist = Mathf.Abs(transform.position.x - installation.transform.position.x) + Mathf.Abs(transform.position.z - installation.transform.position.z);
+
+                if(dist <= installation.realRange)
+                {
+                    switch (installation.type)
+                    {
+                        case InstallationType.Radar:
+                            rangeMult += installation.bonusPercentage;
+                            break;
+
+                        case InstallationType.Factory:
+                            damageMult += installation.bonusPercentage;
+                            break;
+
+                        case InstallationType.Storage:
+                            fireMult += installation.bonusPercentage;
+                            break;
+                    }
+                }
             }
         }
+
+        CurrentDamage = damage * damageMult;
+        CurrentFireRate = fireRate * fireMult;
+        CurrentRange = range * rangeMult;
+
+        realRange = (2 * CurrentRange + 1) / 2;
     }
-    
     void UpdateIdleRotation()
     {
         idleTimer -= Time.deltaTime;
