@@ -23,6 +23,8 @@ public class WaveManager : MonoBehaviour
     [Header("Monster Spawn Rate")]
     [SerializeField] float spawnRate;
 
+    private int waveIndex;
+
     public bool finished {get; private set;}
 
     public void Init()
@@ -30,6 +32,7 @@ public class WaveManager : MonoBehaviour
         spawns = new();
         GetSpawns();
         finished = true;
+        currentWave = new();
     }
     void GetSpawns()
     {
@@ -104,8 +107,19 @@ public class WaveManager : MonoBehaviour
     // Generation of the next wave 
     void LoadNextWave()
     {
-        // algorithme qui doit rendre le jeu de plus en plus difficile au fur et a mesure que la partie avance
-        currentWave = new List<MonsterType> {MonsterType.GroBleu, MonsterType.GroJaune, MonsterType.Shell, MonsterType.GroJaune};
+        currentWave.Clear();
+        waveIndex++;
+        int monsterCount = 3 + waveIndex * 2;
+
+        for (int i = 0; i < monsterCount; i++)
+        {
+            if (waveIndex < 3)
+                currentWave.Add(MonsterType.Shell);
+            else if (waveIndex < 6)
+                currentWave.Add(Random.value < 0.7f ? MonsterType.GroJaune : MonsterType.GroBleu);
+            else
+                currentWave.Add(MonsterType.Blob);
+        }
     }
 }
 
