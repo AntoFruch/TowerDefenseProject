@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
     
     void Start()
     {
-        PauseT = InputSystem.actions.FindAction("PauseMenu");                //Recherche l'ActionMap "Pause"
+        PauseT = InputSystem.actions.FindAction("PauseMenu");                // Recherche l'ActionMap "Pause"
         playerInput.actions.FindActionMap("UI").Enable();                    // Active l'UI
         playerInput.actions.FindActionMap("Pause").Enable();                 // Active Pause 
         playerInput.actions.FindActionMap("Player").Enable();                // Active Player 
@@ -57,7 +57,6 @@ public class PauseMenu : MonoBehaviour
     {
         if (PauseT.WasPerformedThisFrame())
         {
-            Debug.Log("Bouton Appuyé");
             if (isPaused)
             {
                 Resume();
@@ -74,7 +73,6 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale=1f;
         isPaused = false;
-        Debug.Log("Le jeu reprend");
         playerInput.actions.FindActionMap("Player").Enable();
         playerInput.actions.FindActionMap("Wheel").Enable();
         root.AddToClassList("hide");
@@ -86,7 +84,6 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale=0f;
         isPaused = true;
-        Debug.Log("Le jeu est en pause");
         root.RemoveFromClassList("hide");
         playerInput.actions.FindActionMap("Player").Disable();
         playerInput.actions.FindActionMap("Wheel").Disable();
