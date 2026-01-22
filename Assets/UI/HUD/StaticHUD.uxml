@@ -1,10 +1,25 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3#Common" />
+    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3" />
     <Style src="project://database/Assets/UI/HUD/StaticHUD.uss?fileID=7433441132597879392&amp;guid=7c83f70f16a878b4f91f7d7a53e9e85c&amp;type=3#StaticHUD" />
-    <ui:VisualElement name="range-mode-container" class="range-mode-container">
-        <ui:Label text="Range Mode" class="labels" />
-        <ui:Button text="Tower" name="tower-range-btn" class="range-btn tower-range-btn" />
-        <ui:Button text="Energy" name="energy-range-btn" class="range-btn energy-range-btn" />
-        <ui:Button text="Boost" name="boost-range-btn" class="range-btn boost-range-btn" />
+    <ui:VisualElement name="main-container" picking-mode="Ignore" class="main-container">
+        <ui:VisualElement name="range-mode-container" class="range-mode-container">
+            <ui:Label text="Range Mode" class="labels range-label" />
+            <ui:VisualElement name="btn-container" class="range-btn-container">
+                <ui:VisualElement name="image" class="range-image" />
+                <ui:Button name="tower-range-btn" class="range-btn tower-range-btn" />
+                <ui:Button name="energy-range-btn" class="range-btn energy-range-btn" />
+                <ui:Button name="boost-range-btn" class="range-btn boost-range-btn" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="money-container" class="money-container">
+            <ui:VisualElement name="image" class="money-image" />
+            <ui:Label text="1000" name="money-label" class="labels money-label" />
+        </ui:VisualElement>
+        <ui:VisualElement name="healthbar" class="healthbar">
+            <ui:VisualElement name="healthbar-mask" class="healthbar-mask">
+                <ui:VisualElement name="healthbar-fill" class="healthbar-fill" style="flex-grow: 1;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="healthbar-frame" class="healthbar-frame" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
