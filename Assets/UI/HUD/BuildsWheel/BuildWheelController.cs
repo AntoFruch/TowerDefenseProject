@@ -136,7 +136,7 @@ public class BuildWheelController : MonoBehaviour
     }
     void onRadarButtonClick(ClickEvent evt)
     {
-        Instantiate(Game.Instance.buildingsPrefabs.radar, Game.Instance.selector.position, Quaternion.identity);
+        Instantiate(Game.Instance.buildingsPrefabs.radar, Game.Instance.selector.position, new Quaternion(0,180f,0,0));
         HideWheel();
     } 
     void onPowerPlantButtonClick(ClickEvent evt)
@@ -146,12 +146,12 @@ public class BuildWheelController : MonoBehaviour
     } 
     void onStorageButtonClick(ClickEvent evt)
     {
-        GameObject build = Instantiate(Game.Instance.buildingsPrefabs.storage, Game.Instance.selector.position, Quaternion.identity);
+        GameObject build = Instantiate(Game.Instance.buildingsPrefabs.storage, Game.Instance.selector.position, new Quaternion(0,180f,0,0));
         HideWheel();
     } 
     void onFactoryButtonClick(ClickEvent evt)
     {
-        GameObject build = Instantiate(Game.Instance.buildingsPrefabs.factory, Game.Instance.selector.position, Quaternion.identity);
+        GameObject build = Instantiate(Game.Instance.buildingsPrefabs.factory, Game.Instance.selector.position, new Quaternion(0,180f,0,0));
         HideWheel();
     } 
 

@@ -15,7 +15,8 @@ public class DefenseHUDController : MonoBehaviour
     void OnEnable()
     {
         root = UIDoc.rootVisualElement;
-        mask = root.Q<VisualElement>("progressbar-mask");   
+        mask = root.Q<VisualElement>("progressbar-mask");
+        title = root.Q<Label>("title");
     }
 
     void Show()
@@ -41,6 +42,7 @@ public class DefenseHUDController : MonoBehaviour
         }
 
         UpdateProgress();
+        UpdateTitle();
     }
 
     void UpdateProgress()
@@ -53,6 +55,6 @@ public class DefenseHUDController : MonoBehaviour
 
     void UpdateTitle()
     {
-        title.text = "Wave n°"+WaveManager.Instance.waveIndex;
+        title.text = "Wave n°"+(WaveManager.Instance.waveIndex+1);
     }
 }

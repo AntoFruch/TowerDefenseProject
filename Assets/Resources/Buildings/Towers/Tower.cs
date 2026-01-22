@@ -55,20 +55,19 @@ public abstract class Tower : Building
             statsUpdateTimer = 0f;
         }
 
-        base.Update();
-        UpdateTarget();
-        RotateTowardTarget();
-        
-        // Shooting routine
-        clock += Time.deltaTime;
-        if (clock > 1 / CurrentFireRate && (target != null || targets != null))
-        {
-            Shoot();
-            clock=0;
+        if (IsPowered() && active){
+            base.Update();
+            UpdateTarget();
+            RotateTowardTarget();
+
+            // Shooting routine
+            clock += Time.deltaTime;
+            if (clock > 1 / CurrentFireRate && (target != null || targets != null))
+            {
+                Shoot();
+                clock=0;
+            }
         }
-
-      
-
     }
 
     //Calculation of each installation type's boost
