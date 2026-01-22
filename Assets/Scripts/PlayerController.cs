@@ -28,17 +28,22 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         UpdateStates();
-        
-        if (BuildingPlacementManager.Instance.moving && selectAction.WasPerformedThisFrame())
+        if (Game.Instance.state == GameState.Preparation){
+            if (BuildingPlacementManager.Instance.moving && selectAction.WasPerformedThisFrame())
+            {
+                BuildingPlacementManager.Instance.Place();
+            }else if (!hUDWheelActive)
+            {
+                ToggleBuildsHUD();
+                cameraController.MoveCam(moveCamAction, dragAction);
+                cameraController.Zoom(zoomAction);
+                cameraController.MoveSelector();
+            }
+        } else if (Game.Instance.state == GameState.Defense)
         {
-            BuildingPlacementManager.Instance.Place();
-        }else if (!hUDWheelActive)
-        {
-            ToggleBuildsHUD();
             cameraController.MoveCam(moveCamAction, dragAction);
             cameraController.Zoom(zoomAction);
-            cameraController.MoveSelector();
-        } 
+        }
     }
 
     void ToggleBuildsHUD()

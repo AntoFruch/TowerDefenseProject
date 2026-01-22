@@ -17,7 +17,6 @@
     translate: -103.8% 0%;
 }
 
-
 .btn-red-bg {
     background-color: rgb(231, 42, 42);
     border-left-color: rgb(183, 0, 0);
@@ -59,9 +58,14 @@
 }
 
 .btn-yellow-image {
-    background-image: none;
+    background-image: url("project://database/Assets/UI/HUD/BuildsWheel/Sprites/Calque%201.png?fileID=2800000&guid=154ae2befa8218f40a8cfccb3927765f&type=3#Calque 1");
+    height: 148px;
+    width: 85px;
+    top: -32px;
+    right: 7px;
 }
 
 .btn-blue-image {
-    background-image: none;
+    background-image: url("project://database/Assets/UI/HUD/BuildsWheel/Sprites/Calque%202.png?fileID=2800000&guid=2e1cf7628873c014880117cbc14ba53b&type=3#Calque 2");
+    right: 4px;
 }

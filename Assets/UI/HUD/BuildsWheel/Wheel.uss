@@ -131,7 +131,7 @@
     -unity-text-align: upper-center;
     -unity-text-outline-width: 1px;
     -unity-text-outline-color: rgb(255, 255, 255);
-    font-size: 30px;
+    font-size: 35px;
     -unity-font-definition: url("project://database/Assets/UI/Supersonic%20Rocketship.ttf?fileID=12800000&guid=42639f43f6fe7b6438f0eff715a5b7f4&type=3#Supersonic Rocketship");
     top: 70%;
     color: rgb(123, 58, 0);

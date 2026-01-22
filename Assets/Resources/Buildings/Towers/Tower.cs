@@ -1,12 +1,11 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using System.Collections.Generic;
 
 public abstract class Tower : Building
 {
     
-    [SerializeField] protected float fireRate = 1f;
-    [SerializeField] protected float damage = 10f;
+    [SerializeField] protected float fireRate ;
+    [SerializeField] protected float damage ;
     public float Damage => damage;
 
     [Header("Fonctional Assignements")]
@@ -25,11 +24,15 @@ public abstract class Tower : Building
     private float idleTimer;
     private Quaternion idleTargetRotation;
 
+    [Header("Energy")]
+    [SerializeField] private int powerConsumption;
+    public int PowerConsumption => powerConsumption;
+    private int power;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
         base.Start();
-        realRange = (2 * range + 1)/2;
     }
 
     float clock;
@@ -37,15 +40,19 @@ public abstract class Tower : Building
     protected override void Update()
     {
         base.Update();
-        UpdateTarget();
-        RotateTowardTarget();
-        
-        // Shooting routine
-        clock += Time.deltaTime;
-        if (clock > 1 / fireRate && (target != null || targets !=null))
+
+        if (IsPowered() && active)
         {
-            Shoot();
-            clock=0;
+            UpdateTarget();
+            RotateTowardTarget();
+            
+            // Shooting routine
+            clock += Time.deltaTime;
+            if (clock > 1 / fireRate && (target != null || targets !=null))
+            {
+                Shoot();
+                clock=0;
+            }
         }
     }
     
@@ -85,4 +92,18 @@ public abstract class Tower : Building
     
     protected abstract void UpdateTarget();
     protected abstract void Shoot();
+
+    public void SetPower(int power)
+    {
+        this.power = power;
+    }
+
+    protected bool IsPowered()
+    {
+        return power >= powerConsumption;
+    }
+    public int GetPower()
+    {
+        return power;
+    }
 }

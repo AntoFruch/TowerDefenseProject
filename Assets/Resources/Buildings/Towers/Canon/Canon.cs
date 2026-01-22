@@ -14,7 +14,7 @@ public class Canon : Tower
 
     protected override void UpdateTarget()
     {
-        target = TargetStrategies.Mono(rotatingPart, target, realRange);
+        target = TargetStrategies.Mono(rotatingPart, target, range);
     }
     protected override void Shoot()
     {

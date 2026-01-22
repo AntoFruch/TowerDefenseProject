@@ -1,5 +1,4 @@
 using UnityEngine;
-using Unity.VisualScripting;
 using System;
 using System.Collections.Generic;
 public class InfernoTower : Tower
@@ -20,7 +19,7 @@ public class InfernoTower : Tower
 
     protected override void UpdateTarget()
     {
-        targets = TargetStrategies.Multi(rotatingPart, targets, realRange);
+        targets = TargetStrategies.Multi(rotatingPart, targets, range);
     }
 
 

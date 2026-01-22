@@ -11,7 +11,7 @@
     text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.44);
     letter-spacing: -6px;
     -unity-paragraph-spacing: -16px;
-    font-size: 24px;
+    font-size: 30px;
 }
 
 .btn-power-plant-bg {

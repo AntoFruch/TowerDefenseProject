@@ -40,6 +40,7 @@ public class BuildingPlacementManager : MonoBehaviour
     {
         selectedBuild = build;
         moving = true;
+        selectedBuild.SetActive(false);
         Game.Instance.buildings.Remove(selectedBuild);
     }
     public void Place()
@@ -50,6 +51,7 @@ public class BuildingPlacementManager : MonoBehaviour
             selectedBuild.transform.position = Game.Instance.selector.position;
             Game.Instance.buildings.Add(selectedBuild);
             selectedBuild.Unhighlight();
+            selectedBuild.SetActive(true);
             selectedBuild = null;
         } 
     }
