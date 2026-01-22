@@ -23,7 +23,7 @@ public class WaveManager : MonoBehaviour
     [Header("Monster Spawn Rate")]
     [SerializeField] float spawnRate;
 
-    private int waveIndex;
+    public int waveIndex {get;private set;}
 
     public bool finished {get; private set;}
 

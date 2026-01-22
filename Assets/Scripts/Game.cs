@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Rendering.Analytics;
 using UnityEngine;
 
 // class Game is the game manager, it initiates the game and provides the logic for everything.
@@ -14,9 +15,6 @@ public class Game : MonoBehaviour
         else
             Destroy(gameObject);
     }
-    
-    //Dev
-    [SerializeField] bool spawnWaves;
 
     // Map
     private MapGenerator mapGenerator;
@@ -47,7 +45,10 @@ public class Game : MonoBehaviour
     // Game State
     [SerializeField] public GameState state;
 
-    
+    // Player Health
+    public int maxHealth {get;private set;} = 50;
+    public float health {get;private set;}
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -62,6 +63,7 @@ public class Game : MonoBehaviour
             map = FileAPI.ImageToTileTypeArray(FileAPI.ReadImageAsTexture2D("../Maps/map_03.png"));
             graph = PathVerifier.CreatePathGraph(map);
         }
+        health = maxHealth;
 
         mapGenerator.GenerateMap();
         buildings = new();
@@ -85,7 +87,7 @@ public class Game : MonoBehaviour
             lastBuildingCount = buildings.Count;
         }
         // DEBUG : Instanciation d'ennemis sur les cases de départ
-        if (spawnWaves && state == GameState.Defense)
+        if (state == GameState.Defense)
         {
             WaveManager.Instance.StartNextWave();
         }

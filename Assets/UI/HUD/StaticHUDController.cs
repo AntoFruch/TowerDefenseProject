@@ -4,30 +4,56 @@ using UnityEngine.UIElements;
 public class StaticHUDController : MonoBehaviour
 {
     [SerializeField] private UIDocument UIDoc;
-    private VisualElement root; 
+    private VisualElement root;
+
+    //Range mode buttons
     private Button towerButton;
     private Button energyButton;
     private Button boostButton;
+
+    // life
+    private VisualElement mask;
+
+    // money
+    private Label moneyLabel;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
     {
-        UIDoc.sortingOrder = 0;
         root = UIDoc.rootVisualElement;
 
-        towerButton = UIDoc.rootVisualElement.Q<Button>("tower-range-btn");
+        // range mode buttons
+        towerButton = root.Q<Button>("tower-range-btn");
         towerButton.RegisterCallback<ClickEvent>(OnTowerButtonClicked);
-        energyButton = UIDoc.rootVisualElement.Q<Button>("energy-range-btn");
+        energyButton = root.Q<Button>("energy-range-btn");
         energyButton.RegisterCallback<ClickEvent>(OnEnergyButtonClicked);
-        boostButton = UIDoc.rootVisualElement.Q<Button>("boost-range-btn");
+        boostButton = root.Q<Button>("boost-range-btn");
         boostButton.RegisterCallback<ClickEvent>(OnBoostButtonClicked);
+
+        // life
+        mask = root.Q<VisualElement>("healthbar-mask");
+
+        //money
+        moneyLabel = root.Q<Label>("money-label");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateHealthBar();
+        UpdateMoneyLabel();
+    }
+
+    void UpdateHealthBar()
+    {
+        mask.style.width = Length.Percent(Game.Instance.health / Game.Instance.maxHealth * 100f);
+    }
+    
+    void UpdateMoneyLabel()
+    {
+        int money = 0; // plutot MoneyManager.GetMoney() ou un truc comme ca
+        moneyLabel.text = money.ToString() ;
     }
 
     //CALLBACKS : 
