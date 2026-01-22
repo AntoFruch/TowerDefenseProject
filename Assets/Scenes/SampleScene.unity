@@ -729,8 +729,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1077462878}
   - component: {fileID: 1077462879}
+  - component: {fileID: 1077462880}
   m_Layer: 5
-  m_Name: DefenseHUD
+  m_Name: PreparationHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -774,6 +775,19 @@ MonoBehaviour:
   m_PivotReferenceSize: 0
   m_Pivot: 0
   m_WorldSpaceCollider: {fileID: 0}
+--- !u!114 &1077462880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077462877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8acaf8d3d99904cb516ac27f336190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefenseHUDController
+  UIDoc: {fileID: 1077462879}
 --- !u!1 &1146037822
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +832,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5747740e05168de43a3c984c036bc332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game
-  spawnWaves: 0
   mapPrefabs: {fileID: 11400000, guid: 49a36f366fd8c45ef9412e1edcfd569e, type: 2}
   buildingsPrefabs: {fileID: 11400000, guid: ea494261140aa4845b914ca033bd7a6c, type: 2}
   monstersPrefabs: {fileID: 11400000, guid: 05293b01974c44f439bf8e3eb6919824, type: 2}
