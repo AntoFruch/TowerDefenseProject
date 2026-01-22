@@ -1,0 +1,16 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Menu/SettingsUSS.uss?fileID=7433441132597879392&amp;guid=d8a4ec791145ac74f874715c6fcd4822&amp;type=3#SettingsUSS" />
+    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3#Common" />
+    <Style src="project://database/Assets/UI/Menu/MainMenu.uss?fileID=7433441132597879392&amp;guid=1707fbafac48a4944a0d65571a2337f3&amp;type=3#MainMenu" />
+    <Style src="project://database/Assets/UI/Menu/MapSelection.uss?fileID=7433441132597879392&amp;guid=df07c8ebad557274494cded5a9e40643&amp;type=3#MapSelection" />
+    <ui:VisualElement name="settings-title" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/Menu/SETTINGS-19-01-2026.png?fileID=2800000&amp;guid=9a7f2561d6af7094bb026bcc450317ae&amp;type=3#SETTINGS-19-01-2026&quot;); background-size: 37% 91%;" />
+    <ui:VisualElement name="SettingsParameters" style="flex-grow: 1;">
+        <ui:Slider label="Brightness" value="42" high-value="100" name="BrightnessSlider" class="slider" />
+        <ui:Slider label="Sound" value="42" high-value="100" name="SoundSlider" class="slider" />
+        <ui:Slider label="Music" value="42" high-value="100" name="MusicSlider" class="slider" />
+        <ui:Slider label="Master" value="42" high-value="100" name="MasterSlider" class="slider" />
+    </ui:VisualElement>
+    <ui:VisualElement name="Back" style="flex-grow: 1;">
+        <ui:Button text="&lt;- Button" name="back-Settings" class="back-btn-label labels back-btn" style="-unity-text-align: upper-center; white-space: nowrap;" />
+    </ui:VisualElement>
+</ui:UXML>

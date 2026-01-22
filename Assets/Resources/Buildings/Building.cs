@@ -25,11 +25,6 @@ public class Building : MonoBehaviour {
     void OnDestroy()
     {
         Game.Instance?.buildings.Remove(this);
-        foreach (GameObject go in RangesManager.Instance.ranges[this])
-        {
-            Destroy(go);
-        }
-        RangesManager.Instance.ranges.Remove(this);
     }
     public void RedHighlight()
     {
@@ -64,5 +59,11 @@ public class Building : MonoBehaviour {
                 renderer.material = originalMaterials[renderer];
             }
         }
+    }
+
+    protected bool active = true;
+    public void SetActive(bool b)
+    {
+        active = b;
     }
 }

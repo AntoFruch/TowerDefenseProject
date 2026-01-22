@@ -1,19 +1,19 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3" />
+    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3#Common" />
     <Style src="project://database/Assets/UI/HUD/BuildsWheel/Wheel.uss?fileID=7433441132597879392&amp;guid=f996e92eaa221cd4db3eab0b546062b0&amp;type=3#Wheel" />
     <Style src="project://database/Assets/UI/HUD/BuildsWheel/TowersWheel.uss?fileID=7433441132597879392&amp;guid=d3bb70d782f0aa54e89332c31763e2e7&amp;type=3#TowersWheel" />
     <ui:VisualElement name="wheel-container" class="wheel-container" style="flex-grow: 1;">
         <ui:VisualElement name="circle" class="circle" />
         <ui:VisualElement name="container" class="btn-container btn-red-container" style="flex-grow: 0; flex-shrink: 0;">
             <ui:VisualElement name="background" class="btn-bg btn-red-bg" style="flex-grow: 1;" />
-            <ui:VisualElement name="image" class="img btn-red-image" style="flex-grow: 1;" />
+            <ui:VisualElement name="image" class="img btn-red-image" />
             <ui:Label text="CANON" name="label" class="labels" style="flex-wrap: nowrap;" />
             <ui:Button name="red-btn" enabled="true" class="btn" style="border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0);" />
         </ui:VisualElement>
         <ui:VisualElement name="container" class="btn-container btn-yellow-container" style="flex-grow: 0; flex-shrink: 0;">
             <ui:VisualElement name="background" class="btn-bg btn-yellow-bg" style="flex-grow: 1;" />
-            <ui:VisualElement name="image" class="img btn-yellow-image" style="flex-grow: 1;" />
-            <ui:Label text="NOTHING" name="label" class="labels" style="flex-wrap: nowrap;" />
+            <ui:VisualElement name="image" class="img btn-yellow-image" />
+            <ui:Label text="INFERNO&#10;TOWER" name="label" class="labels" style="flex-wrap: nowrap;" />
             <ui:Button name="yellow-btn" class="btn" />
         </ui:VisualElement>
         <ui:VisualElement name="container" class="btn-container btn-green-container" style="flex-grow: 0; flex-shrink: 0;">
@@ -25,7 +25,7 @@
         <ui:VisualElement name="container" class="btn-container btn-blue-container" style="flex-grow: 0; flex-shrink: 0;">
             <ui:VisualElement name="background" class="btn-bg btn-blue-bg" style="flex-grow: 1;" />
             <ui:VisualElement name="image" class="img btn-blue-image" style="flex-grow: 1;" />
-            <ui:Label text="NOTHING&#10;" name="label" class="labels" style="flex-wrap: nowrap;" />
+            <ui:Label text="X-BOW&#10;" name="label" class="labels" style="flex-wrap: nowrap;" />
             <ui:Button name="blue-btn" class="btn" />
         </ui:VisualElement>
         <ui:VisualElement name="container" class="quit-btn-container" style="flex-grow: 1;">

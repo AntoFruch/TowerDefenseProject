@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f8cdfa9c30aed418d730c578318667, type: 3}
   m_Name: MonstersPrefabs
   m_EditorClassIdentifier: Assembly-CSharp::MonstersPrefabs
+  groBleu: {fileID: 3338653160064792526, guid: 121cc712379a24a699b9175a81e03ba8, type: 3}
+  groJaune: {fileID: 4407829452897777108, guid: c17ca48e87e98496ba23d53cea254202, type: 3}
+  blob: {fileID: 997847150440661290, guid: 53a1cf0d945fd469280f7f170f12d793, type: 3}
+  shell: {fileID: 829905862822860184, guid: 0f69dbe9a4b7b4075b83110e3cb0e908, type: 3}

@@ -30,12 +30,27 @@ public class Menu : MonoBehaviour
     private Label errorLabel;
     private Button backButton;
 
+
+    // Settings Menu
+
+    [SerializeField] private UIDocument settingsUIDoc;
+
+    [SerializeField] private UIDocument settingsParametersUIDoc;
+
+    private Button backSettingsButton;
+
     //other
     private Dictionary<Button,string> mapBtnToFileName;
     
 
     void OnEnable()
     {   
+        //Débute la music d'ambiance du main menu.
+        AudioManager.Instance.PlaymenuAmbientSound();
+        
+
+
+
 
         mapBtnToFileName = new Dictionary<Button, string>();
 
@@ -48,6 +63,7 @@ public class Menu : MonoBehaviour
 
         playButton.RegisterCallback<ClickEvent>(OnPlayButtonClick);
         exitButton.RegisterCallback<ClickEvent>(OnExitButtonClick);
+        settingsButton.RegisterCallback<ClickEvent>(OnSettingsButtonClick);
 
         //Map Selection Menu
         
@@ -69,14 +85,43 @@ public class Menu : MonoBehaviour
         errorLabel.text = "";
 
         backButton = mapSelectionUIDoc.rootVisualElement.Q<Button>("back-btn");
-        backButton.RegisterCallback<ClickEvent>(OnBackButtonClick);
+        backButton.RegisterCallback<ClickEvent>(OnBackMapSelectionButtonClick);
+
+        //Settings Menu
+            //Back Settings
+        backSettingsButton = settingsUIDoc.rootVisualElement.Q<Button>("back-Settings");
+        backSettingsButton.RegisterCallback<ClickEvent>(OnBackSettingsOnCLick);
+            //Brightness 
+       
+        var brightSlider = settingsUIDoc.rootVisualElement.Q<Slider>("BrightnessSlider");
+        brightSlider.lowValue=0f;
+        brightSlider.highValue=0.8f;
+        brightSlider.value=PlayerPrefs.GetFloat("Brightness",0f);       
+        brightSlider.RegisterValueChangedCallback(evt=> {SettingsManager.Instance.SetBrightness(evt.newValue);});
+
+            //Sound
+
+        var soundSlider = settingsUIDoc.rootVisualElement.Q<Slider>("SoundSlider");
+        soundSlider.lowValue=0f;
+        soundSlider.highValue=100f; 
+        
+
+            //Music 
+
+            //Master
         
         GenerateMapButtons();
         ShowMainMenu();
         HideMapSelection();
+        HideSettingsMenu();
     }
 
     // Methods
+
+    private void ShowSettingsMenu()
+    {
+        settingsUIDoc.rootVisualElement.RemoveFromClassList("hide");
+    }
     private void ShowMainMenu()
     {
         mainMenuUIDoc.rootVisualElement.RemoveFromClassList("hide");
@@ -93,6 +138,10 @@ public class Menu : MonoBehaviour
     private void HideMapSelection()
     {
         mapSelectionUIDoc.rootVisualElement.AddToClassList("hide");
+    }
+    private void HideSettingsMenu()
+    {
+        settingsUIDoc.rootVisualElement.AddToClassList("hide");
     }
     private void GenerateMapButtons()
     {
@@ -135,21 +184,41 @@ public class Menu : MonoBehaviour
     // Main Menu
     private void OnPlayButtonClick(ClickEvent evt)
     {
+        AudioManager.Instance.PlayClick();
         ShowMapSelection();
         HideMainMenu();
     }
     private void OnExitButtonClick(ClickEvent evt)
     {
+        AudioManager.Instance.PlayClick();
         Application.Quit();
     }
-    
+
+    private void OnSettingsButtonClick(ClickEvent evt)
+    {
+        AudioManager.Instance.PlayClick();
+        ShowSettingsMenu();
+        HideMainMenu();        
+    }
+
+    // Settings Menu
+
+    private void OnBackSettingsOnCLick(ClickEvent evt)
+    {
+        AudioManager.Instance.PlayClick();
+        ShowMainMenu();
+        HideSettingsMenu();
+    } 
+
     // Map Selection Menu
     private void OnStartButtonClick(ClickEvent evt)
     {
+        AudioManager.Instance.PlayClick();
         SceneManager.LoadScene("SampleScene");
     }
     void OnMapButtonClick(ClickEvent evt)
     {
+        AudioManager.Instance.PlayClick();
         Button btn = evt.currentTarget as Button;
         string fileName = mapBtnToFileName[btn];
         string filePath = Path.Combine(Path.Combine(Application.dataPath, "../Maps"), mapBtnToFileName[btn]);
@@ -180,8 +249,9 @@ public class Menu : MonoBehaviour
             startButton.SetEnabled(false);
         }
     }
-    void OnBackButtonClick(ClickEvent evt)
+    void OnBackMapSelectionButtonClick(ClickEvent evt)
     {
+        AudioManager.Instance.PlayClick();
         HideMapSelection();
         ShowMainMenu();
     }
