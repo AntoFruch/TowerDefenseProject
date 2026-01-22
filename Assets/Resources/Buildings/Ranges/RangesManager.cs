@@ -51,18 +51,18 @@ public class RangesManager : MonoBehaviour
     }
     public void ShowRanges()
     {
+        LoadEnergyRanges();
+        LoadTowerRanges();
+        LoadBoostRanges();
         switch (mode)
         {
             case RangeMode.Energy:
-                LoadEnergyRanges();
                 energyRangeParent.SetActive(true);
                 break;
             case RangeMode.Towers:
-                LoadTowerRanges();
                 towerRangeParent.SetActive(true);
                 break;
             case RangeMode.Boost:
-                LoadBoostRanges();
                 boostRangeParent.SetActive(true);
                 break;
         }

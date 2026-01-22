@@ -34,14 +34,17 @@ public class StaticHUDController : MonoBehaviour
     void OnTowerButtonClicked(ClickEvent evt)
     {
         RangesManager.Instance.SetMode(RangeMode.Towers);
+        AudioManager.Instance.PlayClick();
     }
     void OnEnergyButtonClicked(ClickEvent evt)
     {
         RangesManager.Instance.SetMode(RangeMode.Energy);
+        AudioManager.Instance.PlayClick();
     }
     void OnBoostButtonClicked(ClickEvent evt)
     {
         RangesManager.Instance.SetMode(RangeMode.Boost);
+        AudioManager.Instance.PlayClick();
     }
 
     

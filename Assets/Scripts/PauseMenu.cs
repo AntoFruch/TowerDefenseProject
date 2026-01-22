@@ -40,16 +40,16 @@ public class PauseMenu : MonoBehaviour
 
     private void OnQuitButtonClick(ClickEvent evt)                           // Méthode exécutée quand je clique sur Quit
     {
-        AudioManager.Instance.PlayClick();
         Resume();
         SceneManager.LoadScene("MainMenu");
+        AudioManager.Instance.PlayClick();
     }
 
 
     private void OnResumeButtonClick(ClickEvent evt)                         // Méthode exécutée quand je clique sur Resume
     {
-        AudioManager.Instance.PlayClick();
         Resume();
+        AudioManager.Instance.PlayClick();
     }
     
     // Update is called once per frame
