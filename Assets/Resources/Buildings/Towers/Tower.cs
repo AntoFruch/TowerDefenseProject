@@ -12,6 +12,8 @@ public abstract class Tower : Building
     public float CurrentRange { get; private set; }
     public float Damage => CurrentDamage;
 
+    public float BaseRange => range;
+
     [Header("Fonctional Assignements")]
     [SerializeField] protected float lerpStep = 10f;
     [SerializeField] protected Transform rotatingPart;
@@ -107,6 +109,10 @@ public abstract class Tower : Building
         CurrentDamage = damage * damageMult;
         CurrentFireRate = fireRate * fireMult;
         CurrentRange = range * rangeMult;
+
+        //Debug.Log(CurrentDamage);
+        //Debug.Log(CurrentFireRate);
+        Debug.Log(CurrentRange);
 
     }
     void UpdateIdleRotation()

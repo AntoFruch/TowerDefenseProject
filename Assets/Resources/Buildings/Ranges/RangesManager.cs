@@ -115,7 +115,32 @@ public class RangesManager : MonoBehaviour
 
     void LoadBoostRanges()
     {
-        
+        ClearRanges(boostRangeParent);
+        foreach (Building building in Game.Instance.buildings)
+        {
+            if (building is Installation installation)
+            {
+                int range = installation.Range;
+
+                for (int x = -range; x <= range; x++)
+                {
+                    for (int y = -range; y <= range; y++)
+                    {
+                        float dist = Math.Abs(x) + Math.Abs(y);
+                        if (dist <= range)
+                        {
+                            GameObject child = Instantiate(Game.Instance.buildingsPrefabs.boostRange,
+                                                            installation.transform.position + new Vector3(x, 0, y),
+                                                            Quaternion.identity);
+                            child.transform.parent = boostRangeParent.transform;
+                        }
+                    }
+                }
+            }
+
+            
+        }
+        boostRangeParent.SetActive(false);
     }
 
     void ClearRanges(GameObject parent)

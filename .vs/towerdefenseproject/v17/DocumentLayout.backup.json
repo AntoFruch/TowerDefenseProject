@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\alexa\\towerdefenseproject\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|c:\\users\\alexa\\towerdefenseproject\\assets\\resources\\buildings\\towers\\tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\buildings\\towers\\tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\resources\\buildings\\installations\\installation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\buildings\\installations\\installation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\resources\\buildings\\building.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\buildings\\building.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +22,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Tower.cs",
+              "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\Towers\\Tower.cs",
+              "RelativeDocumentMoniker": "Assets\\Resources\\Buildings\\Towers\\Tower.cs",
+              "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\Towers\\Tower.cs",
+              "RelativeToolTip": "Assets\\Resources\\Buildings\\Towers\\Tower.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAEwFYAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-22T10:41:54.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Installation.cs",
+              "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\Installations\\Installation.cs",
+              "RelativeDocumentMoniker": "Assets\\Resources\\Buildings\\Installations\\Installation.cs",
+              "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\Installations\\Installation.cs",
+              "RelativeToolTip": "Assets\\Resources\\Buildings\\Installations\\Installation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-22T10:51:32.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Building.cs",
+              "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\Building.cs",
+              "RelativeDocumentMoniker": "Assets\\Resources\\Buildings\\Building.cs",
+              "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\Building.cs",
+              "RelativeToolTip": "Assets\\Resources\\Buildings\\Building.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-22T10:50:29.498Z"
             }
           ]
         }

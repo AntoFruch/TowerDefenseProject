@@ -17,9 +17,9 @@ MonoBehaviour:
   blueTower: {fileID: 6861281254937750477, guid: b78dd5f17742be042baf3027cd7db61a, type: 3}
   greenTower: {fileID: 108005844779589367, guid: 0dee08ea7def72d4d926dda452f57f0c, type: 3}
   powerPlant: {fileID: 5674222868607207803, guid: 31fc88b111541004aa962681e5da742b, type: 3}
-  radar: {fileID: 0}
-  factory: {fileID: 0}
-  storage: {fileID: 0}
+  radar: {fileID: 7285315262737894251, guid: 0a7baddce2c7a134fa8b733c3d079641, type: 3}
+  factory: {fileID: 3143549853611997780, guid: 50861beac9d364a498c7913ddb5b0a21, type: 3}
+  storage: {fileID: 1200468825682360664, guid: a9a6ab8f6eff94c4d97e83efd42ebee1, type: 3}
   towerRange: {fileID: 7099138207465433581, guid: 85e778597967e451abc35967b82fafcb, type: 3}
   energyRange: {fileID: 4100998965059949462, guid: 2927e65dd19a7455a84a74f10d89a24d, type: 3}
   boostRange: {fileID: 1677218215528041053, guid: e4f2f27bfe3bf4c01a63a564c0301ad5, type: 3}
