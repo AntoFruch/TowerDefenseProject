@@ -1,0 +1,135 @@
+:root {
+}
+
+.range-label {
+    font-size: 29px;
+}
+
+.main-container {
+    width: 100%;
+    height: 100%;
+}
+
+.range-mode-container {
+    width: 6%;
+    margin-top: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    align-items: center;
+    position: absolute;
+    top: 200px;
+    left: 0;
+}
+
+.range-btn-container {
+    width: 100%;
+    height: 100%;
+}
+
+.range-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("project://database/Assets/UI/HUD/staticHUDAssets/rangeImage.png?fileID=2800000&guid=5a07fa44ffd3df943ae0ee9da322b496&type=3#rangeImage");
+}
+
+.range-btn {
+    height: 76px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.tower-range-btn {
+    border-bottom-left-radius: 0%;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
+
+.energy-range-btn {
+    height: 64px;
+}
+
+.boost-range-btn {
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+.boost-range-btn:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.energy-range-btn:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.tower-range-btn:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.money-container {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    margin-top: 39px;
+    margin-right: 39px;
+    margin-bottom: 39px;
+    margin-left: 39px;
+}
+
+.money-image {
+    background-image: url("project://database/Assets/UI/HUD/staticHUDAssets/moneyBG.png?fileID=2800000&guid=a16b8d131a55c3e43825d83f355d21e9&type=3#moneyBG");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.money-label {
+    font-size: 80px;
+    top: 17px;
+    -unity-text-align: upper-center;
+    color: rgb(195, 174, 0);
+    -unity-text-outline-color: rgba(255, 0, 29, 0);
+}
+
+.healthbar {
+    position: absolute;
+    width: 500px;
+    height: 55px;
+    background-image: url("project://database/Assets/UI/HUD/staticHUDAssets/healthbar-bg.png?fileID=2800000&guid=9ac4d38dc18548746ab1be1b7a920131&type=3#healthbar-bg");
+    left: 25px;
+    top: 25px;
+}
+
+.healthbar-mask {
+    width: 75%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+
+.healthbar-fill {
+    width: 500px;
+    height: 100%;
+    background-image: url("project://database/Assets/UI/HUD/staticHUDAssets/healthbar-fill.png?fileID=2800000&guid=e5da5d7d36c5abe4b93a30dbd2d572c5&type=3#healthbar-fill");
+    position: absolute;
+    overflow: hidden;
+}
+
+.healthbar-frame {
+    background-image: url("project://database/Assets/UI/HUD/staticHUDAssets/healthbar-frame.png?fileID=2800000&guid=aa05c4e9b87ba4b40a892ac9df511bab&type=3#healthbar-frame");
+    width: 100%;
+    height: 100%;
+}

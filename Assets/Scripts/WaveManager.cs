@@ -23,7 +23,7 @@ public class WaveManager : MonoBehaviour
     [Header("Monster Spawn Rate")]
     [SerializeField] float spawnRate;
 
-    private int waveIndex;
+    public int waveIndex {get;private set;}
 
     public bool finished {get; private set;}
 
@@ -120,6 +120,17 @@ public class WaveManager : MonoBehaviour
             else
                 currentWave.Add(MonsterType.Blob);
         }
+        string str = "";
+        foreach(MonsterType m in currentWave)
+        {
+            str += m+" ";
+        }
+        Debug.Log(str);
+    }
+
+    public int GetCurrentWaveLength()
+    {
+        return currentWave.Count * spawns.Count;
     }
 }
 

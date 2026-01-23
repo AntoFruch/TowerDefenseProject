@@ -6,7 +6,7 @@ using UnityEngine;
 public class RangesManager : MonoBehaviour
 {   
     public static RangesManager Instance { get; private set; }
-    [SerializeField] private RangesMode mode;
+    [SerializeField] private RangeMode mode;
 
 
     public static int towerEnergyRange = 3;
@@ -44,25 +44,25 @@ public class RangesManager : MonoBehaviour
             lastBuildingCount = Game.Instance.buildings.Count;
         }
     }
-    void SetMode(RangesMode mode)
+    public void SetMode(RangeMode mode)
     {
         this.mode = mode;
         ShowRanges();
     }
     public void ShowRanges()
     {
+        LoadEnergyRanges();
+        LoadTowerRanges();
+        LoadBoostRanges();
         switch (mode)
         {
-            case RangesMode.Energy:
-                LoadEnergyRanges();
+            case RangeMode.Energy:
                 energyRangeParent.SetActive(true);
                 break;
-            case RangesMode.Towers:
-                LoadTowerRanges();
+            case RangeMode.Towers:
                 towerRangeParent.SetActive(true);
                 break;
-            case RangesMode.Boost:
-                LoadBoostRanges();
+            case RangeMode.Boost:
                 boostRangeParent.SetActive(true);
                 break;
         }
@@ -116,29 +116,20 @@ public class RangesManager : MonoBehaviour
     void LoadBoostRanges()
     {
         ClearRanges(boostRangeParent);
-        foreach (Building building in Game.Instance.buildings)
+        foreach(Installation install in Game.Instance.buildings.Where(b=>b is Installation))
         {
-            if (building is Installation installation)
+            for(int x = -install.Range; x<=install.Range; x++)
             {
-                int range = installation.Range;
-
-                for (int x = -range; x <= range; x++)
+                for(int y = -install.Range; y<=install.Range; y++)
                 {
-                    for (int y = -range; y <= range; y++)
-                    {
-                        float dist = Math.Abs(x) + Math.Abs(y);
-                        if (dist <= range)
-                        {
-                            GameObject child = Instantiate(Game.Instance.buildingsPrefabs.boostRange,
-                                                            installation.transform.position + new Vector3(x, 0, y),
+                    if (Math.Abs(x)+Math.Abs(y) <= install.Range){
+                        GameObject child = Instantiate(Game.Instance.buildingsPrefabs.boostRange,
+                                                            install.transform.position + new Vector3(x,0, y), 
                                                             Quaternion.identity);
-                            child.transform.parent = boostRangeParent.transform;
-                        }
+                        child.transform.parent = boostRangeParent.transform;
                     }
                 }
             }
-
-            
         }
         boostRangeParent.SetActive(false);
     }
@@ -152,7 +143,7 @@ public class RangesManager : MonoBehaviour
     }
 }
 
-public enum RangesMode
+public enum RangeMode
 {
     Towers, Energy, Boost, None
 }
