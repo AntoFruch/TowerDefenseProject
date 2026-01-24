@@ -4,6 +4,7 @@ public class MoneyManager : MonoBehaviour
 {
     public static MoneyManager Instance;
 
+    [SerializeField] private bool infiniteMoney;
     [SerializeField] protected int currentMoney = 200;
 
     private void Awake()
@@ -13,7 +14,11 @@ public class MoneyManager : MonoBehaviour
     }
     void Start()
     {
-        //UI gestion
+
+        if (infiniteMoney)
+        {
+            currentMoney = int.MaxValue;
+        }
     }
 
     public int GetMoney()

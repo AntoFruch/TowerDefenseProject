@@ -109,10 +109,6 @@ public abstract class Tower : Building
         CurrentFireRate = fireRate * fireMult;
         CurrentRange = range * rangeMult;
 
-        //Debug.Log(CurrentDamage);
-        //Debug.Log(CurrentFireRate);
-        Debug.Log(CurrentRange);
-
     }
     void UpdateIdleRotation()
     {
