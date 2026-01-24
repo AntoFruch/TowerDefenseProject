@@ -9,7 +9,11 @@ public class MonsterController : MonoBehaviour
 
     // Life
     [SerializeField] private int life = 10;
-    public int Life => life;    
+    public int Life => life;
+
+    //Economy
+    [SerializeField] private int moneyValue = 100;
+    private bool isDead = false;
     
     // Constants
     [SerializeField] private int damage;
@@ -100,6 +104,8 @@ public class MonsterController : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
+        if (isDead) return;
+
         life -= dmg;
         if (life > 0)
         {
@@ -112,9 +118,18 @@ public class MonsterController : MonoBehaviour
 
     private void Die()
     {
+        isDead = true;
+
+
         // triggers the death animation.
         // When the animation ends, a animator event calls DestroySelf()
         GetComponent<Animator>().SetTrigger("Death");
+
+        if (MoneyManager.Instance != null)
+        {
+            MoneyManager.Instance.AddMoney(moneyValue);
+        }
+
     }
     
     // called by an animator event
