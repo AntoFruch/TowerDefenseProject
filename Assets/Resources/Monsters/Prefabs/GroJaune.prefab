@@ -126,6 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
   life: 10
+  damage: 3
   moveSpeed: 0.3
   rotationSpeed: 7
+  pathFindingStrategy: 0
   prefabs: {fileID: 11400000, guid: a93d568a1db085f4c8b024a3cd78aded, type: 2}

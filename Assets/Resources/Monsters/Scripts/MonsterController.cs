@@ -12,6 +12,7 @@ public class MonsterController : MonoBehaviour
     public int Life => life;    
     
     // Constants
+    [SerializeField] private int damage;
     [SerializeField] private float moveSpeed = 0.3f;
     [SerializeField] float rotationSpeed = 7f;
     private float gravity = -9.81f;
@@ -115,7 +116,8 @@ public class MonsterController : MonoBehaviour
         // When the animation ends, a animator event calls DestroySelf()
         GetComponent<Animator>().SetTrigger("Death");
     }
-
+    
+    // called by an animator event
     void Attack()
     {
         Instantiate(
@@ -123,7 +125,9 @@ public class MonsterController : MonoBehaviour
             transform.position,
             Quaternion.identity
         );
+        HealthManager.Instance.TakeDamage(damage);
     }
+
     // called by an animator event
     void DestroySelf()
     {

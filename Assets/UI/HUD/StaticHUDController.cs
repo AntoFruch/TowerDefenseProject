@@ -47,7 +47,7 @@ public class StaticHUDController : MonoBehaviour
 
     void UpdateHealthBar()
     {
-        mask.style.width = Length.Percent(Game.Instance.health / Game.Instance.maxHealth * 100f);
+        mask.style.width = Length.Percent(HealthManager.Instance.health / HealthManager.Instance.MaxHealth * 100f);
     }
     
     void UpdateMoneyLabel()

@@ -965,6 +965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
   life: 10
+  damage: 3
   moveSpeed: 0.3
   rotationSpeed: 7
   pathFindingStrategy: 1
