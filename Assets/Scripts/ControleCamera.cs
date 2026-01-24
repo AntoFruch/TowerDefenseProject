@@ -56,8 +56,9 @@ public class ControleCamera : MonoBehaviour
         float Movey = inputVector.y * moveSpeed * Time.deltaTime;
         float Movex = inputVector.x * moveSpeed * Time.deltaTime;
 
-        cameraTransform.position += new Vector3(Movex, 0, Movex) ;
-        cameraTransform.position += new Vector3(-Movey, 0, Movey);
+        Vector3 newPos;
+        
+        newPos = cameraTransform.position + new Vector3(Movex-Movey, 0, Movex+Movey); // for a diagonal movement
 
         // Move with mouse drag
         if (drag.WasPressedThisFrame())
@@ -67,8 +68,20 @@ public class ControleCamera : MonoBehaviour
         if (drag.IsPressed())
         {
             Vector3 difference = dragOrigin - GetMouseWorldPosition();
-            cameraTransform.position += difference;
+            newPos = cameraTransform.position + difference;
         }
+
+        //Clamping
+        int padding = 2;
+        int minX = padding;
+        int maxX = Game.Instance.map[0].Length-padding;
+        int minZ = padding;
+        int maxZ = Game.Instance.map.Length-padding;
+        
+        newPos.x = Mathf.Clamp(newPos.x, minX, maxX);
+        newPos.z = Mathf.Clamp(newPos.z, minZ, maxZ);
+        
+        cameraTransform.position = newPos;
     }
 
     public void Zoom(InputAction action)
