@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class WaveManager : MonoBehaviour
 {
@@ -63,6 +64,12 @@ public class WaveManager : MonoBehaviour
     // SpawningRoutine for a wave
     private IEnumerator SpawnWave(List<MonsterType> wave)
     {   
+        List<GameObject> particles = new();
+        foreach (Vector2Int spawnPos in spawns)
+        {
+            particles.Add(Instantiate(spawningFX,new Vector3(spawnPos.x, 0.4f, spawnPos.y), Quaternion.identity));
+        }
+
         int i = 0;
         while (i < wave.Count)
         {
@@ -92,6 +99,11 @@ public class WaveManager : MonoBehaviour
             }
             i++;
             yield return new WaitForSeconds(1/spawnRate);
+        }
+
+        foreach(GameObject go in particles)
+        {
+            Destroy(go);
         }
     }
 
