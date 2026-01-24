@@ -52,7 +52,7 @@ public class StaticHUDController : MonoBehaviour
     
     void UpdateMoneyLabel()
     {
-        int money = 0; // plutot MoneyManager.GetMoney() ou un truc comme ca
+        int money = MoneyManager.Instance.GetMoney(); 
         moneyLabel.text = money.ToString() ;
     }
 

@@ -4,7 +4,7 @@ public class MoneyManager : MonoBehaviour
 {
     public static MoneyManager Instance;
 
-    [SerializeField] private int currentMoney = 200;
+    [SerializeField] protected int currentMoney = 200;
 
     private void Awake()
     {
@@ -16,7 +16,10 @@ public class MoneyManager : MonoBehaviour
         //UI gestion
     }
 
-   
+    public int GetMoney()
+    {
+        return currentMoney;
+    }
     public void AddMoney(int amount)
     {
         currentMoney += amount;
