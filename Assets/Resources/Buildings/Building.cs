@@ -7,6 +7,10 @@ public class Building : MonoBehaviour {
     [SerializeField] protected int range = 3;
     public int Range => range;
     Dictionary<Renderer,Material> originalMaterials ;
+
+    [Header("Economy")]
+    public int cost = 100; 
+    [SerializeField] private float resaleRatio = 0.5f;
     
     protected virtual void Start()
     {
@@ -59,6 +63,22 @@ public class Building : MonoBehaviour {
                 renderer.material = originalMaterials[renderer];
             }
         }
+    }
+
+    public void SellBuilding()
+    {
+        if (MoneyManager.Instance != null) {
+            int resaleAmount = Mathf.FloorToInt(cost * resaleRatio);
+            MoneyManager.Instance.AddMoney(resaleAmount);
+        }
+
+        if (Game.Instance.buildings.Contains(this))
+        {
+            Game.Instance.buildings.Remove(this);
+        }
+
+        Destroy(gameObject);
+
     }
 
     protected bool active = true;

@@ -82,7 +82,11 @@ public class DelMovController : MonoBehaviour
     }
     void onDeleteButtonClick(ClickEvent evt)
     {
-        Destroy(selectedBuild.gameObject);
+        if(selectedBuild != null)
+        {
+            selectedBuild.SellBuilding();
+        }
+      
         selectedBuild = null;
         Hide();
     }
