@@ -20,6 +20,8 @@ public class MoneyManager : MonoBehaviour
     public void AddMoney(int amount)
     {
         currentMoney += amount;
+
+
     }
 
     public bool SpendMoney(int amount) {

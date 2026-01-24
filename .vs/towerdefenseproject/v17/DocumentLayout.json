@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\alexa\\towerdefenseproject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\resources\\moneysystem\\scripts\\moneymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\moneysystem\\scripts\\moneymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|c:\\users\\alexa\\towerdefenseproject\\assets\\ui\\hud\\buildswheel\\delmovcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\ui\\hud\\buildswheel\\delmovcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|c:\\users\\alexa\\towerdefenseproject\\assets\\ui\\hud\\buildswheel\\buildwheelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\ui\\hud\\buildswheel\\buildwheelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\resources\\monsters\\scripts\\monstercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\monsters\\scripts\\monstercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\resources\\buildings\\building.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\buildings\\building.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\resources\\monsters\\scripts\\monstercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\monsters\\scripts\\monstercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\ui\\hud\\buildswheel\\buildwheelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\ui\\hud\\buildswheel\\buildwheelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|c:\\users\\alexa\\towerdefenseproject\\assets\\resources\\moneysystem\\scripts\\moneymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\moneysystem\\scripts\\moneymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,13 +38,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "DelMovController.cs",
+              "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\UI\\HUD\\BuildsWheel\\DelMovController.cs",
+              "RelativeDocumentMoniker": "Assets\\UI\\HUD\\BuildsWheel\\DelMovController.cs",
+              "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\UI\\HUD\\BuildsWheel\\DelMovController.cs",
+              "RelativeToolTip": "Assets\\UI\\HUD\\BuildsWheel\\DelMovController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwFIAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-24T13:33:00.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "BuildWheelController.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\UI\\HUD\\BuildsWheel\\BuildWheelController.cs",
               "RelativeDocumentMoniker": "Assets\\UI\\HUD\\BuildsWheel\\BuildWheelController.cs",
               "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\UI\\HUD\\BuildsWheel\\BuildWheelController.cs",
               "RelativeToolTip": "Assets\\UI\\HUD\\BuildsWheel\\BuildWheelController.cs",
-              "ViewState": "AgIAAH8AAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAOMAAAAAAAAAAAAkwBYBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-22T09:11:59.222Z",
               "EditorCaption": ""
@@ -53,34 +70,36 @@
               "RelativeDocumentMoniker": "Assets\\Resources\\Buildings\\Building.cs",
               "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\Building.cs",
               "RelativeToolTip": "Assets\\Resources\\Buildings\\Building.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAywAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADcAAAAAAAAAAAA5wGoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-22T09:11:16.037Z"
+              "WhenOpened": "2026-01-22T09:11:16.037Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "MoneyManager.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\MoneySystem\\Scripts\\MoneyManager.cs",
               "RelativeDocumentMoniker": "Assets\\Resources\\MoneySystem\\Scripts\\MoneyManager.cs",
               "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\MoneySystem\\Scripts\\MoneyManager.cs",
               "RelativeToolTip": "Assets\\Resources\\MoneySystem\\Scripts\\MoneyManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-18T12:51:45.979Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "MonsterController.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Monsters\\Scripts\\MonsterController.cs",
               "RelativeDocumentMoniker": "Assets\\Resources\\Monsters\\Scripts\\MonsterController.cs",
               "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Monsters\\Scripts\\MonsterController.cs",
               "RelativeToolTip": "Assets\\Resources\\Monsters\\Scripts\\MonsterController.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAADwv3IAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAYwH4AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-18T12:49:39.707Z"
+              "WhenOpened": "2026-01-18T12:49:39.707Z",
+              "EditorCaption": ""
             }
           ]
         }
