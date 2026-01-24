@@ -86,6 +86,7 @@ public class BuildWheelController : MonoBehaviour
 
         // Costs initialisation
         this.redTowerCost = towersWheelUIDoc.rootVisualElement.Q<Label>("red-cost-label");
+        //this.redTowerCost.text = MoneyManager.Instance.costs.redTower.ToString();
         this.blueTowerCost = towersWheelUIDoc.rootVisualElement.Q<Label>("blue-cost-label");
         this.yellowTowerCost = towersWheelUIDoc.rootVisualElement.Q<Label>("yellow-cost-label");
         this.greenTowerCost = towersWheelUIDoc.rootVisualElement.Q<Label>("green-cost-label");
