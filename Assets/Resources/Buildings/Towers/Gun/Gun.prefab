@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6add5b313ff653d4db31ae84a7f25a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gun
-  range: 1.5
+  range: 2
   fireRate: 6
   damage: 1
   lerpStep: 10
@@ -119,6 +119,7 @@ MonoBehaviour:
   projectileSpawn: {fileID: 6464964510402906965}
   idleRotationChangeTime: 2
   idleTurnSpeed: 1
+  powerConsumption: 3
   shootForce: 10
   prefabs: {fileID: 11400000, guid: c86e3146941b4ff45b1ab07464c59164, type: 2}
 --- !u!4 &1711949832239234569 stripped

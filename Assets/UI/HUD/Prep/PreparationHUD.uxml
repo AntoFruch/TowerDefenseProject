@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3#Common" />
+    <Style src="project://database/Assets/UI/HUD/Prep/PreparationHUD.uss?fileID=7433441132597879392&amp;guid=72f31acf4fe153d40baaf0c5cceaaef8&amp;type=3#PreparationHUD" />
+    <ui:VisualElement name="main-container" picking-mode="Ignore" class="main-container">
+        <ui:VisualElement name="start-btn-img" picking-mode="Ignore" class="start-btn-img" style="background-image: url(&quot;project://database/Assets/UI/HUD/Prep/StartButton.png?fileID=2800000&amp;guid=2ed1ac4a065e09b448574e3be32fb0da&amp;type=3#StartButton&quot;);">
+            <ui:Button name="start-btn" class="start-btn" style="width: 100%; height: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; background-color: rgba(188, 188, 188, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0);" />
+        </ui:VisualElement>
+        <ui:Label text="Preparation - Wave n°0" name="title" class="labels title" style="-unity-text-align: upper-center;" />
+    </ui:VisualElement>
+</ui:UXML>

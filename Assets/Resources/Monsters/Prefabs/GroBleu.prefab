@@ -967,6 +967,7 @@ MonoBehaviour:
   life: 10
   moveSpeed: 0.3
   rotationSpeed: 7
+  pathFindingStrategy: 1
   prefabs: {fileID: 11400000, guid: a93d568a1db085f4c8b024a3cd78aded, type: 2}
 --- !u!143 &1055568203887392988
 CharacterController:

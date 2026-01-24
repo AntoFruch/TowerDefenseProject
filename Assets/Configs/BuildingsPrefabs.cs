@@ -14,4 +14,10 @@ public class BuildingsPrefabs : ScriptableObject
     public GameObject radar;
     public GameObject factory;
     public GameObject storage;
+
+    [Header("Ranges")]
+    public GameObject towerRange;
+    public GameObject energyRange;
+    public GameObject boostRange;
+    public GameObject energylinks;
 }

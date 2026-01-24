@@ -1,0 +1,188 @@
+1️⃣ Système basé sur le numéro de vague
+
+La solution la plus simple et la plus courante.
+
+Principe
+
+Tu as une variable waveIndex
+
+Plus waveIndex est grand :
+
+plus il y a de monstres
+
+plus les monstres sont forts
+
+plus les types rares apparaissent
+
+Exemple de logique
+
+Vague 1–3 : monstres faibles uniquement
+
+Vague 4–6 : ajout de monstres moyens
+
+Vague 7+ : monstres forts + élites
+
+void LoadNextWave()
+{
+    currentWave.Clear();
+    waveIndex++;
+
+    int monsterCount = 3 + waveIndex * 2;
+
+    for (int i = 0; i < monsterCount; i++)
+    {
+        if (waveIndex < 3)
+            currentWave.Add(MonsterType.GroBleu);
+        else if (waveIndex < 6)
+            currentWave.Add(Random.value < 0.7f ? MonsterType.GroJaune : MonsterType.GroBleu);
+        else
+            currentWave.Add(RandomMonster());
+    }
+}
+
+2️⃣ Système de budget de difficulté
+
+Très utilisé dans les jeux pro (Left 4 Dead, Risk of Rain).
+
+Principe
+
+Chaque monstre a un coût
+
+La vague a un budget
+
+Tu dépenses le budget pour remplir la vague
+
+Dictionary<MonsterType, int> monsterCost = new()
+{
+    { MonsterType.GroBleu, 1 },
+    { MonsterType.GroJaune, 2 },
+    { MonsterType.Shell, 4 }
+};
+
+void LoadNextWave()
+{
+    currentWave.Clear();
+    waveIndex++;
+
+    int budget = 5 + waveIndex * 3;
+
+    while (budget > 0)
+    {
+        MonsterType m = GetAffordableMonster(budget);
+        currentWave.Add(m);
+        budget -= monsterCost[m];
+    }
+}
+
+
+✅ Avantages :
+
+Très équilibrable
+
+Facile à scaler
+
+Permet des vagues variées
+
+3️⃣ Déblocage progressif des monstres
+Principe
+
+Certains monstres sont bloqués au début
+
+Ils apparaissent à partir d’une vague donnée
+
+MonsterType GetMonsterForWave()
+{
+    if (waveIndex < 3)
+        return MonsterType.GroBleu;
+    if (waveIndex < 6)
+        return Random.value < 0.5f ? MonsterType.GroJaune : MonsterType.GroBleu;
+
+    return Random.value < 0.3f ? MonsterType.Shell : MonsterType.GroJaune;
+}
+
+4️⃣ Difficulté par stats au lieu du nombre
+
+Même nombre de monstres, mais plus forts.
+
+Exemple
+
++10% HP par vague
+
++5% dégâts par vague
+
++2% vitesse par vague
+
+float hpMultiplier = 1f + waveIndex * 0.1f;
+float damageMultiplier = 1f + waveIndex * 0.05f;
+
+
+👉 Très efficace si tu veux garder des vagues lisibles.
+
+5️⃣ Variantes de vagues (rythme de jeu)
+
+Pour éviter la monotonie :
+
+Type de vague	Description
+Swarm	Beaucoup de petits
+Elite	Peu mais très forts
+Mixte	Un peu de tout
+Boss	1 très gros ennemi
+if (waveIndex % 5 == 0)
+    SpawnBossWave();
+else if (waveIndex % 3 == 0)
+    SpawnSwarmWave();
+else
+    SpawnNormalWave();
+
+6️⃣ Influence du joueur (adaptive difficulty)
+
+Si le joueur roule sur le jeu :
+
+vagues plus dures
+
+moins de soins
+
+ennemis plus agressifs
+
+Si le joueur galère :
+
+vagues plus courtes
+
+ennemis plus faibles
+
+if (playerHealth < 30)
+    difficultyModifier = 0.8f;
+else
+    difficultyModifier = 1.2f;
+
+7️⃣ Données externes (recommandé)
+
+Définir les vagues dans un ScriptableObject ou JSON.
+
+[System.Serializable]
+public class WaveData
+{
+    public List<MonsterType> monsters;
+}
+
+
+Avantage :
+
+Aucun code à modifier
+
+Équilibrage rapide
+
+🔥 Recommandation finale
+
+👉 Budget de difficulté + déblocage progressif
+C’est le combo le plus flexible et scalable.
+
+Si tu veux, dis-moi :
+
+quel type de jeu c’est
+
+combien de monstres existent
+
+si c’est tour par tour ou temps réel
+
+et je te ferai une implémentation complète prête à l’emploi 👌

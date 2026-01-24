@@ -1,6 +1,5 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using System.Collections.Generic;
 
 public abstract class Tower : Building
 {
@@ -12,6 +11,8 @@ public abstract class Tower : Building
     public float CurrentFireRate { get; private set; }
     public float CurrentRange { get; private set; }
     public float Damage => CurrentDamage;
+
+    public float BaseRange => range;
 
     [Header("Fonctional Assignements")]
     [SerializeField] protected float lerpStep = 10f;
@@ -30,6 +31,10 @@ public abstract class Tower : Building
     private Quaternion idleTargetRotation;
 
     private float statsUpdateTimer = 0f;    //Used to optimize bonus' calculus
+
+    [SerializeField] private int powerConsumption;
+    public int PowerConsumption => powerConsumption;
+    private int power;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
@@ -52,20 +57,19 @@ public abstract class Tower : Building
             statsUpdateTimer = 0f;
         }
 
-        base.Update();
-        UpdateTarget();
-        RotateTowardTarget();
-        
-        // Shooting routine
-        clock += Time.deltaTime;
-        if (clock > 1 / CurrentFireRate && (target != null || targets != null))
-        {
-            Shoot();
-            clock=0;
+        if (IsPowered() && active){
+            base.Update();
+            UpdateTarget();
+            RotateTowardTarget();
+
+            // Shooting routine
+            clock += Time.deltaTime;
+            if (clock > 1 / CurrentFireRate && (target != null || targets != null))
+            {
+                Shoot();
+                clock=0;
+            }
         }
-
-      
-
     }
 
     //Calculation of each installation type's boost
@@ -81,7 +85,7 @@ public abstract class Tower : Building
             {
                 float dist = Mathf.Abs(transform.position.x - installation.transform.position.x) + Mathf.Abs(transform.position.z - installation.transform.position.z);
 
-                if(dist <= installation.realRange)
+                if(dist <= (installation.Range * 2 + 1) / 2)
                 {
                     switch (installation.type)
                     {
@@ -105,7 +109,10 @@ public abstract class Tower : Building
         CurrentFireRate = fireRate * fireMult;
         CurrentRange = range * rangeMult;
 
-        realRange = (2 * CurrentRange + 1) / 2;
+        //Debug.Log(CurrentDamage);
+        //Debug.Log(CurrentFireRate);
+        Debug.Log(CurrentRange);
+
     }
     void UpdateIdleRotation()
     {
@@ -143,4 +150,18 @@ public abstract class Tower : Building
     
     protected abstract void UpdateTarget();
     protected abstract void Shoot();
+
+    public void SetPower(int power)
+    {
+        this.power = power;
+    }
+
+    protected bool IsPowered()
+    {
+        return power >= powerConsumption;
+    }
+    public int GetPower()
+    {
+        return power;
+    }
 }

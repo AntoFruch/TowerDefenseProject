@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
-using UnityEngine.InputSystem.Controls;
 
 public class MonsterController : MonoBehaviour
 {
@@ -23,6 +21,7 @@ public class MonsterController : MonoBehaviour
     private float gravity = -9.81f;
 
     // PathFinding
+    [SerializeField] Strategy pathFindingStrategy;
     private Graph<VertexLabel> graph;
     private List<Vertex<VertexLabel>> path;
     private int index = 0;
@@ -43,7 +42,15 @@ public class MonsterController : MonoBehaviour
                                     .Where(v => v.position == groundPos)
                                     .ToList()[0];
 
-        path = Strategies.ShortestPath(graph, spawnVertex);
+        switch (pathFindingStrategy)
+        {
+            case Strategy.MinimalTowerOverlap:
+                path = Strategies.MinimalTowerOverlap(graph, spawnVertex);
+                break;
+            case Strategy.ShortestPath:
+                path = Strategies.ShortestPath(graph, spawnVertex);
+                break;
+        }        
     }
     void Update()
     {
@@ -140,6 +147,11 @@ public class MonsterController : MonoBehaviour
     }
     void OnDestroy()
     {
-        //Game.Instance.monstersPrefabs.Remove(this);
+        Game.Instance.monsters.Remove(this);
     }
+}
+
+enum Strategy
+{
+    ShortestPath, MinimalTowerOverlap
 }

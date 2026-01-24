@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3#Common" />
+    <Style src="project://database/Assets/UI/HUD/Defense/DefenseHUD.uss?fileID=7433441132597879392&amp;guid=16a2eb9f7922ba94194f0864dd42d3cd&amp;type=3#DefenseHUD" />
+    <ui:VisualElement name="main-container" class="main-container">
+        <ui:Label text="Wave n°0" name="title" class="title labels" />
+        <ui:VisualElement name="progressbar" class="progressbar">
+            <ui:VisualElement name="progressbar-mask" class="progressbar-mask">
+                <ui:VisualElement name="progressbar-fill" class="progressbar-fill" style="width: 1052px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="progressbar-frame" class="progressbar-frame" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,54 @@
+:root {
+}
+
+.back-button {
+}
+
+.slider {
+}
+
+Slider {
+    width: 60%;
+    align-self: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 50px;
+}
+
+Slider .unity-label {
+    color: rgb(247, 210, 0);
+    font-size: 30px;
+    -unity-font-style: bold;
+    text-shadow: 2px 2px 0 rgb(0, 0, 0);
+    margin-right: 20px;
+    min-width: 150px;
+}
+
+Slider .unity-base-slider__tracker {
+    background-color: rgb(50, 50, 50);
+    border-width: 3px;
+    border-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    height: 15px;
+    margin-top: -7.5px;
+}
+
+Slider .unity-base-slider__dragger {
+    width: 35px;
+    height: 35px;
+    background-color: rgb(255, 215, 0);
+    border-width: 3px;
+    border-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    margin-top: -17px;
+}
+
+Slider .unity-base-slider__dragger:hover {
+    scale: 1.2;
+    background-color: rgb(255, 235, 59);
+}
+
+Slider .unity-base-slider__dragger:active {
+    border-color: rgb(255, 255, 255);
+    background-color: rgb(255, 0, 0);
+}

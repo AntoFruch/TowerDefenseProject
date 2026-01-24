@@ -20,6 +20,10 @@ public class Graph<T>
         return vertices;
     }
 
+    public void Clear()
+    {
+        vertices.Clear();
+    }
     public override string ToString()
     {
         if (vertices.Count == 0)
@@ -47,7 +51,7 @@ public class Vertex<T>
         this.position = pos;
     }
 
-    public void AddNeighbor(Vertex<T> neighbor, int distance)
+    public void AddNeighbor(Vertex<T> neighbor, int distance = 0)
     {
         if (!neighbors.ContainsKey(neighbor))
         {
