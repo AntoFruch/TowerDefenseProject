@@ -55,6 +55,6 @@ public class DefenseHUDController : MonoBehaviour
 
     void UpdateTitle()
     {
-        title.text = "Wave n°"+(WaveManager.Instance.waveIndex+1);
+        title.text = "Wave n°"+WaveManager.Instance.waveIndex;
     }
 }
