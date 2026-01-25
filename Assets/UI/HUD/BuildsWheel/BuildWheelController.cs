@@ -165,6 +165,7 @@ public class BuildWheelController : MonoBehaviour
     {
         HideBuildsWheel();
         ShowTowersWheel();
+        AudioManager.Instance.PlayClick();
     }
     void onRadarButtonClick(ClickEvent evt)
     {
@@ -181,7 +182,7 @@ public class BuildWheelController : MonoBehaviour
         {
             Debug.Log("Can't build : not enough money");
         }
-
+        AudioManager.Instance.PlayClick();
     } 
     void onPowerPlantButtonClick(ClickEvent evt)
     {
@@ -199,6 +200,7 @@ public class BuildWheelController : MonoBehaviour
         {
             Debug.Log("Can't build : not enough money");
         }
+        AudioManager.Instance.PlayClick();
     } 
     void onStorageButtonClick(ClickEvent evt)
     {
@@ -216,6 +218,7 @@ public class BuildWheelController : MonoBehaviour
         {
             Debug.Log("Can't build : not enough money");
         }
+        AudioManager.Instance.PlayClick();
     } 
     void onFactoryButtonClick(ClickEvent evt)
     {
@@ -233,6 +236,7 @@ public class BuildWheelController : MonoBehaviour
         {
             Debug.Log("Can't build : not enough money");
         }
+        AudioManager.Instance.PlayClick();
     } 
 
     void onQuitClick(PointerUpEvent evt)
@@ -243,6 +247,7 @@ public class BuildWheelController : MonoBehaviour
             return;
         }   
         HideWheel();
+        AudioManager.Instance.PlayClick();
     }
 
     // Towers Menu
@@ -263,6 +268,7 @@ public class BuildWheelController : MonoBehaviour
         {
             Debug.Log("Can't build : not enough money");
         }
+        AudioManager.Instance.PlayClick();
     }
     void onBlueButtonClick(ClickEvent evt)
     {
@@ -280,6 +286,7 @@ public class BuildWheelController : MonoBehaviour
         {
             Debug.Log("Can't build : not enough money");
         }
+        AudioManager.Instance.PlayClick();
     } 
     void onYellowButtonClick(ClickEvent evt)
     {
@@ -297,6 +304,7 @@ public class BuildWheelController : MonoBehaviour
         {
             Debug.Log("Can't build : not enough money");
         }
+        AudioManager.Instance.PlayClick();
     } 
     void onGreenButtonClick(ClickEvent evt)
     {
@@ -314,5 +322,6 @@ public class BuildWheelController : MonoBehaviour
         {
             Debug.Log("Can't build : not enough money");
         }
+        AudioManager.Instance.PlayClick();
     } 
 }

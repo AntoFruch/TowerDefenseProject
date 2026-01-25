@@ -53,6 +53,7 @@ public class PreparationHUDController : MonoBehaviour
     void OnFightButtonClick(ClickEvent evt)
     {
         Game.Instance.SetState(GameState.Defense);
+        AudioManager.Instance.PlayClick();
     }
 
 }

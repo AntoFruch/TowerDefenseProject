@@ -65,6 +65,7 @@ public class DelMovController : MonoBehaviour
         delMovUIDoc.rootVisualElement.AddToClassList("hide");
     }
 
+    // Callbacks
     void onQuitClick(PointerUpEvent evt)
     {
         if (ignoreNextClick)
@@ -73,12 +74,14 @@ public class DelMovController : MonoBehaviour
             return;
         }   
         Hide();
+        AudioManager.Instance.PlayClick();
     }
 
     void onMoveButtonClick(ClickEvent evt)
     {
         BuildingPlacementManager.Instance.StartMoving(selectedBuild); 
         Hide();
+        AudioManager.Instance.PlayClick();
     }
     void onDeleteButtonClick(ClickEvent evt)
     {
@@ -89,5 +92,6 @@ public class DelMovController : MonoBehaviour
       
         selectedBuild = null;
         Hide();
+        AudioManager.Instance.PlayClick();
     }
 }
