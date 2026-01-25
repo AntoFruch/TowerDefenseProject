@@ -1,5 +1,6 @@
 using NUnit.Framework.Constraints;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
@@ -10,7 +11,7 @@ public class SettingsManager : MonoBehaviour
 
     private VisualElement brightness;
 
-    [SerializeField] private GameObject audioManager;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -23,39 +24,49 @@ public class SettingsManager : MonoBehaviour
         
         
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Start()
+    {
         LoadSettings();
     }
 
-    void Update()
+    //Volume Audio
+    public void SetVolume(string name, float value)
     {
+        float normalizedValue = value / 100f;
+        float volumeInDb = Mathf.Log10(Mathf.Max(0.0001f, normalizedValue)) * 20f;
+        AudioManager.Instance.SetMixerVolume(name, volumeInDb);
+        PlayerPrefs.SetFloat(name, value);
         
     }
 
-    public void SetSound(float value)
-    {
-        //pas fini putain
-    }
+    public void SetSound(float value) => SetVolume("FXVol",value);
+    public void SetMusic(float value) => SetVolume("MusicVol",value);
+    public void SetMaster(float value) => SetVolume("MasterVol",value);
 
-    public void SetMusic(float value)
-    {
-        
-    }
 
-    public void SetMaster(float value)
-    {
-        
-    }
-
+    //Brightness
     public void SetBrightness(float value)
     {
         brightness.style.opacity = value;
         PlayerPrefs.SetFloat("Brightness",value);
     }
 
+
+
+
+    //Chargement des paramètres des joueurs
     private void LoadSettings()
     {
         // Brightness
-        float b = PlayerPrefs.GetFloat("Brightness",0f); 
-        SetBrightness(b);  
+        
+        SetBrightness(PlayerPrefs.GetFloat("Brightness",0f));
+
+        //Volume 
+        SetSound(PlayerPrefs.GetFloat("FXVol",0f));
+        SetMusic(PlayerPrefs.GetFloat("MusicVol",0f));
+        SetMaster(PlayerPrefs.GetFloat("MasterVol",0f));
+    
     }
 }

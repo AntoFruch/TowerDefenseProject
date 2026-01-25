@@ -104,11 +104,24 @@ public class Menu : MonoBehaviour
         var soundSlider = settingsUIDoc.rootVisualElement.Q<Slider>("SoundSlider");
         soundSlider.lowValue=0f;
         soundSlider.highValue=100f; 
+        soundSlider.value = PlayerPrefs.GetFloat("FXVol", 0.001f); 
+        soundSlider.RegisterValueChangedCallback(evt => SettingsManager.Instance.SetSound(evt.newValue));
         
 
             //Music 
 
+        var musicSlider = settingsUIDoc.rootVisualElement.Q<Slider>("MusicSlider");
+        soundSlider.lowValue=0f;
+        soundSlider.highValue=100f; 
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVol", 0.001f);
+        musicSlider.RegisterValueChangedCallback(evt => SettingsManager.Instance.SetMusic(evt.newValue));
             //Master
+
+        var masterSlider = settingsUIDoc.rootVisualElement.Q<Slider>("MasterSlider");
+        soundSlider.lowValue=0f;
+        soundSlider.highValue=100f; 
+        masterSlider.value = PlayerPrefs.GetFloat("MasterVol", 0.001f);
+        masterSlider.RegisterValueChangedCallback(evt => SettingsManager.Instance.SetMaster(evt.newValue));
         
         GenerateMapButtons();
         ShowMainMenu();
