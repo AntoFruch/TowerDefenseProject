@@ -19,6 +19,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private int maxHealth;
     public int MaxHealth => maxHealth;
     public float health {get;private set;}
+    private bool isDead = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,7 +29,7 @@ public class HealthManager : MonoBehaviour
 
     void Update()
     {
-        if (health <=0)
+        if (health <=0 && !isDead)
         {
             Die();
         }  
@@ -40,6 +41,7 @@ public class HealthManager : MonoBehaviour
 
     public void Die()
     {
+        isDead = true;
         DieMenu.Instance.ShowDieMenu();
     }
 }
