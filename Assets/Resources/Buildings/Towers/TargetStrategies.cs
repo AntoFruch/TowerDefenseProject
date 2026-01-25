@@ -25,7 +25,8 @@ public static class TargetStrategies
 
     static bool IsInManhattanRange(Vector2Int v1, Vector2Int v2, int range)
     {
-        return Math.Abs(v1.x-v2.x)+Math.Abs(v1.y - v2.y) <= range;
+        Vector2Int v = v1 - v2;
+        return Mathf.Abs(v.x) + Mathf.Abs(v.y) <= range;
     }
 
     public static List<GameObject> Multi(Transform rotatingPart,List<GameObject> targets, float realRange)

@@ -101,7 +101,8 @@
     top: 17px;
     -unity-text-align: upper-center;
     color: rgb(195, 174, 0);
-    -unity-text-outline-color: rgba(255, 0, 29, 0);
+    -unity-text-outline-color: rgb(0, 0, 0);
+    -unity-text-outline-width: 2px;
 }
 
 .healthbar {

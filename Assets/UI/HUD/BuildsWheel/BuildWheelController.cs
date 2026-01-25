@@ -27,6 +27,15 @@ public class BuildWheelController : MonoBehaviour
 
     private Button towersQuitButton;
 
+    // Costs Labels
+    private Label redTowerCost;
+    private Label blueTowerCost;
+    private Label greenTowerCost;
+    private Label yellowTowerCost;
+    private Label radarCost;
+    private Label powerPlantCost;
+    private Label storageCost;
+    private Label factoryCost;
 
     private Vector2 wheelPos;
     public bool active {get;private set;}
@@ -75,6 +84,16 @@ public class BuildWheelController : MonoBehaviour
         this.towersQuitButton = towersWheelUIDoc.rootVisualElement.Q<Button>("quit-btn");
         towersQuitButton.RegisterCallback<PointerUpEvent>(onQuitClick);
 
+        // Costs initialisation
+        this.redTowerCost = towersWheelUIDoc.rootVisualElement.Q<Label>("red-cost-label");
+        //this.redTowerCost.text = MoneyManager.Instance.costs.redTower.ToString();
+        this.blueTowerCost = towersWheelUIDoc.rootVisualElement.Q<Label>("blue-cost-label");
+        this.yellowTowerCost = towersWheelUIDoc.rootVisualElement.Q<Label>("yellow-cost-label");
+        this.greenTowerCost = towersWheelUIDoc.rootVisualElement.Q<Label>("green-cost-label");
+        this.radarCost = buildWheelUIDoc.rootVisualElement.Q<Label>("radar-cost-label");
+        this.powerPlantCost = buildWheelUIDoc.rootVisualElement.Q<Label>("powerplant-cost-label");
+        this.factoryCost = buildWheelUIDoc.rootVisualElement.Q<Label>("factory-cost-label");
+        this.storageCost = buildWheelUIDoc.rootVisualElement.Q<Label>("storage-cost-label");
         // Hide everything
         this.HideWheel();
     }

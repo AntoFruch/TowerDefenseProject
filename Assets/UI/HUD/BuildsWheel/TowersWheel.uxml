@@ -9,24 +9,36 @@
             <ui:VisualElement name="image" class="img btn-red-image" />
             <ui:Label text="CANON" name="label" class="labels" style="flex-wrap: nowrap;" />
             <ui:Button name="red-btn" enabled="true" class="btn" style="border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0);" />
+            <ui:VisualElement name="cost" class="cost">
+                <ui:Label text="100" name="red-cost-label" class="cost-label" />
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="container" class="btn-container btn-yellow-container" style="flex-grow: 0; flex-shrink: 0;">
             <ui:VisualElement name="background" class="btn-bg btn-yellow-bg" style="flex-grow: 1;" />
             <ui:VisualElement name="image" class="img btn-yellow-image" />
             <ui:Label text="INFERNO&#10;TOWER" name="label" class="labels" style="flex-wrap: nowrap;" />
             <ui:Button name="yellow-btn" class="btn" />
+            <ui:VisualElement name="cost" class="cost">
+                <ui:Label text="100" name="yellow-cost-label" class="cost-label" />
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="container" class="btn-container btn-green-container" style="flex-grow: 0; flex-shrink: 0;">
             <ui:VisualElement name="background" class="btn-bg btn-green-bg" style="flex-grow: 1;" />
             <ui:VisualElement name="image" class="img btn-green-image" style="flex-grow: 1;" />
             <ui:Label text="GUN" name="label" class="labels" style="flex-wrap: nowrap;" />
             <ui:Button name="green-btn" class="btn" />
+            <ui:VisualElement name="cost" class="cost">
+                <ui:Label text="100" name="green-cost-label" class="cost-label" />
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="container" class="btn-container btn-blue-container" style="flex-grow: 0; flex-shrink: 0;">
             <ui:VisualElement name="background" class="btn-bg btn-blue-bg" style="flex-grow: 1;" />
             <ui:VisualElement name="image" class="img btn-blue-image" style="flex-grow: 1;" />
             <ui:Label text="X-BOW&#10;" name="label" class="labels" style="flex-wrap: nowrap;" />
             <ui:Button name="blue-btn" class="btn" />
+            <ui:VisualElement name="cost" class="cost">
+                <ui:Label text="100" name="blue-cost-label" class="cost-label" />
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="container" class="quit-btn-container" style="flex-grow: 1;">
             <ui:VisualElement name="background" class="btn-bg quit-btn-bg" style="flex-grow: 1;" />

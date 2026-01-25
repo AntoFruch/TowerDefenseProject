@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3" />
-    <Style src="project://database/Assets/UI/HUD/BuildsWheel/Wheel.uss?fileID=7433441132597879392&amp;guid=f996e92eaa221cd4db3eab0b546062b0&amp;type=3" />
+    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3#Common" />
+    <Style src="project://database/Assets/UI/HUD/BuildsWheel/Wheel.uss?fileID=7433441132597879392&amp;guid=f996e92eaa221cd4db3eab0b546062b0&amp;type=3#Wheel" />
     <Style src="project://database/Assets/UI/HUD/BuildsWheel/BuildsWheel.uss?fileID=7433441132597879392&amp;guid=78eb94a888a18a54281177bf428b8a0f&amp;type=3#BuildsWheel" />
     <ui:VisualElement name="wheel-container" class="wheel-container">
         <ui:VisualElement name="circle" class="circle" />
@@ -14,24 +14,36 @@
             <ui:VisualElement name="image" class="img btn-power-plant-image" style="flex-grow: 1;" />
             <ui:Label text="POWER &#10;PLANT" name="label" class="labels" />
             <ui:Button name="power-plant" class="btn" style="height: 81px;" />
+            <ui:VisualElement name="cost" class="cost">
+                <ui:Label text="100" name="powerplant-cost-label" class="cost-label" />
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="container" class="btn-container btn-radar-container" style="flex-grow: 0; flex-shrink: 0;">
             <ui:VisualElement name="background" class="btn-bg btn-radar-bg" style="flex-grow: 1;" />
             <ui:VisualElement name="image" class="img btn-radar-image" style="flex-grow: 1;" />
             <ui:Label text="RADAR" name="label" class="labels" style="flex-wrap: nowrap;" />
             <ui:Button name="radar" class="btn" />
+            <ui:VisualElement name="cost" class="cost">
+                <ui:Label text="100" name="radar-cost-label" class="cost-label" />
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="container" class="btn-container btn-storage-container" style="flex-grow: 0; flex-shrink: 0;">
             <ui:VisualElement name="background" class="btn-bg btn-storage-bg" style="flex-grow: 1;" />
             <ui:VisualElement name="image" class="img btn-storage-image" style="flex-grow: 1;" />
             <ui:Label text="STORAGE" name="label" class="labels" style="flex-wrap: nowrap;" />
             <ui:Button name="storage" class="btn" />
+            <ui:VisualElement name="cost" class="cost">
+                <ui:Label text="100" name="storage-cost-label" class="cost-label" />
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="container" class="btn-container btn-factory-container" style="flex-grow: 0; flex-shrink: 0;">
             <ui:VisualElement name="background" class="btn-bg btn-factory-bg" style="flex-grow: 1;" />
             <ui:VisualElement name="image" class="img btn-factory-image" style="flex-grow: 1;" />
             <ui:Label text="FACTORY" name="label" class="labels" style="flex-wrap: nowrap;" />
             <ui:Button name="factory" class="btn" />
+            <ui:VisualElement name="cost" class="cost">
+                <ui:Label text="100" name="factory-cost-label" class="cost-label" />
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="container" class="btn-container btn-towers-container" style="flex-grow: 0; flex-shrink: 0;">
             <ui:VisualElement name="background" class="btn-bg btn-towers-bg" style="flex-grow: 1;" />

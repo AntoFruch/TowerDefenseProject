@@ -145,3 +145,24 @@
     white-space: nowrap;
     -unity-paragraph-spacing: -16px;
 }
+
+.cost {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-image: url("project://database/Assets/UI/HUD/staticHUDAssets/moneyBG.png?fileID=2800000&guid=a16b8d131a55c3e43825d83f355d21e9&type=3#moneyBG");
+    left: -12px;
+    top: -12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cost-label {
+    font-size: 24px;
+    -unity-font-definition: url("project://database/Assets/UI/Supersonic%20Rocketship.ttf?fileID=12800000&guid=42639f43f6fe7b6438f0eff715a5b7f4&type=3#Supersonic Rocketship");
+    top: 4px;
+    left: 1px;
+    color: rgb(255, 209, 0);
+    -unity-text-outline-width: 0.5px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+}
