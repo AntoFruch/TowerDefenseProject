@@ -139,8 +139,9 @@ public class BuildWheelController : MonoBehaviour
         GameObject radarPrefab = Game.Instance.buildingsPrefabs.radar;
         Building buildingInfo = radarPrefab.GetComponent<Building>();
 
+        int radarCost = MoneyManager.Instance.GetCost(BuildingType.Radar);
         //Check if the player have enough money to build the building
-        if (MoneyManager.Instance.SpendMoney(buildingInfo.cost))
+        if (MoneyManager.Instance.SpendMoney(radarCost))
         {
             Instantiate(radarPrefab, Game.Instance.selector.position, Quaternion.identity);
             HideWheel();
@@ -156,8 +157,10 @@ public class BuildWheelController : MonoBehaviour
         GameObject powerPlantPrefab = Game.Instance.buildingsPrefabs.powerPlant;
         Building buildingInfo = powerPlantPrefab.GetComponent<Building>();
 
+        int powerPlantCost = MoneyManager.Instance.GetCost(BuildingType.PowerPlant);
+
         //Check if the player have enough money to build the building
-        if (MoneyManager.Instance.SpendMoney(buildingInfo.cost))
+        if (MoneyManager.Instance.SpendMoney(powerPlantCost))
         {
             Instantiate(powerPlantPrefab, Game.Instance.selector.position, Quaternion.identity);
             HideWheel();
@@ -172,8 +175,10 @@ public class BuildWheelController : MonoBehaviour
         GameObject storagePrefab = Game.Instance.buildingsPrefabs.storage;
         Building buildingInfo = storagePrefab.GetComponent<Building>();
 
+        int storageCost = MoneyManager.Instance.GetCost(BuildingType.Storage);
+
         //Check if the player have enough money to build the building
-        if (MoneyManager.Instance.SpendMoney(buildingInfo.cost))
+        if (MoneyManager.Instance.SpendMoney(storageCost))
         {
             Instantiate(storagePrefab, Game.Instance.selector.position, Quaternion.identity);
             HideWheel();
@@ -188,8 +193,10 @@ public class BuildWheelController : MonoBehaviour
         GameObject factoryPrefab = Game.Instance.buildingsPrefabs.factory;
         Building buildingInfo = factoryPrefab.GetComponent<Building>();
 
+        int factoryCost = MoneyManager.Instance.GetCost(BuildingType.Factory);
+
         //Check if the player have enough money to build the building
-        if (MoneyManager.Instance.SpendMoney(buildingInfo.cost))
+        if (MoneyManager.Instance.SpendMoney(factoryCost))
         {
             Instantiate(factoryPrefab, Game.Instance.selector.position, Quaternion.identity);
             HideWheel();
@@ -217,8 +224,10 @@ public class BuildWheelController : MonoBehaviour
         GameObject redPrefab = Game.Instance.buildingsPrefabs.redTower;
         Building buildingInfo = redPrefab.GetComponent<Building>();
 
+        int redCost = MoneyManager.Instance.GetCost(BuildingType.RedTower);
+
         //Check if the player have enough money to build the building
-        if (MoneyManager.Instance.SpendMoney(buildingInfo.cost))
+        if (MoneyManager.Instance.SpendMoney(redCost))
         {
             Instantiate(redPrefab, Game.Instance.selector.position, Quaternion.identity);
             HideWheel();
@@ -233,8 +242,10 @@ public class BuildWheelController : MonoBehaviour
         GameObject bluePrefab = Game.Instance.buildingsPrefabs.blueTower;
         Building buildingInfo = bluePrefab.GetComponent<Building>();
 
+        int blueCost = MoneyManager.Instance.GetCost(BuildingType.BlueTower);
+
         //Check if the player have enough money to build the building
-        if (MoneyManager.Instance.SpendMoney(buildingInfo.cost))
+        if (MoneyManager.Instance.SpendMoney(blueCost))
         {
             Instantiate(bluePrefab, Game.Instance.selector.position, Quaternion.identity);
             HideWheel();
@@ -248,9 +259,10 @@ public class BuildWheelController : MonoBehaviour
     {
         GameObject yellowPrefab = Game.Instance.buildingsPrefabs.yellowTower;
         Building buildingInfo = yellowPrefab.GetComponent<Building>();
+        int yellowCost = MoneyManager.Instance.GetCost(BuildingType.YellowTower);
 
         //Check if the player have enough money to build the building
-        if (MoneyManager.Instance.SpendMoney(buildingInfo.cost))
+        if (MoneyManager.Instance.SpendMoney(yellowCost))
         {
             Instantiate(yellowPrefab, Game.Instance.selector.position, Quaternion.identity);
             HideWheel();
@@ -265,8 +277,10 @@ public class BuildWheelController : MonoBehaviour
         GameObject greenPrefab = Game.Instance.buildingsPrefabs.greenTower;
         Building buildingInfo = greenPrefab.GetComponent<Building>();
 
+        int greenCost = MoneyManager.Instance.GetCost(BuildingType.GreenTower);
+
         //Check if the player have enough money to build the building
-        if (MoneyManager.Instance.SpendMoney(buildingInfo.cost))
+        if (MoneyManager.Instance.SpendMoney(greenCost))
         {
             Instantiate(greenPrefab, Game.Instance.selector.position, Quaternion.identity);
             HideWheel();

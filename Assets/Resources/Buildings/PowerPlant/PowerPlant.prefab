@@ -136,6 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerPlant
   range: 3
+  buildingType: 6
+  resaleRatio: 0.5
   powerOutput: 7
 --- !u!1 &8166366612723874408
 GameObject:

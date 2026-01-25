@@ -117,6 +117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XBow
   range: 3
+  buildingType: 1
+  resaleRatio: 0.5
   fireRate: 1
   damage: 10
   lerpStep: 10

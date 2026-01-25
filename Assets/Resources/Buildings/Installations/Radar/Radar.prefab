@@ -4929,6 +4929,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Installation
   range: 3
+  buildingType: 4
+  resaleRatio: 0.5
   type: 0
   bonusPercentage: 0.25
 --- !u!4 &7949261318073684433 stripped

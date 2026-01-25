@@ -9,7 +9,7 @@ public class Building : MonoBehaviour {
     Dictionary<Renderer,Material> originalMaterials ;
 
     [Header("Economy")]
-    public int cost = 100; 
+    public BuildingType buildingType;
     [SerializeField] private float resaleRatio = 0.5f;
     
     protected virtual void Start()
@@ -68,8 +68,9 @@ public class Building : MonoBehaviour {
     public void SellBuilding()
     {
         if (MoneyManager.Instance != null) {
-            int resaleAmount = Mathf.FloorToInt(cost * resaleRatio);
-            MoneyManager.Instance.AddMoney(resaleAmount);
+            int currentCost = MoneyManager.Instance.GetCost(this.buildingType);
+            int refund = Mathf.FloorToInt(currentCost*resaleRatio);
+            MoneyManager.Instance.AddMoney(refund);
         }
 
         if (Game.Instance.buildings.Contains(this))

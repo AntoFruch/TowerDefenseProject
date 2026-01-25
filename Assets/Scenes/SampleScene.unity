@@ -903,6 +903,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoneyManager
   currentMoney: 200
+  costs:
+    redTower: 50
+    blueTower: 50
+    greenTower: 50
+    yellowTower: 50
+    radar: 50
+    factory: 50
+    powerPlant: 50
+    storage: 50
 --- !u!1 &1146037822
 GameObject:
   m_ObjectHideFlags: 0

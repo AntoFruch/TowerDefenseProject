@@ -111,7 +111,7 @@ public abstract class Tower : Building
 
         //Debug.Log(CurrentDamage);
         //Debug.Log(CurrentFireRate);
-        Debug.Log(CurrentRange);
+        //Debug.Log(CurrentRange);
 
     }
     void UpdateIdleRotation()

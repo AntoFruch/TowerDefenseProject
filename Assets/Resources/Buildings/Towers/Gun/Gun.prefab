@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gun
   range: 2
+  buildingType: 2
+  resaleRatio: 0.5
   fireRate: 6
   damage: 1
   lerpStep: 10
