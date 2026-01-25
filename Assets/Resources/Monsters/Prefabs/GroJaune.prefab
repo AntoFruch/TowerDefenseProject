@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
   life: 10
+  moneyValue: 25
   damage: 3
   moveSpeed: 0.3
   rotationSpeed: 7

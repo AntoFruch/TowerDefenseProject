@@ -25,6 +25,14 @@ public class HealthManager : MonoBehaviour
     {
         health = maxHealth;
     }
+
+    void Update()
+    {
+        if (health <=0)
+        {
+            Die();
+        }  
+    } 
     public void TakeDamage(int dmg)
     {
         health -= dmg;

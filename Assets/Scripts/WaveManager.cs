@@ -121,23 +121,41 @@ public class WaveManager : MonoBehaviour
     {
         currentWave.Clear();
         waveIndex++;
-        int monsterCount = 3 + waveIndex * 2;
 
-        for (int i = 0; i < monsterCount; i++)
+        for (int i = 0; i < Mathf.Clamp((waveIndex-1) * 2, 1,5); i++)
         {
-            if (waveIndex < 3)
-                currentWave.Add(MonsterType.Shell);
-            else if (waveIndex < 6)
-                currentWave.Add(Random.value < 0.7f ? MonsterType.GroJaune : MonsterType.GroBleu);
-            else
+          currentWave.Add(MonsterType.Shell);
+        }
+        if (waveIndex < 5){
+            for (int i = 0; i < Mathf.Clamp(waveIndex/2, 1,5); i++)
+            {
+                MonsterType monster = Random.value > 0.5 ? MonsterType.GroBleu : MonsterType.GroJaune;
+                currentWave.Add(monster);
+            }
+        } else
+        {
+            for (int i=0; i<2; i++)
+            {
+                MonsterType monster = Random.value > 0.5 ? MonsterType.GroBleu : MonsterType.GroJaune;
+                currentWave.Add(monster);
+            }
+            for (int i=0; i<waveIndex/6; i++)
+            {
                 currentWave.Add(MonsterType.Blob);
+            }
+            for (int i=0; i<2; i++)
+            {
+                MonsterType monster = Random.value > 0.5 ? MonsterType.GroBleu : MonsterType.GroJaune;
+                currentWave.Add(monster);
+            }
         }
-        string str = "";
-        foreach(MonsterType m in currentWave)
+
+        for (int i = 0; i < Mathf.Clamp((waveIndex-1) * 2, 1,5); i++)
         {
-            str += m+" ";
+          currentWave.Add(MonsterType.Shell);
         }
-        Debug.Log(str);
+
+
     }
 
     public int GetCurrentWaveLength()
