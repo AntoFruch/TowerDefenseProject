@@ -23,7 +23,7 @@ public class HealthManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        health = maxHealth;
+        health = 10;
     }
 
     void Update()
@@ -40,6 +40,6 @@ public class HealthManager : MonoBehaviour
 
     public void Die()
     {
-        // to implement
+        DieMenu.Instance.ShowDieMenu();
     }
 }

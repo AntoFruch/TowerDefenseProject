@@ -19,7 +19,7 @@
 }
 
 .button {
-    height: 25%;
+    height: 12%;
     border-top-width: 2px;
     border-right-width: 2px;
     border-bottom-width: 2px;
@@ -36,9 +36,15 @@
     align-items: center;
     justify-content: center;
     background-color: rgb(255, 255, 255);
+    width: 339px;
+    align-self: center;
+    font-size: 57px;
 }
 
 .button:hover {
     scale: 1.1 1.1 1.1;
     transition-duration: 0.2s;
+}
+
+.PausePNG {
 }

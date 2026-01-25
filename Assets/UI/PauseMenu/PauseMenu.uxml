@@ -1,7 +1,10 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/PauseMenu/PauseMenuUSS.uss?fileID=7433441132597879392&amp;guid=47429100c14e922468c6f4c1890d3f28&amp;type=3#PauseMenuUSS" />
     <ui:VisualElement name="PauseMenu" enabled="true" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.53); display: flex; opacity: 0.88; justify-content: center; align-items: center; align-content: auto; align-self: auto;">
-        <ui:Button text="Resume" name="Resume" class="button labels" style="height: 39px; width: 118px;" />
-        <ui:Button text="Quit" name="Quit" class="button labels" style="height: 36px; width: 123px;" />
+        <ui:VisualElement name="PausePNG" class="PausePNG" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/PauseMenu/PAUSE-22-01-2026.png?fileID=2800000&amp;guid=1d7933c29226248168888dcfb39be04e&amp;type=3#PAUSE-22-01-2026&quot;); width: 954px; height: -364px;" />
+        <ui:VisualElement name="buttons" style="flex-grow: 1; width: 364px; align-self: center;">
+            <ui:Button text="Resume" name="Resume" class="button labels" />
+            <ui:Button text="Quit" name="Quit" class="button labels" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
