@@ -7,6 +7,10 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     
+    [Header("AudioMixer")]
+    [SerializeField] private AudioMixer mixer;
+
+
     [Header("Sources Audio")]
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource sfxSource;
@@ -31,13 +35,16 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    //Mixer 
+    public void SetMixerVolume(string name, float value)
+    {
+        mixer.SetFloat(name, value);
+    }
+
     //SFX
     public void PlaySFX(AudioClip clip)
     {
-        if (clip != null && sfxSource != null)
-        {
-            sfxSource.PlayOneShot(clip);
-        }
+        sfxSource.PlayOneShot(clip);
     }
     public void PlayClick() => PlaySFX(clickSound);
     
