@@ -770,6 +770,7 @@ MonoBehaviour:
   musicSource: {fileID: 1704203757}
   sfxSource: {fileID: 1704203756}
   clickSound: {fileID: 8300000, guid: 723a5753855d83947a7a1c45f1c62c65, type: 3}
+  deathSound: {fileID: 8300000, guid: d4c7f9274603d89459a2a0f36037efe6, type: 3}
   menuAmbientSound: {fileID: 8300000, guid: 90be8d9c583c6154589717c6154aa473, type: 3}
 --- !u!4 &1704203759
 Transform:

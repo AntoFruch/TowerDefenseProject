@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     [Header("Bibliothèque de Sons")]
     //UI 
     public AudioClip clickSound;
+    public AudioClip deathSound;
 
     //Music
 
@@ -47,6 +48,7 @@ public class AudioManager : MonoBehaviour
         sfxSource.PlayOneShot(clip);
     }
     public void PlayClick() => PlaySFX(clickSound);
+    public void PlayDeath() => PlaySFX(deathSound);
     
     //Musique
     public void PlayMusic(AudioClip musicClip)
