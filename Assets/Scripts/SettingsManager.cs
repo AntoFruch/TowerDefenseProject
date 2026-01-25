@@ -31,7 +31,7 @@ public class SettingsManager : MonoBehaviour
         LoadSettings();
     }
 
-
+    //Volume Audio
     public void SetVolume(string name, float value)
     {
         float normalizedValue = value / 100f;
@@ -45,12 +45,18 @@ public class SettingsManager : MonoBehaviour
     public void SetMusic(float value) => SetVolume("MusicVol",value);
     public void SetMaster(float value) => SetVolume("MasterVol",value);
 
+
+    //Brightness
     public void SetBrightness(float value)
     {
         brightness.style.opacity = value;
         PlayerPrefs.SetFloat("Brightness",value);
     }
 
+
+
+
+    //Chargement des paramètres des joueurs
     private void LoadSettings()
     {
         // Brightness
