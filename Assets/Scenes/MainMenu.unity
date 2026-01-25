@@ -444,7 +444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158f84f5817a0e149adaba9ec81667d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingsManager
-  audioManager: {fileID: 0}
 --- !u!1 &1673899649
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50f55a336249cf242b97878473f5ec0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  mixer: {fileID: 24100000, guid: 34726d741a302cd43952681b183d0930, type: 2}
   musicSource: {fileID: 1704203757}
   sfxSource: {fileID: 1704203756}
   clickSound: {fileID: 8300000, guid: 723a5753855d83947a7a1c45f1c62c65, type: 3}
