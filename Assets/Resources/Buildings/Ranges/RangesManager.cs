@@ -70,14 +70,16 @@ public class RangesManager : MonoBehaviour
 
     void LoadTowerRanges()
     {
+        Debug.Log("call");
         ClearRanges(towerRangeParent);
         foreach(Tower tower in Game.Instance.buildings.Where(b=>b is Tower))
         {
-            for(int x = -tower.Range; x<=tower.Range; x++)
+            Debug.Log(tower.CurrentRange);
+            for(int x = -tower.CurrentRange; x<=tower.CurrentRange; x++)
             {
-                for(int y = -tower.Range; y<=tower.Range; y++)
+                for(int y = -tower.CurrentRange; y<=tower.CurrentRange; y++)
                 {
-                    if (Math.Abs(x)+Math.Abs(y) <= tower.Range){
+                    if (Math.Abs(x)+Math.Abs(y) <= tower.CurrentRange){
                         GameObject child =  Instantiate(Game.Instance.buildingsPrefabs.towerRange,
                                                         tower.transform.position + new Vector3(x,0, y), 
                                                         Quaternion.identity);

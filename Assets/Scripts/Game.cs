@@ -95,7 +95,7 @@ public class Game : MonoBehaviour
         //LogBuildings();
     }
 
-    void LogBuildings()
+    public void LogBuildings()
     {
         string str ="buildings : ";
         foreach (Building build in buildings)

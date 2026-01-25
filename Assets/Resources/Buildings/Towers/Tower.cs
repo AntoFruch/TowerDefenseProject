@@ -9,7 +9,7 @@ public abstract class Tower : Building
 
     public float CurrentDamage { get; private set; }
     public float CurrentFireRate { get; private set; }
-    public float CurrentRange { get; private set; }
+    public int CurrentRange { get; private set; }
     public float Damage => CurrentDamage;
 
     public float BaseRange => range;
@@ -30,8 +30,6 @@ public abstract class Tower : Building
     private float idleTimer;
     private Quaternion idleTargetRotation;
 
-    private float statsUpdateTimer = 0f;    //Used to optimize bonus' calculus
-
     [SerializeField] private int powerConsumption;
     public int PowerConsumption => powerConsumption;
     private int power;
@@ -50,12 +48,7 @@ public abstract class Tower : Building
     // Update is called once per frame
     protected override void Update()
     {
-        statsUpdateTimer += Time.deltaTime;
-        if(statsUpdateTimer > 0.25f)
-        {
-            CalculateStats();
-            statsUpdateTimer = 0f;
-        }
+        CalculateStats();
 
         if (IsPowered() && active){
             base.Update();
@@ -77,7 +70,7 @@ public abstract class Tower : Building
     {
         float damageMult = 1f;
         float fireMult = 1f;
-        float rangeMult = 1f;
+        int rangeBonus = 0;
 
         foreach(Building building in Game.Instance.buildings)
         {
@@ -90,29 +83,25 @@ public abstract class Tower : Building
                     switch (installation.type)
                     {
                         case InstallationType.Radar:
-                            rangeMult += installation.bonusPercentage;
+                            rangeBonus += installation.rangeBonus;
                             break;
 
                         case InstallationType.Factory:
-                            damageMult += installation.bonusPercentage;
+                            damageMult += installation.damageBonus;
                             break;
 
                         case InstallationType.Storage:
-                            fireMult += installation.bonusPercentage;
+                            fireMult += installation.fireRateBonus;
                             break;
                     }
                 }
             }
         }
-
+        Debug.Log(CurrentRange);
         CurrentDamage = damage * damageMult;
         CurrentFireRate = fireRate * fireMult;
-        CurrentRange = range * rangeMult;
-
-        //Debug.Log(CurrentDamage);
-        //Debug.Log(CurrentFireRate);
-        //Debug.Log(CurrentRange);
-
+        CurrentRange = range + rangeBonus;
+        RangesManager.Instance.ShowRanges();
     }
     void UpdateIdleRotation()
     {

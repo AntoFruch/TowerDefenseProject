@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((transform.position - tower.transform.position).magnitude > tower.Range)
+        if ((transform.position - tower.transform.position).magnitude > tower.CurrentRange)
         {
             Destroy(gameObject);
         }
@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
             MonsterController controller = collision.gameObject.GetComponent<MonsterController>();
 
             Instantiate(controller.Prefabs.hit, collision.gameObject.transform.position, Quaternion.identity);
-            controller.TakeDamage((int)tower.Damage);
+            controller.TakeDamage((int)tower.CurrentDamage);
             Destroy(gameObject);
         }
     }

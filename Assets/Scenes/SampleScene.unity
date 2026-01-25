@@ -902,7 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c397396341f2f44ebde80907d4453a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoneyManager
-  infiniteMoney: 0
+  infiniteMoney: 1
   currentMoney: 200
   costs:
     redTower: 50

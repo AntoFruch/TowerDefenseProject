@@ -58,8 +58,6 @@ public class BuildingPlacementManager : MonoBehaviour
 
     public static bool CanPlace(Vector2Int pos)
     {
-        Debug.Log(pos);
-        Debug.Log(!IsPlaceTaken(pos) && Game.Instance.map[pos.y][pos.x] == TileType.CONSTRUCTIBLE);
         return !IsPlaceTaken(pos) && Game.Instance.map[pos.y][pos.x] == TileType.CONSTRUCTIBLE;
     }
 

@@ -19,7 +19,7 @@ public class InfernoTower : Tower
 
     protected override void UpdateTarget()
     {
-        targets = TargetStrategies.Multi(rotatingPart, targets, range);
+        targets = TargetStrategies.Multi(rotatingPart, targets, CurrentRange);
     }
 
 
@@ -35,7 +35,7 @@ public class InfernoTower : Tower
         {
             if (Monster.CompareTag("Enemy"))
             {
-                Monster.GetComponent<MonsterController>().TakeDamage((int)Math.Floor(shootForce * this.damage));
+                Monster.GetComponent<MonsterController>().TakeDamage((int)Math.Floor(shootForce * this.CurrentDamage));
                 
             }
         }

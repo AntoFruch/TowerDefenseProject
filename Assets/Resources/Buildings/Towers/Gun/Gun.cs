@@ -13,7 +13,7 @@ public class Gun : Tower
 
     protected override void UpdateTarget()
     {
-        target = TargetStrategies.Mono(rotatingPart, target, range);
+        target = TargetStrategies.Mono(rotatingPart, target, CurrentRange);
     }
     protected override void Shoot()
     {
