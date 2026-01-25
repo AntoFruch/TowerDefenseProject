@@ -902,16 +902,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c397396341f2f44ebde80907d4453a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoneyManager
+  infiniteMoney: 0
   currentMoney: 200
   costs:
     redTower: 50
     blueTower: 50
     greenTower: 50
     yellowTower: 50
-    radar: 50
-    factory: 50
-    powerPlant: 50
-    storage: 50
+    radar: 100
+    factory: 100
+    powerPlant: 150
+    storage: 100
 --- !u!1 &1146037822
 GameObject:
   m_ObjectHideFlags: 0

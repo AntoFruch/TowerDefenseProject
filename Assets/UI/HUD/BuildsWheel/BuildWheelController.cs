@@ -86,7 +86,6 @@ public class BuildWheelController : MonoBehaviour
 
         // Costs initialisation
         this.redTowerCost = towersWheelUIDoc.rootVisualElement.Q<Label>("red-cost-label");
-        //this.redTowerCost.text = MoneyManager.Instance.costs.redTower.ToString();
         this.blueTowerCost = towersWheelUIDoc.rootVisualElement.Q<Label>("blue-cost-label");
         this.yellowTowerCost = towersWheelUIDoc.rootVisualElement.Q<Label>("yellow-cost-label");
         this.greenTowerCost = towersWheelUIDoc.rootVisualElement.Q<Label>("green-cost-label");
@@ -94,6 +93,20 @@ public class BuildWheelController : MonoBehaviour
         this.powerPlantCost = buildWheelUIDoc.rootVisualElement.Q<Label>("powerplant-cost-label");
         this.factoryCost = buildWheelUIDoc.rootVisualElement.Q<Label>("factory-cost-label");
         this.storageCost = buildWheelUIDoc.rootVisualElement.Q<Label>("storage-cost-label");
+
+        if(MoneyManager.Instance != null)
+        {
+            this.redTowerCost.text = MoneyManager.Instance.GetCost(BuildingType.RedTower).ToString();
+            this.blueTowerCost.text = MoneyManager.Instance.GetCost(BuildingType.BlueTower).ToString();
+            this.yellowTowerCost.text = MoneyManager.Instance.GetCost(BuildingType.YellowTower).ToString();
+            this.greenTowerCost.text = MoneyManager.Instance.GetCost(BuildingType.GreenTower).ToString();
+            this.radarCost.text = MoneyManager.Instance.GetCost(BuildingType.Radar).ToString();
+            this.powerPlantCost.text = MoneyManager.Instance.GetCost(BuildingType.PowerPlant).ToString();
+            this.factoryCost.text = MoneyManager.Instance.GetCost(BuildingType.Factory).ToString();
+            this.storageCost.text = MoneyManager.Instance.GetCost(BuildingType.Storage).ToString();
+        }
+        
+
         // Hide everything
         this.HideWheel();
     }
@@ -156,8 +169,7 @@ public class BuildWheelController : MonoBehaviour
     void onRadarButtonClick(ClickEvent evt)
     {
         GameObject radarPrefab = Game.Instance.buildingsPrefabs.radar;
-        Building buildingInfo = radarPrefab.GetComponent<Building>();
-
+ 
         int radarCost = MoneyManager.Instance.GetCost(BuildingType.Radar);
         //Check if the player have enough money to build the building
         if (MoneyManager.Instance.SpendMoney(radarCost))
@@ -174,7 +186,6 @@ public class BuildWheelController : MonoBehaviour
     void onPowerPlantButtonClick(ClickEvent evt)
     {
         GameObject powerPlantPrefab = Game.Instance.buildingsPrefabs.powerPlant;
-        Building buildingInfo = powerPlantPrefab.GetComponent<Building>();
 
         int powerPlantCost = MoneyManager.Instance.GetCost(BuildingType.PowerPlant);
 
@@ -192,7 +203,6 @@ public class BuildWheelController : MonoBehaviour
     void onStorageButtonClick(ClickEvent evt)
     {
         GameObject storagePrefab = Game.Instance.buildingsPrefabs.storage;
-        Building buildingInfo = storagePrefab.GetComponent<Building>();
 
         int storageCost = MoneyManager.Instance.GetCost(BuildingType.Storage);
 
@@ -210,7 +220,6 @@ public class BuildWheelController : MonoBehaviour
     void onFactoryButtonClick(ClickEvent evt)
     {
         GameObject factoryPrefab = Game.Instance.buildingsPrefabs.factory;
-        Building buildingInfo = factoryPrefab.GetComponent<Building>();
 
         int factoryCost = MoneyManager.Instance.GetCost(BuildingType.Factory);
 
@@ -241,7 +250,6 @@ public class BuildWheelController : MonoBehaviour
     {
         // Instantiate red tower
         GameObject redPrefab = Game.Instance.buildingsPrefabs.redTower;
-        Building buildingInfo = redPrefab.GetComponent<Building>();
 
         int redCost = MoneyManager.Instance.GetCost(BuildingType.RedTower);
 
@@ -259,7 +267,6 @@ public class BuildWheelController : MonoBehaviour
     void onBlueButtonClick(ClickEvent evt)
     {
         GameObject bluePrefab = Game.Instance.buildingsPrefabs.blueTower;
-        Building buildingInfo = bluePrefab.GetComponent<Building>();
 
         int blueCost = MoneyManager.Instance.GetCost(BuildingType.BlueTower);
 
@@ -277,7 +284,7 @@ public class BuildWheelController : MonoBehaviour
     void onYellowButtonClick(ClickEvent evt)
     {
         GameObject yellowPrefab = Game.Instance.buildingsPrefabs.yellowTower;
-        Building buildingInfo = yellowPrefab.GetComponent<Building>();
+
         int yellowCost = MoneyManager.Instance.GetCost(BuildingType.YellowTower);
 
         //Check if the player have enough money to build the building
@@ -294,7 +301,6 @@ public class BuildWheelController : MonoBehaviour
     void onGreenButtonClick(ClickEvent evt)
     {
         GameObject greenPrefab = Game.Instance.buildingsPrefabs.greenTower;
-        Building buildingInfo = greenPrefab.GetComponent<Building>();
 
         int greenCost = MoneyManager.Instance.GetCost(BuildingType.GreenTower);
 
