@@ -70,7 +70,6 @@ public class RangesManager : MonoBehaviour
 
     void LoadTowerRanges()
     {
-        Debug.Log("call");
         ClearRanges(towerRangeParent);
         foreach(Tower tower in Game.Instance.buildings.Where(b=>b is Tower))
         {

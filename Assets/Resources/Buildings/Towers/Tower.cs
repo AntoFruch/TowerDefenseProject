@@ -97,7 +97,6 @@ public abstract class Tower : Building
                 }
             }
         }
-        Debug.Log(CurrentRange);
         CurrentDamage = damage * damageMult;
         CurrentFireRate = fireRate * fireMult;
         CurrentRange = range + rangeBonus;
