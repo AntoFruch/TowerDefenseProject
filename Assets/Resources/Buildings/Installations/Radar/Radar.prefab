@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7949261318073684433}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &258214539175254906
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4932,7 +4932,9 @@ MonoBehaviour:
   buildingType: 4
   resaleRatio: 0.5
   type: 0
-  bonusPercentage: 0.25
+  fireRateBonus: 0.25
+  damageBonus: 0.25
+  rangeBonus: 1
 --- !u!4 &7949261318073684433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a68920354b6fc4f4a9a1e8ac2ee65973, type: 3}

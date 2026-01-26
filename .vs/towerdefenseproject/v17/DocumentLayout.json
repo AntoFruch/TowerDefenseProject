@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\alexa\\towerdefenseproject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\alexa\\towerdefenseproject\\Library\\PackageCache\\com.unity.inputsystem@552acc76aabe\\InputSystem\\Editor\\ProjectWideActions\\ProjectWideActionsAsset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.inputsystem@552acc76aabe\\InputSystem\\Editor\\ProjectWideActions\\ProjectWideActionsAsset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|c:\\users\\alexa\\towerdefenseproject\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|c:\\users\\alexa\\towerdefenseproject\\assets\\scripts\\controlecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\controlecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\resources\\buildings\\ranges\\rangesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\buildings\\ranges\\rangesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|c:\\users\\alexa\\towerdefenseproject\\assets\\resources\\monsters\\scripts\\monstercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\resources\\monsters\\scripts\\monstercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\monsters\\scripts\\monstercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\resources\\buildings\\towers\\tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\buildings\\towers\\tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\resources\\buildings\\building.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\buildings\\building.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\ui\\hud\\buildswheel\\buildwheelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,19 +62,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Building.cs",
-              "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\Building.cs",
-              "RelativeDocumentMoniker": "Assets\\Resources\\Buildings\\Building.cs",
-              "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\Building.cs",
-              "RelativeToolTip": "Assets\\Resources\\Buildings\\Building.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEgAAAAxAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "ProjectWideActionsAsset.cs",
+              "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Library\\PackageCache\\com.unity.inputsystem@552acc76aabe\\InputSystem\\Editor\\ProjectWideActions\\ProjectWideActionsAsset.cs",
+              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.inputsystem@552acc76aabe\\InputSystem\\Editor\\ProjectWideActions\\ProjectWideActionsAsset.cs",
+              "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Library\\PackageCache\\com.unity.inputsystem@552acc76aabe\\InputSystem\\Editor\\ProjectWideActions\\ProjectWideActionsAsset.cs",
+              "RelativeToolTip": "Library\\PackageCache\\com.unity.inputsystem@552acc76aabe\\InputSystem\\Editor\\ProjectWideActions\\ProjectWideActionsAsset.cs",
+              "ViewState": "AgIAAKoAAAAAAAAAAAAgwMUAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-22T10:50:29.498Z"
+              "WhenOpened": "2026-01-26T11:01:03.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Scripts\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
+              "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Scripts\\PlayerController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBgAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T10:35:53.988Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ControleCamera.cs",
+              "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Scripts\\ControleCamera.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ControleCamera.cs",
+              "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Scripts\\ControleCamera.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ControleCamera.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAA9wHQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T10:16:34.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Tower.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\Towers\\Tower.cs",
               "RelativeDocumentMoniker": "Assets\\Resources\\Buildings\\Towers\\Tower.cs",
@@ -78,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "BuildWheelController.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\UI\\HUD\\BuildsWheel\\BuildWheelController.cs",
               "RelativeDocumentMoniker": "Assets\\UI\\HUD\\BuildsWheel\\BuildWheelController.cs",
@@ -90,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "RangesManager.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\Ranges\\RangesManager.cs",
               "RelativeDocumentMoniker": "Assets\\Resources\\Buildings\\Ranges\\RangesManager.cs",
@@ -98,12 +133,11 @@
               "RelativeToolTip": "Assets\\Resources\\Buildings\\Ranges\\RangesManager.cs",
               "ViewState": "AgIAADQAAAAAAAAAAAAwwEsAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-23T15:22:12.37Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-23T15:22:12.37Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "MoneyManager.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\MoneySystem\\Scripts\\MoneyManager.cs",
               "RelativeDocumentMoniker": "Assets\\Resources\\MoneySystem\\Scripts\\MoneyManager.cs",
@@ -115,7 +149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "BuildingType.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\BuildingType.cs",
               "RelativeDocumentMoniker": "Assets\\Resources\\Buildings\\BuildingType.cs",
@@ -127,7 +161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "MonsterController.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Monsters\\Scripts\\MonsterController.cs",
               "RelativeDocumentMoniker": "Assets\\Resources\\Monsters\\Scripts\\MonsterController.cs",
@@ -135,12 +169,11 @@
               "RelativeToolTip": "Assets\\Resources\\Monsters\\Scripts\\MonsterController.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAAAmwEEAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-26T09:20:30.693Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-26T09:20:30.693Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "StaticHUDController.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\UI\\HUD\\StaticHUDController.cs",
               "RelativeDocumentMoniker": "Assets\\UI\\HUD\\StaticHUDController.cs",
@@ -152,7 +185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Installation.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Resources\\Buildings\\Installations\\Installation.cs",
               "RelativeDocumentMoniker": "Assets\\Resources\\Buildings\\Installations\\Installation.cs",

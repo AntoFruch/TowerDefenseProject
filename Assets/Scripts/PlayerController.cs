@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     InputAction moveCamAction;
     InputAction dragAction;
     InputAction zoomAction;
+    InputAction mouseZoomAction;
     
 
     // States
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
         selectAction = InputSystem.actions.FindAction("Interact");
         moveCamAction = InputSystem.actions.FindAction("Move");    
         zoomAction = InputSystem.actions.FindAction("Zoom");
+        mouseZoomAction = InputSystem.actions.FindAction("MouseZoom");
         dragAction = InputSystem.actions.FindAction("MouseMove");
     }
 
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
                 ToggleBuildsHUD();
                 cameraController.MoveCam(moveCamAction, dragAction);
                 cameraController.Zoom(zoomAction);
+                cameraController.Zoom(mouseZoomAction);
                 cameraController.MoveSelector();
             }
         } else if (Game.Instance.state == GameState.Defense)
