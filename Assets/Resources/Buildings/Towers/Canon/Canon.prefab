@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canon
   range: 3
+  buildingType: 0
+  resaleRatio: 0.5
   fireRate: 1
   damage: 10
   lerpStep: 10
