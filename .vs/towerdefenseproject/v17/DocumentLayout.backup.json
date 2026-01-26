@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\alexa\\towerdefenseproject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\scripts\\controlecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\controlecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|c:\\users\\alexa\\towerdefenseproject\\assets\\ui\\menu\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\ui\\menu\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\scripts\\controlecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\controlecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\resources\\buildings\\ranges\\rangesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,20 +70,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Menu.cs",
-              "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\UI\\Menu\\Menu.cs",
-              "RelativeDocumentMoniker": "Assets\\UI\\Menu\\Menu.cs",
-              "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\UI\\Menu\\Menu.cs",
-              "RelativeToolTip": "Assets\\UI\\Menu\\Menu.cs",
-              "ViewState": "AgIAAKAAAAAAAAAAAAAwwKoAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-26T11:40:05.221Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "SettingsUSS.uss",
               "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\UI\\Menu\\SettingsUSS.uss",
               "RelativeDocumentMoniker": "Assets\\UI\\Menu\\SettingsUSS.uss",
@@ -95,7 +82,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ProjectWideActionsAsset.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Library\\PackageCache\\com.unity.inputsystem@552acc76aabe\\InputSystem\\Editor\\ProjectWideActions\\ProjectWideActionsAsset.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.inputsystem@552acc76aabe\\InputSystem\\Editor\\ProjectWideActions\\ProjectWideActionsAsset.cs",
@@ -107,7 +94,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Scripts\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
@@ -119,15 +106,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "ControleCamera.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Scripts\\ControleCamera.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ControleCamera.cs",
               "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\Scripts\\ControleCamera.cs",
               "RelativeToolTip": "Assets\\Scripts\\ControleCamera.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAA9wHQAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBcAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-26T10:16:34.265Z"
+              "WhenOpened": "2026-01-26T10:16:34.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\UI\\Menu\\Menu.cs",
+              "RelativeDocumentMoniker": "Assets\\UI\\Menu\\Menu.cs",
+              "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\UI\\Menu\\Menu.cs",
+              "RelativeToolTip": "Assets\\UI\\Menu\\Menu.cs",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAwwKoAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T11:40:05.221Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

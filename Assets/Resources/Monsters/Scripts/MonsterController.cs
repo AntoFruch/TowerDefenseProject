@@ -1,6 +1,7 @@
-using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
+using UnityEngine.Audio;
 
 public class MonsterController : MonoBehaviour
 {
@@ -27,6 +28,12 @@ public class MonsterController : MonoBehaviour
     private List<Vertex<VertexLabel>> path;
     private int index = 0;
 
+    //Audio
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip spawnSound; 
+    [SerializeField] private AudioClip hitSound;     
+    [SerializeField] private AudioClip deathSound;    
+
     [SerializeField] private MonstersFXPrefabs prefabs;
     public MonstersFXPrefabs Prefabs => prefabs;
 
@@ -51,7 +58,12 @@ public class MonsterController : MonoBehaviour
             case Strategy.ShortestPath:
                 path = Strategies.ShortestPath(graph, spawnVertex);
                 break;
-        }        
+        }
+
+        if (audioSource != null && spawnSound != null)
+        {
+            audioSource.PlayOneShot(spawnSound);
+        }
     }
     void Update()
     {
@@ -111,7 +123,12 @@ public class MonsterController : MonoBehaviour
         life -= dmg;
         if (life > 0)
         {
-            GetComponent<Animator>().SetTrigger("TakeDMG");    
+            GetComponent<Animator>().SetTrigger("TakeDMG");
+            if (audioSource != null && hitSound != null)
+            {
+                audioSource.PlayOneShot(hitSound);
+            }
+
         } else
         {
             Die();
@@ -129,6 +146,11 @@ public class MonsterController : MonoBehaviour
         // triggers the death animation.
         // When the animation ends, a animator event calls DestroySelf()
         GetComponent<Animator>().SetTrigger("Death");
+
+        if (audioSource != null && deathSound != null)
+        {
+            audioSource.PlayOneShot(deathSound);
+        }
 
         if (MoneyManager.Instance != null)
         {
