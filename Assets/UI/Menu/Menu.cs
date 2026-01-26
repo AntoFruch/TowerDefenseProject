@@ -157,6 +157,7 @@ public class Menu : MonoBehaviour
     private void GenerateMapButtons()
     {
         string folderPath = Path.Combine(Application.persistentDataPath, "Maps");
+        Debug.Log(folderPath);
 
         // Crée le dossier Maps s'il n'existe pas encore
         if (!Directory.Exists(folderPath))
