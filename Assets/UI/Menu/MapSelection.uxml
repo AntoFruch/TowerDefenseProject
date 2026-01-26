@@ -16,6 +16,7 @@
                     </ui:VisualElement>
                     <ui:VisualElement name="bottom-container" class="bottom-container" style="flex-grow: 1;">
                         <ui:Label text="map name" name="map-name" class="map-name labels" />
+                        <ui:Toggle label="Mode neige" name="Toggle" class="toggle-map-style toggle-map-selection" />
                         <ui:Button name="start-btn" class="btn start-btn">
                             <ui:Label name="start-label" text="START !" class="labels start-label start-label-notready" style="font-size: 30px;" />
                         </ui:Button>

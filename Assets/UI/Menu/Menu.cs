@@ -13,6 +13,9 @@ public class Menu : MonoBehaviour
     private Button settingsButton;
     private Button exitButton;
 
+    [SerializeField] MapPrefabs winterAssets;
+    [SerializeField] MapPrefabs defaultAssets;
+    MapPrefabs mapStyle;
     
 
     
@@ -30,6 +33,8 @@ public class Menu : MonoBehaviour
     private Button backButton;
     private DropdownField resolutionDropdown;
     private Resolution[] filteredResolutions;
+
+    private Toggle snowMode; //Pour le mode neige
 
 
     // Settings Menu
@@ -88,6 +93,11 @@ public class Menu : MonoBehaviour
         backButton = mapSelectionUIDoc.rootVisualElement.Q<Button>("back-btn");
         backButton.RegisterCallback<ClickEvent>(OnBackMapSelectionButtonClick);
 
+        //Mode neige
+        mapStyle = defaultAssets;
+        snowMode = mapSelectionUIDoc.rootVisualElement.Q<Toggle>("Toggle");
+        snowMode.RegisterCallback<ChangeEvent<bool>>(OnSnowMap);
+
         //Settings Menu
             //Back Settings
         backSettingsButton = settingsUIDoc.rootVisualElement.Q<Button>("back-Settings");
@@ -96,8 +106,8 @@ public class Menu : MonoBehaviour
        
         var brightSlider = settingsUIDoc.rootVisualElement.Q<Slider>("BrightnessSlider");
         brightSlider.lowValue=0f;
-        brightSlider.highValue=0.8f;
-        brightSlider.value=PlayerPrefs.GetFloat("Brightness",0f);       
+        brightSlider.highValue=1f;
+        brightSlider.value=PlayerPrefs.GetFloat("Brightness");       
         brightSlider.RegisterValueChangedCallback(evt=> {SettingsManager.Instance.SetBrightness(evt.newValue);});
 
             //Sound
@@ -137,6 +147,8 @@ public class Menu : MonoBehaviour
         HideMapSelection();
         HideSettingsMenu();
     }
+
+
 
     // Methods
 
@@ -268,7 +280,7 @@ public class Menu : MonoBehaviour
 
         try
         {
-            GameConfig.LoadMap(filePath);
+            GameConfig.LoadMap(filePath,mapStyle);
             startButton.SetEnabled(true);
             errorLabel.text = "";
         }catch(System.Exception e)
@@ -324,6 +336,22 @@ public class Menu : MonoBehaviour
         {
             Resolution res = filteredResolutions[index];
             Screen.SetResolution(res.width, res.height, Screen.fullScreen);
+        }
+    }
+    
+    private void OnSnowMap(ChangeEvent<bool> evt)
+    {
+        bool isSnowActive = evt.newValue;
+
+        if (isSnowActive)
+        {
+            mapStyle=winterAssets;
+            GameConfig.mapStyle=winterAssets; 
+        }
+        else
+        {
+            mapStyle=defaultAssets;
+            GameConfig.mapStyle=defaultAssets;
         }
     }
 }
