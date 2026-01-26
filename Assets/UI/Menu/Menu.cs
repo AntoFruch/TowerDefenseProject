@@ -156,9 +156,14 @@ public class Menu : MonoBehaviour
     }
     private void GenerateMapButtons()
     {
-        string path = "../Maps";
-        string folderPath = Path.Combine(Application.dataPath, path);
+        string folderPath = Path.Combine(Application.persistentDataPath, "Maps");
 
+        // Crée le dossier Maps s'il n'existe pas encore
+        if (!Directory.Exists(folderPath))
+        {
+            Directory.CreateDirectory(folderPath);
+            Debug.Log("Maps folder created at: " + folderPath);
+        }
 
         if (Directory.Exists(folderPath))
         {
@@ -232,7 +237,7 @@ public class Menu : MonoBehaviour
         AudioManager.Instance.PlayClick();
         Button btn = evt.currentTarget as Button;
         string fileName = mapBtnToFileName[btn];
-        string filePath = Path.Combine(Path.Combine(Application.dataPath, "../Maps"), mapBtnToFileName[btn]);
+        string filePath = Path.Combine(Path.Combine(Application.persistentDataPath, "Maps"), mapBtnToFileName[btn]);
         
         
         // Change style ( blue button when selected )

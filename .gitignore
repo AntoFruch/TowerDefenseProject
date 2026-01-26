@@ -14,3 +14,6 @@ Assets/_Recovery/*
 # Mac Files
 .DS_Store
 
+# builds
+*.app
+*.exe
