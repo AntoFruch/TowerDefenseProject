@@ -18,6 +18,10 @@ public class ControleCamera : MonoBehaviour
     private Transform cameraStatic;
     [SerializeField]
     private float zoomSpeed = 4f;
+    [SerializeField]
+    private float minHeight = 6f;
+    [SerializeField]
+    private float maxHeight = 10f;
     
     //Selection
     [SerializeField]
@@ -88,7 +92,19 @@ public class ControleCamera : MonoBehaviour
     {
         float zoomInput = action.ReadValue<float>();
         float zoomAmount = zoomInput * zoomSpeed * Time.deltaTime;
-        cameraStatic.position += cameraTransform.forward * zoomAmount;
+        Vector3 targetPos = cameraStatic.position + (cameraTransform.forward * zoomAmount);
+
+        if (targetPos.y < minHeight)
+        {
+            return;
+        }
+        else if (targetPos.y > maxHeight)
+        {
+            return;
+        }
+
+        cameraStatic.position = targetPos;
+
     }
 
     public void MoveSelector()
