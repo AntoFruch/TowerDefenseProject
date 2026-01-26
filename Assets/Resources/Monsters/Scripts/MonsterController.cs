@@ -55,6 +55,8 @@ public class MonsterController : MonoBehaviour
     }
     void Update()
     {
+        if(isDead) return;
+
         ApplyGravity();
         FollowPath();
 
@@ -120,6 +122,9 @@ public class MonsterController : MonoBehaviour
     {
         isDead = true;
 
+        moveSpeed = 0f;
+
+        controller.enabled = false;
 
         // triggers the death animation.
         // When the animation ends, a animator event calls DestroySelf()

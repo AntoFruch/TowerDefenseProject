@@ -46,7 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Canon
   range: 3
-  fireRate: 1
+  buildingType: 0
+  resaleRatio: 0.5
+  fireRate: 0.5
   damage: 10
   lerpStep: 10
   rotatingPart: {fileID: 478912336557226885}
@@ -54,7 +56,7 @@ MonoBehaviour:
   idleRotationChangeTime: 2
   idleTurnSpeed: 1
   powerConsumption: 3
-  shootForce: 4
+  shootForce: 10
   prefabs: {fileID: 11400000, guid: f0fbb34e904f9b94a946fb764194bcd4, type: 2}
 --- !u!1 &9001429240929061061
 GameObject:
