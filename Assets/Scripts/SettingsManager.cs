@@ -49,7 +49,7 @@ public class SettingsManager : MonoBehaviour
     //Brightness
     public void SetBrightness(float value)
     {
-        brightness.style.opacity = value;
+        brightness.style.opacity = (1-value)*0.8f;
         PlayerPrefs.SetFloat("Brightness",value);
     }
 

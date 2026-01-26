@@ -929,6 +929,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Menu
   mainMenuUIDoc: {fileID: 959207672}
+  winterAssets: {fileID: 11400000, guid: 14201fcbd43fb4337a02f0362a5f4e1d, type: 2}
+  defaultAssets: {fileID: 11400000, guid: 49a36f366fd8c45ef9412e1edcfd569e, type: 2}
   mapSelectionUIDoc: {fileID: 312793342}
   settingsUIDoc: {fileID: 655213701}
   settingsParametersUIDoc: {fileID: 1483444636}

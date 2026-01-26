@@ -6,7 +6,9 @@ public static class GameConfig
 {
     public static TileType[][] map;
     public static Graph<VertexLabel> graph;
-    public static void LoadMap(string selectedMapPath)
+
+    public static MapPrefabs mapStyle;
+    public static void LoadMap(string selectedMapPath,MapPrefabs mapStyle)
     {
         TileType[][] map = FileAPI.ImageToTileTypeArray(FileAPI.ReadImageAsTexture2D(selectedMapPath));
         Graph<VertexLabel> graph = PathVerifier.CreatePathGraph(map);
@@ -14,5 +16,8 @@ public static class GameConfig
 
         GameConfig.map = map;
         GameConfig.graph = graph; 
+        GameConfig.mapStyle = mapStyle;
+
+        
     }
 }
