@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\ui\\menu\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|c:\\users\\alexa\\towerdefenseproject\\assets\\ui\\menu\\settingsuss.uss||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "AbsoluteMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|C:\\Users\\alexa\\towerdefenseproject\\assets\\ui\\menu\\settingsuss.uss||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{D1D638CF-B7A1-E6D9-E2E1-03A27F66300F}|Assembly-CSharp.csproj|solutionrelative:assets\\ui\\menu\\settingsuss.uss||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
@@ -76,7 +76,7 @@
               "RelativeDocumentMoniker": "Assets\\UI\\Menu\\Menu.cs",
               "ToolTip": "C:\\Users\\alexa\\towerdefenseproject\\Assets\\UI\\Menu\\Menu.cs",
               "RelativeToolTip": "Assets\\UI\\Menu\\Menu.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAWwDEAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAwwKoAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-26T11:40:05.221Z",
               "EditorCaption": ""
@@ -91,8 +91,7 @@
               "RelativeToolTip": "Assets\\UI\\Menu\\SettingsUSS.uss",
               "ViewState": "AgIAAB4AAAAAAAAAAAAIwDsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-01-26T11:22:57.142Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-26T11:22:57.142Z"
             },
             {
               "$type": "Document",
@@ -104,8 +103,7 @@
               "RelativeToolTip": "Library\\PackageCache\\com.unity.inputsystem@552acc76aabe\\InputSystem\\Editor\\ProjectWideActions\\ProjectWideActionsAsset.cs",
               "ViewState": "AgIAAKoAAAAAAAAAAAAgwMUAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-26T11:01:03.06Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-26T11:01:03.06Z"
             },
             {
               "$type": "Document",
