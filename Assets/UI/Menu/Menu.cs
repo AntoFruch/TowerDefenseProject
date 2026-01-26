@@ -3,6 +3,7 @@ using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 public class Menu : MonoBehaviour
 {   
     //Main Menu
@@ -27,6 +28,8 @@ public class Menu : MonoBehaviour
     private Label startLabel;
     private Label errorLabel;
     private Button backButton;
+    private DropdownField resolutionDropdown;
+    private Resolution[] filteredResolutions;
 
 
     // Settings Menu
@@ -120,7 +123,15 @@ public class Menu : MonoBehaviour
         soundSlider.highValue=100f; 
         masterSlider.value = PlayerPrefs.GetFloat("MasterVol", 0.001f);
         masterSlider.RegisterValueChangedCallback(evt => SettingsManager.Instance.SetMaster(evt.newValue));
-        
+
+            //Resolution
+        resolutionDropdown = settingsUIDoc.rootVisualElement.Q<DropdownField>("ResolutionDropdown");
+        if (resolutionDropdown != null)
+        {
+            SetupResolutionDropdown();
+            resolutionDropdown.RegisterValueChangedCallback(evt => OnResolutionChanged());
+        }
+
         GenerateMapButtons();
         ShowMainMenu();
         HideMapSelection();
@@ -271,5 +282,48 @@ public class Menu : MonoBehaviour
         AudioManager.Instance.PlayClick();
         HideMapSelection();
         ShowMainMenu();
+    }
+
+    private void SetupResolutionDropdown()
+    {
+        Resolution[] allResolutions = Screen.resolutions;
+        List<Resolution> uniqueResolutions = new List<Resolution>();
+        List<string> options = new List<string>();
+        int currentResIndex = 0;
+
+        for (int i = allResolutions.Length - 1; i >= 0; i--)
+        {
+            Resolution res = allResolutions[i];
+
+            if (!uniqueResolutions.Any(x => x.width == res.width && x.height == res.height))
+            {
+                uniqueResolutions.Add(res);
+                options.Add(res.width + " x " + res.height);
+
+                if (res.width == Screen.width && res.height == Screen.height)
+                {
+                    currentResIndex = uniqueResolutions.Count - 1;
+                }
+            }
+        }
+
+        filteredResolutions = uniqueResolutions.ToArray();
+        resolutionDropdown.choices = options;
+
+        if (options.Count > 0)
+        {
+            resolutionDropdown.index = currentResIndex;
+            resolutionDropdown.value = options[currentResIndex];
+        }
+    }
+
+    private void OnResolutionChanged()
+    {
+        int index = resolutionDropdown.index;
+        if (index >= 0 && index < filteredResolutions.Length)
+        {
+            Resolution res = filteredResolutions[index];
+            Screen.SetResolution(res.width, res.height, Screen.fullScreen);
+        }
     }
 }

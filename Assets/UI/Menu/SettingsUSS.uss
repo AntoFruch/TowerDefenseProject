@@ -52,3 +52,80 @@ Slider .unity-base-slider__dragger:active {
     border-color: rgb(255, 255, 255);
     background-color: rgb(255, 0, 0);
 }
+
+    /* =========================================================
+   STYLE DU DROPDOWN (RESOLUTION)
+   ========================================================= */
+
+
+DropdownField {
+    width: 60%;
+    align-self: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 50px;
+}
+
+
+DropdownField .unity-label {
+    color: rgb(247, 210, 0);
+    font-size: 30px;
+    -unity-font-style: bold;
+    text-shadow: 2px 2px 0 rgb(0, 0, 0);
+    margin-right: 20px;
+    min-width: 150px;
+}
+
+
+DropdownField .unity-base-field__input {
+    background-color: rgb(50, 50, 50);
+    border-width: 3px;
+    border-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    
+
+    color: rgb(247, 210, 0);
+    font-size: 24px; 
+    -unity-font-style: bold;
+    padding-left: 10px;
+}
+
+
+DropdownField .unity-dropdown-field__arrow {
+    -unity-background-image-tint-color: rgb(247, 210, 0); 
+}
+
+
+DropdownField .unity-base-field__input:hover {
+    border-color: rgb(255, 235, 59);
+}
+
+/* =========================================================
+   STYLE DE LA LISTE DÉROULANTE (POPUP)
+   ========================================================= */
+
+
+.unity-base-dropdown__container-outer {
+    background-color: rgb(50, 50, 50);
+    border-color: rgb(0, 0, 0);
+    border-width: 3px;
+    margin-top: 2px;
+}
+
+
+.unity-base-dropdown__item {
+    color: rgb(247, 210, 0);
+    font-size: 20px;
+    -unity-font-style: bold;
+}
+
+
+.unity-base-dropdown__item:hover {
+    background-color: rgb(247, 210, 0);
+    color: rgb(0, 0, 0); 
+}
+
+
+.unity-base-dropdown__checkmark {
+    -unity-background-image-tint-color: rgb(247, 210, 0);
+}
