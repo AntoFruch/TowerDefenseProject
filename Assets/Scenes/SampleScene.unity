@@ -314,6 +314,8 @@ MonoBehaviour:
   moveSpeed: 5
   cameraStatic: {fileID: 45789589}
   zoomSpeed: 4
+  minHeight: 5
+  maxHeight: 15
   selectiontile: {fileID: 109922508}
 --- !u!1 &263227113
 GameObject:
