@@ -116,11 +116,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8360e98611ebb4dbf2f177a370f01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XBow
-  range: 3
+  range: 5
   buildingType: 1
   resaleRatio: 0.5
-  fireRate: 1
-  damage: 10
+  fireRate: 5
+  damage: 1
   lerpStep: 10
   rotatingPart: {fileID: 6085482805191258487}
   projectileSpawn: {fileID: 4851505030853275605}

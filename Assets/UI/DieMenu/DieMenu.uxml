@@ -4,7 +4,7 @@
     <Style src="project://database/Assets/UI/PauseMenu/PauseMenuUSS.uss?fileID=7433441132597879392&amp;guid=47429100c14e922468c6f4c1890d3f28&amp;type=3#PauseMenuUSS" />
     <Style src="project://database/Assets/UI/Menu/MainMenu.uss?fileID=7433441132597879392&amp;guid=1707fbafac48a4944a0d65571a2337f3&amp;type=3#MainMenu" />
     <ui:VisualElement name="DieMenu" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.46);">
-        <ui:VisualElement name="DiePNG" style="flex-grow: 1;" />
+        <ui:VisualElement name="DiePNG" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/DieMenu/MISSION-FAILED-26-01-2026.png?fileID=2800000&amp;guid=0b1f6a20a57db46489d751b452043c97&amp;type=3#MISSION-FAILED-26-01-2026&quot;);" />
         <ui:VisualElement name="Buttons" style="flex-grow: 1;">
             <ui:Button text="Restart" name="Restart" class="btn labels" style="height: 70px; width: 338px;" />
             <ui:Button text="Quit" name="Quit" class="btn labels" style="height: 74px; width: 330px;" />

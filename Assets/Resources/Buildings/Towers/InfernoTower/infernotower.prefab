@@ -158,18 +158,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe5d123eabe0f64fa58f51d8c84c494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InfernoTower
-  range: 3
+  range: 1
   buildingType: 3
   resaleRatio: 0.5
-  fireRate: 1
-  damage: 10
+  fireRate: 3
+  damage: 1
   lerpStep: 10
   rotatingPart: {fileID: 6462606216006220376}
   projectileSpawn: {fileID: 6462606216006220376}
   idleRotationChangeTime: 2
   idleTurnSpeed: 1
   powerConsumption: 3
-  shootForce: 0.2
   prefabs: {fileID: 0}
   beamPrefab: {fileID: 23569899117785782, guid: 46406fb5789f97a4b9eb92b8f4143c98, type: 3}
   firePoint: {fileID: 6462606216006220376}

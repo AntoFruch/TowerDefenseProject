@@ -11,6 +11,6 @@
         <ui:Slider label="Master" value="42" high-value="100" name="MasterSlider" class="slider" />
     </ui:VisualElement>
     <ui:VisualElement name="Back" style="flex-grow: 1;">
-        <ui:Button text="&lt;- Button" name="back-Settings" class="back-btn-label labels back-btn" style="-unity-text-align: upper-center; white-space: nowrap;" />
+        <ui:Button text="&lt;- BACK" name="back-Settings" class="back-btn-label labels back-btn" style="-unity-text-align: upper-center; white-space: nowrap;" />
     </ui:VisualElement>
 </ui:UXML>

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 public class InfernoTower : Tower
 {
     [Header("InfernoTower-Specific fields")]
-    [SerializeField] private float shootForce = 0.2f;
     [SerializeField] private InfernoTowerPrefabs prefabs;
 
     [SerializeField] private LineRenderer beamPrefab; 
@@ -35,7 +34,7 @@ public class InfernoTower : Tower
         {
             if (Monster.CompareTag("Enemy"))
             {
-                Monster.GetComponent<MonsterController>().TakeDamage((int)Math.Floor(shootForce * this.CurrentDamage));
+                Monster.GetComponent<MonsterController>().TakeDamage((int)Math.Floor(this.CurrentDamage));
                 
             }
         }
