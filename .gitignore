@@ -17,3 +17,4 @@ Assets/_Recovery/*
 # builds
 *.app
 *.exe
+build/*
