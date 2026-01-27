@@ -10,7 +10,6 @@ public class EnergyIndicator : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
     {
-        Debug.Log("init");
         root = UIDoc.rootVisualElement;
         energyLevel = root.Q<Label>("energy-label");
         
