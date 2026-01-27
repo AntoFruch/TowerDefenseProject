@@ -48,7 +48,6 @@ public class EnergyManager : MonoBehaviour
     // Makes the graph as a spanning tree
     void ConnectBuildings(List<Vertex<Building>> powerplants)
     {
-        List<Vertex<Building>> visited = new List<Vertex<Building>>();
         Queue<Vertex<Building>> queue = new Queue<Vertex<Building>>();
         Dictionary<Vertex<Building>, int> distances = new Dictionary<Vertex<Building>, int>();
         
@@ -57,7 +56,6 @@ public class EnergyManager : MonoBehaviour
             // adds the initial nodes to the queue ( powerplants with distance 0 )
             // it is the first layer of the graph
             queue.Enqueue(powerplant);
-            visited.Add(powerplant);
             distances[powerplant] = 0;
         }
 
@@ -70,7 +68,7 @@ public class EnergyManager : MonoBehaviour
             
             // We find all unvisited buildings in range
             List<Vertex<Building>> potentialNeighbors = energyGraph.GetVertices()
-                .Where(v => !visited.Contains(v) && IsInRange(current, v))
+                .Where(v => !distances.ContainsKey(v) && IsInRange(current, v))
                 .ToList();
             
             //And for each of them 
@@ -82,7 +80,6 @@ public class EnergyManager : MonoBehaviour
                     // First time we find this vertex, add the edge
                     current.AddNeighbor(neighbor, 1);
                     distances[neighbor] = currentDistance + 1;
-                    visited.Add(neighbor);
                     queue.Enqueue(neighbor);
                 }
                 // if distances[neighbor] < currentDistance + 1, we do nothing

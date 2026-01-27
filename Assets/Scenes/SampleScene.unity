@@ -508,7 +508,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: f8cdab0f2e7074c4cbd9f1f352632721, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: ea64ba97a9bc55a4bbd52acfcf6b9f40, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Position: 0
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
@@ -540,6 +540,14 @@ PrefabInstance:
     - target: {fileID: 1304952147405491925, guid: e49b6140c3e2092459edd59bc8caaf60, type: 3}
       propertyPath: m_Name
       value: Wheel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580799270397867193, guid: e49b6140c3e2092459edd59bc8caaf60, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499727554244297617, guid: e49b6140c3e2092459edd59bc8caaf60, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6588258043312926891, guid: e49b6140c3e2092459edd59bc8caaf60, type: 3}
       propertyPath: m_LocalPosition.x
@@ -907,7 +915,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: f8cdab0f2e7074c4cbd9f1f352632721, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 956080abb93594644a6543067b001b38, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Position: 0
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
@@ -1303,7 +1311,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: f8cdab0f2e7074c4cbd9f1f352632721, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: aef2096318dd39d41a786544a801a6a6, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Position: 0
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
@@ -1405,6 +1413,10 @@ PrefabInstance:
     - target: {fileID: 1864038395283383824, guid: 042f47c80907c4771b4307f0dc2c351d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152852164394784800, guid: 042f47c80907c4771b4307f0dc2c351d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8462212203083345547, guid: 042f47c80907c4771b4307f0dc2c351d, type: 3}
       propertyPath: m_Name

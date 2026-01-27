@@ -57,21 +57,34 @@ public class MapGenerator : MonoBehaviour
                                 }
                                 Instantiate(mapPrefabs.splitPath, new Vector3(x,0,y),rotation);
                                 break;
-                            case 2: // il faut mettre un tournant simple
+                            case 2:
+                                GameObject prefab = null;
                                 if (adj[0] && adj[2] ) //  up left
                                 {
                                     rotation = Quaternion.Euler(0f,0f,0f);
+                                    prefab = mapPrefabs.cornerPath;
                                 } else if (adj[0] && adj[3]) // up right
                                 {
                                     rotation = Quaternion.Euler(0f, 90f, 0f);
+                                    prefab = mapPrefabs.cornerPath;
                                 } else if (adj[1] && adj[2]) // down left
                                 {
                                     rotation = Quaternion.Euler(0f, -90f, 0f);
+                                    prefab = mapPrefabs.cornerPath;
                                 } else if (adj[1] && adj[3]) // down right
                                 {
                                     rotation = Quaternion.Euler(0f,-180f, 0f); 
+                                    prefab = mapPrefabs.cornerPath;
+                                } else if (adj[0] && adj[1]) // up down
+                                {
+                                    rotation = Quaternion.Euler(0f, 0f, 0f);
+                                    prefab = mapPrefabs.straightPath;
+                                } else if (adj[2] && adj[3]) // left right
+                                {
+                                    rotation = Quaternion.Euler(0f, 90f, 0f);
+                                    prefab = mapPrefabs.straightPath;
                                 }
-                                Instantiate(mapPrefabs.cornerPath, new Vector3(x,0,y),rotation); 
+                                Instantiate(prefab, new Vector3(x,0,y),rotation); 
                                 break;
                             }
                             break;

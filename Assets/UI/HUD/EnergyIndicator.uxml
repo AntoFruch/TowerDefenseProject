@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3#Common" />
+    <Style src="project://database/Assets/UI/EnergyIndicator.uss?fileID=7433441132597879392&amp;guid=6306c813b294a384897c7d0ac2017d70&amp;type=3#EnergyIndicator" />
+    <ui:VisualElement name="main-container" class="main-container">
+        <ui:Label text="5&#10;" name="energy-label" class="labels label" />
+    </ui:VisualElement>
+</ui:UXML>
