@@ -194,58 +194,75 @@
     bottom: 0;
 }
 
-
 .toggle-map-selection {
-    align-items: center; 
-    margin-top: 10px;    
+    align-items: center;
+    margin-top: 10px;
 }
-
 
 .toggle-map-selection .unity-toggle__label {
-    color: #FFFFFF; 
+    color: rgb(255, 255, 255);
     -unity-font-style: bold;
     font-size: 20px;
-    
-    
     -unity-text-outline-color: rgb(0, 0, 0);
     -unity-text-outline-width: 2px;
-    
-    margin-left: 10px; 
-    padding-top: 0;    
+    margin-left: 10px;
+    padding-top: 0;
 }
-
 
 .toggle-map-selection .unity-toggle__checkmark {
     width: 35px;
     height: 35px;
-    
-    
-    background-color: rgb(230, 81, 0); 
-    
-    
+    background-color: rgb(230, 81, 0);
     border-color: rgb(0, 0, 0);
     border-width: 3px;
-    border-radius: 8px; 
-    
-    margin: 0; 
+    border-radius: 8px;
+    margin: 0;
 }
-
 
 .toggle-map-selection:hover .unity-toggle__checkmark {
-
     background-color: rgb(255, 110, 0);
-    border-color: rgb(50, 50, 50); 
+    border-color: rgb(50, 50, 50);
 }
 
-
 .toggle-map-selection:checked .unity-toggle__checkmark {
-        background-color: rgb(255, 215, 0); 
-    
-    
+    background-color: rgb(255, 215, 0);
     -unity-background-image-tint-color: rgb(0, 0, 0);
 }
 
-
 .toggle-map-selection:focus .unity-toggle__checkmark {
-    border-color: rgb(255, 255, 255); 
+    border-color: rgb(255, 255, 255);
+}
+
+.reload-btn {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: rgb(255, 194, 0);
+    top: 0;
+    left: 90px;
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-left-color: rgb(255, 165, 0);
+    border-right-color: rgb(255, 165, 0);
+    border-top-color: rgb(255, 165, 0);
+    border-bottom-color: rgb(255, 165, 0);
+}
+
+.reload-btn:hover {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: rgb(209, 160, 0);
+    top: 0;
+    left: 90px;
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-left-color: rgb(190, 124, 3);
+    border-right-color: rgb(190, 124, 3);
+    border-top-color: rgb(190, 124, 3);
+    border-bottom-color: rgb(190, 124, 3);
 }

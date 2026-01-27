@@ -31,6 +31,7 @@ public class Menu : MonoBehaviour
     private Label startLabel;
     private Label errorLabel;
     private Button backButton;
+    private Button reloadButton;
     private DropdownField resolutionDropdown;
     private Resolution[] filteredResolutions;
 
@@ -53,10 +54,6 @@ public class Menu : MonoBehaviour
     {   
         //Débute la music d'ambiance du main menu.
         AudioManager.Instance.PlaymenuAmbientSound();
-        
-
-
-
 
         mapBtnToFileName = new Dictionary<Button, string>();
 
@@ -89,6 +86,9 @@ public class Menu : MonoBehaviour
         
         errorLabel = mapSelectionUIDoc.rootVisualElement.Q<Label>("error-label");
         errorLabel.text = "";
+
+        reloadButton = mapSelectionUIDoc.rootVisualElement.Q<Button>("reload-btn");
+        reloadButton.RegisterCallback<ClickEvent>(OnReloadClick);
 
         backButton = mapSelectionUIDoc.rootVisualElement.Q<Button>("back-btn");
         backButton.RegisterCallback<ClickEvent>(OnBackMapSelectionButtonClick);
@@ -179,6 +179,9 @@ public class Menu : MonoBehaviour
     }
     private void GenerateMapButtons()
     {
+        mapButtonsContainer.Clear();
+        mapBtnToFileName.Clear();
+
         string folderPath = Path.Combine(Application.persistentDataPath, "Maps");
         Debug.Log(folderPath);
 
@@ -288,6 +291,10 @@ public class Menu : MonoBehaviour
             errorLabel.text = "Error : " + e.Message;
             startButton.SetEnabled(false);
         }
+    }
+    void OnReloadClick(ClickEvent evt)
+    {
+        GenerateMapButtons();
     }
     void OnBackMapSelectionButtonClick(ClickEvent evt)
     {
