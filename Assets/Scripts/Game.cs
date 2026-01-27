@@ -52,7 +52,6 @@ public class Game : MonoBehaviour
         map = GameConfig.map;
         graph = GameConfig.graph;
         mapPrefabs = GameConfig.mapStyle;
-        Debug.Log(GameConfig.mapStyle);
 
         // mode dev
         if (map == null)

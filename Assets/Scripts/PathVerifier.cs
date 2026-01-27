@@ -48,7 +48,6 @@ public class PathVerifier
     {
         if (!visited.Contains(vertex))
         {
-            //Debug.Log("GraphSearch "+vertex.position);
             visited.Add(vertex);
 
             Vector2Int[] directions = new Vector2Int[4] {Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right};
