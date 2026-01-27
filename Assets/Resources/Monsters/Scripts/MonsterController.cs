@@ -9,8 +9,8 @@ public class MonsterController : MonoBehaviour
     public Animator animator{ get; private set; }
 
     // Life
-    [SerializeField] private int life = 10;
-    public int Life => life;
+    [SerializeField] public int maxHealth; 
+    public int health { get; private set; }
 
     //Economy
     [SerializeField] private int moneyValue = 100;
@@ -39,6 +39,7 @@ public class MonsterController : MonoBehaviour
 
     void Start()
     {
+        health = maxHealth;
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
 
@@ -120,8 +121,8 @@ public class MonsterController : MonoBehaviour
     {
         if (isDead) return;
 
-        life -= dmg;
-        if (life > 0)
+        health -= dmg;
+        if (health > 0)
         {
             GetComponent<Animator>().SetTrigger("TakeDMG");
             if (audioSource != null && hitSound != null)
@@ -138,6 +139,7 @@ public class MonsterController : MonoBehaviour
     private void Die()
     {
         isDead = true;
+        health = 0;
 
         moveSpeed = 0f;
 

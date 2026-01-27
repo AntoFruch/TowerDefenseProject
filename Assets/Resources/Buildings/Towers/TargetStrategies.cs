@@ -10,7 +10,7 @@ public static class TargetStrategies
                                                         IsInManhattanRange(UEExtension.Vector3toVector2Int(e.transform.position),
                                                                         UEExtension.Vector3toVector2Int(rotatingPart.transform.position),
                                                                         range) 
-                                                                    && e.GetComponent<MonsterController>().Life > 0 )
+                                                                    && e.GetComponent<MonsterController>().health > 0 )
                                                     .ToList();
 
         if (target != null && !inRangeEnemies.Contains(target))
@@ -32,7 +32,7 @@ public static class TargetStrategies
     public static List<GameObject> Multi(Transform rotatingPart,List<GameObject> targets, float realRange)
     {
         List<GameObject> inRangeEnemies = GameObject.FindGameObjectsWithTag("Enemy")
-                                                    .Where(e => (e.transform.position - rotatingPart.position).magnitude < realRange && e.GetComponent<MonsterController>().Life > 0)
+                                                    .Where(e => (e.transform.position - rotatingPart.position).magnitude < realRange && e.GetComponent<MonsterController>().health > 0)
                                                     .ToList();
         
         targets = inRangeEnemies;

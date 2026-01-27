@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3#Common" />
+    <Style src="project://database/Assets/Resources/Monsters/UI/MonsterHealthbar.uss?fileID=7433441132597879392&amp;guid=6374e2b879d7dcd4394174725d4c86de&amp;type=3#MonsterHealthbar" />
+    <ui:VisualElement name="healthbar" class="healthbar">
+        <ui:VisualElement name="mask" class="mask">
+            <ui:VisualElement name="fill" class="fill" style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
