@@ -17,27 +17,31 @@ public class MapGenerator : MonoBehaviour
             {
                 TileType type = map[y][x];
                 bool[] adj = adjascentPath(x,y);
+
+                // En fonction du type de tuile à placer, la détermination de son orientation est différente
                 Quaternion rotation = Quaternion.identity;
                 switch (type)
                 {
+                    // 2 possibilités : vers horizontal ou vertical ?
                     case TileType.PATH:
-                        if (adj[0] && adj[1])
+                        if (adj[0] && adj[1]) // up + down
                         {
                             rotation = Quaternion.Euler(0f, 0f, 0f);
-                        } else if (adj[2] && adj[3])
+                        } else if (adj[2] && adj[3]) // left + right
                         {
                             rotation = Quaternion.Euler(0f, 90f, 0f);
                         }
 
                         Instantiate(mapPrefabs.straightPath, new Vector3(x,0,y),rotation);
                         break;
+                    // l'intersection est spéciale : il peut y avoir 2, 3 ou 4 chemins adjascents
                     case TileType.INTERSECTION:
-                        switch (adj.Sum(b => b ? 1 : 0))
+                        switch (adj.Sum(b => b ? 1 : 0)) // calcul de combien d'adjascents sont true 
                         {
                             case 4: // pas de question a se poser sur l'orientation, on met le carrefour
                                 Instantiate(mapPrefabs.crossPath, new Vector3(x, 0, y), rotation);
                                 break;
-                            case 3: // il faut mettre une intersection 
+                            case 3: // il faut mettre une intersection à 3 embranchements
                                 if (adj[0] && adj[2] && adj[3]) //  up left right -> vers le haut 
                                 {
                                     rotation = Quaternion.Euler(0f,0f,0f);
@@ -53,7 +57,7 @@ public class MapGenerator : MonoBehaviour
                                 }
                                 Instantiate(mapPrefabs.splitPath, new Vector3(x,0,y),rotation);
                                 break;
-                            case 2: 
+                            case 2: // il faut mettre un tournant simple
                                 if (adj[0] && adj[2] ) //  up left
                                 {
                                     rotation = Quaternion.Euler(0f,0f,0f);
@@ -71,6 +75,8 @@ public class MapGenerator : MonoBehaviour
                                 break;
                             }
                             break;
+                    // les cas Spawn et End sont les mêmes, ils faut simplement determiner si la tuile est au milieu d'un chemin ou au bout
+                    // le cas dans un coin n'est pas géré
                     case TileType.SPAWN or TileType.END:
                         bool end = true;
                         if (adj[0])
@@ -108,6 +114,7 @@ public class MapGenerator : MonoBehaviour
                         }
 
                         break;
+                    // Les cas Edge et constructibles sont triviaux
                     case TileType.EDGE:
                         Instantiate(mapPrefabs.edgeTile, new Vector3(x, 0, y), Quaternion.identity);   
                         break;
@@ -117,7 +124,30 @@ public class MapGenerator : MonoBehaviour
                 }
             }   
         }
+        // Une fois la carte générée, on ajoute des bordure avec de la génération aléatoire.
         GenerateBorders();
+    }
+
+    // retourne un array de booleens representant si les tuiles adjascentes sont des chemins valables ou pas.
+    // structure de retour {up, down, left, right}
+    private bool[] adjascentPath(int x, int y)
+    {
+        bool up = y<map.Length-1 ? 
+            map[y+1][x] == TileType.PATH || map[y+1][x] == TileType.INTERSECTION || map[y+1][x] == TileType.SPAWN || map[y+1][x] == TileType.END: false;
+
+        bool down = y>0 ? 
+            map[y-1][x] == TileType.PATH || map[y-1][x] == TileType.INTERSECTION || map[y-1][x] == TileType.SPAWN || map[y-1][x] == TileType.END: false;
+
+        bool right = x<map[0].Length-1 ? 
+            map[y][x+1] == TileType.PATH || map[y][x+1] == TileType.INTERSECTION || map[y][x+1] == TileType.SPAWN || map[y][x+1] == TileType.END: false;
+
+        bool left = x>0 ? 
+            map[y][x-1] == TileType.PATH || map[y][x-1] == TileType.INTERSECTION || map[y][x-1] == TileType.SPAWN || map[y][x-1] == TileType.END: false;
+
+        return new bool[]
+        {
+            up, down, left, right
+        };
     }
 
     public int borderSize = 30; // combien de tuiles autour de la map
@@ -172,24 +202,5 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    // retourne un array de boolen representant si les tuiles adjascentes sont des chemins valables ou pas.
-    private bool[] adjascentPath(int x, int y)
-    {
-        bool up = y<map.Length-1 ? 
-            map[y+1][x] == TileType.PATH || map[y+1][x] == TileType.INTERSECTION || map[y+1][x] == TileType.SPAWN || map[y+1][x] == TileType.END: false;
-
-        bool down = y>0 ? 
-            map[y-1][x] == TileType.PATH || map[y-1][x] == TileType.INTERSECTION || map[y-1][x] == TileType.SPAWN || map[y-1][x] == TileType.END: false;
-
-        bool right = x<map[0].Length-1 ? 
-            map[y][x+1] == TileType.PATH || map[y][x+1] == TileType.INTERSECTION || map[y][x+1] == TileType.SPAWN || map[y][x+1] == TileType.END: false;
-
-        bool left = x>0 ? 
-            map[y][x-1] == TileType.PATH || map[y][x-1] == TileType.INTERSECTION || map[y][x-1] == TileType.SPAWN || map[y][x-1] == TileType.END: false;
-
-        return new bool[]
-        {
-            up, down, left, right
-        };
-    }
+    
 }

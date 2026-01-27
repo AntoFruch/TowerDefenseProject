@@ -7,7 +7,6 @@ public class PathVerifier
 
     // lève des exceptions en cas de :
     // - Chemin qui ne finit pas sur une intersection
-    // - Pas de 
     public static Graph<VertexLabel> CreatePathGraph(TileType[][] map)
     {
         
@@ -20,7 +19,6 @@ public class PathVerifier
                 TileType tile = map[y][x];
                 if (tile == TileType.SPAWN)
                 {
-                    //Debug.Log("Spawn at ("+x+","+y+")");
                     graph.AddVertex(VertexLabel.START, new Vector2Int(x,y));
 
                 } else if (tile == TileType.INTERSECTION )
@@ -34,6 +32,7 @@ public class PathVerifier
             } 
         }
 
+        // il faut maintenant associer les sommets par voisinage
         List<Vertex<VertexLabel>> visited = new List<Vertex<VertexLabel>>();
         foreach (Vertex<VertexLabel> vertex in graph.GetVertices())
         {
@@ -43,12 +42,11 @@ public class PathVerifier
         return graph;
     }
 
-    // Parcours de graphe pour les aretes à partir d'une arete étiquettée START
+    // Parcours de graphe pour les aretes à partir d'une arete quelconque
     private static void GraphSearch(Graph<VertexLabel> graph, TileType[][] map, List<Vertex<VertexLabel>> visited, Vertex<VertexLabel> vertex)
     {
         if (!visited.Contains(vertex))
         {
-            //Debug.Log("GraphSearch "+vertex.position);
             visited.Add(vertex);
 
             Vector2Int[] directions = new Vector2Int[4] {Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right};
@@ -83,7 +81,7 @@ public class PathVerifier
         } else if (map[pos.y][pos.x] == TileType.PATH)  
         {
             // si la tuile suivante est ni un chemin, ni une fin, ni un debut, ni une intersection, 
-            // et que la tuiel d'avant était un chemin ( chemin deja commencé )
+            // et que la tuile d'avant était un chemin ( chemin deja commencé )
             // alors le chemin rectiligne ne finit pas sur une intersection => problème.
             throw new System.Exception("Unexpected end of path at "+ nextpos);
         } else return ;
@@ -92,7 +90,7 @@ public class PathVerifier
     // *********************** Vérification du Graphe ************************************************
     // * Il y a plusieurs points à prendre en compte :
     // *    - existence d'une zone de sortie et une d'entrée au moins.
-    // *    - existence d'un chemin entrée/sortie poru chaque entrée.
+    // *    - existence d'un chemin entrée/sortie pour chaque entrée.
     // ***********************************************************************************************
 
     // leve des exceptions en fontions des violations des 2 regles ci-dessus.
