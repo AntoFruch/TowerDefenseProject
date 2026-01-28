@@ -1,5 +1,5 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3" />
+    <Style src="project://database/Assets/UI/Common.uss?fileID=7433441132597879392&amp;guid=f0a33f55822087543acc27a2aec19763&amp;type=3#Common" />
     <Style src="project://database/Assets/UI/HUD/StaticHUD.uss?fileID=7433441132597879392&amp;guid=7c83f70f16a878b4f91f7d7a53e9e85c&amp;type=3#StaticHUD" />
     <ui:VisualElement name="main-container" picking-mode="Ignore" class="main-container">
         <ui:VisualElement name="range-mode-container" class="range-mode-container">
@@ -21,5 +21,6 @@
             </ui:VisualElement>
             <ui:VisualElement name="healthbar-frame" class="healthbar-frame" />
         </ui:VisualElement>
+        <ui:Label text="Score : 0" name="score-label" style="color: rgb(65, 31, 0); font-size: 40px; -unity-text-align: upper-right; white-space: nowrap; -unity-font-definition: url(&quot;project://database/Assets/UI/Supersonic%20Rocketship.ttf?fileID=12800000&amp;guid=42639f43f6fe7b6438f0eff715a5b7f4&amp;type=3#Supersonic Rocketship&quot;); -unity-text-outline-color: rgb(255, 255, 255); -unity-text-outline-width: 1px; letter-spacing: -6px; -unity-font-style: bold; translate: -33px 25px;" />
     </ui:VisualElement>
 </ui:UXML>

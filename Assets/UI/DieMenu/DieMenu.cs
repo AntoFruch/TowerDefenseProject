@@ -14,6 +14,7 @@ public class DieMenu : MonoBehaviour
     private Button quitButton;
 
     //stats
+    private Label finalScoreLabel;
     private Label monstersDefeated;
     private Label wavesSurvived;
     private Label moneySpent;
@@ -30,6 +31,7 @@ public class DieMenu : MonoBehaviour
         restartButton = root.Q<Button>("Restart");
         quitButton = root.Q<Button>("Quit");
 
+        finalScoreLabel = root.Q<Label>("final-score");
         monstersDefeated = root.Q<Label>("monsters-defeated");
         wavesSurvived = root.Q<Label>("waves-survived");
         moneySpent = root.Q<Label>("money-spent");
@@ -49,6 +51,7 @@ public class DieMenu : MonoBehaviour
 
     void SetStats()
     {
+        finalScoreLabel.text = "Final Score : " + ScoreManager.Instance.CurrentScore.ToString();
         monstersDefeated.text = "Monster defeated : " + GameStatsManager.Instance.monstersDefeated.ToString();
         wavesSurvived.text = "Waves survived : " + GameStatsManager.Instance.wavesSurvived.ToString();
         moneySpent.text = "Money spent : " + GameStatsManager.Instance.moneySpent.ToString();

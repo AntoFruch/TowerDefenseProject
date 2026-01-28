@@ -11,6 +11,7 @@
             <ui:VisualElement name="stats-container" style="flex-grow: 1; align-items: center;">
                 <ui:VisualElement name="stats-box" style="width: 500px; background-color: rgb(255, 236, 97); border-top-left-radius: 49px; border-top-right-radius: 49px; border-bottom-right-radius: 49px; border-bottom-left-radius: 49px; border-top-width: 6px; border-right-width: 6px; border-bottom-width: 6px; border-left-width: 6px; border-left-color: rgb(255, 137, 0); border-right-color: rgb(255, 137, 0); border-top-color: rgb(255, 137, 0); border-bottom-color: rgb(255, 137, 0); height: 95%;">
                     <ui:Label text="Game statistics" class="labels stats-label" style="font-size: 51px;" />
+                    <ui:Label text="Final Score : 0" name="final-score" enable-rich-text="false" emoji-fallback-support="true" class="labels stats-label" />
                     <ui:Label text="Monster Defeated : 0" name="monsters-defeated" class="labels stats-label" />
                     <ui:Label text="Waves Survived : 0" name="waves-survived" class="labels stats-label" />
                     <ui:Label text="money Spent : 0" name="money-spent" class="labels stats-label" />

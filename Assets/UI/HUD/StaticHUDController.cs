@@ -17,6 +17,9 @@ public class StaticHUDController : MonoBehaviour
     // money
     private Label moneyLabel;
 
+    //score
+    private Label scoreLabel;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
@@ -36,6 +39,9 @@ public class StaticHUDController : MonoBehaviour
 
         //money
         moneyLabel = root.Q<Label>("money-label");
+
+        //score
+        scoreLabel = root.Q<Label>("score-label");
     }
 
     // Update is called once per frame
@@ -43,17 +49,26 @@ public class StaticHUDController : MonoBehaviour
     {
         UpdateHealthBar();
         UpdateMoneyLabel();
+        UpdateScoreLabel();
     }
 
     void UpdateHealthBar()
     {
         mask.style.width = Length.Percent(HealthManager.Instance.health / HealthManager.Instance.MaxHealth * 100f);
     }
-    
+
     void UpdateMoneyLabel()
     {
-        int money = MoneyManager.Instance.GetMoney(); 
-        moneyLabel.text = money.ToString() ;
+        int money = MoneyManager.Instance.GetMoney();
+        moneyLabel.text = money.ToString();
+    }
+
+    void UpdateScoreLabel()
+    {
+        if (ScoreManager.Instance != null && scoreLabel != null)
+        {
+            scoreLabel.text = "Score: " + ScoreManager.Instance.CurrentScore.ToString();
+        }
     }
 
     //CALLBACKS : 
@@ -71,5 +86,5 @@ public class StaticHUDController : MonoBehaviour
     {
         RangesManager.Instance.SetMode(RangeMode.Boost);
         AudioManager.Instance?.PlayClick();
-    } 
+    }
 }
