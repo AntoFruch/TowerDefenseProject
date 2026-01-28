@@ -698,7 +698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570a9da56bdd2204eabe5db95eedf66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RangesManager
-  mode: 0
+  mode: 3
 --- !u!1 &870916434
 GameObject:
   m_ObjectHideFlags: 0

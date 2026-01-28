@@ -5,10 +5,12 @@ public class XBow : Tower
     [Header("XBow-Specific fields")]
     [SerializeField] private float shootForce = 1f;
     [SerializeField] private XBowPrefabs prefabs;
+    private AudioSource audioSource;
 
     protected override void Start()
     {
         base.Start();
+        audioSource = GetComponent<AudioSource>();
     }
 
     protected override void UpdateTarget()
@@ -18,6 +20,7 @@ public class XBow : Tower
 
     protected override void Shoot()
     {
+        audioSource.Play();
         GameObject projectile = Instantiate(prefabs.projectile, projectileSpawn.position, Quaternion.LookRotation(lookDirection));
         projectile.GetComponent<Projectile>().Init(this);
         

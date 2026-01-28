@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using NUnit.Framework;
 public class InfernoTower : Tower
 {
     [Header("InfernoTower-Specific fields")]
@@ -10,10 +11,14 @@ public class InfernoTower : Tower
     [SerializeField] private Transform firePoint;
     private Dictionary<GameObject, LineRenderer> activeBeams = new Dictionary<GameObject, LineRenderer>();
 
+    private AudioSource audioSource;
+    private bool IsAudioPlaying;
+
     protected override void Start()
     {
         base.Start();
         targets = new List<GameObject>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     protected override void UpdateTarget()
@@ -30,12 +35,21 @@ public class InfernoTower : Tower
     
     protected override void Shoot()
     {
+        if (targets.Count == 0 && IsAudioPlaying)
+        {
+            audioSource.Stop();
+            IsAudioPlaying = false;
+        }
         foreach (GameObject Monster in targets)
         {
+            if (!IsAudioPlaying)
+            {
+                audioSource.Play();
+                IsAudioPlaying = true;
+            }
             if (Monster.CompareTag("Enemy"))
             {
                 Monster.GetComponent<MonsterController>().TakeDamage((int)Math.Floor(this.CurrentDamage));
-                
             }
         }
     }
