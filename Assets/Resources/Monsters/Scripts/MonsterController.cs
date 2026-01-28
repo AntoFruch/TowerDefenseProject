@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class MonsterController : MonoBehaviour
 {
@@ -32,7 +31,8 @@ public class MonsterController : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip spawnSound; 
     [SerializeField] private AudioClip hitSound;     
-    [SerializeField] private AudioClip deathSound;    
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip crystalCrackSound;
 
     [SerializeField] private MonstersFXPrefabs prefabs;
     public MonstersFXPrefabs Prefabs => prefabs;
@@ -165,16 +165,17 @@ public class MonsterController : MonoBehaviour
             Quaternion.identity
         );
         HealthManager.Instance.TakeDamage(damage);
+        audioSource.PlayOneShot(crystalCrackSound);
     }
 
     // called by an animator event
     void DestroySelf()
-    {
+    { 
         Instantiate(prefabs.death, transform.position, Quaternion.Euler(-90,0,0));
 
         if (audioSource != null && deathSound != null)
         {
-            AudioSource.PlayClipAtPoint(deathSound, transform.position, 1.0f);
+            audioSource.PlayOneShot(deathSound);
         }
 
         Destroy(gameObject);

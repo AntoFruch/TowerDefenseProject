@@ -216,6 +216,7 @@ MonoBehaviour:
   spawnSound: {fileID: 8300000, guid: 86828a06bb5c66d46afbd5d65a9b7257, type: 3}
   hitSound: {fileID: 8300000, guid: 0425b932a91ef1b4b924ca4c5e26f7cb, type: 3}
   deathSound: {fileID: 8300000, guid: 9ff89d1b35df08746863c6bbac98bf90, type: 3}
+  crystalCrackSound: {fileID: 8300000, guid: f6971cdc668d21b46b772a5e58f73326, type: 3}
   prefabs: {fileID: 11400000, guid: a93d568a1db085f4c8b024a3cd78aded, type: 2}
 --- !u!82 &8151514808808330632
 AudioSource:
@@ -226,7 +227,7 @@ AudioSource:
   m_GameObject: {fileID: 4407829452897777108}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7985108146906090672, guid: 34726d741a302cd43952681b183d0930, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
@@ -274,7 +275,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.7
       inSlope: 0
       outSlope: 0
       tangentMode: 0
