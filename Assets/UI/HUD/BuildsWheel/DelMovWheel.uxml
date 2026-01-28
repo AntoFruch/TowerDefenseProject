@@ -4,7 +4,7 @@
     <Style src="project://database/Assets/UI/HUD/BuildsWheel/DelMovWheel.uss?fileID=7433441132597879392&amp;guid=61b400782f3a26b478899cc49895e306&amp;type=3#DelMovWheel" />
     <ui:VisualElement name="wheel-container" class="wheel-container">
         <ui:VisualElement name="circle" class="circle" />
-        <ui:VisualElement name="container" class="stats-container">
+        <ui:VisualElement name="stats-container" class="stats-container">
             <ui:Label text="Label" name="name" class="labels name" style="-unity-text-align: upper-center;" />
             <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
                 <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/HUD/BuildsWheel/Sprites/antenne-parabolique.png?fileID=2800000&amp;guid=d97ca48fb12abe2448cb6957ee07f816&amp;type=3#antenne-parabolique&quot;); background-size: 47% 61%;" />

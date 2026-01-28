@@ -12,6 +12,7 @@ public class DelMovController : MonoBehaviour
     private Button quitButton;
 
     // Stats
+    private VisualElement statsContainer;
     private Label nameLabel;
     private Label rangeLabel; 
     private Label damageLabel; 
@@ -36,6 +37,7 @@ public class DelMovController : MonoBehaviour
         quitButton = delMovUIDoc.rootVisualElement.Q<Button>("quit-btn");
         quitButton.RegisterCallback<PointerUpEvent>(onQuitClick);
 
+        statsContainer = delMovUIDoc.rootVisualElement.Q<VisualElement>("stats-container");
         nameLabel = delMovUIDoc.rootVisualElement.Q<Label>("name");
         rangeLabel = delMovUIDoc.rootVisualElement.Q<Label>("range-label");
         damageLabel = delMovUIDoc.rootVisualElement.Q<Label>("damage-label");
@@ -50,7 +52,7 @@ public class DelMovController : MonoBehaviour
             selectedBuild = Game.Instance.buildings.First(
                 b => UEExtension.Vector3toVector2Int(b.transform.position) == UEExtension.Vector3toVector2Int(Game.Instance.selector.position));
             nameLabel.text = selectedBuild.name;
-            UpdateStats();
+            ShowStats();
         } catch (InvalidOperationException e)
         {
             Debug.LogError("No Build at "+pos);
@@ -76,12 +78,16 @@ public class DelMovController : MonoBehaviour
         delMovUIDoc.rootVisualElement.AddToClassList("hide");
     }
 
-    void UpdateStats()
+    void ShowStats()
     {
         if (selectedBuild is Tower tower){
+            statsContainer.RemoveFromClassList("hide");
             rangeLabel.text = tower.CurrentRange.ToString();
             damageLabel.text = tower.CurrentDamage.ToString();
             fireRateLabel.text = tower.CurrentFireRate.ToString();
+        } else
+        {
+            statsContainer.AddToClassList("hide");
         }
     }
 
