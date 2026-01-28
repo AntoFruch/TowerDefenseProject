@@ -62,13 +62,12 @@ public class MoneyManager : MonoBehaviour
     public void AddMoney(int amount)
     {
         currentMoney += amount;
-
-
     }
 
     public bool SpendMoney(int amount) {
         if (currentMoney >= amount) {
             currentMoney -= amount;
+            GameStatsManager.Instance.AddMoneySpent(amount);
             return true;
         }
 

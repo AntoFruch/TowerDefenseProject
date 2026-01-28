@@ -1,3 +1,8 @@
 :root {
+}
 
+.stats-label {
+    font-size: 38px;
+    top: 15px;
+    flex-grow: 1;
 }

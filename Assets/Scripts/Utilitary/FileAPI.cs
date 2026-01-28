@@ -6,7 +6,6 @@ public static class FileAPI
     static public Texture2D ReadImageAsTexture2D(string path)
     {
         path = Path.Combine(Application.dataPath, path);
-        Debug.Log(path);
 
         if (File.Exists(path))
         {

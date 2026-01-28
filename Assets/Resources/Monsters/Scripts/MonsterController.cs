@@ -139,9 +139,9 @@ public class MonsterController : MonoBehaviour
     private void Die()
     {
         isDead = true;
-        health = 0;
 
         moveSpeed = 0f;
+        GameStatsManager.Instance.AddMonsterDefeated();
 
         controller.enabled = false;
 
