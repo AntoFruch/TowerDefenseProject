@@ -153,7 +153,7 @@ public class WaveManager : MonoBehaviour
 
     public int GetCurrentWaveLength()
     {
-        return currentWave.Count * spawns.Count;
+        return currentWave.Count;
     }
 }
 

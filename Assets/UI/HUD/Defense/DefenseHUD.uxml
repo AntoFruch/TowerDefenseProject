@@ -10,4 +10,5 @@
             <ui:VisualElement name="progressbar-frame" class="progressbar-frame" />
         </ui:VisualElement>
     </ui:VisualElement>
+    <ui:Label text="Remaining monsters : 5/0" name="progress-label" class="labels progress-label" />
 </ui:UXML>

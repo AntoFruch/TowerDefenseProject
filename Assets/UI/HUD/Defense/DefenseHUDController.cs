@@ -8,7 +8,7 @@ public class DefenseHUDController : MonoBehaviour
 
     // progress bar
     private VisualElement mask;
-
+    private Label progressLabel;
     //title
     private Label title;
 
@@ -16,6 +16,7 @@ public class DefenseHUDController : MonoBehaviour
     {
         root = UIDoc.rootVisualElement;
         mask = root.Q<VisualElement>("progressbar-mask");
+        progressLabel = root.Q<Label>("progress-label");
         title = root.Q<Label>("title");
     }
 
@@ -50,6 +51,7 @@ public class DefenseHUDController : MonoBehaviour
         if (WaveManager.Instance.GetCurrentWaveLength() != 0)
         {
             mask.style.width = Length.Percent((float)Game.Instance.monsters.Count / WaveManager.Instance.GetCurrentWaveLength() * 100f);
+            progressLabel.text = "Remaining monsters : "+Game.Instance.monsters.Count.ToString()+"/"+WaveManager.Instance.GetCurrentWaveLength().ToString();
         }
     }
 
