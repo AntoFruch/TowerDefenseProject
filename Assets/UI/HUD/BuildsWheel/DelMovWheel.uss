@@ -17,7 +17,7 @@
 }
 
 .btn-move-container {
-    translate: 61.2% -84.5%;
+    translate: 61.2% 84.5%;
 }
 
 .btn-delete-bg {
@@ -36,6 +36,37 @@
 }
 
 .btn-delete-container {
-    translate: -61.2% -84.5%;
+    translate: -61.2% 84.5%;
 }
 
+.stats-container {
+    width: 250px;
+    position: absolute;
+    height: 80px;
+    background-color: rgb(255, 203, 73);
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+    border-bottom-left-radius: 28px;
+    border-left-color: rgb(255, 147, 0);
+    border-right-color: rgb(255, 147, 0);
+    border-top-color: rgb(255, 147, 0);
+    border-bottom-color: rgb(255, 147, 0);
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    top: 50px;
+}
+
+.name {
+    font-size: 18px;
+    position: relative;
+    top: 0;
+}
+
+.stats-labels {
+    top: 5px;
+    font-size: 16px;
+    left: -3px;
+}
