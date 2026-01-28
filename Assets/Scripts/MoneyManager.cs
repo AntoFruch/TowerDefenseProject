@@ -61,6 +61,7 @@ public class MoneyManager : MonoBehaviour
     }
     public void AddMoney(int amount)
     {
+        GameStatsManager.Instance.AddScoreStats(amount);
         currentMoney += amount;
     }
 

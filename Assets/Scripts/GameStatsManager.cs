@@ -10,16 +10,17 @@ public class GameStatsManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    public int finalScore {  get; private set; }
+    public int score { get; private set; }
     public int monstersDefeated {get;private set;}
     public int wavesSurvived {get; private set;}
     public int moneySpent {get; private set;}
+
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        finalScore = 0;
+        score = 0;
         monstersDefeated = 0;
         wavesSurvived = 0;
         moneySpent = 0;
@@ -31,7 +32,7 @@ public class GameStatsManager : MonoBehaviour
 
     public void AddScoreStats(int amount)
     {
-        finalScore += amount;
+        score += amount;
     }
     public void AddMonsterDefeated()
     {

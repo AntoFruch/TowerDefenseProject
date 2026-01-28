@@ -1024,13 +1024,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c397396341f2f44ebde80907d4453a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoneyManager
-  infiniteMoney: 1
-  currentMoney: 200
+  infiniteMoney: 0
+  currentMoney: 400
   costs:
     redTower: 50
-    blueTower: 50
+    blueTower: 100
     greenTower: 50
-    yellowTower: 50
+    yellowTower: 75
     radar: 100
     factory: 100
     powerPlant: 150
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8d29a3c76315b4492baa80e892ef36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthManager
-  maxHealth: 1
+  maxHealth: 200
 --- !u!1 &1863030064
 GameObject:
   m_ObjectHideFlags: 0

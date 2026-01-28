@@ -16,11 +16,14 @@ public class SettingsManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        Instance = this;
-        var uiDoc = this.GetComponent<UIDocument>();
+        if (Instance == null)
+        {
+            Instance = this;
+        } else
+        {
+            Destroy(gameObject);
+        }
         
-        //Brightness 
-        brightness = uiDoc.rootVisualElement.Q<VisualElement>("Brightness");
         
         
         DontDestroyOnLoad(gameObject);
@@ -28,6 +31,9 @@ public class SettingsManager : MonoBehaviour
 
     void Start()
     {
+        var uiDoc = this.GetComponent<UIDocument>();
+        //Brightness 
+        brightness = uiDoc.rootVisualElement.Q<VisualElement>("Brightness");
         LoadSettings();
     }
 

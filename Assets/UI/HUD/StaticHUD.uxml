@@ -21,6 +21,6 @@
             </ui:VisualElement>
             <ui:VisualElement name="healthbar-frame" class="healthbar-frame" />
         </ui:VisualElement>
-        <ui:Label text="Score : 0" name="score-label" style="color: rgb(65, 31, 0); font-size: 40px; -unity-text-align: upper-right; white-space: nowrap; -unity-font-definition: url(&quot;project://database/Assets/UI/Supersonic%20Rocketship.ttf?fileID=12800000&amp;guid=42639f43f6fe7b6438f0eff715a5b7f4&amp;type=3#Supersonic Rocketship&quot;); -unity-text-outline-color: rgb(255, 255, 255); -unity-text-outline-width: 1px; letter-spacing: -6px; -unity-font-style: bold; translate: -33px 25px;" />
+        <ui:Label text="Score : 0" name="score-label" style="color: rgb(65, 31, 0); font-size: 40px; -unity-text-align: upper-center; white-space: nowrap; -unity-font-definition: url(&quot;project://database/Assets/UI/Supersonic%20Rocketship.ttf?fileID=12800000&amp;guid=42639f43f6fe7b6438f0eff715a5b7f4&amp;type=3#Supersonic Rocketship&quot;); -unity-text-outline-color: rgb(255, 255, 255); -unity-text-outline-width: 1px; letter-spacing: -6px; -unity-font-style: bold; translate: -33px 25px; position: absolute; right: 0;" />
     </ui:VisualElement>
 </ui:UXML>

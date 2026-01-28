@@ -65,10 +65,7 @@ public class StaticHUDController : MonoBehaviour
 
     void UpdateScoreLabel()
     {
-        if (ScoreManager.Instance != null && scoreLabel != null)
-        {
-            scoreLabel.text = "Score: " + ScoreManager.Instance.CurrentScore.ToString();
-        }
+        scoreLabel.text = "Score : " + GameStatsManager.Instance.score;
     }
 
     //CALLBACKS : 

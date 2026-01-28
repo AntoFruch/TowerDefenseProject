@@ -14,9 +14,6 @@ public class MonsterController : MonoBehaviour
     //Economy
     [SerializeField] private int moneyValue = 100;
     private bool isDead = false;
-
-    //Score
-    [SerializeField] private int scoreValue = 0;
     
     // Constants
     [SerializeField] private int damage;
@@ -45,8 +42,6 @@ public class MonsterController : MonoBehaviour
         health = maxHealth;
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-
-        SetScore();
 
         graph = Game.Instance.graph;
 
@@ -158,18 +153,8 @@ public class MonsterController : MonoBehaviour
         {
             MoneyManager.Instance.AddMoney(moneyValue);
         }
-
-        if (ScoreManager.Instance != null)
-        {
-            ScoreManager.Instance.AddScore(scoreValue);
-        }
     }
 
-    private void SetScore()
-    {
-        scoreValue = moneyValue * 10;
-    }
-    
     // called by an animator event
     void Attack()
     {

@@ -51,7 +51,7 @@ public class DieMenu : MonoBehaviour
 
     void SetStats()
     {
-        finalScoreLabel.text = "Final Score : " + ScoreManager.Instance.CurrentScore.ToString();
+        finalScoreLabel.text = "Final Score : " + GameStatsManager.Instance.score.ToString();
         monstersDefeated.text = "Monster defeated : " + GameStatsManager.Instance.monstersDefeated.ToString();
         wavesSurvived.text = "Waves survived : " + GameStatsManager.Instance.wavesSurvived.ToString();
         moneySpent.text = "Money spent : " + GameStatsManager.Instance.moneySpent.ToString();
