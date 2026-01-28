@@ -216,10 +216,10 @@ MonoBehaviour:
   moveSpeed: 0.7
   rotationSpeed: 7
   pathFindingStrategy: 0
-  audioSource: {fileID: 0}
-  spawnSound: {fileID: 0}
-  hitSound: {fileID: 0}
-  deathSound: {fileID: 0}
+  audioSource: {fileID: -4937604446237716870}
+  spawnSound: {fileID: 8300000, guid: d0b7d8958b00ec0448abfba999f1ac20, type: 3}
+  hitSound: {fileID: 8300000, guid: 312b747dd03c11843ab27b44aed5dbd1, type: 3}
+  deathSound: {fileID: 8300000, guid: 9ff89d1b35df08746863c6bbac98bf90, type: 3}
   prefabs: {fileID: 11400000, guid: a93d568a1db085f4c8b024a3cd78aded, type: 2}
 --- !u!82 &-4937604446237716870
 AudioSource:
@@ -233,7 +233,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

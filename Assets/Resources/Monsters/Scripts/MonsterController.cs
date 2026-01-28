@@ -149,11 +149,6 @@ public class MonsterController : MonoBehaviour
         // When the animation ends, a animator event calls DestroySelf()
         GetComponent<Animator>().SetTrigger("Death");
 
-        if (audioSource != null && deathSound != null)
-        {
-            audioSource.PlayOneShot(deathSound);
-        }
-
         if (MoneyManager.Instance != null)
         {
             MoneyManager.Instance.AddMoney(moneyValue);
@@ -176,6 +171,12 @@ public class MonsterController : MonoBehaviour
     void DestroySelf()
     {
         Instantiate(prefabs.death, transform.position, Quaternion.Euler(-90,0,0));
+
+        if (audioSource != null && deathSound != null)
+        {
+            AudioSource.PlayClipAtPoint(deathSound, transform.position, 1.0f);
+        }
+
         Destroy(gameObject);
     }
     void OnDestroy()
