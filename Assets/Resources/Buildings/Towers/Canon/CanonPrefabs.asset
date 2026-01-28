@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61e0931ee60d5d4aa332b22b465ac21, type: 3}
   m_Name: CanonPrefabs
   m_EditorClassIdentifier: Assembly-CSharp::CanonPrefabs
-  projectile: {fileID: 5829524428574398694, guid: ca732cbfa8fb31e499b5896086e49491, type: 3}
+  projectile: {fileID: 9162513241180878160, guid: 51ab8df352a8d3f488ac244f1389551d, type: 3}
   explosion: {fileID: 7332922945738889854, guid: 878186f208f39084f85e71d59763abad, type: 3}

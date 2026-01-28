@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d967e010d4d5748b99d2811c16b28e, type: 3}
   m_Name: GunPrefabs
   m_EditorClassIdentifier: Assembly-CSharp::GunPrefabs
-  projectile: {fileID: 225389524456199242, guid: cfb8cf351731e2d46ad006eac3bc8e21, type: 3}
+  projectile: {fileID: 6348447217398800841, guid: d77d61dda531a0d47a9411b60d08a1ca, type: 3}
   gunShotParticles: {fileID: 1827452178144366477, guid: f2357b5aec52b6f4b8bd78a0fce6766c, type: 3}

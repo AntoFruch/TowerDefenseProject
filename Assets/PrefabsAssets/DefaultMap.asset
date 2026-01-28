@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3826806fb77274170ac6b8cf99b002af, type: 3}
   m_Name: DefaultMap
   m_EditorClassIdentifier: Assembly-CSharp::SpringMapPrefabsConfig
-  cornerPath: {fileID: 3750043410780015971, guid: 37ec9a27ecb7d334389b9faa051c7a4a, type: 3}
-  straightPath: {fileID: 8330446493877853958, guid: 00d0895165ed4c34094b1f4879c50b62, type: 3}
-  splitPath: {fileID: 8256033677109111092, guid: 1c4f9c27412c0f64d85cd13bfda43e54, type: 3}
-  crossPath: {fileID: 2750451363732766255, guid: 8e5d819aec6d7904ba4df7ea775a7781, type: 3}
-  constructibleTile: {fileID: 6550144314616180233, guid: a49d25fd603ab5b4da04f11d552ea156, type: 3}
-  edgeTile: {fileID: 8170956617878075753, guid: a830d57aadf6e944fa09d5ce6ab32357, type: 3}
-  startTileEnd: {fileID: 8066411300638220526, guid: abcb3a67572a7f1478d7181d8e20202d, type: 3}
-  startTileStraight: {fileID: 6665616312790048497, guid: 40c75e1af10c6c745b2b525aadd025ec, type: 3}
-  endTileEnd: {fileID: 5084913802182217608, guid: 3440b0b0b2920fe4085a719a3b7f1bdb, type: 3}
-  endTileStraight: {fileID: 8694229570986746560, guid: 5f534589fbe1cd14ebf67164cf5b9ac8, type: 3}
+  cornerPath: {fileID: 1975069667937526237, guid: 08b0eab6714cf3b41b536143c972cc2f, type: 3}
+  straightPath: {fileID: 1119591925032576464, guid: 98225d4458fa99f4983a47d5c2d92ae8, type: 3}
+  splitPath: {fileID: 8137079693419591463, guid: 5efec91903dd12843a650e0c7551daef, type: 3}
+  crossPath: {fileID: 5805804588552612695, guid: 5768f651f91210543a9a96551db496fc, type: 3}
+  constructibleTile: {fileID: 6686209099467981511, guid: 76eb386928561fe4f92dc2adb626f69d, type: 3}
+  edgeTile: {fileID: 6668583074104333377, guid: 13a44d1b3b794a049a9f3da8dc0f6a89, type: 3}
+  startTileEnd: {fileID: 6747374609921766828, guid: 6562456ce96c0bf48b94eeafda178d06, type: 3}
+  startTileStraight: {fileID: 3214151373712242573, guid: c73024a0421fd0645b20d2bf18b5daa3, type: 3}
+  endTileEnd: {fileID: 793716224785627509, guid: d8571458f38d8d34ab990a5d5e2a1df5, type: 3}
+  endTileStraight: {fileID: 4483279569749032691, guid: f8c0827b3d64eb34b8a1ee5890a0dd9b, type: 3}
   endHitParticles: {fileID: 5555520284893665892, guid: 5a6a265bd7037cd4da13218f4ca8d4fc, type: 3}
-  singleTree: {fileID: 919132149155446097, guid: 130976132610b8e4ea0860434baa37fb, type: 3}
-  duoTrees: {fileID: 919132149155446097, guid: e4090edb9fd24284c8c3f38be6160043, type: 3}
-  quadTrees: {fileID: 919132149155446097, guid: 542eec434a519724ca23825dbe0f3dce, type: 3}
-  hill: {fileID: 919132149155446097, guid: f5092c938f28bed4785bf28ca5cf9a1d, type: 3}
-  crystals: {fileID: 919132149155446097, guid: 529fcd5f332de044eb07375ed9201896, type: 3}
+  singleTree: {fileID: 8329432113080340017, guid: 983352658ada3534eb75b898e3035019, type: 3}
+  duoTrees: {fileID: 296345808376506171, guid: f1ab1526b99b4d3409c2623e3c82fc29, type: 3}
+  quadTrees: {fileID: 6668583074104333377, guid: 13a44d1b3b794a049a9f3da8dc0f6a89, type: 3}
+  hill: {fileID: 435540802932648220, guid: 1d79aa9ca1aa7c145875cf0d71e6d216, type: 3}
+  crystals: {fileID: 7307510101708781732, guid: 958c378a0f1dea843a9fe155707385b8, type: 3}

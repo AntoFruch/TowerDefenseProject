@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82078b7b21b7174ca20c805833fa439, type: 3}
   m_Name: BuildingsPrefabs
   m_EditorClassIdentifier: Assembly-CSharp::BuildingsPrefabs
-  redTower: {fileID: 2848045533347385845, guid: 3d13c39e08e65034fbd70e9c0a4d63fd, type: 3}
+  redTower: {fileID: 1542195442314237927, guid: 3d13c39e08e65034fbd70e9c0a4d63fd, type: 3}
   yellowTower: {fileID: 7434830623586030487, guid: 1eed2b3a33edc724c88b7046508a0134, type: 3}
-  blueTower: {fileID: 6861281254937750477, guid: b78dd5f17742be042baf3027cd7db61a, type: 3}
-  greenTower: {fileID: 108005844779589367, guid: 0dee08ea7def72d4d926dda452f57f0c, type: 3}
+  blueTower: {fileID: 4074788767615673392, guid: c6f185280ba156545baffd3a3e174b68, type: 3}
+  greenTower: {fileID: 3742958911746455064, guid: f76e93255dc7a2147aab645019f074c2, type: 3}
   powerPlant: {fileID: 4703249291527847919, guid: a944d3d25ebe2bd4e8e8758bb2c2faa6, type: 3}
   radar: {fileID: 7285315262737894251, guid: 0a7baddce2c7a134fa8b733c3d079641, type: 3}
   factory: {fileID: 3143549853611997780, guid: 50861beac9d364a498c7913ddb5b0a21, type: 3}
