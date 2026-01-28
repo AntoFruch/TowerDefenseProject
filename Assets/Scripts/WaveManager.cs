@@ -64,47 +64,40 @@ public class WaveManager : MonoBehaviour
     // SpawningRoutine for a wave
     private IEnumerator SpawnWave(List<MonsterType> wave)
     {   
-        List<GameObject> particles = new();
-        foreach (Vector2Int spawnPos in spawns)
-        {
-            particles.Add(Instantiate(spawningFX,new Vector3(spawnPos.x, 0.4f, spawnPos.y), Quaternion.identity));
-        }
+        // on choisit un spawn aleatoire
+        Vector2Int spawnPos = spawns[Random.Range(0,spawns.Count)];
+        
+        GameObject particle = Instantiate(spawningFX,new Vector3(spawnPos.x, 0.4f, spawnPos.y), Quaternion.identity);
 
         int i = 0;
         while (i < wave.Count)
         {
-            foreach (Vector2Int spawnPos in spawns)
+            GameObject monster;
+            switch (wave[i])
             {
-                GameObject monster;
-                switch (wave[i])
-                {
-                    case MonsterType.GroBleu:
-                        monster = Instantiate(Game.Instance.monstersPrefabs.groBleu,new Vector3(spawnPos.x, 0.2f, spawnPos.y), Quaternion.identity);
-                        break;
-                    case MonsterType.GroJaune:
-                        monster = Instantiate(Game.Instance.monstersPrefabs.groJaune,new Vector3(spawnPos.x, 0.2f, spawnPos.y), Quaternion.identity);
-                        break;
-                    case MonsterType.Shell:
-                        monster = Instantiate(Game.Instance.monstersPrefabs.shell,new Vector3(spawnPos.x, 0.2f, spawnPos.y), Quaternion.identity);
-                        break;
-                    case MonsterType.Blob:
-                        monster = Instantiate(Game.Instance.monstersPrefabs.blob,new Vector3(spawnPos.x, 0.2f, spawnPos.y), Quaternion.identity);
-                        break;
-                    default:
-                        monster = null;
-                        break;
-                    
-                }
-                Game.Instance.monsters.Add(monster.GetComponent<MonsterController>());
+                case MonsterType.GroBleu:
+                    monster = Instantiate(Game.Instance.monstersPrefabs.groBleu,new Vector3(spawnPos.x, 0.2f, spawnPos.y), Quaternion.identity);
+                    break;
+                case MonsterType.GroJaune:
+                    monster = Instantiate(Game.Instance.monstersPrefabs.groJaune,new Vector3(spawnPos.x, 0.2f, spawnPos.y), Quaternion.identity);
+                    break;
+                case MonsterType.Shell:
+                    monster = Instantiate(Game.Instance.monstersPrefabs.shell,new Vector3(spawnPos.x, 0.2f, spawnPos.y), Quaternion.identity);
+                    break;
+                case MonsterType.Blob:
+                    monster = Instantiate(Game.Instance.monstersPrefabs.blob,new Vector3(spawnPos.x, 0.2f, spawnPos.y), Quaternion.identity);
+                    break;
+                default:
+                    monster = null;
+                    break;
+                
             }
+            Game.Instance.monsters.Add(monster.GetComponent<MonsterController>());
             i++;
             yield return new WaitForSeconds(1/spawnRate);
         }
 
-        foreach(GameObject go in particles)
-        {
-            Destroy(go);
-        }
+        Destroy(particle);
     }
 
     void Update()
