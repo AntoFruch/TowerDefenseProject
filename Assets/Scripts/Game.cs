@@ -81,13 +81,12 @@ public class Game : MonoBehaviour
             OnNewBuildingUpdate();
             lastBuildingCount = buildings.Count;
         }
-        // DEBUG : Instanciation d'ennemis sur les cases de départ
+       
         if (state == GameState.Defense)
         {
             selector.GetComponent<Renderer>().enabled = false;
             WaveManager.Instance.StartNextWave();
         }
-
     }
 
     void OnNewBuildingUpdate()
