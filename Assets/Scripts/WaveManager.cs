@@ -119,7 +119,7 @@ public class WaveManager : MonoBehaviour
         {
           currentWave.Add(MonsterType.Shell);
         }
-        if (waveIndex < 5){
+        if (waveIndex < 6){
             for (int i = 0; i < Mathf.Clamp(waveIndex/2, 1,5); i++)
             {
                 MonsterType monster = Random.value > 0.5 ? MonsterType.GroBleu : MonsterType.GroJaune;
@@ -132,7 +132,7 @@ public class WaveManager : MonoBehaviour
                 MonsterType monster = Random.value > 0.5 ? MonsterType.GroBleu : MonsterType.GroJaune;
                 currentWave.Add(monster);
             }
-            for (int i=0; i<waveIndex/6; i++)
+            for (int i=0; i<waveIndex/3 - 1; i++)
             {
                 currentWave.Add(MonsterType.Blob);
             }

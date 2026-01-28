@@ -142,6 +142,7 @@ public class MonsterController : MonoBehaviour
 
         moveSpeed = 0f;
         GameStatsManager.Instance.AddMonsterDefeated();
+        GameStatsManager.Instance.AddScoreStats(moneyValue);
 
         controller.enabled = false;
 
