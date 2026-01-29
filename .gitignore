@@ -22,3 +22,6 @@ Assets/_Recovery/*
 *.app
 *.exe
 build/*
+
+# rendu
+rendu/*
