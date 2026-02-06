@@ -12,7 +12,7 @@ TowerDefense is tower defense type game with cartoon style, it has been made for
 4. In game, You can click on the "refresh" button in the map selection screen to refresh what maps are in the Maps folder.
 5. Enjoy !
 
-I only provided the Windows build here, but it is possible to build the game for the OS / platform you'll like by cloning the repo, opening it in Unity, and rebuild it.  
+I only provided the Windows build here, but it is possible to build the game for the OS / platform you'll like by cloning the repo, opening it in Unity, and rebuilding it.  
 
 ## Maps
 The maps files are images, whatever the size.<br>  Here is an exemple :<br> 
