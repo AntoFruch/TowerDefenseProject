@@ -1,8 +1,9 @@
 # Tower Defense Project
 
-This is the result of the final project for CSC4253 courses at Télécom SudParis.
+This is the result of the final project for CSC4253 courses at Télécom SudParis. The project was graded 20/20.
 TowerDefense is tower defense type game with cartoon style, it has been made for educational purposes which are detailed here : https://enseignements.telecom-sudparis.eu/fiche.php?c=CSC4253;
 
+see the final report [here](Rapport.pdf).
 ## Play the Game
 1. Download the final build _TowerDefenseProject-Build.zip_ provided in the root folder.
 2. Unzip it and run TowerDefense.exe
